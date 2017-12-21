@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, View, Text, Image } from 'react-native';
+import { AppRegistry, StyleSheet, View, Text, Image, Button } from 'react-native';
 import getAPOD from '../helpers/getAPOD.js';
 
 class APOD extends Component {
@@ -41,16 +41,56 @@ class APOD extends Component {
       source = this.state.image
     }
     return (
-      <View>
-        <Image
-          style={{width: 300, height: 300}} 
-          source={source}
-        />
-        <Text>{this.state.title}</Text>
+      <View style={styles.container}>
+        <View style={styles.imageView}>
+          <Text style={styles.teleText}>NASA Image of the Day</Text>
+          <Text style={styles.teleText}>{this.state.title}</Text>
+          <Image
+            style={styles.img} 
+            source={source}
+          />
+          <Button 
+            style={styles.teleText} 
+            title='Click for image details'
+            onPress={() => console.log('pressed')}>
+            </Button>
+        </View>
         <Text>{this.state.description}</Text>
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    // width: 400,
+    // margin: 20,
+    backgroundColor: '#502F4C',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  img: {
+    width: 300, 
+    height: 300,
+    // backgroundColor: 'transparent',
+    // borderWidth: 100,
+    // borderColor: '#f5dd90',
+    borderRadius: 200,
+    shadowColor: '#000',
+    shadowRadius: 600,
+    shadowOpacity: 1
+  },
+  imageView : {
+    width: 400,
+    backgroundColor: '#000',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 15,
+  },
+  teleText: {
+    color: '#fff',
+    fontSize: 16,
+  }
+});
 
 export default APOD;
