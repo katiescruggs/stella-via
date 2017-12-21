@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, View, Text, Image } from 'react-native';
+import { AppRegistry, StyleSheet, View, Text, Image } from 'react-native';
 import getAPOD from '../helpers/getAPOD.js';
 
 class APOD extends Component {
@@ -41,7 +41,7 @@ class APOD extends Component {
       source = this.state.image
     }
     return (
-      <View>
+      <View style={styles.container}>
         <Image
           style={{width: 300, height: 300}} 
           source={source}
@@ -52,5 +52,15 @@ class APOD extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    // flex: 3,
+    margin: 20,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
 export default APOD;

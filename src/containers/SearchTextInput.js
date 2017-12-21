@@ -62,10 +62,10 @@ class SearchTextInput extends Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#9999FF',
-    flex: 1,
+    padding: 50,
     alignItems: 'center',
     justifyContent: 'center',
-    width: 420
+    width: 420,
   },
 
   h1: {
@@ -75,11 +75,12 @@ const styles = StyleSheet.create({
     fontSize: 24
   },
   input: {
-    fontSize: 16,
-    height: 40,
+    fontSize: 18,
+    // textDecorationColor: '#FFCC66',
     width: 300,
-    borderColor: '#FFCC66',
-    borderWidth: 2
+    // borderColor: '#FFCC66',
+    // borderWidth: 2,
+    padding: 10
   },
   p: {
     fontSize: 16
