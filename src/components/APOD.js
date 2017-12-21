@@ -1,35 +1,32 @@
 import React, { Component } from 'react';
 import { AppRegistry, View, Text, Image } from 'react-native';
-import { nasaKey } from '../helpers/apiKey.js';
+import getAPOD from '../helpers/getAPOD.js';
 
 class APOD extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: {}
+      image: {},
+      title: '',
+      
     };
   }
 
-  fetchAPOD = () => {
-    console.log('function called')
-    // try {
-      fetch(`https://api.nasa.gov/planetary/apod?api_key=${nasaKey}`)
-      .then(response => response.json())
-      .then(data => this.setState({image: {uri: data.url}}))
-      
-      // console.log(apodData)
-      // const image = {uri: apodData}
-      // this.setState({ image })
-    // } catch(error) {
-    //   const image = {uri: 'https://www.rugbywarfare.com/store/wp-content/uploads/2017/04/random-image-005.jpg'}
-    //   this.setState({ image })
-    // }
-    
+  fetchAPOD = async () => {
+      console.log('function called in app');
+      const apodData = await getAPOD();
+      console.log(apodData)
+
+      const image = !apodData 
+        ? { uri: 'https://www.rugbywarfare.com/store/wp-content/uploads/2017/04/random-image-005.jpg' }
+        : { uri: apodData.url }
+
+      this.setState({ image });
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     console.log('did mount')
-    this.fetchAPOD()
+    await this.fetchAPOD()
   }
 
   render() {
@@ -41,7 +38,7 @@ class APOD extends Component {
     return (
       <View>
         <Image
-          style={{width: 200, height: 200}} 
+          style={{width: 300, height: 300}} 
           source={source}
         />
       </View>
