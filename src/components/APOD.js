@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { AppRegistry, View, Text, Image } from 'react-native';
+import { nasaKey } from '../helpers/apiKey.js';
 
 class APOD extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: {uri: 'https://www.rugbywarfare.com/store/wp-content/uploads/2017/04/random-image-005.jpg'}
+      image: {}
     };
   }
 
@@ -13,8 +14,9 @@ class APOD extends Component {
     console.log('function called')
     // try {
       fetch(`https://api.nasa.gov/planetary/apod?api_key=${nasaKey}`)
-      .then(data => JSON.parse(data))
-      .then(data => console.log(data))
+      .then(response => response.json())
+      .then(data => this.setState({image: {uri: data.url}}))
+      
       // console.log(apodData)
       // const image = {uri: apodData}
       // this.setState({ image })
@@ -31,12 +33,16 @@ class APOD extends Component {
   }
 
   render() {
-    console.log('hi')
+    let source;
+    if (this.state.image.uri) {
+      console.log(this.state.image)
+      source = this.state.image
+    }
     return (
       <View>
         <Image
-          style={{width: 50, height: 50}} 
-          source={this.state.image}
+          style={{width: 200, height: 200}} 
+          source={source}
         />
       </View>
     )
