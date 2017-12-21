@@ -96,4 +96,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchTextInput);
+export default connect(null, mapDispatchToProps)(SearchTextInput);

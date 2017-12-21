@@ -1,3 +1,3 @@
-export const getLocation = () => {
-  console.log('called action')
-}
+export const getLocation = () => ({
+  type: 'GET_LOCATION'
+})
