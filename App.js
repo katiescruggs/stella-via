@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     // height: 2000,
     overflow: 'scroll',
     // flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#502F4C',
     alignItems: 'center',
     justifyContent: 'center',
   },

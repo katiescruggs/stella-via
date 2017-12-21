@@ -67,7 +67,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: 420,
   },
-
   h1: {
     fontSize: 40
   },
