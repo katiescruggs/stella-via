@@ -8,7 +8,8 @@ class APOD extends Component {
     this.state = {
       image: {},
       title: '',
-      
+      description: ''
+
     };
   }
 
@@ -21,7 +22,11 @@ class APOD extends Component {
         ? { uri: 'https://www.rugbywarfare.com/store/wp-content/uploads/2017/04/random-image-005.jpg' }
         : { uri: apodData.url }
 
-      this.setState({ image });
+      const title = apodData.title
+      const description = apodData.explanation
+      console.log(title)
+      console.log(description)
+      this.setState({ image, title, description });
   }
 
   async componentDidMount() {
@@ -41,6 +46,8 @@ class APOD extends Component {
           style={{width: 300, height: 300}} 
           source={source}
         />
+        <Text>{this.state.title}</Text>
+        <Text>{this.state.description}</Text>
       </View>
     )
   }
