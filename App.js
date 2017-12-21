@@ -1,14 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import SearchTextInput from './src/containers/SearchTextInput.js';
 
 export default class App extends React.Component {
   render() {
-    const hello = '';
     return (
       <View style={styles.container}>
-        <Text h1>Stella Via</Text>
-        <Text>{hello}</Text>
-        <Text>whats up?</Text>
+        <SearchTextInput />
+        <Text h1>Open up App.js to start working on your app!</Text>
+        <Text>Changes you make will automatically reload.</Text>
+        <Text>Shake hello your phone to open the developer menu.</Text>
       </View>
     );
   }
