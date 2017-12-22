@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, AppRegistry, TextInput, View, Text } from 'react-native';
-// import getLocation from '../helpers/getLocation.js';
 import getDate from '../helpers/getDate.js';
 import  { connect } from 'react-redux';
-import { getLocation } from '../actions';
+import { setLocation } from '../actions';
 
 class SearchTextInput extends Component {
   constructor(props) {
@@ -21,9 +20,13 @@ class SearchTextInput extends Component {
   }
 
   async getData() {
-    const location = await this.props.getLocation();
-    console.log(location);
-    this.setState({lat: location.lat, lon: location.lon});
+    navigator.geolocation.getCurrentPosition(({coords}) => {
+      const location = {
+        lat: Math.floor(coords.latitude * 100) / 100,
+        lon: Math.floor(coords.longitude * 100) / 100
+      };
+      this.setState({lat: location.lat, lon: location.lon})
+    });
   }
 
   render() {
@@ -92,7 +95,7 @@ const mapStateToProps = (state) => {};
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getLocation: dispatch(getLocation())
+    setLocation: dispatch(setLocation())
   }
 };
 
