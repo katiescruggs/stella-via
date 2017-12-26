@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowRadius: 600,
     shadowOpacity: 1,
-    // margin: 10
+    borderWidth: 1,
     padding: 10
   },
   imageView : {
@@ -104,7 +104,8 @@ const styles = StyleSheet.create({
   },
   teleText: {
     color: '#fff',
-    fontSize: 12,
+    fontSize: 16,
+    fontFamily: 'Avenir'
   },
   detailView: {
     position: 'absolute',
