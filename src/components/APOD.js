@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, View, Text, Image, Button } from 'react-native';
+import { AppRegistry, StyleSheet, View, ScrollView, Text, Image, Button } from 'react-native';
 import getAPOD from '../helpers/getAPOD.js';
 
 class APOD extends Component {
@@ -8,54 +8,60 @@ class APOD extends Component {
     this.state = {
       image: {},
       title: '',
-      description: ''
+      details: '',
+      showDetails: false
 
     };
   }
 
   fetchAPOD = async () => {
-      console.log('function called in app');
-      const apodData = await getAPOD();
-      console.log(apodData)
+    const apodData = await getAPOD();
+    const image = !apodData 
+      ? { uri: 'https://www.rugbywarfare.com/store/wp-content/uploads/2017/04/random-image-005.jpg' }
+      : { uri: apodData.url };
 
-      const image = !apodData 
-        ? { uri: 'https://www.rugbywarfare.com/store/wp-content/uploads/2017/04/random-image-005.jpg' }
-        : { uri: apodData.url }
-
-      const title = apodData.title
-      const description = apodData.explanation
-      console.log(title)
-      console.log(description)
-      this.setState({ image, title, description });
+    const title = apodData.title;
+    const details = apodData.explanation;
+    this.setState({ image, title, details });
   }
 
   async componentDidMount() {
-    console.log('did mount')
     await this.fetchAPOD()
+  }
+
+  handleShowDetails = () => {
+    const showDetails = !this.state.showDetails
+    this.setState({ showDetails });
   }
 
   render() {
     let source;
     if (this.state.image.uri) {
-      console.log(this.state.image)
       source = this.state.image
     }
+    const imageDetails = this.state.showDetails 
+    // backgroundColor: '#502F4C',
+      ? <ScrollView style={styles.detailView}><Text style={styles.details}>{this.state.details}</Text></ScrollView> 
+      : null;
+
     return (
       <View style={styles.container}>
         <View style={styles.imageView}>
-          <Text style={styles.teleText}>NASA Image of the Day</Text>
-          <Text style={styles.teleText}>{this.state.title}</Text>
+          <View style={styles.textView}>
+            <Text style={styles.teleText}>NASA Image of the Day</Text>
+            <Text style={styles.teleText}>{this.state.title}</Text>
+          </View>
           <Image
             style={styles.img} 
             source={source}
           />
-          <Button 
-            style={styles.teleText} 
-            title='Click for image details'
-            onPress={() => console.log('pressed')}>
-            </Button>
         </View>
-        <Text>{this.state.description}</Text>
+        {imageDetails}
+        <Button 
+          style={styles.teleText} 
+          title='Click for image details'
+          onPress={this.handleShowDetails}>
+        </Button>
       </View>
     )
   }
@@ -63,33 +69,52 @@ class APOD extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    // width: 400,
-    // margin: 20,
-    backgroundColor: '#502F4C',
+    // backgroundColor: '#502F4C',
+    backgroundColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
+    height: 400,
+    width: 400
   },
   img: {
     width: 300, 
     height: 300,
-    // backgroundColor: 'transparent',
-    // borderWidth: 100,
-    // borderColor: '#f5dd90',
-    borderRadius: 200,
+    borderRadius: 150,
     shadowColor: '#000',
     shadowRadius: 600,
-    shadowOpacity: 1
+    shadowOpacity: 1,
+    borderWidth: 1,
+    padding: 10
   },
   imageView : {
-    width: 400,
+    width: 350,
+    height: 350,
     backgroundColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 15,
+    borderColor: '#fff',
+    borderWidth: 1,
+    margin: 10
+  },
+  textView: {
+    height: 360,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    position: 'absolute'
   },
   teleText: {
     color: '#fff',
     fontSize: 16,
+    fontFamily: 'Avenir'
+  },
+  detailView: {
+    position: 'absolute',
+    backgroundColor: '#502F4C',    
+  },
+  details: {
+    padding: 15,
+    color: '#fff',
+    fontSize: 14
   }
 });
 
