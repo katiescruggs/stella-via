@@ -8,38 +8,41 @@ class APOD extends Component {
     this.state = {
       image: {},
       title: '',
-      description: ''
+      details: '',
+      showDetails: false
 
     };
   }
 
   fetchAPOD = async () => {
-      console.log('function called in app');
-      const apodData = await getAPOD();
-      console.log(apodData)
+    const apodData = await getAPOD();
+    const image = !apodData 
+      ? { uri: 'https://www.rugbywarfare.com/store/wp-content/uploads/2017/04/random-image-005.jpg' }
+      : { uri: apodData.url };
 
-      const image = !apodData 
-        ? { uri: 'https://www.rugbywarfare.com/store/wp-content/uploads/2017/04/random-image-005.jpg' }
-        : { uri: apodData.url }
-
-      const title = apodData.title
-      const description = apodData.explanation
-      console.log(title)
-      console.log(description)
-      this.setState({ image, title, description });
+    const title = apodData.title;
+    const details = apodData.explanation;
+    this.setState({ image, title, details });
   }
 
   async componentDidMount() {
-    console.log('did mount')
     await this.fetchAPOD()
+  }
+
+  handleShowDetails = () => {
+    const showDetails = !this.state.showDetails
+    this.setState({ showDetails });
   }
 
   render() {
     let source;
     if (this.state.image.uri) {
-      console.log(this.state.image)
       source = this.state.image
     }
+    const imageDetails = this.state.showDetails 
+      ? <Text style={styles.details}>{this.state.details}</Text> 
+      : null;
+
     return (
       <View style={styles.container}>
         <View style={styles.imageView}>
@@ -52,10 +55,10 @@ class APOD extends Component {
           <Button 
             style={styles.teleText} 
             title='Click for image details'
-            onPress={() => console.log('pressed')}>
-            </Button>
+            onPress={this.handleShowDetails}>
+          </Button>
         </View>
-        <Text>{this.state.description}</Text>
+        {imageDetails}
       </View>
     )
   }
@@ -63,8 +66,6 @@ class APOD extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    // width: 400,
-    // margin: 20,
     backgroundColor: '#502F4C',
     alignItems: 'center',
     justifyContent: 'center',
@@ -72,10 +73,7 @@ const styles = StyleSheet.create({
   img: {
     width: 300, 
     height: 300,
-    // backgroundColor: 'transparent',
-    // borderWidth: 100,
-    // borderColor: '#f5dd90',
-    borderRadius: 200,
+    borderRadius: 150,
     shadowColor: '#000',
     shadowRadius: 600,
     shadowOpacity: 1
@@ -90,6 +88,13 @@ const styles = StyleSheet.create({
   teleText: {
     color: '#fff',
     fontSize: 16,
+  },
+  details: {
+    position: 'absolute',
+    padding: 5,
+    color: '#fff',
+    fontSize: 14,
+    // display: none
   }
 });
 
