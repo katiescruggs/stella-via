@@ -128,269 +128,379 @@ module.exports = [
   },
   {
     name: 'Boötes',
-    translation:,
+    translation: 'The Bear Driver',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 15,
+      dec: 30,
+      visibleBetweenLats: [90, -50],
+      bestSeen: 'June',
     },
-    stars: [],
-    description:
+    stars: [
+      'Arcturus',
+      'Nekkar',
+      'Seginus',
+      'Izar',
+      'Mufrid',
+      'Asellus Primus',
+      'Asellus Secondus',
+      'Asellus Tertius',
+      'Alkalurops',
+      'Merga'
+    ],
+    description: 'Some say that Boötes is the most ancient constellation in the sky. Indeed, it has been reconized by numerous cultures in slightly different forms. Even the Greeks were not clear on its history. The first reference to the name Boötes comes from "The Odyssey" by Homer almost three millenia ago. In one of his most popular incarnations, he is called the Hunter and, with his Hounds (Canes Venatici), he eternally circles the Bears, Ursa Major and Ursa Minor, around the North Pole. In fact, the brightest star in Boötes is Arcturus, which can be loosely translated as "Bear Guard." He is also called the Herdsman and his journey around the pole represents his task of keeping the celestial beasts together. Another legend says that Bootes was the son of Zeus and Callisto. Hera changed Callisto into a bear who was almost killed by Boötes when he was out hunting. Luckily, she was rescued by Zeus and he took her into the sky where she is now Ursa Major, the Great Bear. Yet another myth says that he was the son of Demeter, the goddess of agriculture. Supposedly he was given a place in the sky for inventing the plow.'
   },
   {
     name: 'Caelum',
-    translation:,
+    translation: 'The Sculptor\'s Chisel',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 5,
+      dec: -40,
+      visibleBetweenLats: [40, -90],
+      bestSeen: 'January',
     },
     stars: [],
-    description:
+    description: 'Caelum was named by Abbé Nicolas Louis de Lacaille. This is a mostly empty region of the sky between Columba and Eridanus.'
   },
   {
     name: 'Camelopardalis',
-    translation:,
+    translation: 'The Giraffe',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 6,
+      dec: 70,
+      visibleBetweenLats: [90, -10],
+      bestSeen: 'February',
     },
     stars: [],
-    description:
+    description: null
   },
   {
     name: 'Cancer',
-    translation:,
+    translation: 'The Crab',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 9,
+      dec: 20,
+      visibleBetweenLats: [90, -60],
+      bestSeen: 'March',
     },
-    stars: [],
-    description:
+    stars: [
+      'Acubens',
+      'Altarf',
+      'Asellus Borealis',
+      'Asellus Australis',
+      'Tegmen'
+    ],
+    description: 'One of the 12 constellations of the Zodiac. Cancer, the Crab, plays a minor role in the Twelve Labors of Hercules. While Hercules was busy fighting the multi-headed monster, Hydra, the goddess Hera, who did not like Hercules, sent the Crab to distract him. Cancer grabbed onto the hero\'s toe with its claws, but barely breaking the rhythm of his great battle with Hydra, Hercules crushed the crab with his foot. Hera, grateful for the little crustacean\'s heroic but pitiful effort, gave it a place in the sky. Cancer is famous despite itself due to its Zodiacal origins. In fact, it is very faint with no stars brighter than 4th magnitude.'
   },
   {
     name: 'Canes Venatici',
-    translation:,
+    translation: 'The Hunting Dogs',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 13,
+      dec: 40,
+      visibleBetweenLats: [90, -40],
+      bestSeen: 'May',
     },
-    stars: [],
-    description:
+    stars: [
+      'Cor Caroli',
+      'Chara'
+    ],
+    description: 'These are the Hunting Dogs (no relation to Orion\'s dogs, Canis Major and Canis Minor) held on a leash by Boötes as he hunts for the bears Ursa Major and Ursa Minor. This minor constellations was invented by Johannes Hevelius in 1687.'
   },
   {
     name: 'Canis Major',
-    translation:,
+    translation: 'The Greater Dog',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 7,
+      dec: -20,
+      visibleBetweenLats: [60, -90],
+      bestSeen: 'February',
     },
-    stars: [],
-    description:
+    stars: [
+      'Sirius',
+      'Murzim',
+      'Muliphen',
+      'Wezen',
+      'Adara',
+      'Furud',
+      'Aludra'
+    ],
+    description: 'Canis Major is one of Orion\'s hunting dogs. The brightest star in this constellation is Sirius, often called the Dog Star. Orion\'s hunting dogs, Canis Major and Canis Minor have no relation to Boötes\' Hounds, Canes Venatici. The sky is just filled with dogs... Notice that there are no constellations for the domesticated cat. Therefore, dogs are better than cats! (ha, ha) (See the note an Hydra about the pseudo-constellation Felis).'
   },
   {
     name: 'Canis Minor',
-    translation:,
+    translation: 'The Lesser Dog',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 8,
+      dec: 5,
+      visibleBetweenLats: [85, -75],
+      bestSeen: 'March',
     },
-    stars: [],
-    description:
-  },{
+    stars: [
+      'Procyon',
+      'Gomeisa'
+    ],
+    description: 'Canis Minor is one of Orion\'s hunting dogs. Orion\'s hunting dogs, Canis Major and Canis Minor have no relation to Boötes\' Hounds, Canes Venatici.'
+  },
+  {
     name: 'Capricornus',
-    translation:,
+    translation: 'The Sea Goat',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 21,
+      dec: -20,
+      visibleBetweenLats: [60, -90],
+      bestSeen: 'September',
     },
-    stars: [],
-    description:
-  },{
+    stars: [
+      'Prima Giedi',
+      'Secunda Giedi',
+      'Dabih',
+      'Nashira',
+      'Deneb Algedi',
+      'Alshat'
+    ],
+    description: 'One of the 12 constellations of the Zodiac. Capricornus has been recognized as a goat since Babylonian and Chaldean times. Usually, it is depicted as a goat with a fish tail, which might relate to a story about the god Pan. Pan, fleeing a monster called Typhon, jumed into the river Nile. The part of him that was below water turned into a fish, while the rest of him above water, stayed as a goat.'
+  },
+  {
     name: 'Carina',
-    translation:,
+    translation: 'The Keel',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 9,
+      dec: -60,
+      visibleBetweenLats: [20, -90],
+      bestSeen: 'March',
     },
-    stars: [],
-    description:
-  },{
+    stars: [
+      'Canopus',
+      'Miaplacidus',
+      'Avior',
+      'Turais'
+    ],
+    description: 'Carina was originally part of the large constellation Argo Navis. When the International Astronomical Union officially defined the 88 constellations and their boundaries, they split Argo Navis into 4 parts: Carina (the keel), Vela (the sail), Puppis (the poop), and Pyxis (the compass).'
+  },
+  {
     name: 'Cassiopeia',
-    translation:,
+    translation: 'Queen of Ethiopia or Andromeda\'s Mother',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 1,
+      dec: 60,
+      visibleBetweenLats: [90, -20],
+      bestSeen: 'November',
     },
-    stars: [],
-    description:
-  },{
+    stars: [
+     'Shedir',
+     'Caph',
+     'Ruchbah',
+     'Segin',
+     'Achrid',
+     'Marfak Theta',
+     'Marfak Mu'
+    ],
+    description: 'Take a look at the story of how Perseus slew Medusa, the mother of Pegasus, and rescued Andromeda, the daughter of Cepheus and Cassiopeia, from the sea monster Cetus. The Romans described her chained to her throne in the heavens as punishment for her boastfulness. As the sky appears to rotate, she can sometimes be seen suffering as she hangs upside down.'
+  },
+  {
     name: 'Centaurus',
-    translation:,
+    translation: 'The Centaur',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 13,
+      dec: -50,
+      visibleBetweenLats: [30, -90],
+      bestSeen: 'May',
     },
-    stars: [],
-    description:
-  },{
+    stars: [
+      'Rigel Kentaurus',
+      'Agena',
+      'Menkent'
+    ],
+    description: 'This constellation represents Chiron who is frequently mentioned in Greek mythology. Chiron was one of the Centaurs, barbarous beasts which were said to be half-horse and half-human. But unlike the others, Chiron was extremely wise and tutored Hercules and Jason. Unfortunately, Hercules accidentally wounded Chiron. The immortal centaur, in great pain, pleaded with the gods to end his suffering. Zeus mercifully let him die and gave him a place among the stars.'
+  },
+  {
     name: 'Cepheus',
-    translation:,
+    translation: 'King of Ethiopia or Andromeda\'s Father',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 22,
+      dec: 70,
+      visibleBetweenLats: [90, -10],
+      bestSeen: 'October',
     },
-    stars: [],
-    description:
-  },{
+    stars: [ 
+      'Alderamin',
+      'Alfirk',
+      'Alrai',
+      'Herschel\'s "Garnet Star"',
+      'Alkurhah',
+      'Al Kalb al Rai'
+    ],
+    description: 'Take a look at the story of how Perseus slew Medusa, the mother of Pegasus, and rescued Andromeda, the daughter of Cepheus and Cassiopeia, from the sea monster Cetus. Although Cepheus is not a very bright constellation, it is located in a rather empty part of the sky near the North Pole, so it is not too difficult to find.'
+  },
+  {
     name: 'Cetus',
-    translation:,
+    translation: 'The Sea Monster',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 2,
+      dec: -10,
+      visibleBetweenLats: [70, -90],
+      bestSeen: 'December',
     },
-    stars: [],
-    description:
-  },{
+    stars: [
+      'Menkar',
+      'Diphda',
+      'Kaffaljidhma',
+      'Baten Kaitos',
+      'Dheneb',
+      'Deneb Kaitos Shemali',
+      'Menkar Lambda',
+      'Mira'
+    ],
+    description: 'Take a look at the story of how Perseus slew Medusa, the mother of Pegasus, and rescued Andromeda, the daughter of Cepheus and Cassiopeia, from the sea monster Cetus. Cetus has also been identified as the Biblically famous whale who swallowed Jonah. Cetus is a rather large, yet faint constellation.'
+  },
+  {
     name: 'Chamaeleon',
-    translation:,
+    translation: 'The Chameleon',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 11,
+      dec: -80,
+      visibleBetweenLats: [0, -90],
+      bestSeen: 'April',
     },
     stars: [],
-    description:
-  },{
+    description: 'Chamaeleon was named by Johann Bayer. Chamaeleon abuts on Dorado, Octans, Carina and Musca. Bayer drew this constellation following the description that had been given by early south sea explorers.'
+  },
+  {
     name: 'Circinus',
-    translation:,
+    translation: 'The Compasses',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 15,
+      dec: -60,
+      visibleBetweenLats: [20, -90],
+      bestSeen: 'June',
     },
     stars: [],
-    description:
-  },{
+    description: 'Circinus was named by Abbé Nicolas Louis de Lacaille. This faint constellation lies near Alpha Centauri.'
+  },
+  {
     name: 'Columba',
-    translation:,
+    translation: 'The Dove',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 6,
+      dec: -35,
+      visibleBetweenLats: [45, -90],
+      bestSeen: 'February',
     },
-    stars: [],
-    description:
-  },{
+    stars: [
+      'Phaet',
+      'Wezn'
+    ],
+    description: null
+  },
+  {
     name: 'Coma Berenices',
-    translation:,
+    translation: 'Berenices\'s Hair',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 13,
+      dec: 20,
+      visibleBetweenLats: [90, -60],
+      bestSeen: 'May',
     },
-    stars: [],
-    description:
+    stars: [
+      'Diadem'
+    ],
+    description: null
   },
   {
     name: 'Corona Austrina',
-    translation:,
+    translation: 'The Southern Crown',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 19,
+      dec: -40,
+      visibleBetweenLats: [40, -90],
+      bestSeen: 'August',
     },
-    stars: [],
-    description:
+    stars: [
+      'Alfecca Meridiana'
+    ],
+    description: null
   },
   {
     name: 'Corona Borealis',
-    translation:,
+    translation: 'The Northern Crown',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 16,
+      dec: 30,
+      visibleBetweenLats: [90, -50],
+      bestSeen: 'July',
     },
-    stars: [],
-    description:
+    stars: [
+      'Alphekka',
+      'Nusakan'
+    ],
+    description: null
   },
   {
     name: 'Corvus',
-    translation:,
+    translation: 'The Crow',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 12,
+      dec: -20,
+      visibleBetweenLats: [60, -90],
+      bestSeen: 'May',
     },
-    stars: [],
-    description:
+    stars: [
+      'Alchiba',
+      'Kraz',
+      'Grienah Ghurab',
+      'Algorab',
+      'Minkar'
+    ],
+    description: null
   },
   {
     name: 'Crater',
-    translation:,
+    translation: 'The Cup',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 11,
+      dec: -15,
+      visibleBetweenLats: [65, -90],
+      bestSeen: 'April',
     },
-    stars: [],
-    description:
+    stars: [
+      'Alkes'
+    ],
+    description: null
   },
   {
     name: 'Crux',
-    translation:,
+    translation: 'The Southern Cross',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 12,
+      dec: -60,
+      visibleBetweenLats: [20, -90],
+      bestSeen: 'May',
     },
-    stars: [],
-    description:
+    stars: [
+      'Acrux',
+      'Becrux',
+      'Gacrux'
+    ],
+    description: 'The Southern Cross is only visible form sites farther south than 27 degrees north latitude. At the time of Christ, however, it was visible from the latitude of Jerusalem (almost 32 degrees N). Crux points almost due north-south. You you follow the line south through Gamma and Alpha Crucis, you will arrive near the South Celestial Pole in the constellation Octans.'
   },
   {
     name: 'Cygnus',
-    translation:,
+    translation: 'The Swan or the Northern Cross',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 21,
+      dec: 40,
+      visibleBetweenLats: [90, -40],
+      bestSeen: 'September',
     },
-    stars: [],
-    description:
+    stars: [
+      'Deneb Cygni',
+      'Albireo',
+      'Sadr',
+      'Gienah Cygni',
+      'Azelfafage',
+      'Ruchba'
+    ],
+    description: 'Deneb, along with Altair and Vega form the well-known Summer Triangle. Another famous object in Cygnus is Cygnus X-1, a black hole candidate.'
   },
   {
     name: 'Delphinus',
