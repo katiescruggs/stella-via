@@ -1,10 +1,9 @@
-export const locationReducer = (state = {}, action) => {
+export const locationReducer = (state = {lat: 'searching', lon: '...'}, action) => {
   switch(action.type) {
-    case 'GET_LOCATION':
-    console.log('locationReducer')
-    return state
+    case 'SET_LOCATION':
+      return {lat: action.location.lat, lon: action.location.lon};
     default:
-    return state
+      return state;
   }
 }
 

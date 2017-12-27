@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, AppRegistry, TextInput, View, Text } from 'react-native';
 import getDate from '../helpers/getDate.js';
 import  { connect } from 'react-redux';
-import { setLocation } from '../actions';
+import { setLocation, setTime } from '../actions';
 
 class SearchTextInput extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class SearchTextInput extends Component {
 
   async componentDidMount() {
     const now = getDate();
-    this.setState({now});
+    this.props.setTime(now);
 
     await this.getData();
   }
@@ -22,37 +22,24 @@ class SearchTextInput extends Component {
   async getData() {
     navigator.geolocation.getCurrentPosition(({coords}) => {
       const location = {
-        lat: Math.floor(coords.latitude * 100) / 100,
-        lon: Math.floor(coords.longitude * 100) / 100
+        lat: (Math.floor(coords.latitude * 100) / 100).toString() + '\xB0' + ', ',
+        lon: (Math.floor(coords.longitude * 100) / 100).toString() + '\xB0'
       };
-      this.setState({lat: location.lat, lon: location.lon})
+      this.props.setLocation(location);
     });
   }
 
   render() {
-    let day, month, date, year;
-    let lat, lon;
-
     let text = this.state.text;
-
-    if(this.state.lat && this.state.lon) {
-      lat = this.state.lat;
-      lon = this.state.lon;
-    }
-
-    if(this.state.now) {
-      day = this.state.now.day;
-      month = this.state.now.month;
-      date = this.state.now.date;
-      year = this.state.now.year;
-    }
+    let {lat, lon} = this.props.location;
+    let {day, month, date, year} = this.props.now;
 
     return (
       <View style={styles.container}>
         <Text style={styles.h1}>Stella Via</Text>
         <Text style={styles.h2}>Your Night Sky</Text>
         <Text style={styles.p}>{`${day}, ${month} ${date}, ${year}`}</Text>
-        <Text style={styles.p}>{`at latitude: ${lat}, longitude: ${lon}`}</Text>
+        <Text style={styles.p}>{`at ${lat} ${lon}`}</Text>
         <TextInput 
           style={styles.input}
           value={text}
@@ -91,12 +78,20 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = (state) => {};
+const mapStateToProps = state => ({
+  location: state.location,
+  now: state.now
+});
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    setLocation: dispatch(setLocation())
+    setLocation: (location) => {
+      dispatch(setLocation(location));
+    },
+    setTime: (now) => {
+      dispatch(setTime(now));
+    }
   }
 };
 
-export default connect(null, mapDispatchToProps)(SearchTextInput);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchTextInput);
