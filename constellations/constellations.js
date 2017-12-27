@@ -721,23 +721,23 @@ module.exports = [
   },
   {
     name: 'Lacerta',
-    translation:,
+    translation: 'The Lizard',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 22,
+      dec: 45,
+      visibleBetweenLats: [90, -35],
+      bestSeen: 'October',
     },
     stars: [],
-    description:
+    description: null
   },
   {
     name: 'Leo',
     translation: 'The Lion',
     coords: {
-      ra: '11 hours',
-      dec: '15 degrees',
-      visibleBetweenLats: 'between latitudes 90 and -65 degrees',
+      ra: 11,
+      dec: 15,
+      visibleBetweenLats: [90, -65],
       bestSeen: 'April',
     },
     stars: [
@@ -757,35 +757,40 @@ module.exports = [
   },
   {
     name: 'Leo Minor',
-    translation:,
+    translation: 'The Lion Cub',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 10,
+      dec: 35,
+      visibleBetweenLats: [90, -45],
+      bestSeen: 'April',
     },
-    stars: [],
-    description:
+    stars: [
+      'Praecipua'
+    ],
+    description: null
   },
   {
     name: 'Lepus',
-    translation:,
+    translation: 'The Hare',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 6,
+      dec: -20,
+      visibleBetweenLats: [60, -90],
+      bestSeen: 'February',
     },
-    stars: [],
-    description:
+    stars: [
+      'Arneb',
+      'Nihal'
+    ],
+    description: 'Lepus is one of the many animals hunted by Orion, the Hunter.'
   },
   {
     name: 'Libra',
     translation: 'The Beam Balance',
     coords: {
-      ra: '15 hours',
-      dec: '-15 degrees',
-      visibleBetweenLats: 'between latitudes 65 and -90 degrees',
+      ra: 15,
+      dec: -15,
+      visibleBetweenLats: [65, -90],
       bestSeen: 'June',
     },
     stars: [
@@ -799,135 +804,168 @@ module.exports = [
   },
   {
     name: 'Lupus',
-    translation:,
+    translation: 'The Wolf',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 15,
+      dec: -45,
+      visibleBetweenLats: [35, -90],
+      bestSeen: 'June',
     },
     stars: [],
-    description:
+    description: null
   },
   {
     name: 'Lynx',
-    translation:,
+    translation: 'The Lynx',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 8,
+      dec: 45,
+      visibleBetweenLats: [90, -35],
+      bestSeen: 'March',
     },
-    stars: [],
-    description:
+    stars: [
+      'Alsciaukat'
+    ],
+    description: null
   },
   {
     name: 'Lyra',
-    translation:,
+    translation: 'The Lyre',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 19,
+      dec: 40,
+      visibleBetweenLats: [90, -40],
+      bestSeen: 'August',
     },
-    stars: [],
-    description:
+    stars: [
+      'Vega',
+      'Sheliak',
+      'Sulafat',
+      'Double Double, Epsilon 1'
+      'Double Double, Epsilon 2'
+      'Aladfar',
+      'Alathfar'
+    ],
+    description: 'The Lyre (a stringed instrument like a harp) was invented by Hermes as a gift to his half-brother Apollo, who gave it to Orpheus, the musician of the Argonauts. Vega, along with Deneb and Altair form the well-known Summer Triangle. Each Double Double star is two star light points that appear very close together, almost at one point. About 4000 years ago, the star Thuban was the North Star. Since then, precession of the Earth\'s axis has changed where the North Pole points, so the North Star is now Polaris. In another 10,000 years or so, the North Star will be Vega.'
   },
   {
     name: 'Mensa',
-    translation:,
+    translation: 'The Table Mountain',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 5,
+      dec: -80,
+      visibleBetweenLats: [0, -90],
+      bestSeen: 'January',
     },
     stars: [],
-    description:
+    description: 'Mensa was named by Abbé Nicolas Louis de Lacaille. The original name, Mons Mensa, after the table mountain near de Lacaille\'s observatory in Cape Town, was officially shortened when the International Astronomical Union (IAU) accepted the 88 constellations that exist today.'
   },
   {
     name: 'Microscopium',
-    translation:,
+    translation: 'The Microscope',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 21,
+      dec: -35,
+      visibleBetweenLats: [45, -90],
+      bestSeen: 'September',
     },
     stars: [],
-    description:
+    description: 'Microscopium was named by Abbé Nicolas Louis de Lacaille. It was, of course, named after the microscope, whose creation is attributed to Zacharius Janssen. Janssen, a Dutch spectacle maker, is believed to have invented the microscope in 1590. It seems that several people, including Galileo Galilei, duplicated his invention at about the same time.'
   },
   {
     name: 'Monoceros',
-    translation:,
+    translation: 'The Unicorn',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 7,
+      dec: -5,
+      visibleBetweenLats: [75, -85],
+      bestSeen: 'February',
     },
     stars: [],
-    description:
+    description: null
   },
   {
     name: 'Musca',
-    translation:,
+    translation: 'The Fly',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 12,
+      dec: -70,
+      visibleBetweenLats: [10, -90],
+      bestSeen: 'May',
     },
     stars: [],
-    description:
+    description: 'Musca was sort-of named by Abbé Nicolas Louis de Lacaille. In fact, this constellation has a long history of various names. It was first named Apis (the Bee) by Johann Bayer in 1603. Edmond Halley, of Halley\'s Comet fame, renamed it Musca Apis (the Fly Bee). Then, de Lacaille called it Musca Australis (the Southern Fly) to distinguish it from the Northern Fly. When the Northern Fly was merged with Aries by the International Astronomical Union (IAU) in 1929, Musca Austrailis was given its modern, shortened name.'
   },
   {
     name: 'Norma',
-    translation:,
+    translation: 'The Carpenter\'s Square',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 16,
+      dec: -50,
+      visibleBetweenLats: [30, -90],
+      bestSeen: 'July',
     },
     stars: [],
-    description:
+    description: 'Norma was named by Abbé Nicolas Louis de Lacaille. He called it "Norma et Regula" (the Level and the Square), but this awkward name was mercifully shortened to its modern form.'
   },
   {
     name: 'Octans',
-    translation:,
+    translation: 'The Octant',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 22,
+      dec: -85,
+      visibleBetweenLats: [-5, -90],
+      bestSeen: 'October',
     },
-    stars: [],
-    description:
+    stars: [
+      'Polaris Australis'
+    ],
+    description: 'Octans was named by Abbé Nicolas Louis de Lacaille. Octans is the constellation which contains the South Celestial Pole. Unlike Ursa Minor\'s Polaris, there is no bright star near the South Pole. The Octant is a navigational tool used to determine the altitude of a star, and thus one\'s latitude on the Earth. The choice of names for this constellation is significant because the octant was used to measure the position of Polaris innumerable times in the early years of celestial navigation. In later years, the octant was replaced by the sextant (which also has a constellation, Sextans, named after it).'
   },
   {
     name: 'Ophiuchus',
-    translation:,
+    translation: 'The Serpent Holder',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 17,
+      dec: 0,
+      visibleBetweenLats: [80, -80],
+      bestSeen: 'July',
     },
-    stars: [],
-    description:
+    stars: [
+      'Rasalhague',
+      'Cebalrai',
+      'Yed Prior',
+      'Yed Posterior',
+      'Sabik',
+      'Marfic'
+    ],
+    description: 'Ophiuchus is considered by some a 13th constellation of the Zodiac'
   },
   {
     name: 'Orion',
-    translation:,
+    translation: 'The Great Hunter',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 5,
+      dec: 5,
+      visibleBetweenLats: [85, -75],
+      bestSeen: 'January',
     },
-    stars: [],
-    description:
+    stars: [
+      'Betelgeuse',
+      'Rigel',
+      'Bellatrix',
+      'Mintaka',
+      'Alnilam',
+      'Nair al Saif',
+      'Saiph',
+      'Meissa',
+      'Tabit Pi 1',
+      'Tabit Pi 2',
+      'Tabit Pi 3',
+      'Tabit Pi 4',
+      'Thabit'
+    ],
+    description: 'Perhaps second only to the Big Dipper in Ursa Major, the constellation of Orion is one of the most recognizable patterns of stars in the northern sky. Orion, the hunter, stands by the river Eridanus and is accompanied by his faithful dogs, Canis Major and Canis Minor. Together they hunt various celestial animals, including Lepus, the rabbit, and Taurus, the bull. According to Greek mythology, Orion was in love with Merope, one of the Seven Sisters who form the Pleiades, but Merope would have nothing to do with him. Orion\'s tragic life ended when he stepped on Scorpius, the scorpion. The gods felt sorry for him, so they put him and his dogs in the sky as constellations. They also put all of the animals he hunted up there near him. Scorpius, however, was placed on the opposite side of the sky so Orion would never be hurt by it again. From the northern hemisphere, the three bright stars (Alnitak, Alnilam and Mintaka) in a straight line that form Orion\'s Belt are easily visible on the southern horizon in winter evenings. The bright star that forms Orion\'s left shoulder is Betelgeuse. The name of this star means "The Armpit of the Central One" in Arabic, which shows that like many other constellations, Orion was recognized across many cultures. Hanging down from Orion\'s belt is his sword that is made up of three fainter stars. The central "star" of the sword is actually not a star at all, but the Great Orion Nebula, one of the regions most studied by astronomers in the whole sky. Nearby is the Horsehead Nebula (IC 434), which is a swirl of dark dust in front of a bright nebula.'
   },
   {
     name: 'Pavo',
