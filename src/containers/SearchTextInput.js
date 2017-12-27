@@ -22,10 +22,11 @@ class SearchTextInput extends Component {
   async getData() {
     navigator.geolocation.getCurrentPosition(({coords}) => {
       const location = {
-        lat: Math.floor(coords.latitude * 100) / 100,
-        lon: Math.floor(coords.longitude * 100) / 100
+        lat: (Math.floor(coords.latitude * 100) / 100).toString() + '\xB0' + ', ',
+        lon: (Math.floor(coords.longitude * 100) / 100).toString() + '\xB0'
       };
-      this.setState({lat: location.lat, lon: location.lon})
+      this.props.setLocation(location);
+      //this.setState({lat: location.lat, lon: location.lon})
     });
   }
 
@@ -35,9 +36,9 @@ class SearchTextInput extends Component {
 
     let text = this.state.text;
 
-    if(this.state.lat && this.state.lon) {
-      lat = this.state.lat;
-      lon = this.state.lon;
+    if(true) {
+      lat = this.props.lat;
+      lon = this.props.lon;
     }
 
     if(this.state.now) {
@@ -52,7 +53,7 @@ class SearchTextInput extends Component {
         <Text style={styles.h1}>Stella Via</Text>
         <Text style={styles.h2}>Your Night Sky</Text>
         <Text style={styles.p}>{`${day}, ${month} ${date}, ${year}`}</Text>
-        <Text style={styles.p}>{`at latitude: ${lat}, longitude: ${lon}`}</Text>
+        <Text style={styles.p}>{`at ${lat} ${lon}`}</Text>
         <TextInput 
           style={styles.input}
           value={text}
@@ -91,12 +92,17 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = (state) => {};
+const mapStateToProps = state => ({
+  lat: state.location.lat,
+  lon: state.location.lon
+});
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    setLocation: dispatch(setLocation())
+    setLocation: (location) => {
+      dispatch(setLocation(location));
+    }
   }
 };
 
-export default connect(null, mapDispatchToProps)(SearchTextInput);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchTextInput);

@@ -1,3 +1,4 @@
-export const setLocation = () => ({
-  type: 'GET_LOCATION'
-})
+export const setLocation = (location) => ({
+  type: 'SET_LOCATION',
+  location
+});
