@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, AppRegistry, TextInput, View, Text } from 'react-native';
+import { StyleSheet, AppRegistry, TextInput, View, Text, Button } from 'react-native';
 import getDate from '../helpers/getDate.js';
 import  { connect } from 'react-redux';
 import { setLocation, setTime } from '../actions';
+import { googleKey } from '../helpers/apiKey.js';
 
 class SearchTextInput extends Component {
   constructor(props) {
@@ -22,11 +23,31 @@ class SearchTextInput extends Component {
   async getData() {
     navigator.geolocation.getCurrentPosition(({coords}) => {
       const location = {
-        lat: (Math.floor(coords.latitude * 100) / 100).toString() + '\xB0' + ', ',
-        lon: (Math.floor(coords.longitude * 100) / 100).toString() + '\xB0'
+        lat: (coords.latitude.toFixed(3)).toString() + '\xB0' + ', ',
+        lon: (coords.longitude.toFixed(3)).toString() + '\xB0'
       };
       this.props.setLocation(location);
     });
+  }
+
+  handleSearchLocation = async () => {
+    console.log('searching', this.state.text);
+    const cityState = this.state.text.split(', ');
+    const city = cityState[0];
+    const state = cityState[1];
+
+    if(this.state.text) {
+      const coordsFetch = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${city},+${state}&key=${googleKey}`);
+      const coordsResult = await coordsFetch.json();
+
+      const coords = coordsResult.results[0].geometry.location;
+
+      const lat = (coords.lat.toFixed(3)).toString() + '\xB0' + ', ';
+      const lon = (coords.lng.toFixed(3)).toString() + '\xB0';
+
+      const location = {lat, lon};
+      this.props.setLocation(location);
+    }
   }
 
   render() {
@@ -46,6 +67,9 @@ class SearchTextInput extends Component {
           placeholder='Search for a different location.'
           onChangeText={(text) => this.setState({text})}
         />
+        <Button
+          onPress={this.handleSearchLocation} 
+          title="search"></Button>
       </View>
     )
   }
