@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, AppRegistry, TextInput, View, Text } from 'react-native';
 import getDate from '../helpers/getDate.js';
 import  { connect } from 'react-redux';
-import { setLocation } from '../actions';
+import { setLocation, setTime } from '../actions';
 
 class SearchTextInput extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class SearchTextInput extends Component {
 
   async componentDidMount() {
     const now = getDate();
-    this.setState({now});
+    this.props.setTime(now);
 
     await this.getData();
   }
@@ -26,27 +26,13 @@ class SearchTextInput extends Component {
         lon: (Math.floor(coords.longitude * 100) / 100).toString() + '\xB0'
       };
       this.props.setLocation(location);
-      //this.setState({lat: location.lat, lon: location.lon})
     });
   }
 
   render() {
-    let day, month, date, year;
-    let lat, lon;
-
     let text = this.state.text;
-
-    if(true) {
-      lat = this.props.lat;
-      lon = this.props.lon;
-    }
-
-    if(this.state.now) {
-      day = this.state.now.day;
-      month = this.state.now.month;
-      date = this.state.now.date;
-      year = this.state.now.year;
-    }
+    let {lat, lon} = this.props.location;
+    let {day, month, date, year} = this.props.now;
 
     return (
       <View style={styles.container}>
@@ -93,14 +79,17 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-  lat: state.location.lat,
-  lon: state.location.lon
+  location: state.location,
+  now: state.now
 });
 
 const mapDispatchToProps = dispatch => {
   return {
     setLocation: (location) => {
       dispatch(setLocation(location));
+    },
+    setTime: (now) => {
+      dispatch(setTime(now));
     }
   }
 };
