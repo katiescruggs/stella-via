@@ -1,99 +1,130 @@
 module.exports = [
   {
     name: 'Andromeda',
-    translation:,
+    translation: 'Princess of Ethiopia or the Chained Lady',
     coords: {
-      ra:,
-      dec:,
-      visible:,
-      bestSeen:,
+      ra: 1,
+      dec: 40,
+      visibleBetweenLats: [90, -40],
+      bestSeen: 'November',
     },
-    stars: [],
-    description:
+    stars: [
+      'Alpheratz',
+      'Mirach',
+      'Almaak',
+      'Adhil'
+    ],
+    description: null
   },
   {
     name: 'Antlia',
-    translation:,
+    translation: 'The Air Pump',
     coords: {
-      ra:,
-      dec:,
-      visible:,
-      bestSeen:,
+      ra: 10,
+      dec: -35,
+      visibleBetweenLats: [45, -90],
+      bestSeen: 'April',
     },
     stars: [],
-    description:
+    description: 'Antlia was named by Abbé Nicolas Louis de Lacaille. Originally called Antlia Pneumatica and Machine Pneumatique, it was named after the air pump invented by Robert Boyle.'
   },
   {
     name: 'Apus',
-    translation:,
+    translation: 'The Bird of Paradise',
     coords: {
-      ra:,
-      dec:,
-      visible:,
-      bestSeen:,
+      ra: 16,
+      dec: -75,
+      visibleBetweenLats: [5, -90],
+      bestSeen: 'July',
     },
     stars: [],
-    description:
+    description: 'Apus was named by Johann Bayer. Apus lies just south of Triangulum Australe very near the South Celestial Pole. Named from the Greek word that means "footless" and also from the word "Apus Indica", a bird that was offered as a gift to the Europeans after it\'s unsightlly legs were removed.'
   },
   {
     name: 'Aquarius',
-    translation:,
+    translation: 'The Water Bearer',
     coords: {
-      ra:,
-      dec:,
-      visible:,
-      bestSeen:,
+      ra: 23,
+      dec: -15,
+      visibleBetweenLats: [65, -90],
+      bestSeen: 'October',
     },
-    stars: [],
-    description:
+    stars: [
+      'Sadalmelik',
+      'Sadalsuud',
+      'Sadalachbia',
+      'Skat',
+      'Albali',
+      'Ancha',
+      'Situla'
+    ],
+    description: 'This is one of the 12 constellations of the Zodiac. Aquarius is a rather faint constellation which would not be famous if it weren\'t part of the Zodiac. Aquarius, as its name suggests is universally associated with water. In most cultures, it is drawn as a man pouring water from a bucket. This may arise from the fact that the Sun enters Aquarius in early winter when the rainy season begins in many parts of the world.'
   },
   {
     name: 'Aquila',
-    translation:,
+    translation: 'The Eagle',
     coords: {
-      ra:,
-      dec:,
-      visible:,
-      bestSeen:,
+      ra: 20,
+      dec: 5,
+      visibleBetweenLats: [85, -75],
+      bestSeen: 'September',
     },
-    stars: [],
-    description:
+    stars: [
+      'Altair',
+      'Alshain',
+      'Tarazed',
+      'Deneb el Okab Epsilon',
+      'Deben el Okab Zeta'
+    ],
+    description: 'Altair, along with Deneb and Vega form the well-known Summer Triangle. Depictied as an eagle, Aquila is named for the bird that belonged to Zeus. Aquila\'s most famous task was carrying the mortal Ganymede to the heavens to serve as Zeus\' cup bearer. Two major novae have been observed in Aquila. The first one was in 389 AD and was recorded to be as bright as Venus. The other shone brighter than Altair, the brightest star in Aquila. A nova is what the ancients called a "new star." In reality, it is not a new star at all, but a very old one that suddenly becomes bright again, regaining some of the former glory of its youth. Note that there is a very strong difference between a nova (an old star brightening temporarily) and a supernova (a massive star exploding).'
   },
   {
     name: 'Ara',
-    translation:,
+    translation: 'The Altar',
     coords: {
-      ra:,
-      dec:,
-      visible:,
-      bestSeen:,
+      ra: 17,
+      dec: -55,
+      visibleBetweenLats: [25, -90],
+      bestSeen: 'July',
     },
     stars: [],
-    description:
+    description: 'South of Scorpius, Ara is named after the altar of the centaur of Centaurus fame, named Chiron. Chiron, half horse, half man was thought to be the wisest creature on earth. Ara was also known as the altar that Noah built after the great flood.'
   },
   {
     name: 'Aries',
-    translation:,
+    translation: 'The Ram',
     coords: {
-      ra:,
-      dec:,
-      visible:,
-      bestSeen:,
+      ra: 3,
+      dec: 20,
+      visibleBetweenLats: [90, -60],
+      bestSeen: 'December',
     },
-    stars: [],
-    description:
+    stars: [
+      'Hamal',
+      'Sharatan',
+      'Mesarthim',
+      'Botein'
+    ],
+    description: 'One of the 12 constellations of the Zodiac. The Babylonians, the Egyptians, the Greeks and the Persians all agreed on this constellaton\'s name of the Ram. In Greek mythology, the story of the Ram begins in Thessaly. The King of Thessaly had two children named Phrixus and Helle who were beaten by their stepmother. The god Hermes beame angered by this and sent a ram to carry the two children to safety. Tragically, Helle lost her grip and tumbled from the ram into the narrow strip of water between Europe and Asia, now called Hellespont in her honor. Phrixus, on the other hand, arrived safely to the shores of the Black Sea where he sacrificed the ram and gave its fleece to a sleepless dragon for safe-keeping. Later, Jason and his intrepid Argonauts recovered the prized fleece and returned it to Thessaly'
   },
   {
     name: 'Auriga',
-    translation:,
+    translation: 'The Charioteer',
     coords: {
-      ra:,
-      dec:,
-      visible:,
-      bestSeen:,
+      ra: 6,
+      dec: 40,
+      visibleBetweenLats: [90, -40],
+      bestSeen: 'February',
     },
-    stars: [],
-    description:
+    stars: [
+      'Capella',
+      'Menkalinan',
+      'Al Anz',
+      'Haedi',
+      'Hoedus II',
+      'Hassaleh'
+    ],
+    description: 'Auriga was protrayed as a charioteer who was seen carying two to three children on his arm. He was also known as Erechtheus, son of Hephaestus (Called Vulcan by the Romans). Hephaestus, who was crippled as a child, was believed to have invented the chariot for his who created it so that his son could move him about more easily.'
   },
   {
     name: 'Boötes',
@@ -101,7 +132,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -113,7 +144,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -125,7 +156,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -137,7 +168,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -149,7 +180,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -161,7 +192,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -173,7 +204,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -184,7 +215,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -195,7 +226,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -206,7 +237,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -217,7 +248,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -228,7 +259,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -239,7 +270,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -250,7 +281,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -261,7 +292,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -272,7 +303,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -283,7 +314,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -295,7 +326,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -307,7 +338,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -319,7 +350,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -331,7 +362,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -343,7 +374,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -355,7 +386,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -367,7 +398,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -379,7 +410,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -391,7 +422,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -403,7 +434,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -415,7 +446,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -427,7 +458,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -439,7 +470,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -451,7 +482,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -463,7 +494,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -475,7 +506,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -487,7 +518,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -499,7 +530,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -511,7 +542,7 @@ module.exports = [
     coords: {
       ra: '11 hours',
       dec: '15 degrees',
-      visible: 'between latitudes 90 and -65 degrees',
+      visibleBetweenLats: 'between latitudes 90 and -65 degrees',
       bestSeen: 'April',
     },
     stars: [
@@ -535,7 +566,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -547,7 +578,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -559,7 +590,7 @@ module.exports = [
     coords: {
       ra: '15 hours',
       dec: '-15 degrees',
-      visible: 'between latitudes 65 and -90 degrees',
+      visibleBetweenLats: 'between latitudes 65 and -90 degrees',
       bestSeen: 'June',
     },
     stars: [
@@ -577,7 +608,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -589,7 +620,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -601,7 +632,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -613,7 +644,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -625,7 +656,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -637,7 +668,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -649,7 +680,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -661,7 +692,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -673,7 +704,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -685,7 +716,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -697,7 +728,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -709,7 +740,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -721,7 +752,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -733,7 +764,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -745,7 +776,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -757,7 +788,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -769,7 +800,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -781,7 +812,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -793,7 +824,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -805,7 +836,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -817,7 +848,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -829,7 +860,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -841,7 +872,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -853,7 +884,7 @@ module.exports = [
     coords: {
       ra: '17 hours',
       dec: '-40 degrees',
-      visible: 'between latitudes 40 and -90 degrees',
+      visibleBetweenLats: 'between latitudes 40 and -90 degrees',
       bestSeen: 'July',
     },
     stars: [
@@ -876,7 +907,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -888,7 +919,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -900,7 +931,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -912,7 +943,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -924,7 +955,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -936,7 +967,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -948,7 +979,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -960,7 +991,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -972,7 +1003,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -984,7 +1015,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -996,7 +1027,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -1008,7 +1039,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -1020,7 +1051,7 @@ module.exports = [
     coords: {
       ra: '13 hours',
       dec: '0 degrees',
-      visible: 'between latitudes 80 and -80 degrees',
+      visibleBetweenLats: 'between latitudes 80 and -80 degrees',
       bestSeen: 'May',
     },
     stars: [
@@ -1042,7 +1073,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
@@ -1054,7 +1085,7 @@ module.exports = [
     coords: {
       ra:,
       dec:,
-      visible:,
+      visibleBetweenLats:,
       bestSeen:,
     },
     stars: [],
