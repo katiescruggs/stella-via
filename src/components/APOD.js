@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   teleText: {
     color: '#fff',
     fontSize: 16,
-    fontFamily: 'Avenir'
+    //fontFamily: 'Avenir'
   },
   detailView: {
     position: 'absolute',
