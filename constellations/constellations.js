@@ -969,155 +969,204 @@ module.exports = [
   },
   {
     name: 'Pavo',
-    translation:,
+    translation: 'The Peacock',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 20,
+      dec: -65,
+      visibleBetweenLats: [15, -90],
+      bestSeen: 'September',
     },
-    stars: [],
-    description:
+    stars: [
+      'Peacock'
+    ],
+    description: 'Pavo was named by Johann Bayer. His inspiration to name this constellation as such, may have come from the mythological peacock that was sacred to Hera. Zeus\' wife Hera, had suspected that her husband had fallen in love with the mortal Io and had changed his lover in a white heifer as disguise. Hera then asked Argus Panoptes, a giant with 100 eyes, to guard the disguised heifer. When Zeus found out the his lover was being guarded, he sent Hermes to kill Argus. After Hera found out of Argus\' death, she distribuited his eyes all over the tail of the peacock. Pavo borders on Apus, Telescopium, Indus and Octans.'
   },
   {
     name: 'Pegasus',
-    translation:,
+    translation: 'The Winged Horse',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 22,
+      dec: 20,
+      visibleBetweenLats: [90, -60],
+      bestSeen: 'October',
     },
-    stars: [],
-    description:
+    stars: [
+      'Markab',
+      'Scheat',
+      'Algenib',
+      'Enif',
+      'Homam',
+      'Matar',
+      'Baham',
+      'Salm'
+    ],
+    description: 'Take a look at the story of how Perseus slew Medusa, the mother of Pegasus, and rescued Andromeda, the daughter of Cepheus and Cassiopeia, from the sea monster Cetus. Pegasus was later brought to Mount Helicon by Bellerophon and with one kick of his hoof, he caused the spring of Hippocrene to flow. Hippocrene is said to be the source of inspiration to poets. Bellerophon, who slayed the hideous beast Chimaera, became so headstrong that he ordered Pegasus to fly him up to Mount Olympus, the home of the gods. This impudence angered Zeus, who sent an insect to sting the winged horse, who bucked Bellerophon off its back. Needless to say, Bellerophon did not survive the fall to Earth. Pegasus went on to greatness, however, as the "Thundering Horse of Jove" who carried lightning bolts for Zeus.'
   },
   {
     name: 'Perseus',
-    translation:,
+    translation: 'The Hero',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 3,
+      dec: 45,
+      visibleBetweenLats: [90, -35],
+      bestSeen: 'December',
     },
-    stars: [],
-    description:
+    stars: [
+      'Mirphak',
+      'Algol',
+      'Miram',
+      'Menkib',
+      'Atik',
+      'Gorgonea Secunda',
+      'Gorgonea Tertia',
+      'Gorgonea Quarta'
+    ],
+    description: 'Perseus is the son of Zeus, the king of the Greek gods, and a mortal woman. The woman\'s husband, Polydectes, king of Seriphos, was naturally angry, but when your wife has an affair with a god, what can you do? So, instead, when Perseus grew up Polydectes sent him on what he believed was an impossible quest. The king sent his step-son out to kill Medusa, one of three sisters called the Gorgons who were so ugly, anyone who looked at them would turn to stone. He appealed to the gods for help and was given a mirrored shield by Athena, the goddess of wisdom, and a pair of winged sandals by Hermes (also know as Mercury), the messenger of the gods. Perseus flew using the sandals to find Medusa. When he found her, he did not look at her. Instead, he used the reflection in the shield to guide his sword so he could behead her as she slept. As she died, the white, winged horse Pegasus sprang from her neck. On his way back from his victory against the Gorgons, Perseus came across a woman chained to a rock, waiting to be sacrificed to a sea monster, called either Cetus or Draco, depending on which version of the myth you believe. This woman was Andromeda, the Princess. Her mother, Cassiopeia boasted that she and her daughter were more beautiful than the Nereids (or sea nymphs), which were the daughters of Poseidon (or Neptune), the god of the sea. Angered by the insult to his daughters, Poseidon sent floods to the lands ruled by Cassiopeia and her husband, King Cepheus. Cepheus consulted an oracle who told him that the only way to quell Poseidon\'s anger was to sacrifice his daughter. Luckily, Perseus came on the scene just in the nick of time and killed the sea monster and saved the princess. As a small side note, it is interesting that Cepheus shows up again in Greek mythology when he and 17 of his sons were killed by Hercules'
   },
   {
     name: 'Phoenix',
-    translation:,
+    translation: 'The Phoenix',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 1,
+      dec: -50,
+      visibleBetweenLats: [30, -90],
+      bestSeen: 'November',
     },
-    stars: [],
-    description:
+    stars: [
+      'Ankaa'
+    ],
+    description: 'Phoenix was named by Johann Bayer. It lies between Grus and Eridanus. According to mythology, the Phoenix was a bird of incredible beauty who would live for 500 years. The bird would build a nest of twigs and leaves that would be lit by the noon sun. The Phoenix would then be consumed by the fire, but a small worm would emerge from the fire and grow into another Phoenix. This constellation, almost universally recognized as a bird, has also been called The Griffin, The Eagle, The Young Ostriches (Arabic), and The Fire Bird (Chinese).'
   },
   {
     name: 'Pictor',
-    translation:,
+    translation: 'The Painter\'s Easel',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 6,
+      dec: -55,
+      visibleBetweenLats: [25, -90],
+      bestSeen: 'February',
     },
     stars: [],
-    description:
+    description: 'Pictor was named by Abbé Nicolas Louis de Lacaille. He originally called it Equuleus Pictor (the Horse Painter??) but it was changed to Pictor to avoid confusion with Equuleus in the northern hemisphere.'
   },
   {
     name: 'Pisces',
-    translation:,
+    translation: 'The Fishes',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 1,
+      dec: 15,
+      visibleBetweenLats: [90, -65],
+      bestSeen: 'November',
     },
-    stars: [],
-    description:
+    stars: [
+      'Alrisha',
+      'Fum al Samakah',
+      'Torcularis Septentrionalis'
+    ],
+    description: 'One of the 12 constellations of the Zodiac.'
   },
   {
     name: 'Piscis Austrinus',
-    translation:,
+    translation: 'The Southern Fish',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 22,
+      dec: -30,
+      visibleBetweenLats: [50, -90],
+      bestSeen: 'October',
     },
-    stars: [],
-    description:
+    stars: [
+      'Fomalhaut'
+    ],
+    description: null
   },
   {
     name: 'Puppis',
-    translation:,
+    translation: 'The Stern',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 8,
+      dec: -40,
+      visibleBetweenLats: [40, -90],
+      bestSeen: 'March',
     },
-    stars: [],
-    description:
+    stars: [
+      'Naos',
+      'Azmidiske'
+    ],
+    description: 'Puppis was originally part of the large constellation Argo Navis. When the International Astronomical Union officially defined the 88 constellations and their boundaries, they split Argo Navis into 4 parts: Carina (the keel), Vela (the sail), Puppis (the poop), and Pyxis (the compass).'
   },
   {
     name: 'Pyxis',
-    translation:,
+    translation: 'The Compass Box',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 9,
+      dec: -30,
+      visibleBetweenLats: [50, -90],
+      bestSeen: 'March',
     },
     stars: [],
-    description:
+    description: 'Pyxis was named by Abbé Nicolas Louis de Lacaille. It was originally called Malus (the Mast), but de Lacaille\'s technophilia forced him to change it to the Compass. Pyxis was originally part of the large constellation Argo Navis. When the International Astronomical Union officially defined the 88 constellations and their boundaries, they split Argo Navis into 4 parts: Carina (the keel), Vela (the sail), Puppis (the poop), and Pyxis (the compass).'
   },
   {
     name: 'Reticulum',
-    translation:,
+    translation: 'The Net',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 4,
+      dec: -60,
+      visibleBetweenLats: [20, -90],
+      bestSeen: 'January',
     },
     stars: [],
-    description:
+    description: 'Reticulum was named by Abbé Nicolas Louis de Lacaille. It was originally named Rhombus by Isaak Habrecht of Strasbourg, but de Lacaille re-christened it the Reticle, which is the name for the crosshairs in a telescope\'s eyepiece. This constellation is also referred to as the Net.'
   },
   {
     name: 'Sagitta',
-    translation:,
+    translation: 'The Arrow',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 20,
+      dec: 10,
+      visibleBetweenLats: [90, -70],
+      bestSeen: 'September',
     },
-    stars: [],
-    description:
+    stars: [
+      'Sham'
+    ],
+    description: null
   },
   {
     name: 'Sagittarius',
-    translation:,
+    translation: 'The Archer',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 19,
+      dec: -25,
+      visibleBetweenLats: [55, -90],
+      bestSeen: 'August',
     },
-    stars: [],
-    description:
+    stars: [
+      'Rukbat',
+      'Arkab Prior',
+      'Arkab Posterior',
+      'Nash',
+      'Kaus Meridionalis',
+      'Kaus Australis',
+      'Ascella',
+      'Kaus Borealis',
+      'Ain al Rami',
+      'Albaldah',
+      'Nunki',
+      'Terebellum Omega',
+      'Terebellum 59',
+      'Terebellum 60',
+      'Terebellum 62',
+    ],
+    description: 'One of the 12 constellations of the Zodiac. The center of our galaxy, the Milky Way, lies in the direction of Sagittarius. It is believed to be about 29,000 light years away from us. The Sun orbits around the Milky Way once every 200 million years at a speed of 220 kilometers per second! What is at the center of the galaxy? No one really knows yet, but it appears that there might be a giant black hole there with a mass about a million times greater that the Sun.'
   },
   {
     name: 'Scorpius',
     translation: 'The Scorpion',
     coords: {
-      ra: '17 hours',
-      dec: '-40 degrees',
-      visibleBetweenLats: 'between latitudes 40 and -90 degrees',
+      ra: 17,
+      dec: -40,
+      visibleBetweenLats: [40, -90],
       bestSeen: 'July',
     },
     stars: [
@@ -1128,59 +1177,62 @@ module.exports = [
       'Shaula', 
       'Jabbah', 
       'Grafias', 
-      'Alniyat', 
-      'Alniyat', 
+      'Alniyat Sigma', 
+      'Alniyat Tau', 
       'Lesath'
     ],
     description: 'One of the 12 constellations. Scorpius is the beast which finally killed the Great Hunter, Orion.'
   },
   {
     name: 'Sculptor',
-    translation:,
+    translation: 'The Sculptor\'s Workshop',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 24,
+      dec: -30,
+      visibleBetweenLats: [50, -90],
+      bestSeen: 'November',
     },
     stars: [],
-    description:
+    description: 'Sculptor was named by Abbé Nicolas Louis de Lacaille. He first called it "L\'Atelier du Sculpteur" (The Sculptor\'s Workshop), but like other constellations he named, it was thankfully shortened.'
   },
   {
     name: 'Scutum',
-    translation:,
+    translation: 'The Shield',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 19,
+      dec: -10,
+      visibleBetweenLats: [70, -90],
+      bestSeen: 'August',
     },
     stars: [],
-    description:
+    description: null
   },
   {
     name: 'Serpens',
-    translation:,
+    translation: 'The Serpent',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 17,
+      dec: 0,
+      visibleBetweenLats: [80, -80],
+      bestSeen: 'July',
     },
-    stars: [],
-    description:
+    stars: [
+      'Unukalhai',
+      'Alya'
+    ],
+    description: 'Serpens is a particularly annoying constellation for people like me who try to catagorize them. Although it is officially one constellation, it is actually split into two distinct, disjoint areas of the sky which are divided by the constellation Ophiuchus. They are named Serpens Caput and Serpens Cauda, or, in jargon terms, Ser1 and Ser2.'
   },
   {
     name: 'Sextans',
-    translation:,
+    translation: 'The Sextant',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 10,
+      dec: 0,
+      visibleBetweenLats: [80, -80],
+      bestSeen: 'April',
     },
     stars: [],
-    description:
+    description: null
   },
   {
     name: 'Taurus',
@@ -1282,9 +1334,9 @@ module.exports = [
     name: 'Virgo,
     translation: 'The Maiden',
     coords: {
-      ra: '13 hours',
-      dec: '0 degrees',
-      visibleBetweenLats: 'between latitudes 80 and -80 degrees',
+      ra: 13,
+      dec: 0,
+      visibleBetweenLats: [80, -80],
       bestSeen: 'May',
     },
     stars: [
