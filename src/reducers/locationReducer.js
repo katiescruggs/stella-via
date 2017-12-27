@@ -1,6 +1,6 @@
 const defaultLocation = {
-  lat: 'searching',
-  lon: '...',
+  lat: '',
+  lon: '',
   city: '',
   state: ''
 };
