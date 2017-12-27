@@ -21,11 +21,20 @@ class SearchTextInput extends Component {
   }
 
   async getData() {
-    navigator.geolocation.getCurrentPosition(({coords}) => {
-      const location = {
-        lat: (coords.latitude.toFixed(3)).toString() + '\xB0' + ', ',
-        lon: (coords.longitude.toFixed(3)).toString() + '\xB0'
-      };
+    navigator.geolocation.getCurrentPosition(async ({coords}) => {
+      const lat = (coords.latitude.toFixed(3)).toString();
+      const lon = (coords.longitude.toFixed(3)).toString();
+
+      const placeFetch = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=${googleKey}`);
+      const placeResult = await placeFetch.json();
+      console.log(placeResult.results[3].formatted_address);
+
+      const cityStateCountry = placeResult.results[3].formatted_address.split(', ');
+      const city = cityStateCountry[0];
+      const state = cityStateCountry[1];
+
+      const location = { lat, lon, city, state };
+
       this.props.setLocation(location);
     });
   }
