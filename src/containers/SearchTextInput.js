@@ -31,7 +31,6 @@ class SearchTextInput extends Component {
   }
 
   handleSearchLocation = async () => {
-    console.log('searching', this.state.text);
     const cityState = this.state.text.split(', ');
     const city = cityState[0];
     const state = cityState[1];
@@ -47,6 +46,7 @@ class SearchTextInput extends Component {
 
       const location = {lat, lon};
       this.props.setLocation(location);
+      this.setState({text: ''});
     }
   }
 
