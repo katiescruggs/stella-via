@@ -21,11 +21,19 @@ class SearchTextInput extends Component {
   }
 
   async getData() {
-    navigator.geolocation.getCurrentPosition(({coords}) => {
-      const location = {
-        lat: (coords.latitude.toFixed(3)).toString() + '\xB0' + ', ',
-        lon: (coords.longitude.toFixed(3)).toString() + '\xB0'
-      };
+    navigator.geolocation.getCurrentPosition(async ({coords}) => {
+      const lat = coords.latitude.toFixed(3);
+      const lon = coords.longitude.toFixed(3);
+
+      const placeFetch = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=${googleKey}`);
+      const placeResult = await placeFetch.json();
+
+      const cityStateCountry = placeResult.results[3].formatted_address.split(', ');
+      const city = cityStateCountry[0];
+      const state = cityStateCountry[1];
+
+      const location = { lat, lon, city, state };
+
       this.props.setLocation(location);
     });
   }
@@ -41,10 +49,10 @@ class SearchTextInput extends Component {
 
       const coords = coordsResult.results[0].geometry.location;
 
-      const lat = (coords.lat.toFixed(3)).toString() + '\xB0' + ', ';
-      const lon = (coords.lng.toFixed(3)).toString() + '\xB0';
+      const lat = coords.lat.toFixed(3);
+      const lon = coords.lng.toFixed(3);
 
-      const location = {lat, lon};
+      const location = {lat, lon, city, state};
       this.props.setLocation(location);
       this.setState({text: ''});
     }
@@ -52,15 +60,19 @@ class SearchTextInput extends Component {
 
   render() {
     let text = this.state.text;
-    let {lat, lon} = this.props.location;
+    let {lat, lon, city, state} = this.props.location;
     let {day, month, date, year} = this.props.now;
+
+    const latLon = (lat && lon) ? `${lat}\xB0, ${lon}\xB0` : null;
+    const cityState = (city && state) ? `${city}, ${state}` : 'finding your location...';
 
     return (
       <View style={styles.container}>
         <Text style={styles.h1}>Stella Via</Text>
         <Text style={styles.h2}>Your Night Sky</Text>
         <Text style={styles.p}>{`${day}, ${month} ${date}, ${year}`}</Text>
-        <Text style={styles.p}>{`at ${lat} ${lon}`}</Text>
+        <Text style={styles.p}>{cityState}</Text>
+        <Text style={styles.p}>{latLon}</Text>
         <TextInput 
           style={styles.input}
           value={text}
@@ -91,10 +103,8 @@ const styles = StyleSheet.create({
   },
   input: {
     fontSize: 18,
-    // textDecorationColor: '#FFCC66',
+    textDecorationColor: '#FFCC66',
     width: 300,
-    // borderColor: '#FFCC66',
-    // borderWidth: 2,
     padding: 10
   },
   p: {
