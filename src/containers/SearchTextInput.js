@@ -63,8 +63,8 @@ class SearchTextInput extends Component {
     let {lat, lon, city, state} = this.props.location;
     let {day, month, date, year} = this.props.now;
 
-    const latLon = (lat && lon) ? `at ${lat} ${lon}` : null;
-    const cityState = (city && state) ? `in ${city}, ${state}` : 'finding your location...';
+    const latLon = (lat && lon) ? `${lat}\xB0, ${lon}\xB0` : null;
+    const cityState = (city && state) ? `${city}, ${state}` : 'finding your location...';
 
     return (
       <View style={styles.container}>
@@ -103,10 +103,8 @@ const styles = StyleSheet.create({
   },
   input: {
     fontSize: 18,
-    // textDecorationColor: '#FFCC66',
+    textDecorationColor: '#FFCC66',
     width: 300,
-    // borderColor: '#FFCC66',
-    // borderWidth: 2,
     padding: 10
   },
   p: {
