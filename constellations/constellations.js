@@ -504,135 +504,220 @@ module.exports = [
   },
   {
     name: 'Delphinus',
-    translation:,
+    translation: 'The Dolphin',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 21,
+      dec: 10,
+      visibleBetweenLats: [90, -70],
+      bestSeen: 'September',
     },
-    stars: [],
-    description:
+    stars: [
+      'Sualocin',
+      'Rotaney',
+      'Deneb Dulfim'
+    ],
+    description: null
   },
   {
     name: 'Dorado',
-    translation:,
+    translation: 'The Swordfish',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 5,
+      dec: -65,
+      visibleBetweenLats: [15, -90],
+      bestSeen: 'January',
     },
     stars: [],
-    description:
+    description: 'Dorado was named by Johann Bayer. Although I have said above that Dorado is the Swordfish, it is more correctly translated as the Goldfish. This far south constellation is not named after the pet goldfish, but after the mahi-mahi, a Hawaiian fish. Some old star atlases call this constellation Xiphias, the Swordfish. Dorado contains part of the Large Magellanic Cloud, an irregular galaxy that orbits the Milky Way.'
   },
   {
     name: 'Draco',
-    translation:,
+    translation: 'The Dragon',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 17,
+      dec: 65,
+      visibleBetweenLats: [90, -15],
+      bestSeen: 'July',
     },
-    stars: [],
-    description:
+    stars: [
+      'Thuban',
+      'Rastaban',
+      'Etamin',
+      'Nodus Secundus',
+      'Tyl',
+      'Aldhibah',
+      'Ed Asich',
+      'Gianfar',
+      'Arrakis',
+      'Kuma',
+      'Grumium',
+      'Alsafi',
+      'Dsiban'
+    ],
+    description: 'During the course of the year the constellation Draco turns upside down as it rotates around the North Star. About 4000 years ago, the star Thuban was the North Star. Since then, precession of the Earth\'s axis has changed where the North Pole points, so the North Star is now Polaris. In another 10,000 years or so, the North Star will be Vega.'
   },
   {
     name: 'Equuleus',
-    translation:,
+    translation: 'The Foal',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 21,
+      dec: 10,
+      visibleBetweenLats: [90, -70],
+      bestSeen: 'September',
     },
-    stars: [],
-    description:
+    stars: [
+      'Kitalpha'
+    ],
+    description: null
+  },
+  {
+    name: 'Eridanus',
+    translation: 'The River',
+    coords: {
+      ra: 3,
+      dec: -20,
+      visibleBetweenLats: [60, -90],
+      bestSeen: 'December',
+    },
+    stars: [
+      'Achernar',
+      'Cursa',
+      'Zaurak',
+      'Rana',
+      'Zibal',
+      'Azha',
+      'Acamar',
+      'Beid',
+      'Keid',
+      'Angetenar',
+      'Theemim',
+      'Sceptrum'
+    ],
+    description: null
   },
   {
     name: 'Fornax',
-    translation:,
+    translation: 'The Laboratory Furnace',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 3,
+      dec: -30,
+      visibleBetweenLats: [50, -90],
+      bestSeen: 'December',
     },
-    stars: [],
-    description:
+    stars: [
+      'Fornacis'
+    ],
+    description: 'Fornax was named by Abbé Nicolas Louis de Lacaille. It was named the Chemical Furnace in honor of Antoine Lavoisier, who was guillotined in the French Revolution in 1794. He created it out of several faint stars in the constellation Eridanus.'
   },
   {
     name: 'Gemini',
-    translation:,
+    translation: 'The Twins',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 7,
+      dec: 20,
+      visibleBetweenLats: [90, -60],
+      bestSeen: 'February',
     },
-    stars: [],
-    description:
+    stars: [
+      'Castor',
+      'Pollux',
+      'Alhena',
+      'Wasat',
+      'Mebsuta',
+      'Mekbuda',
+      'Tehat Prior',
+      'Iota Geminorum',
+      'Tejat Posterior',
+      'Alzirr',
+      '1 Geminorum'
+    ],
+    description: 'One of the constellations of the Zodiac. Castor and Pollux, the "twins" of Gemini, were Greek heroes. They were among the men Jason led on his voyages on the Argo.'
   },
   {
     name: 'Grus',
-    translation:,
+    translation: 'The Crane',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 22 ,
+      dec: -45,
+      visibleBetweenLats: [35, -90],
+      bestSeen: 'October',
     },
-    stars: [],
-    description:
+    stars: [
+      'Alnair'
+    ],
+    description: 'Grus was named by Johann Bayer. The ancient Egyptians used the Crane as a symbol of the astronomer because of high flight. Grus, also called Phoenicopterus (Flamingo) in the past, used to be part of Piscis Austrinus.'
   },
   {
     name: 'Hercules',
-    translation:,
+    translation: 'Hercules',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 17,
+      dec: 30,
+      visibleBetweenLats: [90, -50],
+      bestSeen: 'July',
     },
-    stars: [],
-    description:
+    stars: [
+      'Rasalgethi',
+      'Kornephoros',
+      'Sarin',
+      'Marfik',
+      'Maasym',
+      'Kajam'
+    ],
+    description: 'Among his famous Twelve Labors, Hercules defeated the Nemean Lion (otherwise known as Leo) and the many-headed beast called Hydra. While fighting Hydra, Hercules also killed the little crab, Cancer.'
   },
   {
     name: 'Horologium',
-    translation:,
+    translation: 'The Clock',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 3,
+      dec: -60,
+      visibleBetweenLats: [20, -90],
+      bestSeen: 'December',
     },
     stars: [],
-    description:
+    description: 'Horologium was named by Abbé Nicolas Louis de Lacaille. It was originally named Horologium Oscillitorium to honor Christian Huygens, the inventor of the pendulum clock in 1656-57. Like many of de Lacaille\'s other cumbersome constellation names, Horologium Oscillitorium was shortened in modern times. Huygens is also famous for discovering Saturn\'s rings.'
   },
   {
     name: 'Hydra',
-    translation:,
+    translation: 'The Water Serpent',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 10,
+      dec: -20,
+      visibleBetweenLats: [60, -90],
+      bestSeen: 'April',
     },
-    stars: [],
-    description:
+    stars: [
+      'Alphard',
+      'Al Minliar al Shuja'
+    ],
+    description: 'Hydra, also called the serpent of Lerna, was a beast with the body of a hound and 100 serpentine heads. As if this weren\'t bad enough, it also had poisonous breath and it was so hideous that it caused most people to die of fear from simply seeing it. One of Hercules\' great tasks was to kill this monster. When he started to fight it, he discovered that every time he cut off one of the heads, three grew back in place of it. Seeing this was getting him nowhere, he had his charioteer, Iolus, burn the stump after each time he cut off a head, which prevented the unfortunate regeneration. The last head was immortal, however, so after cutting it off, they trapped it under a rock. Hydra is a very weird constellation. It is the largest constellation on the sky (with Virgo close behind), but is strung out from Libra to Canis Minor along the southern horizon over about 90 degrees. Believe it or not, it used to be even bigger, but like the old Argo Navis constellation, it was split into four parts. Various stellar cartographers, including Flamsteed and Hevelius, broke the old Hydra into Sextans (the sextant), Crater (the cup), Corvus (the crow) and a new, reduced Hydra. Felis, the Cat In addition to these three new constellations, an obscure French astronomer added a constellation of his own to a star chart he created. In between Hydra, Antlia and Pyxis, he drew a little cat and named it Felis. However, Felis was not officially adopted, so it remains merely an anecdote.'
+  },
+  {
+    name: 'Hydrus',
+    translation: 'The Water Snake',
+    coords: {
+      ra: 2,
+      dec: -75,
+      visibleBetweenLats: [5, -90],
+      bestSeen: 'December',
+    },
+    stars: [
+      'Head of Hydrus'
+    ],
+    description: 'Hydrus was named by Johann Bayer. It is often confused with Hydra, the large constellation further north. Julius Schiller combined Hydrus and Tucana to form the Biblical figure Archangel Raphael. Like Schiller\'s other religious constellations, Raphael did not last.'
   },
   {
     name: 'Indus',
-    translation:,
+    translation: 'The American Indian',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 21,
+      dec: -55,
+      visibleBetweenLats: [25, -90],
+      bestSeen: 'September',
     },
     stars: [],
-    description:
+    description: 'Indus was named by Johann Bayer. It touches on Telescopium, Pavo, Tucana, and Grus Julius Schiller combined Indus and Pavo to form the Biblical figure Job. Like Schiller\'s other religious constellations, Job did not last.'
   },
   {
     name: 'Lacerta',
