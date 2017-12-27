@@ -44,7 +44,7 @@ class SearchTextInput extends Component {
       const lat = (coords.lat.toFixed(3)).toString() + '\xB0' + ', ';
       const lon = (coords.lng.toFixed(3)).toString() + '\xB0';
 
-      const location = {lat, lon};
+      const location = {lat, lon, city, state};
       this.props.setLocation(location);
       this.setState({text: ''});
     }
@@ -52,7 +52,7 @@ class SearchTextInput extends Component {
 
   render() {
     let text = this.state.text;
-    let {lat, lon} = this.props.location;
+    let {lat, lon, city, state} = this.props.location;
     let {day, month, date, year} = this.props.now;
 
     return (
@@ -60,6 +60,7 @@ class SearchTextInput extends Component {
         <Text style={styles.h1}>Stella Via</Text>
         <Text style={styles.h2}>Your Night Sky</Text>
         <Text style={styles.p}>{`${day}, ${month} ${date}, ${year}`}</Text>
+        <Text style={styles.p}>{`in ${city}, ${state}`}</Text>
         <Text style={styles.p}>{`at ${lat} ${lon}`}</Text>
         <TextInput 
           style={styles.input}

@@ -1,7 +1,14 @@
-export const locationReducer = (state = {lat: 'searching', lon: '...'}, action) => {
+const defaultLocation = {
+  lat: 'searching',
+  lon: '...',
+  city: '',
+  state: ''
+};
+
+export const locationReducer = (state = defaultLocation, action) => {
   switch(action.type) {
     case 'SET_LOCATION':
-      return {lat: action.location.lat, lon: action.location.lon};
+      return action.location;
     default:
       return state;
   }
