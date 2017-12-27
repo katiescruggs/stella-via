@@ -1,4 +1,4 @@
-[
+module.exports = [
   {
     name: 'Leo',
     translation: 'The Lion',
