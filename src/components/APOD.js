@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, View, ScrollView, Text, Image, Button } from 'react-native';
+import { AppRegistry, StyleSheet, View, ScrollView, Text, Image, TouchableHighlight } from 'react-native';
 import getAPOD from '../helpers/getAPOD.js';
 
 class APOD extends Component {
@@ -55,11 +55,9 @@ class APOD extends Component {
           />
         </View>
         {imageDetails}
-        <Button 
-          style={styles.teleText} 
-          title='Click for image details'
-          onPress={this.handleShowDetails}>
-        </Button>
+        <TouchableHighlight style={styles.detailsButton} onPress={this.handleShowDetails} activeOpacity={0.7} underlayColor={'#735290'}>
+          <Text style={styles.teleText}>Image Details</Text>
+        </TouchableHighlight>
       </View>
     )
   }
@@ -112,6 +110,12 @@ const styles = StyleSheet.create({
   detailView: {
     position: 'absolute',
     backgroundColor: '#502F4C',    
+  },
+  detailsButton: {
+    borderRadius: 50,
+    borderColor: '#fff',
+    borderWidth: 1,
+    padding: 5
   },
   details: {
     padding: 15,

@@ -5,7 +5,7 @@ const MainHeader = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.mainTitle}>Stella Via</Text>
-      <TouchableHighlight style={styles.mainButton} onPress={enterSite} activeOpacity={0.7} underlayColor={'white'}>
+      <TouchableHighlight style={styles.mainButton} onPress={enterSite} activeOpacity={0.7} underlayColor={'#735290'}>
         <Text style={styles.buttonText}>View Your Sky</Text>
       </TouchableHighlight>
     </View>
@@ -23,17 +23,18 @@ const styles = {
   },
   mainTitle: {
     fontSize: 70,
+    color: '#fff'
   },
   mainButton: {
     borderRadius: 50,
-    borderColor: 'white',
+    borderColor: '#fff',
     borderWidth: 3,
     padding: 20,
     margin: 30,
   },
   buttonText: {
     alignSelf: 'center',
-    color: 'white',
+    color: '#fff',
     fontSize: 30
   }
 };

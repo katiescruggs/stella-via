@@ -38,14 +38,13 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     overflow: 'scroll',
     flex: 1,
-    backgroundColor: '#9999FF',
+    backgroundColor: '#363457',
     justifyContent: 'space-around',
     alignItems: 'center'
   },
   navBar: {
     height: '10%',
     width: '100%',
-    backgroundColor: 'grey',
     justifyContent: 'center',
     alignItems: 'center'
   }
