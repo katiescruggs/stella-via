@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { StyleSheet, Text, ScrollView, View, Image } from 'react-native';
 import SearchTextInput from './src/containers/SearchTextInput.js';
@@ -19,13 +19,13 @@ const Store = createStore(
   // )
 );
 
-export default class App extends React.Component {
+class App extends Component {
+
   render() {
     return (
       <Provider store={Store}>
         <ScrollView contentContainerStyle={styles.container}>
           <MainHeader />
-          <APOD />
           {/*<View style={styles.navBar}>
                       <Text>Search</Text>
                       <Image source={require('./src/assets/hamburger.png')} />
@@ -33,6 +33,7 @@ export default class App extends React.Component {
                       <Image source={require('./src/assets/hamburger.png')}/>
                       <Image source={require('./src/assets/hamburger.png')}/>
                     </View>*/}
+          {/*<APOD />*/}
         </ScrollView>
       </Provider>
     );
@@ -60,3 +61,5 @@ const styles = StyleSheet.create({
     padding: 10
   }
 });
+
+export default App;

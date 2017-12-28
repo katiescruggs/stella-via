@@ -1,25 +1,40 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { View, Text, TouchableHighlight } from 'react-native';
+import { changePage } from '../actions';
+import LocationModal from './LocationModal.js';
+import Constellations from './Constellations.js';
 
-const MainHeader = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.mainTitle}>Stella Via</Text>        
-        <TouchableHighlight style={styles.mainButton} onPress={enterSite} activeOpacity={0.7} underlayColor={'#735290'}>
+class MainHeader extends Component {
+  enterSite = () => {
+    this.props.changePage('LocationModal');
+  }
+
+  render() {
+    const modal = this.props.page === 'LocationModal' ? <LocationModal /> : null;
+    const constellations = this.props.page === 'Constellations' ? <Constellations /> : null;
+    const enter = !this.props.page ?
+      <View>
+        <Text style={styles.mainTitle}>Stella Via</Text>
+        <TouchableHighlight style={styles.mainButton} onPress={this.enterSite} activeOpacity={0.7} underlayColor={'white'}>
           <Text style={styles.buttonText}>View Your Sky</Text>
         </TouchableHighlight>
-    </View>
-  );
+      </View>
+    : null;
+
+    return (
+      <View style={styles.nightHomepage}>
+        {enter}
+        {constellations}
+        {modal}
+      </View>
+    );
+  }
 };
 
-const enterSite = () => {
-  console.log('change page');
-}
-
 const styles = {
-  container: {
-    justifyContent: 'center',
-    paddingTop: 60
+  nightHomepage: {
+    width: '100%'
   },
   mainTitle: {
     fontSize: 70,
@@ -39,4 +54,15 @@ const styles = {
   }
 };
 
-export default MainHeader;
+const mapStateToProps = state => ({
+  page: state.page
+});
+
+const mapDispatchToProps = dispatch => ({
+  changePage: (page) => {
+    dispatch(changePage(page));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainHeader);
+
