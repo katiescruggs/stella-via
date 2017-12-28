@@ -108,7 +108,8 @@ const styles = {
     textAlign: 'center',
     fontSize: 18,
     color: '#fff',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginBottom: 4
   }
 }
 
