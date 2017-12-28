@@ -4,10 +4,10 @@ import { View, Text, TouchableHighlight } from 'react-native';
 const MainHeader = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.mainTitle}>Stella Via</Text>
-      <TouchableHighlight style={styles.mainButton} onPress={enterSite} activeOpacity={0.7} underlayColor={'#735290'}>
-        <Text style={styles.buttonText}>View Your Sky</Text>
-      </TouchableHighlight>
+      <Text style={styles.mainTitle}>Stella Via</Text>        
+        <TouchableHighlight style={styles.mainButton} onPress={enterSite} activeOpacity={0.7} underlayColor={'#735290'}>
+          <Text style={styles.buttonText}>View Your Sky</Text>
+        </TouchableHighlight>
     </View>
   );
 };
