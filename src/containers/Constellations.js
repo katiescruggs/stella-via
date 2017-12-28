@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text, TouchableHighlight } from 'react-native';
+import CardContainer from './CardContainer.js';
 
 class Constellations extends Component {
   render() {
