@@ -10,8 +10,9 @@ import rootReducer from './src/reducers/rootReducer.js';
 
 import { StyleSheet, Text, ScrollView, View, Image } from 'react-native';
 import Welcome from './src/components/Welcome';
-import MainHeader from './src/containers/MainHeader.js';
-import SearchTextInput from './src/containers/SearchTextInput.js';
+import MainHeader from './src/containers/MainHeader';
+import SearchTextInput from './src/containers/SearchTextInput';
+import APOD from './src/components/APOD';
 
 const Store = createStore(
   rootReducer
@@ -26,7 +27,9 @@ class App extends Component {
     return (
       <Provider store={Store}>
         <ScrollView contentContainerStyle={styles.container}>
-          <Welcome />
+          {/*<Welcome />*/}
+          <APOD />
+          
           {/*<MainHeader />*/}
           {/*<View style={styles.navBar}>
                       <Text>Search</Text>
@@ -35,7 +38,6 @@ class App extends Component {
                       <Image source={require('./src/assets/hamburger.png')}/>
                       <Image source={require('./src/assets/hamburger.png')}/>
                     </View>*/}
-          {/*<APOD />*/}
         </ScrollView>
       </Provider>
     );
@@ -51,17 +53,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  navBar: {
-    height: 300,
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#fff',
-    borderRadius: 50,
-    padding: 10
-  }
+  // navBar: {
+  //   height: 300,
+  //   width: '100%',
+  //   flexDirection: 'row',
+  //   justifyContent: 'space-around',
+  //   alignItems: 'center',
+  //   borderWidth: 1,
+  //   borderColor: '#fff',
+  //   borderRadius: 50,
+  //   padding: 10
+  // }
 });
 
 export default App;
