@@ -6,10 +6,10 @@ class APOD extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: { url: 'https://www.wordwizardsinc.com/wp-content/uploads/2016/08/nasalogo.png' },
+      image: require('../assets/star-background.jpg'),
       title: '',
       details: '',
-      showDetails: false
+      // showDetails: false
 
     };
   }
@@ -29,22 +29,22 @@ class APOD extends Component {
     this.fetchAPOD();
   }
 
-  handleShowDetails = () => {
-    const showDetails = !this.state.showDetails
-    this.setState({ showDetails });
-  }
+  // handleShowDetails = () => {
+  //   const showDetails = !this.state.showDetails
+  //   this.setState({ showDetails });
+  // }
 
   render() {
-    const imageDetails = this.state.showDetails 
-      ? <ScrollView style={styles.detailView}><Text style={styles.details}>{this.state.details}</Text></ScrollView> 
-      : null;
+    // const imageDetails = this.state.showDetails 
+    //   ? <ScrollView style={styles.detailView}><Text style={styles.details}>{this.state.details}</Text></ScrollView> 
+    //   : null;
 
     return (
       <View style={styles.container}>
         <View style={styles.imageView}>
           <View style={styles.textView}>
             <View style={styles.upperText}>
-              <Text style={styles.teleText}>Astronomy Image of the Day</Text>
+              <Text style={styles.teleText}>Astronomy Picture of the Day</Text>
               <Text style={styles.teleText}>12.27.17</Text>
             </View>
             <Text style={styles.teleText}>{this.state.title}</Text>
@@ -54,10 +54,13 @@ class APOD extends Component {
             source={this.state.image}
           />
         </View>
-        {imageDetails}
-        <TouchableHighlight style={styles.detailsButton} onPress={this.handleShowDetails} activeOpacity={0.7} underlayColor={'#735290'}>
-          <Text style={styles.teleText}>Image Details</Text>
-        </TouchableHighlight>
+        <ScrollView style={styles.detailView}>
+          <Text style={styles.detailsHeader}>Today's Image:</Text>
+          <Text style={styles.details}>{this.state.details}</Text>
+        </ScrollView>
+        {/*<TouchableHighlight style={styles.detailsButton} onPress={this.handleShowDetails} activeOpacity={0.7} underlayColor={'#735290'}>
+                  <Text style={styles.teleText}>Image Details</Text>
+                </TouchableHighlight>*/}
       </View>
     )
   }
@@ -65,10 +68,10 @@ class APOD extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: '#000',
     alignItems: 'center',
-    justifyContent: 'center',
-    height: '55%',
+    justifyContent: 'space-around',
     width: '100%'
   },
   img: {
@@ -82,17 +85,19 @@ const styles = StyleSheet.create({
     padding: 10
   },
   imageView : {
-    width: 350,
+    flex: 1,
+    width: '93%',
     height: 350,
     backgroundColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
     borderColor: '#fff',
     borderWidth: 1,
-    margin: 10
+    marginTop: 70,
+    marginBottom: 20
   },
   textView: {
-    height: 360,
+    height: 370,
     justifyContent: 'space-between',
     alignItems: 'center',
     position: 'absolute'
@@ -105,23 +110,35 @@ const styles = StyleSheet.create({
   teleText: {
     color: '#fff',
     fontSize: 16,
-    // fontFamily: 'Avenir'
   },
   detailView: {
-    position: 'absolute',
-    backgroundColor: '#502F4C',    
-  },
-  detailsButton: {
-    borderRadius: 50,
+    flex: 1,
+    backgroundColor: '#735290',
     borderColor: '#fff',
     borderWidth: 1,
-    padding: 5
+    borderBottomWidth: 0,
+    width: '93%'
   },
-  details: {
+  detailsHeader: {
     padding: 15,
     color: '#fff',
-    fontSize: 14
-  }
+    fontSize: 34,
+    textAlign: 'center',
+    backgroundColor: 'rgba(40, 38, 64, 0.7)',
+    width: '100%'
+  },
+  details: {
+    padding: 20,
+    color: '#fff',
+    fontSize: 16,
+    textAlign: 'center'
+  },
+  // detailsButton: {
+  //   borderRadius: 50,
+  //   borderColor: '#fff',
+  //   borderWidth: 1,
+  //   padding: 5
+  // }
 });
 
 export default APOD;
