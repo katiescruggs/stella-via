@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     padding: 10
   },
   imageView : {
-    flex: 1,
+    // flex: 1,
     width: '93%',
     height: 350,
     backgroundColor: '#000',
@@ -97,10 +97,11 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   textView: {
-    height: 370,
+    height: 355,
     justifyContent: 'space-between',
     alignItems: 'center',
-    position: 'absolute'
+    position: 'absolute',
+    zIndex: 10
   },
   upperText: {
     width: '90%',
