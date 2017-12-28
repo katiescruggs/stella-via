@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, WebView } from 'react-native';
 
 const Forecast = () => {
   return (

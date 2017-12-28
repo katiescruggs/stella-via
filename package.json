@@ -30,6 +30,7 @@
     "expo": "^23.0.4",
     "react": "16.0.0",
     "react-icons": "^2.2.7",
+    "react-iframe": "^1.1.0",
     "react-native": "0.50.3",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
