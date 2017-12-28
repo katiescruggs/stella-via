@@ -12,10 +12,6 @@ class LocationModal extends Component {
     };
   };
 
-  async componentDidMount() {
-    await this.getGeolocation();
-  }
-
   getGeolocation = () => {
     navigator.geolocation.getCurrentPosition(({coords}) => {
       const lat = coords.latitude.toFixed(3);
@@ -28,18 +24,25 @@ class LocationModal extends Component {
   render() {
     return (
       <View style={styles.modalContainer}>
-        <Text>Finding Your Night Sky...</Text>
-        <TouchableHighlight>
-          <Text>Use Current Location</Text>
-        </TouchableHighlight>
-        <TextInput
-          value={this.state.text}
-          placeholder='City, State'
-          onChangeText={(text) => this.setState({text})}
-        />
-        <TouchableHighlight onPress={this.handleSearchLocation}>
-          <Text>Set Location</Text>
-        </TouchableHighlight>
+        <Text style={styles.modalTitle}>Finding Your Night Sky</Text>
+        <View style={styles.inputContainer}> 
+          <TouchableHighlight style={styles.modalButton}
+            onPress={this.getGeolocation}>
+            <Text style={styles.modalButtonText}>Use Current Location</Text>
+          </TouchableHighlight>
+          <View>
+            <TextInput
+              style = {styles.modalTextInput}
+              value={this.state.text}
+              placeholder='City, State'
+              onChangeText={(text) => this.setState({text})}
+            />
+            <TouchableHighlight style={styles.modalButton}
+              onPress={this.handleSearchLocation}>
+              <Text style={styles.modalButtonText}>Set New Location</Text>
+            </TouchableHighlight>
+          </View>
+        </View>
       </View>
     );
   }
@@ -47,11 +50,44 @@ class LocationModal extends Component {
 
 const styles = {
   modalContainer: {
-    position: 'fixed',
-    top: '100',
-    backgroundColor: 'magenta'
+    alignSelf: 'center',
+    backgroundColor: 'white',
+    borderColor: '#502F4C',
+    borderWidth: 7,
+    minHeight: 300,
+    padding: 20,
+    position: 'absolute',
+    top: 0,
+    width: '95%'
+  },
+  inputContainer: {
+    justifyContent: 'space-between',
+    height: 200
+  },
+  modalTitle: {
+    alignSelf: 'center',
+    fontSize: 30,
+    marginBottom: 20
+  },
+  modalButton: {
+    alignSelf: 'center',
+    backgroundColor: '#C8B8DB',
+    borderColor: '#C8B8DB',
+    borderRadius: 25,
+    borderWidth: 2,
+    padding: 10
+  },
+  modalButtonText: {
+    fontSize: 20
+  },
+  modalTextInput: {
+    borderColor: '#502F4C',
+    borderWidth: 1,
+    fontSize: 20,
+    padding: 10,
+    marginBottom: 10
   }
-}
+};
 
 export default LocationModal;
 

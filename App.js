@@ -25,7 +25,7 @@ class App extends Component {
       <Provider store={Store}>
         <ScrollView contentContainerStyle={styles.container}>
           <MainHeader />
-          <APOD />
+          {/*<APOD />*/}
         </ScrollView>
       </Provider>
     );
