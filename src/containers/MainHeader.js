@@ -3,7 +3,7 @@ import { View, Text, TouchableHighlight } from 'react-native';
 
 const MainHeader = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={styles.mainTitle}>Stella Via</Text>
       <TouchableHighlight style={styles.mainButton} onPress={enterSite} activeOpacity={0.7} underlayColor={'white'}>
         <Text style={styles.buttonText}>View Your Sky</Text>
@@ -17,10 +17,12 @@ const enterSite = () => {
 }
 
 const styles = {
+  container: {
+    justifyContent: 'center',
+    paddingTop: 60
+  },
   mainTitle: {
-    fontSize: 80,
-    alignSelf: 'center',
-    padding: 30
+    fontSize: 70,
   },
   mainButton: {
     borderRadius: 50,
@@ -32,7 +34,7 @@ const styles = {
   buttonText: {
     alignSelf: 'center',
     color: 'white',
-    fontSize: 40
+    fontSize: 30
   }
 };
 

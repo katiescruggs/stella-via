@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { StyleSheet, Text, ScrollView } from 'react-native';
+import { StyleSheet, Text, ScrollView, View } from 'react-native';
 import SearchTextInput from './src/containers/SearchTextInput.js';
 import APOD from './src/components/APOD';
 import { Platform } from 'react-native';
@@ -26,6 +26,7 @@ export default class App extends React.Component {
         <ScrollView contentContainerStyle={styles.container}>
           <MainHeader />
           <APOD />
+          <View style={styles.navBar}><Text>navBar</Text></View>
         </ScrollView>
       </Provider>
     );
@@ -41,4 +42,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center'
   },
+  navBar: {
+    height: '10%',
+    width: '100%',
+    backgroundColor: 'grey',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
 });
