@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, View, ScrollView, Text, Image, Button } from 'react-native';
+import { AppRegistry, StyleSheet, View, ScrollView, Text, Image, TouchableHighlight } from 'react-native';
 import getAPOD from '../helpers/getAPOD.js';
 
 class APOD extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: {},
+      image: { url: 'https://www.wordwizardsinc.com/wp-content/uploads/2016/08/nasalogo.png' },
       title: '',
       details: '',
       showDetails: false
@@ -25,8 +25,8 @@ class APOD extends Component {
     this.setState({ image, title, details });
   }
 
-  async componentDidMount() {
-    await this.fetchAPOD()
+  componentDidMount() {
+    this.fetchAPOD();
   }
 
   handleShowDetails = () => {
@@ -35,12 +35,7 @@ class APOD extends Component {
   }
 
   render() {
-    let source;
-    if (this.state.image.uri) {
-      source = this.state.image
-    }
     const imageDetails = this.state.showDetails 
-    // backgroundColor: '#502F4C',
       ? <ScrollView style={styles.detailView}><Text style={styles.details}>{this.state.details}</Text></ScrollView> 
       : null;
 
@@ -48,20 +43,21 @@ class APOD extends Component {
       <View style={styles.container}>
         <View style={styles.imageView}>
           <View style={styles.textView}>
-            <Text style={styles.teleText}>NASA Image of the Day                      12.27.17</Text>
+            <View style={styles.upperText}>
+              <Text style={styles.teleText}>Astronomy Image of the Day</Text>
+              <Text style={styles.teleText}>12.27.17</Text>
+            </View>
             <Text style={styles.teleText}>{this.state.title}</Text>
           </View>
           <Image
             style={styles.img} 
-            source={source}
+            source={this.state.image}
           />
         </View>
         {imageDetails}
-        <Button 
-          style={styles.teleText} 
-          title='Click for image details'
-          onPress={this.handleShowDetails}>
-        </Button>
+        <TouchableHighlight style={styles.detailsButton} onPress={this.handleShowDetails} activeOpacity={0.7} underlayColor={'#735290'}>
+          <Text style={styles.teleText}>Image Details</Text>
+        </TouchableHighlight>
       </View>
     )
   }
@@ -69,12 +65,11 @@ class APOD extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: '#502F4C',
     backgroundColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
-    height: 400,
-    width: 400
+    height: '55%',
+    width: '100%'
   },
   img: {
     width: 300, 
@@ -102,14 +97,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     position: 'absolute'
   },
+  upperText: {
+    width: '90%',
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
   teleText: {
     color: '#fff',
     fontSize: 16,
-    //fontFamily: 'Avenir'
+    // fontFamily: 'Avenir'
   },
   detailView: {
     position: 'absolute',
     backgroundColor: '#502F4C',    
+  },
+  detailsButton: {
+    borderRadius: 50,
+    borderColor: '#fff',
+    borderWidth: 1,
+    padding: 5
   },
   details: {
     padding: 15,

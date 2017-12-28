@@ -13,7 +13,6 @@ class MainHeader extends Component {
   render() {
     const modal = this.props.page === 'LocationModal' ? <LocationModal /> : null;
     const constellations = this.props.page === 'Constellations' ? <Constellations /> : null;
-
     const enter = !this.props.page ?
       <View>
         <Text style={styles.mainTitle}>Stella Via</Text>
@@ -38,21 +37,20 @@ const styles = {
     width: '100%'
   },
   mainTitle: {
-    fontSize: 80,
-    alignSelf: 'center',
-    padding: 30
+    fontSize: 70,
+    color: '#fff'
   },
   mainButton: {
     borderRadius: 50,
-    borderColor: 'white',
+    borderColor: '#fff',
     borderWidth: 3,
     padding: 20,
     margin: 30,
   },
   buttonText: {
     alignSelf: 'center',
-    color: 'white',
-    fontSize: 40
+    color: '#fff',
+    fontSize: 30
   }
 };
 

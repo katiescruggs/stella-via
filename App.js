@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { StyleSheet, Text, ScrollView } from 'react-native';
+import { StyleSheet, Text, ScrollView, View, Image } from 'react-native';
 import SearchTextInput from './src/containers/SearchTextInput.js';
 import APOD from './src/components/APOD';
 import { Platform } from 'react-native';
@@ -26,6 +26,13 @@ class App extends Component {
       <Provider store={Store}>
         <ScrollView contentContainerStyle={styles.container}>
           <MainHeader />
+          {/*<View style={styles.navBar}>
+                      <Text>Search</Text>
+                      <Image source={require('./src/assets/hamburger.png')} />
+                      <Image source={require('./src/assets/hamburger.png')}/>
+                      <Image source={require('./src/assets/hamburger.png')}/>
+                      <Image source={require('./src/assets/hamburger.png')}/>
+                    </View>*/}
           {/*<APOD />*/}
         </ScrollView>
       </Provider>
@@ -38,10 +45,21 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     overflow: 'scroll',
     flex: 1,
-    backgroundColor: '#9999FF',
-    justifyContent: 'space-around',
+    backgroundColor: '#363457',
+    justifyContent: 'center',
     alignItems: 'center'
   },
+  navBar: {
+    height: 300,
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#fff',
+    borderRadius: 50,
+    padding: 10
+  }
 });
 
 export default App;
