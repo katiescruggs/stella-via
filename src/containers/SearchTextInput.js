@@ -72,23 +72,10 @@ class SearchTextInput extends Component {
 
     return (
       <View style={styles.container}>
-        <View style={styles.hamburger}></View>
-        <Image source={require('../assets/hamburger.png')} style={styles.hamburger}/>
         <Text style={styles.h1}>Stella Via</Text>
-        {/*<Text style={styles.h2}>Your Night Sky</Text>*/}
-        <View style={styles.buttonContainer}>
-          <TouchableHighlight style={styles.mainButton} onPress={this.onPress} activeOpacity={0.7} underlayColor={'white'}>
-            <Text>change location</Text>
-          </TouchableHighlight>
-          <TouchableHighlight style={styles.mainButton} onPress={this.onPress}>
-            <Text>your sky</Text>
-          </TouchableHighlight>
-        </View>
-        <Text style={styles.p}>{`${day}, ${month} ${date}`}</Text>
-        {/*<Text style={styles.p}>{cityState}</Text>*/}
-        <Text style={styles.p}>{latLon}</Text>
-
-
+        <TouchableHighlight style={styles.mainButton} onPress={this.onPress} activeOpacity={0.7} underlayColor={'white'}>
+          <Text>View Your Sky</Text>
+        </TouchableHighlight>
 
         {/*<TextInput 
                   style={styles.input}
@@ -127,17 +114,6 @@ const styles = StyleSheet.create({
   },
   p: {
     fontSize: 16
-  },
-  hamburger: {
-    padding: 0,
-    marginTop: -20,
-    width: 30,
-    height: 30,
-    alignSelf: 'flex-end'
-  },
-  buttonContainer: {
-    flex: 1,
-    flexDirection: 'row'
   },
   mainButton: {
     borderRadius: 25,
