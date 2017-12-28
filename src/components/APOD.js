@@ -48,7 +48,7 @@ class APOD extends Component {
       <View style={styles.container}>
         <View style={styles.imageView}>
           <View style={styles.textView}>
-            <Text style={styles.teleText}>NASA Image of the Day</Text>
+            <Text style={styles.teleText}>NASA Image of the Day                      12.27.17</Text>
             <Text style={styles.teleText}>{this.state.title}</Text>
           </View>
           <Image

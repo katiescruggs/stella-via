@@ -10,6 +10,7 @@ import { createStore } from 'redux';
 // import promise from 'redux-thunk';
 // import logger from 'redux-logger';
 import rootReducer from './src/reducers/rootReducer.js';
+import MainHeader from './src/containers/MainHeader.js';
 
 const Store = createStore(
   rootReducer
@@ -23,7 +24,7 @@ export default class App extends React.Component {
     return (
       <Provider store={Store}>
         <ScrollView contentContainerStyle={styles.container}>
-          <SearchTextInput />
+          <MainHeader />
           <APOD />
         </ScrollView>
       </Provider>
@@ -33,11 +34,11 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    // height: 2000,
+    alignSelf: 'stretch',
     overflow: 'scroll',
-    // flex: 1,
-    backgroundColor: '#502F4C',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 1,
+    backgroundColor: '#9999FF',
+    justifyContent: 'space-around',
+    alignItems: 'center'
   },
 });

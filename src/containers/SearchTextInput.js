@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, AppRegistry, TextInput, View, Text, Button } from 'react-native';
+import { StyleSheet, AppRegistry, TextInput, View, Text, Button, Image, TouchableHighlight } from 'react-native';
 import getDate from '../helpers/getDate.js';
 import  { connect } from 'react-redux';
 import { setLocation, setTime } from '../actions';
@@ -38,6 +38,10 @@ class SearchTextInput extends Component {
     });
   }
 
+  onPress = () => {
+    console.log('pressed');
+  }
+
   handleSearchLocation = async () => {
     const cityState = this.state.text.split(', ');
     const city = cityState[0];
@@ -69,19 +73,19 @@ class SearchTextInput extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.h1}>Stella Via</Text>
-        <Text style={styles.h2}>Your Night Sky</Text>
-        <Text style={styles.p}>{`${day}, ${month} ${date}, ${year}`}</Text>
-        <Text style={styles.p}>{cityState}</Text>
-        <Text style={styles.p}>{latLon}</Text>
-        <TextInput 
-          style={styles.input}
-          value={text}
-          placeholder='Search for a different location.'
-          onChangeText={(text) => this.setState({text})}
-        />
-        <Button
-          onPress={this.handleSearchLocation} 
-          title="search"></Button>
+        <TouchableHighlight style={styles.mainButton} onPress={this.onPress} activeOpacity={0.7} underlayColor={'white'}>
+          <Text>View Your Sky</Text>
+        </TouchableHighlight>
+
+        {/*<TextInput 
+                  style={styles.input}
+                  value={text}
+                  placeholder='Search for a different location.'
+                  onChangeText={(text) => this.setState({text})}
+                />
+                <Button
+                  onPress={this.handleSearchLocation} 
+                  title="search"></Button>*/}
       </View>
     )
   }
@@ -90,13 +94,14 @@ class SearchTextInput extends Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#9999FF',
-    padding: 50,
+    padding: 10,
+    paddingTop: 50,
     alignItems: 'center',
     justifyContent: 'center',
-    width: 420,
+    alignSelf: 'stretch'
   },
   h1: {
-    fontSize: 40
+    fontSize: 60
   },
   h2: {
     fontSize: 24
@@ -109,6 +114,13 @@ const styles = StyleSheet.create({
   },
   p: {
     fontSize: 16
+  },
+  mainButton: {
+    borderRadius: 25,
+    borderColor: 'white',
+    borderWidth: 2,
+    padding: 10,
+    margin: 10
   }
 });
 
