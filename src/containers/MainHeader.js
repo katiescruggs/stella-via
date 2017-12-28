@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text, TouchableHighlight } from 'react-native';
+import { ScrollView, View, Text, TouchableHighlight } from 'react-native';
 import { changePage } from '../actions';
 import LocationModal from './LocationModal.js';
 import Constellations from './Constellations.js';
@@ -24,17 +24,18 @@ class MainHeader extends Component {
     : null;
 
     return (
-      <View style={styles.nightHomepage}>
+      <ScrollView style={styles.nightHomepage}>
         {enter}
         {constellations}
         {modal}
-      </View>
+      </ScrollView>
     );
   }
 };
 
 const styles = {
   nightHomepage: {
+    paddingTop: 50,
     width: '100%'
   },
   mainTitle: {
