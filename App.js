@@ -33,11 +33,11 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    // height: 2000,
+    alignSelf: 'stretch',
     overflow: 'scroll',
-    // flex: 1,
+    flex: 1,
     backgroundColor: '#502F4C',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
+    alignItems: 'center'
   },
 });

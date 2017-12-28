@@ -76,10 +76,6 @@ class SearchTextInput extends Component {
         <Image source={require('../assets/hamburger.png')} style={styles.hamburger}/>
         <Text style={styles.h1}>Stella Via</Text>
         {/*<Text style={styles.h2}>Your Night Sky</Text>*/}
-        <Text style={styles.p}>{`${day}, ${month} ${date}, ${year}`}</Text>
-        <Text style={styles.p}>{cityState}</Text>
-        <Text style={styles.p}>{latLon}</Text>
-
         <View style={styles.buttonContainer}>
           <TouchableHighlight style={styles.mainButton} onPress={this.onPress} activeOpacity={0.7} underlayColor={'white'}>
             <Text>change location</Text>
@@ -88,6 +84,10 @@ class SearchTextInput extends Component {
             <Text>your sky</Text>
           </TouchableHighlight>
         </View>
+        <Text style={styles.p}>{`${day}, ${month} ${date}`}</Text>
+        {/*<Text style={styles.p}>{cityState}</Text>*/}
+        <Text style={styles.p}>{latLon}</Text>
+
 
 
         {/*<TextInput 
