@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, AppRegistry, TextInput, View, Text, Button, Image, TouchableHighlight } from 'react-native';
 import  { connect } from 'react-redux';
-import { setLocation } from '../actions';
+import { setLocation, changePage } from '../actions';
 import { googleKey } from '../helpers/apiKey.js';
 
 class LocationModal extends Component {
@@ -18,8 +18,30 @@ class LocationModal extends Component {
       const lon = coords.longitude.toFixed(3);
       const location = {lat, lon};
       this.props.setLocation(location);
+      this.props.changePage('Constellations');
     });
-  }
+  };
+
+  handleSearchLocation = async () => {
+    const cityState = this.state.text.split(', ');
+    const city = cityState[0];
+    const state = cityState[1];
+
+    if(this.state.text) {
+      const coordsFetch = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${city},+${state}&key=${googleKey}`);
+      const coordsResult = await coordsFetch.json();
+
+      const coords = coordsResult.results[0].geometry.location;
+
+      const lat = coords.lat.toFixed(3);
+      const lon = coords.lng.toFixed(3);
+
+      const location = {lat, lon, city, state};
+      this.setState({text: ''});
+      this.props.setLocation(location);
+      this.props.changePage('Constellations');
+    }
+  };
 
   render() {
     return (
@@ -56,8 +78,6 @@ const styles = {
     borderWidth: 7,
     minHeight: 300,
     padding: 20,
-    position: 'absolute',
-    top: 0,
     width: '95%'
   },
   inputContainer: {
@@ -89,6 +109,15 @@ const styles = {
   }
 };
 
-export default LocationModal;
+const mapDispatchToProps = dispatch => ({
+  setLocation: (location) => {
+    dispatch(setLocation(location));
+  },
+  changePage: (page) => {
+    dispatch(changePage(page));
+  }
+});
+
+export default connect(null, mapDispatchToProps)(LocationModal);
 
 

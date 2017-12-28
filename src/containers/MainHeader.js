@@ -11,20 +11,26 @@ class MainHeader extends Component {
 
   render() {
     const modal = this.props.page === 'LocationModal' ? <LocationModal /> : null;
-    return (
+    const constellations = this.props.page === 'Constellations' ? <Text>stars</Text> : null;
+
+    const enter = !this.props.page ?
       <View>
         <Text style={styles.mainTitle}>Stella Via</Text>
         <TouchableHighlight style={styles.mainButton} onPress={this.enterSite} activeOpacity={0.7} underlayColor={'white'}>
           <Text style={styles.buttonText}>View Your Sky</Text>
         </TouchableHighlight>
+      </View>
+    : null;
 
+    return (
+      <View>
+        {enter}
+        {constellations}
         {modal}
-
       </View>
     );
   }
 };
-
 
 const styles = {
   mainTitle: {
