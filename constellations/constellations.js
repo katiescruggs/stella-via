@@ -841,8 +841,8 @@ module.exports = [
       'Vega',
       'Sheliak',
       'Sulafat',
-      'Double Double, Epsilon 1'
-      'Double Double, Epsilon 2'
+      'Double Double, Epsilon 1',
+      'Double Double, Epsilon 2',
       'Aladfar',
       'Alathfar'
     ],
@@ -1298,8 +1298,7 @@ module.exports = [
       bestSeen:'July',
     },
     stars: [],
-    description: 'Triangulum Australe was named by Johann Bayer. It lies south of Norma and Circinus. Its three brightest stars have been called the "Three Patriarchs", Abraham, Isaac and Jacob.
-'
+    description: 'Triangulum Australe was named by Johann Bayer. It lies south of Norma and Circinus. Its three brightest stars have been called the "Three Patriarchs", Abraham, Isaac and Jacob.'
   },
   {
     name: 'Tucana',
@@ -1376,7 +1375,7 @@ module.exports = [
     description: 'Vela was originally part of the large constellation Argo Navis. When the International Astronomical Union officially defined the 88 constellations and their boundaries, they split Argo Navis into 4 parts: Carina (the keel), Vela (the sail), Puppis (the poop), and Pyxis (the compass).'
   },
   {
-    name: 'Virgo,
+    name: 'Virgo',
     translation: 'The Maiden',
     coords: {
       ra: 13,

@@ -2,12 +2,14 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 const Card = ({constellation}) => {
+  const description = constellation.description ? constellation.description.substring(0, 140) : null;
+
   return (
     <View style={styles.card}>
       <Text style={styles.cardTitle}>{`${constellation.name} (${constellation.translation})`}</Text>
       <Text>{`Location: RA ${constellation.coords.ra}, DEC ${constellation.coords.dec}`}</Text>
       <Text>{`Stars: ${constellation.stars.join(', ')}`}</Text>
-      <Text>{`Description: ${constellation.description.substring(0, 140)}...`}</Text>
+      <Text>{`Description: ${description}...`}</Text>
     </View>
   )
 };

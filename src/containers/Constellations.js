@@ -21,7 +21,7 @@ class Constellations extends Component {
 
 const styles = {
   constellationsContainer: {
-    paddingTop: 50
+
   },
   skyTitle: {
     fontSize: 34
