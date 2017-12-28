@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { StyleSheet, Text, ScrollView, View, Image } from 'react-native';
-import SearchTextInput from './src/containers/SearchTextInput.js';
-import APOD from './src/components/APOD';
 import { Platform } from 'react-native';
 import { createStore } from 'redux';
 // import { composeWithdevTools } from 'remote-redux-devtools';
@@ -10,7 +7,11 @@ import { createStore } from 'redux';
 // import promise from 'redux-thunk';
 // import logger from 'redux-logger';
 import rootReducer from './src/reducers/rootReducer.js';
+
+import { StyleSheet, Text, ScrollView, View, Image } from 'react-native';
+import Welcome from './src/components/Welcome';
 import MainHeader from './src/containers/MainHeader.js';
+import SearchTextInput from './src/containers/SearchTextInput.js';
 
 const Store = createStore(
   rootReducer
@@ -25,7 +26,8 @@ class App extends Component {
     return (
       <Provider store={Store}>
         <ScrollView contentContainerStyle={styles.container}>
-          <MainHeader />
+          <Welcome />
+          {/*<MainHeader />*/}
           {/*<View style={styles.navBar}>
                       <Text>Search</Text>
                       <Image source={require('./src/assets/hamburger.png')} />
@@ -45,7 +47,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     overflow: 'scroll',
     flex: 1,
-    backgroundColor: '#363457',
+    backgroundColor: 'transparent',
     justifyContent: 'center',
     alignItems: 'center'
   },
