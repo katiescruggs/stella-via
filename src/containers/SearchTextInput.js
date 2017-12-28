@@ -91,39 +91,6 @@ class SearchTextInput extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#9999FF',
-    padding: 10,
-    paddingTop: 50,
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignSelf: 'stretch'
-  },
-  h1: {
-    fontSize: 60
-  },
-  h2: {
-    fontSize: 24
-  },
-  input: {
-    fontSize: 18,
-    textDecorationColor: '#FFCC66',
-    width: 300,
-    padding: 10
-  },
-  p: {
-    fontSize: 16
-  },
-  mainButton: {
-    borderRadius: 25,
-    borderColor: 'white',
-    borderWidth: 2,
-    padding: 10,
-    margin: 10
-  }
-});
-
 const mapStateToProps = state => ({
   location: state.location,
   now: state.now

@@ -1,20 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { View, Text, TouchableHighlight } from 'react-native';
+import { changePage } from '../actions';
+import LocationModal from './LocationModal.js';
 
-const MainHeader = () => {
-  return (
-    <View>
-      <Text style={styles.mainTitle}>Stella Via</Text>
-      <TouchableHighlight style={styles.mainButton} onPress={enterSite} activeOpacity={0.7} underlayColor={'white'}>
-        <Text style={styles.buttonText}>View Your Sky</Text>
-      </TouchableHighlight>
-    </View>
-  );
+class MainHeader extends Component {
+  enterSite = () => {
+    this.props.changePage('LocationModal');
+  }
+
+  render() {
+    const modal = this.props.page === 'LocationModal' ? <LocationModal /> : null;
+    return (
+      <View>
+        <Text style={styles.mainTitle}>Stella Via</Text>
+        <TouchableHighlight style={styles.mainButton} onPress={this.enterSite} activeOpacity={0.7} underlayColor={'white'}>
+          <Text style={styles.buttonText}>View Your Sky</Text>
+        </TouchableHighlight>
+
+        {modal}
+
+      </View>
+    );
+  }
 };
 
-const enterSite = () => {
-  console.log('change page');
-}
 
 const styles = {
   mainTitle: {
@@ -36,4 +46,15 @@ const styles = {
   }
 };
 
-export default MainHeader;
+const mapStateToProps = state => ({
+  page: state.page
+});
+
+const mapDispatchToProps = dispatch => ({
+  changePage: (page) => {
+    dispatch(changePage(page));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainHeader);
+

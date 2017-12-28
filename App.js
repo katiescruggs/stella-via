@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { StyleSheet, Text, ScrollView } from 'react-native';
 import SearchTextInput from './src/containers/SearchTextInput.js';
@@ -19,7 +19,7 @@ const Store = createStore(
   // )
 );
 
-export default class App extends React.Component {
+class App extends Component {
   render() {
     return (
       <Provider store={Store}>
@@ -42,3 +42,5 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
 });
+
+export default App;
