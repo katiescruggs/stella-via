@@ -24,7 +24,7 @@ module.exports = [
     description: 'One of the 12 constellations. Leo is the Nemean Lion which was killed by Hercules on one of his great quests. Legend says that the lion had a hide that could not punctured by iron, bronze or stone. Since he couldn\'t reason with the ferocious beast, Hercules strangled it to death and the local people were very grateful. The Chaldeans associated Leo with the sun since it is in the sky during the summer solstice (although this is no longer true, due to the precession of the Earth\'s axis). Since Nile floods around this time, the ancient Egyptians worshipped the celestial lion. You can find Leo in the sky by looking for the "sickle" starting at Regulus (Alpha Leonis) and following the backwards question mark. To find Regulus, use the Big Dipper as described on the Ursa Major Page. In more modern times (late 1600\'s that is!), Johannes Hevelius added the constellation Leo Minor.'
   },
   {
-    name: 'Virgo,
+    name: 'Virgo',
     translation: 'The Maiden',
     coords: {
       ra: '13 hours',
@@ -86,28 +86,28 @@ module.exports = [
     ],
     description: 'One of the 12 constellations. Scorpius is the beast which finally killed the Great Hunter, Orion.'
   },
-  {
-    name:,
-    translation:,
-    coords: {
-      ra:,
-      dec:,
-      visible:,
-      bestSeen:,
-    },
-    stars: [],
-    description:
-  },
-  {
-    name:,
-    translation:,
-    coords: {
-      ra:,
-      dec:,
-      visible:,
-      bestSeen:,
-    },
-    stars: [],
-    description:
-  }
+  // {
+  //   name:,
+  //   translation:,
+  //   coords: {
+  //     ra:,
+  //     dec:,
+  //     visible:,
+  //     bestSeen:,
+  //   },
+  //   stars: [],
+  //   description:
+  // },
+  // {
+  //   name:,
+  //   translation:,
+  //   coords: {
+  //     ra:,
+  //     dec:,
+  //     visible:,
+  //     bestSeen:,
+  //   },
+  //   stars: [],
+  //   description:
+  // }
 ]

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { View, Text, TouchableHighlight } from 'react-native';
 import { changePage } from '../actions';
 import LocationModal from './LocationModal.js';
+import Constellations from './Constellations.js';
 
 class MainHeader extends Component {
   enterSite = () => {
@@ -11,7 +12,7 @@ class MainHeader extends Component {
 
   render() {
     const modal = this.props.page === 'LocationModal' ? <LocationModal /> : null;
-    const constellations = this.props.page === 'Constellations' ? <Text>stars</Text> : null;
+    const constellations = this.props.page === 'Constellations' ? <Constellations /> : null;
 
     const enter = !this.props.page ?
       <View>
