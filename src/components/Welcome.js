@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, AppRegistry, TextInput, View, Text, Button, Image, TouchableHighlight } from 'react-native';
+import { StyleSheet, AppRegistry, ImageBackground, TextInput, View, Text, Button, Image, TouchableHighlight } from 'react-native';
 
 const Welcome = (props) => {
   handlePress = () => {
@@ -7,8 +7,7 @@ const Welcome = (props) => {
   } 
 
   return (
-    <View style={styles.container}>
-      {/*<Image source={require('../assets/stars-background.jpg')}/>*/}
+    <ImageBackground source={require('../assets/star-background.jpg')} style={styles.container}>
       <Text style={styles.mainTitle}>Stella Via</Text>
       <View style={styles.nav}>
 
@@ -57,7 +56,7 @@ const Welcome = (props) => {
         </TouchableHighlight>
 
       </View>
-    </View>
+    </ImageBackground>
   )
 }
 

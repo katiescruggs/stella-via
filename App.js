@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     overflow: 'scroll',
     flex: 1,
-    backgroundColor: '#363457',
+    backgroundColor: 'transparent',
     justifyContent: 'center',
     alignItems: 'center'
   },
