@@ -1,8 +1,6 @@
 const defaultLocation = {
   lat: '',
-  lon: '',
-  city: '',
-  state: ''
+  lon: ''
 };
 
 export const locationReducer = (state = defaultLocation, action) => {
@@ -12,5 +10,5 @@ export const locationReducer = (state = defaultLocation, action) => {
     default:
       return state;
   }
-}
+};
 
