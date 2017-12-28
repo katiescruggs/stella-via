@@ -68,7 +68,7 @@ const styles = {
     alignItems: 'center'
   },
   mainTitle: {
-    fontSize: 90,
+    fontSize: 80,
     color: '#fff',
     marginTop: 70,
     margin: 15,
