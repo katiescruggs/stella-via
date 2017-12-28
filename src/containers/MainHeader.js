@@ -24,7 +24,7 @@ class MainHeader extends Component {
     : null;
 
     return (
-      <View>
+      <View style={styles.nightHomepage}>
         {enter}
         {constellations}
         {modal}
@@ -34,6 +34,9 @@ class MainHeader extends Component {
 };
 
 const styles = {
+  nightHomepage: {
+    width: '100%'
+  },
   mainTitle: {
     fontSize: 80,
     alignSelf: 'center',

@@ -11,10 +11,16 @@ const CardContainer = (props) => {
   ));
 
   return (
-    <View>
+    <View style={styles.cardContainer}>
       {cards}
     </View>
   );
+}
+
+const styles = {
+  cardContainer: {
+    width: '100%'
+  }
 }
 
 export default CardContainer;

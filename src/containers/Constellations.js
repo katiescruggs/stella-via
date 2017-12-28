@@ -8,14 +8,27 @@ class Constellations extends Component {
     const { lat, lon } = this.props;
 
     return (
-      <View>
-        <Text>Tonight's Sky</Text>
-        <Text>{`Constellations For ${lat}, ${lon}`}</Text>
+      <View style={styles.constellationsContainer}>
+        <Text style={styles.skyTitle}>Tonight's Sky</Text>
+        <Text style={styles.constellationsTitle}>{`Constellations For ${lat}\xb0, ${lon}\xb0`}</Text>
         <CardContainer />
       </View>
     );
   }
 };
+
+const styles = {
+  constellationsContainer: {
+    paddingTop: 50
+  },
+  skyTitle: {
+    fontSize: 34
+  },
+  constellationsTitle: {
+    fontSize: 20,
+    marginBottom: 10
+  }
+}
 
 const mapStateToProps = state => ({
   lat: state.location.lat,
