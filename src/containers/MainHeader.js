@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { StyleSheet, AppRegistry, TextInput, View, Text, Button, Image, TouchableHighlight } from 'react-native';
+import React from 'react';
+import { View, Text, TouchableHighlight } from 'react-native';
 
 const MainHeader = () => {
   return (
