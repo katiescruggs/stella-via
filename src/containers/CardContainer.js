@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { View, Text } from 'react-native';
-//import Card from '../components/Card.js'; 
+import Card from '../components/Card.js'; 
 
 import constellations from '../../constellations/constellations.js';
 
 const CardContainer = (props) => {
-  const cards = constellations.map(constellation => {
+  const cards = constellations.map(constellation => (
     <Card constellation={constellation}/>
-  });
+  ));
 
   return (
     <View>
@@ -16,3 +16,5 @@ const CardContainer = (props) => {
     </View>
   );
 }
+
+export default CardContainer;
