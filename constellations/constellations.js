@@ -1236,99 +1236,144 @@ module.exports = [
   },
   {
     name: 'Taurus',
-    translation:,
+    translation: 'The Bull',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 4,
+      dec: 15,
+      visibleBetweenLats: [90, -65],
+      bestSeen: 'January',
     },
-    stars: [],
-    description:
+    stars: [
+      'Alderbaran',
+      'Alnath',
+      'Hyadum I',
+      'Hyadum II',
+      'Ain',
+      'Alcyone',
+      'Celaeno',
+      'Electra',
+      'Taygeta',
+      'Maia',
+      'Asterope',
+      'Sterope II',
+      'Merope',
+      'Atlas',
+      'Pleione'
+    ],
+    description: 'One of the 12 constellations of the Zodiac. Taurus is one of the many animals hunted by Orion, the Hunter. The Greeks saw Taurus as Zeus in disguise. The story went that Zeus fell in love with Europa, the daughter of Agenor who was King of Phoenica. On one day while she was playing by the waters edge, she caught sight of a majestic white bull grazing amongst her fathers heard. When she approached the bull, it knelt down and let get on it\'s back. Once she was on, it sprang to it\'s feet and took off to the sea in Crete where Zeus made her his mistress. It also represents the white bull that sired the famous Minotaur with the wife of King Minos of Crete. This bull was sent to Minos as a sign that he was the rightful heir to the throne. However, Minos did not sacrifice the bull to Poseidon like he was supposed to, so the ever-vengeful sea god caused his queen, Pasiphaë, to fall in love with it. Later, in another myth, Theseus of Athens goes to Crete and slays the dreadful Minotaur, which was reported to be a man with a bull\'s head that could breathe fire. The Egyptians saw the constellation instead as their god Osiris while the Chinese caled it alternatively the "White Tiger" or the "Great Bridge."'
   },
   {
     name: 'Telescopium',
-    translation:,
+    translation: 'The Telescope',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 19,
+      dec: -50,
+      visibleBetweenLats: [30, -90],
+      bestSeen: 'August',
     },
     stars: [],
-    description:
+    description: 'Telescopium was named by Abbé Nicolas Louis de Lacaille. He origiinally called it Tubus Telescopium'
   },
   {
     name: 'Triangulum',
-    translation:,
+    translation: 'The Triangle',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 2,
+      dec: 30,
+      visibleBetweenLats: [90, -50],
+      bestSeen: 'December',
     },
-    stars: [],
-    description:
+    stars: [
+      'Metallah'
+    ],
+    description: null
   },
   {
     name: 'Triangulum Australe',
-    translation:,
+    translation: 'The Southern Triangle',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 16,
+      dec: -65,
+      visibleBetweenLats: [15, -90],
+      bestSeen:'July',
     },
     stars: [],
-    description:
+    description: 'Triangulum Australe was named by Johann Bayer. It lies south of Norma and Circinus. Its three brightest stars have been called the "Three Patriarchs", Abraham, Isaac and Jacob.
+'
   },
   {
     name: 'Tucana',
-    translation:,
+    translation: 'The Toucan',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 24,
+      dec: -65,
+      visibleBetweenLats: [15, -90],
+      bestSeen: 'November',
     },
     stars: [],
-    description:
+    description: 'Tucana was named Toucan by Johann Bayer. Other astronomers, such as Kepler and Riccioli, called it Anser Americanus (the American Goose), but it was the Latinized form of Bayer\'s designation that stood the test of time. It occupies a piece of the sky south of Grus and Phoenix and north of Hydrus, all three of which were also named by Bayer. Tucana contains the Small Magellanic Cloud, a small irregular galaxy that orbits the Milky Way.'
   },
   {
     name: 'Ursa Major',
-    translation:,
+    translation: 'The Greater Bear',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 11,
+      dec: 50,
+      visibleBetweenLats: [90, -30],
+      bestSeen: 'April',
     },
-    stars: [],
-    description:
+    stars: [
+      'Dubhe',
+      'Merak',
+      'Phad',
+      'Megrez',
+      'Alioth',
+      'Mizar',
+      'Alkaid',
+      'Talitha',
+      'Tania Borealis',
+      'Tania Australis',
+      'Alula Borealis',
+      'Alula Australis',
+      'Muscida Omicron',
+      'Muscida Pi 1',
+      'Muscida Pi 2',
+      'Alcor'
+    ],
+    description: 'The constellation Ursa Major contains the group of stars commonly called the Big Dipper. The handle of the Dipper is the Great Bear\'s tail and the Dipper\'s cup is the Bear\'s flank. The Big Dipper is not a constellation itself, but an asterism, which is a distinctive group of stars. Another famous asterism is the Little Dipper in the constellation Ursa Minor. If you live in the Northern Hemisphere, you can use the Big Dipper to find all sorts of important stars: If you draw an imaginary line from Merak through Dubhe out of the cup of the dipper (see the picture above) and continue five times as far as Dubhe is from Merak, you will arrive at Polaris, the North Star. Now draw an imaginary line along the handle of the dipper and continue the arc across the sky. Eventually this will lead you to the very bright star, Arcturus in the constellation Boötes. If you continue the arc further, you will reach Spica in Virgo. You can remember this by saying "Arc to Arcturus and Speed to Spica." If you follow the other two stars in the cup of the dipper (Megrez and Phecda) down below the cup, you will get to Regulus.html, the brightest star in Leo. According to some Native American legends, the bowl of the Big Dipper is a giant bear and the stars of the handle are three warriors chasing it. The constellation is low in the sky in autumn evening sky, so it was said that the hunters had injured the bear and its blood caused the trees to change color to red. Although the whole of Ursa Major is difficult to see without very dark skies, the Big Dipper is one of the most recognizable patterns in the northern sky. In other cultures it was identified as a wagon or cart, a plow, a bull\'s thigh, and (to the Chinese) the government. The Big Dipper was also a very important part of the Underground Railroad which helped slaves escape from the South before the Civil War. There were songs spread among the slave population which included references to the "Drinking Gourd." The songs said to follow it to get to a better life. This veiled message for the slaves to flee northward was passed along in the form of songs since a large fraction of the slave population was illiterate.'
   },
   {
     name: 'Ursa Minor',
-    translation:,
+    translation: 'The Lesser Bear',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 15,
+      dec: 70,
+      visibleBetweenLats: [90, -10],
+      bestSeen: 'June',
     },
-    stars: [],
-    description:
+    stars: [
+      'Polaris',
+      'Kocab',
+      'Pherkad',
+      'Yildun',
+      'Pherkad Minor'
+    ],
+    description: 'The constellation Ursa Minor contains the group of stars commonly called the Little Dipper. The handle of the Dipper is the Little Bear\'s tail and the Dipper\'s cup is the Bear\'s flank. The Little Dipper is not a constellation itself, but an asterism, which is a distinctive group of stars. Another famous asterism is the Big Dipper in the constellation Ursa Major. The most famous star in Ursa Minor is Polaris, the North Star. This is the star that is nearest to the North Celestial Pole. If you stood at the north pole, Polaris would be almost directly overhead. If you can spot Polaris in the sky, you can always tell which way is north. In addition, the angle of Polaris above the horizon tells you your latitude on the Earth. Because of this, Polaris was the most important star for navigating at sea. To find Polaris, first find the Big Dipper. If you follow the two stars at the end of the cup upwards (out of the cup of the Big Dipper), the next bright star you will run into is Polaris. The distance to Polaris on the sky is about five times the angle between the two stars at the end of the cup of the Big Dipper. Because they are so useful for finding the all-important North Star, these two stars are known as the Pointer Stars. They are also called Dubhe and Merak (Merak is the one at the bottom of the cup). Because the Earth\'s axis is precessing (like a spinning top wobbles around), Polaris is only temporarily at the North Pole. In about 14,000 years, Vega will be the North Star and another 14,000 years after that, it will be Polaris again. Precession is caused by the the gravitational attraction of the Sun and the Moon. It only happens because the Earth is not quite spherical.'
   },
   {
     name: 'Vela',
-    translation:,
+    translation: 'The Sail',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 9,
+      dec: -50,
+      visibleBetweenLats: [30, -90],
+      bestSeen: 'March',
     },
-    stars: [],
-    description:
+    stars: [
+      'Suhail al Muhlif',
+      'Alsuhail'
+    ],
+    description: 'Vela was originally part of the large constellation Argo Navis. When the International Astronomical Union officially defined the 88 constellations and their boundaries, they split Argo Navis into 4 parts: Carina (the keel), Vela (the sail), Puppis (the poop), and Pyxis (the compass).'
   },
   {
     name: 'Virgo,
@@ -1354,26 +1399,28 @@ module.exports = [
   },
   {
     name: 'Volans',
-    translation:,
+    translation: 'The Flying Fish',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 8,
+      dec: -70,
+      visibleBetweenLats: [10, -90],
+      bestSeen: 'March',
     },
     stars: [],
-    description:
+    description: 'A constellation called Piscis Volans was invented by Johann Bayer. The constellation we now call simply Volans is southwest of Carina and east of the Large Magellanic Cloud. It has been said by sailors in the south seas that they had seen schools of flying fish and this may have been where the inspiration came from to name this group of stars Volans. Volans was also called Passer, the Sparrow, by Johannes Kepler.'
   },
   {
     name: 'Vulpecula',
-    translation:,
+    translation: 'The Fox',
     coords: {
-      ra:,
-      dec:,
-      visibleBetweenLats:,
-      bestSeen:,
+      ra: 20,
+      dec: 25,
+      visibleBetweenLats: [90, -55],
+      bestSeen: 'September',
     },
-    stars: [],
-    description:
+    stars: [
+      'Anser'
+    ],
+    description: null
   }
 ]
