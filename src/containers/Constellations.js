@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text, TouchableHighlight } from 'react-native';
 import CardContainer from './CardContainer.js';
+import Forecast from '../components/Forecast.js';
 
 class Constellations extends Component {
   render() {
@@ -10,6 +11,7 @@ class Constellations extends Component {
     return (
       <View style={styles.constellationsContainer}>
         <Text style={styles.skyTitle}>Tonight's Sky</Text>
+        <Forecast />
         <Text style={styles.constellationsTitle}>{`Constellations For ${lat}\xb0, ${lon}\xb0`}</Text>
         <CardContainer />
       </View>
