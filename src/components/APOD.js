@@ -6,7 +6,7 @@ class APOD extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: require('../assets/star-background.jpg'),
+      image: null,
       title: '',
       details: '',
       // showDetails: false
@@ -38,21 +38,20 @@ class APOD extends Component {
     // const imageDetails = this.state.showDetails 
     //   ? <ScrollView style={styles.detailView}><Text style={styles.details}>{this.state.details}</Text></ScrollView> 
     //   : null;
+    const image = !this.state.image 
+      ? <Text style={{color: '#fff'}}>Loading...</Text> 
+      : <Image
+            style={styles.img} 
+            source={this.state.image} />
 
     return (
       <View style={styles.container}>
         <View style={styles.imageView}>
           <View style={styles.textView}>
-            <View style={styles.upperText}>
-              <Text style={styles.teleText}>Astronomy Picture of the Day</Text>
-              <Text style={styles.teleText}>12.27.17</Text>
-            </View>
+            <Text style={styles.teleText}>Astronomy Picture of the Day</Text>
             <Text style={styles.teleText}>{this.state.title}</Text>
           </View>
-          <Image
-            style={styles.img} 
-            source={this.state.image}
-          />
+          {image}
         </View>
         <ScrollView style={styles.detailView}>
           <Text style={styles.detailsHeader}>Today's Image:</Text>
