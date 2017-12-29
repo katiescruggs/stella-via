@@ -3,6 +3,7 @@ import { StyleSheet, AppRegistry, TextInput, View, Text, Button, Image, Touchabl
 import  { connect } from 'react-redux';
 import { setLocation, changePage } from '../actions';
 import { googleKey } from '../helpers/apiKey.js';
+import NavBar from './NavBar.js';
 
 class LocationModal extends Component {
   constructor(props) {
@@ -67,6 +68,7 @@ class LocationModal extends Component {
           </View>
         </View>
       </View>
+      <NavBar />
       </View>
     );
   }

@@ -3,16 +3,16 @@ import { StyleSheet, AppRegistry, ImageBackground, TextInput, View, Text, Button
 import { connect } from 'react-redux';
 import { changePage } from '../actions';
 
-const NavButton = ({name, path, changePage, page}) => {
+const NavButton = ({name, path, changePage, page, navBar}) => {
   handlePress = () => {
     console.log('pressed');
     changePage(page);
   }
 
-  const navBarIcons = props.navBar ? 'smIcon' : null;
-  const textStyle = props.navBar ? 'smText' : 'navText';
-  const wrapper = props.navBar ? 'smWrapper' : 'iconWrapper';
-  const navButton = props.navBar ? 'smButton' : 'navIcon';
+  const navBarIcons = navBar ? 'smIcon' : null;
+  const textStyle = navBar ? 'smText' : 'navText';
+  const wrapper = navBar ? 'smWrapper' : 'iconWrapper';
+  const navButton = navBar ? 'smButton' : 'navIcon';
 
   return (
     <TouchableHighlight 

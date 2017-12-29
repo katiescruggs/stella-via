@@ -20,11 +20,11 @@ const Welcome = (props) => {
   ];
 
   const pages = [
-    'search',
-    'LocationModal',
+    'Search',
+    props.location ? 'TonightsSky' : 'LocationModal',
     'APOD',
     'User'
-  ]
+  ];
 
   const navButtons = buttons.map((name, index) => {
     return (
@@ -75,11 +75,15 @@ const styles = StyleSheet.create({
   }
 });
 
+const mapStateToProps = state => ({
+  location: state.location
+});
+
 const mapDispatchToProps = dispatch => ({
   changePage: (page) => {
     dispatch(changePage(page));
   }
 });
 
-export default connect(null, mapDispatchToProps)(Welcome);
+export default connect(mapStateToProps, mapDispatchToProps)(Welcome);
 

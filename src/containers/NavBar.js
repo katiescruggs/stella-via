@@ -26,12 +26,20 @@ class NavBar extends Component {
       require('../assets/user.png'),
     ];
 
+    const pages = [
+      'Search',
+      this.props.location ? 'TonightsSky' : 'LocationModal',
+      'APOD',
+      'User'
+    ];
+
     const navButtons = buttons.map((name, index) => {
       return (
         <NavButton 
           key={`nav-btn-${index}`}
           name={name}
           path={paths[index]}
+          page={pages[index]}
           navBar={true}
         />
       )
@@ -52,7 +60,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    position: 'absolute',
+    bottom: 0
   }
-})
+});
 
-export default connect(null, null)(NavBar);
+const mapStateToProps = state => ({
+  location: state.location
+});
+
+export default connect(mapStateToProps, null)(NavBar);

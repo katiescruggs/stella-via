@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, View, ScrollView, Text, Image, TouchableHighlight } from 'react-native';
 import getAPOD from '../helpers/getAPOD.js';
+import NavBar from '../containers/NavBar.js';
 
 class APOD extends Component {
   constructor(props) {
@@ -60,6 +61,7 @@ class APOD extends Component {
         {/*<TouchableHighlight style={styles.detailsButton} onPress={this.handleShowDetails} activeOpacity={0.7} underlayColor={'#735290'}>
                   <Text style={styles.teleText}>Image Details</Text>
                 </TouchableHighlight>*/}
+        <NavBar />
       </View>
     )
   }

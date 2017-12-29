@@ -3,18 +3,22 @@ import { connect } from 'react-redux';
 import { ScrollView, View, Text, TouchableHighlight } from 'react-native';
 import CardContainer from './CardContainer.js';
 import Forecast from '../components/Forecast.js';
+import NavBar from './NavBar.js';
 
 class TonightsSky extends Component {
   render() {
     const { lat, lon } = this.props;
 
     return (
-      <ScrollView style={styles.constellationsContainer}>
-        <Text style={styles.skyTitle}>Tonight's Sky</Text>
-        <Forecast />
-        <Text style={styles.constellationsTitle}>{`Constellations For ${lat}\xb0, ${lon}\xb0`}</Text>
-        <CardContainer />
-      </ScrollView>
+      <View style={styles.constellationsContainer}>
+        <ScrollView>
+          <Text style={styles.skyTitle}>Tonight's Sky</Text>
+          <Forecast />
+          <Text style={styles.constellationsTitle}>{`Constellations For ${lat}\xb0, ${lon}\xb0`}</Text>
+          <CardContainer />
+        </ScrollView>
+        <NavBar />
+      </View>
     );
   }
 };

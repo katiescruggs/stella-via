@@ -1,9 +1,4 @@
-const defaultLocation = {
-  lat: '',
-  lon: ''
-};
-
-export const locationReducer = (state = defaultLocation, action) => {
+export const locationReducer = (state = null, action) => {
   switch(action.type) {
     case 'SET_LOCATION':
       return action.location;
