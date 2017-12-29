@@ -11,7 +11,9 @@ const CurrentView = ({page}) => {
     welcome: <Welcome />,
     LocationModal: <LocationModal />,
     TonightsSky: <TonightsSky />,
-    APOD: <APOD />
+    APOD: <APOD />,
+    Search: null,
+    User: null
   };
 
   return pages[page];
