@@ -18,7 +18,7 @@ class LocationModal extends Component {
       const lon = coords.longitude.toFixed(3);
       const location = {lat, lon};
       this.props.setLocation(location);
-      this.props.changePage('Constellations');
+      this.props.changePage('TonightsSky');
     });
   };
 
@@ -39,12 +39,13 @@ class LocationModal extends Component {
       const location = {lat, lon, city, state};
       this.setState({text: ''});
       this.props.setLocation(location);
-      this.props.changePage('Constellations');
+      this.props.changePage('TonightsSky');
     }
   };
 
   render() {
     return (
+      <View style={styles.mainContainer}>
       <View style={styles.modalContainer}>
         <Text style={styles.modalTitle}>Finding Your Night Sky</Text>
         <View style={styles.inputContainer}> 
@@ -66,16 +67,23 @@ class LocationModal extends Component {
           </View>
         </View>
       </View>
+      </View>
     );
   }
 }
 
 const styles = {
+  mainContainer: {
+    flex: 1,
+    alignContent: 'center',
+    justifyContent: 'center'
+  },
   modalContainer: {
     alignSelf: 'center',
     backgroundColor: 'white',
     borderColor: '#502F4C',
     borderWidth: 7,
+    justifyContent: 'center',
     minHeight: 300,
     padding: 20,
     width: '95%'

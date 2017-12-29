@@ -7,19 +7,11 @@ import { createStore } from 'redux';
 // import promise from 'redux-thunk';
 // import logger from 'redux-logger';
 import rootReducer from './src/reducers/rootReducer.js';
-
 import { StyleSheet, Text, ScrollView, View, Image } from 'react-native';
-import Welcome from './src/components/Welcome';
-import MainHeader from './src/containers/MainHeader';
-import SearchTextInput from './src/containers/SearchTextInput';
-import APOD from './src/components/APOD';
-import NavBar from './src/containers/NavBar';
+import CurrentView from './src/containers/CurrentView.js';
 
 const Store = createStore(
   rootReducer
-  // composeWithdevTools(
-  //   applyMiddleware( thunk )
-  // )
 );
 
 class App extends Component {
@@ -27,13 +19,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={Store}>
-        <ScrollView contentContainerStyle={styles.container}>
-          {/*<Welcome />*/}
-          {/*<APOD />*/}
-          
-          {/*<MainHeader />*/}
-          <NavBar />
-        </ScrollView>
+        <CurrentView />
       </Provider>
     );
   }

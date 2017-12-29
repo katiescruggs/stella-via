@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { StyleSheet, AppRegistry, ImageBackground, TextInput, View, Text, Button, Image, TouchableHighlight } from 'react-native';
+import { connect } from 'react-redux';
+import { changePage } from '../actions';
 
-const NavButton = (props) => {
+const NavButton = ({name, path, changePage, page}) => {
   handlePress = () => {
-    console.log('pressed')
+    console.log('pressed');
+    changePage(page);
   }
 
   const navBarIcons = props.navBar ? 'smIcon' : null;
@@ -17,9 +20,10 @@ const NavButton = (props) => {
       onPress={handlePress} 
       activeOpacity={0.3} 
       underlayColor={'#735290'}>
+    
       <View style={styles[wrapper]}> 
-        <Text style={styles[textStyle]}>{props.name}</Text>
-        <Image style={styles[navBarIcons]} source={props.path}/>
+        <Text style={styles[textStyle]}>{name}</Text>
+        <Image style={styles[navBarIcons]} source={path}/>
       </View>
     </TouchableHighlight>
   )
@@ -82,6 +86,13 @@ const styles = StyleSheet.create({
     // fontWeight: 'bold',
     marginBottom: 4
   }
-})
+});
 
-export default NavButton;
+const mapDispatchToProps = dispatch => ({
+  changePage: (page) => {
+    dispatch(changePage(page));
+  }
+});
+
+export default connect(null, mapDispatchToProps)(NavButton);
+
