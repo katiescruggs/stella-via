@@ -13,12 +13,10 @@ import Welcome from './src/components/Welcome';
 import MainHeader from './src/containers/MainHeader';
 import SearchTextInput from './src/containers/SearchTextInput';
 import APOD from './src/components/APOD';
+import CurrentView from './src/containers/CurrentView.js';
 
 const Store = createStore(
   rootReducer
-  // composeWithdevTools(
-  //   applyMiddleware( thunk )
-  // )
 );
 
 class App extends Component {
@@ -26,19 +24,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={Store}>
-        <ScrollView contentContainerStyle={styles.container}>
-          <Welcome />
-          {/*<APOD />*/}
-          
-          {/*<MainHeader />*/}
-          {/*<View style={styles.navBar}>
-                      <Text>Search</Text>
-                      <Image source={require('./src/assets/hamburger.png')} />
-                      <Image source={require('./src/assets/hamburger.png')}/>
-                      <Image source={require('./src/assets/hamburger.png')}/>
-                      <Image source={require('./src/assets/hamburger.png')}/>
-                    </View>*/}
-        </ScrollView>
+        <CurrentView />
       </Provider>
     );
   }
