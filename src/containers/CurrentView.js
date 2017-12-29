@@ -5,6 +5,8 @@ import Welcome from '../components/Welcome.js';
 import APOD from '../components/APOD.js';
 import LocationModal from './LocationModal.js';
 import TonightsSky from './TonightsSky.js';
+import Search from './Search.js';
+import User from './User.js';
 
 const CurrentView = ({page}) => {
   const pages = {
@@ -12,8 +14,8 @@ const CurrentView = ({page}) => {
     LocationModal: <LocationModal />,
     TonightsSky: <TonightsSky />,
     APOD: <APOD />,
-    Search: null,
-    User: null
+    Search: <Search />,
+    User: <User />
   };
 
   return pages[page];
