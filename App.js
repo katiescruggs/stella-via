@@ -13,6 +13,7 @@ import Welcome from './src/components/Welcome';
 import MainHeader from './src/containers/MainHeader';
 import SearchTextInput from './src/containers/SearchTextInput';
 import APOD from './src/components/APOD';
+import NavBar from './src/containers/NavBar';
 
 const Store = createStore(
   rootReducer
@@ -27,17 +28,11 @@ class App extends Component {
     return (
       <Provider store={Store}>
         <ScrollView contentContainerStyle={styles.container}>
-          <Welcome />
+          {/*<Welcome />*/}
           {/*<APOD />*/}
           
           {/*<MainHeader />*/}
-          {/*<View style={styles.navBar}>
-                      <Text>Search</Text>
-                      <Image source={require('./src/assets/hamburger.png')} />
-                      <Image source={require('./src/assets/hamburger.png')}/>
-                      <Image source={require('./src/assets/hamburger.png')}/>
-                      <Image source={require('./src/assets/hamburger.png')}/>
-                    </View>*/}
+          <NavBar />
         </ScrollView>
       </Provider>
     );
