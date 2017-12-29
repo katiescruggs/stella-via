@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text, TouchableHighlight } from 'react-native';
+import { ScrollView, View, Text, TouchableHighlight } from 'react-native';
 import CardContainer from './CardContainer.js';
 import Forecast from '../components/Forecast.js';
 
-class Constellations extends Component {
+class TonightsSky extends Component {
   render() {
     const { lat, lon } = this.props;
 
     return (
-      <View style={styles.constellationsContainer}>
+      <ScrollView style={styles.constellationsContainer}>
         <Text style={styles.skyTitle}>Tonight's Sky</Text>
         <Forecast />
         <Text style={styles.constellationsTitle}>{`Constellations For ${lat}\xb0, ${lon}\xb0`}</Text>
         <CardContainer />
-      </View>
+      </ScrollView>
     );
   }
 };
@@ -37,4 +37,5 @@ const mapStateToProps = state => ({
   lon: state.location.lon
 });
 
-export default connect(mapStateToProps, null)(Constellations);
+export default connect(mapStateToProps, null)(TonightsSky);
+
