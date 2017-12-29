@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet, AppRegistry, ImageBackground, TextInput, View, Text, Button, Image, TouchableHighlight } from 'react-native';
 import NavButton from './NavButton.js';
+import { connect } from 'react-redux';
+import { changePage } from '../actions';
 
 const Welcome = (props) => {
-  // handlePress = () => {
-  //   console.log('pressed')
-  // } 
-
   const buttons = [
     'Search', 
     'Tonight\'s Sky', 
@@ -29,7 +27,7 @@ const Welcome = (props) => {
         path={paths[index]}
       />
     )
-  })
+  });
 
   return (
     <ImageBackground source={require('../assets/star-background.jpg')} style={styles.container}>
@@ -67,6 +65,13 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     margin: 15,
   }
-})
+});
 
-export default Welcome;
+const mapDispatchToProps = dispatch => ({
+  changePage: (page) => {
+    dispatch(changePage(page));
+  }
+});
+
+export default connect(null, mapDispatchToProps)(Welcome);
+

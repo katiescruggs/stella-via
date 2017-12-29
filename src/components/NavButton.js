@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { StyleSheet, AppRegistry, ImageBackground, TextInput, View, Text, Button, Image, TouchableHighlight } from 'react-native';
+import { connect } from 'react-redux';
+import { changePage } from '../actions';
 
 const NavButton = (props) => {
   handlePress = () => {
-    console.log('pressed')
+    console.log('pressed');
+    props.changePage('LocationModal');
   }
 
   return (
@@ -47,6 +50,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 4
   }
-})
+});
 
-export default NavButton;
+const mapDispatchToProps = dispatch => ({
+  changePage: (page) => {
+    dispatch(changePage(page));
+  }
+});
+
+export default connect(null, mapDispatchToProps)(NavButton);
+
