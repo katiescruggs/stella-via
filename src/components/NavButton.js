@@ -3,10 +3,10 @@ import { StyleSheet, AppRegistry, ImageBackground, TextInput, View, Text, Button
 import { connect } from 'react-redux';
 import { changePage } from '../actions';
 
-const NavButton = (props) => {
+const NavButton = ({name, path, changePage, page}) => {
   handlePress = () => {
     console.log('pressed');
-    props.changePage('LocationModal');
+    changePage(page);
   }
 
   return (
@@ -16,8 +16,8 @@ const NavButton = (props) => {
       activeOpacity={0.3} 
       underlayColor={'#735290'}>
       <View style={styles.iconWrapper}> 
-        <Text style={styles.navText}>{props.name}</Text>
-        <Image source={props.path}/>
+        <Text style={styles.navText}>{name}</Text>
+        <Image source={path}/>
       </View>
     </TouchableHighlight>
   )

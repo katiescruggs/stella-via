@@ -19,12 +19,20 @@ const Welcome = (props) => {
     require('../assets/user.png'),
   ];
 
+  const pages = [
+    'search',
+    'LocationModal',
+    'APOD',
+    'User'
+  ]
+
   const navButtons = buttons.map((name, index) => {
     return (
       <NavButton 
         key={`nav-btn-${index}`}
         name={name}
         path={paths[index]}
+        page={pages[index]}
       />
     )
   });
