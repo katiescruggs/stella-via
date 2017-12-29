@@ -27,8 +27,8 @@ class App extends Component {
     return (
       <Provider store={Store}>
         <ScrollView contentContainerStyle={styles.container}>
-          {/*<Welcome />*/}
-          <APOD />
+          <Welcome />
+          {/*<APOD />*/}
           
           {/*<MainHeader />*/}
           {/*<View style={styles.navBar}>
