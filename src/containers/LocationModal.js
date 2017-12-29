@@ -18,7 +18,7 @@ class LocationModal extends Component {
       const lon = coords.longitude.toFixed(3);
       const location = {lat, lon};
       this.props.setLocation(location);
-      this.props.changePage('Constellations');
+      this.props.changePage('TonightsSky');
     });
   };
 
@@ -39,7 +39,7 @@ class LocationModal extends Component {
       const location = {lat, lon, city, state};
       this.setState({text: ''});
       this.props.setLocation(location);
-      this.props.changePage('Constellations');
+      this.props.changePage('TonightsSky');
     }
   };
 
