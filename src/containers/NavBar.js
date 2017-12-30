@@ -54,7 +54,7 @@ class NavBar extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 15,
+    padding: 7,
     backgroundColor: '#735290',
     width: '100%',
     flexDirection: 'row',

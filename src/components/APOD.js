@@ -9,9 +9,7 @@ class APOD extends Component {
     this.state = {
       image: null,
       title: '',
-      details: '',
-      // showDetails: false
-
+      details: ''
     };
   }
 
@@ -30,15 +28,7 @@ class APOD extends Component {
     this.fetchAPOD();
   }
 
-  // handleShowDetails = () => {
-  //   const showDetails = !this.state.showDetails
-  //   this.setState({ showDetails });
-  // }
-
   render() {
-    // const imageDetails = this.state.showDetails 
-    //   ? <ScrollView style={styles.detailView}><Text style={styles.details}>{this.state.details}</Text></ScrollView> 
-    //   : null;
     const image = !this.state.image 
       ? <Text style={{color: '#fff'}}>Loading...</Text> 
       : <Image
@@ -58,9 +48,6 @@ class APOD extends Component {
           <Text style={styles.detailsHeader}>Today's Image:</Text>
           <Text style={styles.details}>{this.state.details}</Text>
         </ScrollView>
-        {/*<TouchableHighlight style={styles.detailsButton} onPress={this.handleShowDetails} activeOpacity={0.7} underlayColor={'#735290'}>
-                  <Text style={styles.teleText}>Image Details</Text>
-                </TouchableHighlight>*/}
         <NavBar />
       </View>
     )
@@ -76,38 +63,37 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   img: {
-    width: 300, 
-    height: 300,
     borderRadius: 150,
+    borderWidth: 1,
     shadowColor: '#000',
     shadowRadius: 600,
     shadowOpacity: 1,
-    borderWidth: 1,
-    padding: 10
+    padding: 10,
+    height: 300,
+    width: 300, 
   },
   imageView : {
-    // flex: 1,
-    width: '93%',
-    height: 350,
     backgroundColor: '#000',
-    alignItems: 'center',
-    justifyContent: 'center',
     borderColor: '#fff',
     borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
     marginTop: 70,
-    marginBottom: 20
+    marginBottom: 20,
+    height: 350,
+    width: '93%',
   },
   textView: {
-    height: 355,
-    justifyContent: 'space-between',
     alignItems: 'center',
+    justifyContent: 'space-between',
+    height: 355,
     position: 'absolute',
-    zIndex: 10
+    zIndex: 10,
   },
   upperText: {
-    width: '90%',
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    width: '90%',
   },
   teleText: {
     color: '#fff',
@@ -115,32 +101,28 @@ const styles = StyleSheet.create({
   },
   detailView: {
     flex: 1,
-    backgroundColor: '#735290',
+    backgroundColor: 'rgba(40, 38, 64, 0.7)',
     borderColor: '#fff',
     borderWidth: 1,
     borderBottomWidth: 0,
-    width: '93%'
+    width: '93%',
   },
   detailsHeader: {
-    padding: 15,
+    backgroundColor: '#735290',
     color: '#fff',
-    fontSize: 34,
+    fontSize: 28,
     textAlign: 'center',
-    backgroundColor: 'rgba(40, 38, 64, 0.7)',
-    width: '100%'
+    padding: 10,
+    width: '100%',
   },
   details: {
-    padding: 20,
     color: '#fff',
-    fontSize: 16,
-    textAlign: 'center'
-  },
-  // detailsButton: {
-  //   borderRadius: 50,
-  //   borderColor: '#fff',
-  //   borderWidth: 1,
-  //   padding: 5
-  // }
+    fontSize: 18,
+    lineHeight: 25,
+    textAlign: 'center',
+    marginBottom: 105,
+    padding: 20,
+  }
 });
 
 export default APOD;
