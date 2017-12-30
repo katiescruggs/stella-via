@@ -14,7 +14,9 @@ class TonightsSky extends Component {
         <ScrollView>
           <Text style={styles.skyTitle}>Tonight's Sky</Text>
           <Forecast />
-          <Text style={styles.constellationsTitle}>{`Constellations For ${lat}\xb0, ${lon}\xb0`}</Text>
+          <Text style={styles.constellationsTitle}>
+            {`Constellations For ${lat}\xb0, ${lon}\xb0`}
+          </Text>
           <CardContainer />
         </ScrollView>
         <NavBar />
