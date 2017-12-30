@@ -13,17 +13,19 @@ class LocationModal extends Component {
     };
   };
 
-  getGeolocation = () => {
+  getGeolocation = (nextPage) => {
+    console.log(nextPage);
     navigator.geolocation.getCurrentPosition(({coords}) => {
       const lat = coords.latitude.toFixed(3);
       const lon = coords.longitude.toFixed(3);
       const location = {lat, lon};
       this.props.setLocation(location);
-      this.props.changePage('TonightsSky');
+      this.props.changePage(nextPage);
     });
   };
 
-  handleSearchLocation = async () => {
+  handleSearchLocation = async (nextPage) => {
+    console.log(nextPage);
     const cityState = this.state.text.split(', ');
     const city = cityState[0];
     const state = cityState[1];
@@ -40,18 +42,22 @@ class LocationModal extends Component {
       const location = {lat, lon, city, state};
       this.setState({text: ''});
       this.props.setLocation(location);
-      this.props.changePage('TonightsSky');
+      this.props.changePage(nextPage);
     }
   };
 
   render() {
+    const nextPage = this.props.currentPage === 'LocationModalTonight'
+      ? 'TonightsSky'
+      : 'StarMap';
+
     return (
       <View style={styles.mainContainer}>
       <View style={styles.modalContainer}>
         <Text style={styles.modalTitle}>Finding Your Night Sky</Text>
         <View style={styles.inputContainer}> 
           <TouchableHighlight style={styles.modalButton}
-            onPress={this.getGeolocation}>
+            onPress={() => this.getGeolocation(nextPage)}>
             <Text style={styles.modalButtonText}>Use Current Location</Text>
           </TouchableHighlight>
           <View>
@@ -62,7 +68,7 @@ class LocationModal extends Component {
               onChangeText={(text) => this.setState({text})}
             />
             <TouchableHighlight style={styles.modalButton}
-              onPress={this.handleSearchLocation}>
+              onPress={() => this.handleSearchLocation(nextPage)}>
               <Text style={styles.modalButtonText}>Set New Location</Text>
             </TouchableHighlight>
           </View>
@@ -119,6 +125,10 @@ const styles = {
   }
 };
 
+const mapStateToProps = state => ({
+  currentPage: state.page
+});
+
 const mapDispatchToProps = dispatch => ({
   setLocation: (location) => {
     dispatch(setLocation(location));
@@ -128,6 +138,6 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(null, mapDispatchToProps)(LocationModal);
+export default connect(mapStateToProps, mapDispatchToProps)(LocationModal);
 
 
