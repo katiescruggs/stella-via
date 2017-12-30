@@ -59,8 +59,8 @@ const styles = StyleSheet.create({
   smWrapper: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: 80, 
-    width: 80,
+    height: 60, 
+    width: 60,
   },
   smButton: {
     borderRadius: 20,
@@ -76,8 +76,8 @@ const styles = StyleSheet.create({
     elevation: 1
   },
   smIcon: {
-    height: 40, 
-    width: 40,
+    height: 20, 
+    width: 20,
   },
   smText: {
     textAlign: 'center',
