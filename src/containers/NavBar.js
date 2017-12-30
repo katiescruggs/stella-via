@@ -14,7 +14,8 @@ class NavBar extends Component {
   render() {
     const buttons = [
     'Search', 
-    'Tonight\'s Sky', 
+    'Tonight\'s Sky',
+    'Star Map', 
     'Daily Image', 
     'Login'
     ];
@@ -22,13 +23,15 @@ class NavBar extends Component {
     const paths = [
       require('../assets/search.png'),
       require('../assets/planet.png'),
+      require('../assets/planet.png'),
       require('../assets/photo.png'),
       require('../assets/user.png'),
     ];
 
     const pages = [
       'Search',
-      this.props.location ? 'TonightsSky' : 'LocationModal',
+      this.props.location ? 'TonightsSky' : 'LocationModalTonight',
+      this.props.location ? 'StarMap' : 'LocationModalMap',
       'APOD',
       'User'
     ];

@@ -21,7 +21,7 @@ const Welcome = (props) => {
 
   const pages = [
     'Search',
-    props.location ? 'TonightsSky' : 'LocationModal',
+    props.location ? 'TonightsSky' : 'LocationModalTonight',
     'APOD',
     'User'
   ];
