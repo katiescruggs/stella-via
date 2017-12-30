@@ -37,6 +37,7 @@ class APOD extends Component {
 
     return (
       <View style={styles.container}>
+        <View style={styles.topBorder}></View>
         <View style={styles.imageView}>
           <View style={styles.textView}>
             <Text style={styles.teleText}>Astronomy Picture of the Day</Text>
@@ -62,6 +63,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     width: '100%'
   },
+  topBorder: {
+    width: '100%',
+    height: 50,
+    backgroundColor: '#735290'
+  },
   img: {
     borderRadius: 150,
     borderWidth: 1,
@@ -78,7 +84,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 70,
+    marginTop: 20,
     marginBottom: 20,
     height: 350,
     width: '93%',
