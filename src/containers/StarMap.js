@@ -3,16 +3,44 @@ import { connect } from 'react-redux';
 import { StyleSheet, AppRegistry, WebView, View, Text } from 'react-native';
 import NavBar from './NavBar.js';
 
-const StarMap = () => {
+const StarMap = ({ lat, lon }) => {
   return (
-    <View style={{flex: 1, paddingTop: 100}}>
+    <View style={styles.container}>
+      <Text style={styles.title}>Star Map</Text>
+      <Text style={styles.coords}>{`Latitude: ${lat}\xb0, Longitude: ${lon}\xb0`}</Text>
+      <Text style={styles.coords}>Right Acension: 5hrs, Declination: 5&deg;</Text>
       <WebView
-        source={{uri: 'http://server1.sky-map.org/skywindow?ra=8&dec=45&show_constellation_lines=1&zoom=10&img_source=SDSS'}}
-        style={{backgroundColor: 'magenta'}}
+        scalesPageToFit={false}
+        source={{uri: 'http://server1.sky-map.org/skywindow?ra=5&dec=5&zoom=8&img_source=SDSS'}}
+        style={styles.webView}
       />
       <NavBar />
     </View>
   )
 }
 
-export default connect(null, null)(StarMap);
+const styles = StyleSheet.create({
+  container: {
+    flex: 1, 
+  },
+  webView: {
+    backgroundColor: 'magenta',
+  },
+  title: {
+    textAlign: 'center',
+    paddingTop: 70,
+    fontSize: 28
+  },
+  coords: {
+    textAlign: 'center',
+    fontSize: 14,
+    margin: 10
+  }
+})
+
+const mapStateToProps = state => ({
+  lat: state.location.lat,
+  lon: state.location.lon
+});
+
+export default connect(mapStateToProps, null)(StarMap);
