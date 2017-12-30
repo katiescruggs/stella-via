@@ -39,7 +39,8 @@ const Welcome = (props) => {
 
   return (
     <ImageBackground source={require('../assets/star-background.jpg')} style={styles.container}>
-      <Text style={styles.mainTitle}>Stella Via</Text>
+      <Image style={styles.mainTitle} source={require('../assets/stella-via-logo-white.png')}/>
+      {/*<Text style={styles.mainTitle}>Stella Via</Text>*/}
       <View style={styles.nav}>
       {navButtons}
       </View>
@@ -55,23 +56,21 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   mainTitle: {
-    fontSize: 80,
-    color: '#fff',
     marginTop: 70,
-    margin: 15,
-    textAlign: 'center'
+    width: '100%',    
+    height: 180
   },
   nav: {
     borderRadius: 50,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    borderWidth: 3,
+    borderWidth: 5,
     borderColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
     paddingBottom: 25,
     paddingTop: 30,
-    margin: 15,
+    marginBottom: 20,
   }
 });
 
