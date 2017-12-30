@@ -4,6 +4,7 @@ import  { connect } from 'react-redux';
 import { setLocation, changePage } from '../actions';
 import { googleKey } from '../helpers/apiKey.js';
 import NavBar from './NavBar.js';
+import { calculateRA } from '../helpers/starCoords.js';
 
 class LocationModal extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class LocationModal extends Component {
       const location = {lat, lon};
       this.props.setLocation(location);
       this.props.changePage(nextPage);
+      calculateRA(lon)
     });
   };
 

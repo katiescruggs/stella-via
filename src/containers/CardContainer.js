@@ -6,8 +6,10 @@ import Card from '../components/Card.js';
 import constellations from '../../constellations/constellations.js';
 
 const CardContainer = (props) => {
-  const cards = constellations.map(constellation => (
-    <Card constellation={constellation}/>
+  const cards = constellations.map((constellation, index) => (
+    <Card
+      key={`card-${index}`} 
+      constellation={constellation}/>
   ));
 
   return (
