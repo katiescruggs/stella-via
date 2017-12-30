@@ -30,7 +30,7 @@ class NavBar extends Component {
       'Search',
       this.props.location ? 'TonightsSky' : 'LocationModal',
       'APOD',
-      'StarMap'
+      'User'
     ];
 
     const navButtons = buttons.map((name, index) => {
