@@ -12,12 +12,14 @@ import User from './User.js';
 const CurrentView = ({page}) => {
   const pages = {
     welcome: <Welcome />,
-    LocationModal: <LocationModal />,
+    LocationModalTonight: <LocationModal />,
+    LocationModalMap: <LocationModal />,
     TonightsSky: <TonightsSky />,
     StarMap: <StarMap />,
     APOD: <APOD />,
     Search: <Search />,
-    User: <User />
+    User: <User />,
+    StarMap: <StarMap />
   };
 
   return pages[page];
