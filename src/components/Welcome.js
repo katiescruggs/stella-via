@@ -39,7 +39,7 @@ const Welcome = (props) => {
 
   return (
     <ImageBackground source={require('../assets/star-background.jpg')} style={styles.container}>
-      <Image style={styles.mainTitle} source={require('../assets/stella-via-logo-white.png')}/>
+      <Image style={styles.mainTitle} source={require('../assets/stella-via-logo-gradient.png')}/>
       {/*<Text style={styles.mainTitle}>Stella Via</Text>*/}
       <View style={styles.nav}>
       {navButtons}
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   mainTitle: {
     marginTop: 70,
     width: '100%',    
-    height: 180
+    height: 200
   },
   nav: {
     borderRadius: 50,
