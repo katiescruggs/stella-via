@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, ScrollView, View, Text, TouchableHighlight } from 'react-native';
-import CardContainer from './CardContainer.js';
-import Forecast from '../components/Forecast.js';
-import NavBar from './NavBar.js';
+import CardContainer from './CardContainer';
+import Forecast from '../components/Forecast';
+import NavBar from './NavBar';
+import NavButton from '../components/NavButton'
 import { colors } from '../assets/colors';
 
 class TonightsSky extends Component {
@@ -15,6 +16,12 @@ class TonightsSky extends Component {
         <ScrollView>
           <View style={styles.titleContainer}>
             <Text style={styles.skyTitle}>Tonight's Sky</Text>
+            <NavButton 
+              path={require('../assets/location.png')}
+              name={null}
+              page='LocationModalTonight'
+              small={true}
+            />
           </View>
           <Forecast />
           <Text style={styles.constellationsTitle}>
@@ -36,6 +43,10 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     backgroundColor: colors.$purple,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 10
   },
   skyTitle: {
     color: colors.$white,
