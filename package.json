@@ -27,6 +27,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "astronomia": "^1.3.7",
     "expo": "^23.0.4",
     "react": "16.0.0",
     "react-icons": "^2.2.7",
