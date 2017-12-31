@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
+import { colors } from '../assets/colors';
 
 const Card = ({constellation}) => {
   const description = constellation.description ? constellation.description.substring(0, 140) : null;
@@ -14,10 +15,11 @@ const Card = ({constellation}) => {
   );
 };
 
-const styles = {
+
+const styles = StyleSheet.create({
   card: {
-    backgroundColor: 'white',
-    borderColor: 'black',
+    backgroundColor: colors.$white,
+    borderColor: colors.$black,
     borderWidth: 1,
     marginBottom: 10,
     padding: 10,
@@ -26,6 +28,6 @@ const styles = {
   cardTitle: {
     fontSize: 18
   }
-};
+});
 
 export default Card;

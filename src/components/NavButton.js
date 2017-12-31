@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import { changePage } from '../actions';
+import { colors } from '../assets/colors';
 
 const NavButton = ({name, path, changePage, page, navBar}) => {
   handlePress = () => {
@@ -28,9 +29,6 @@ const NavButton = ({name, path, changePage, page, navBar}) => {
   );
 };
 
-const $transparentDarkPurple = 'rgba(40, 38, 64, 0.7)';
-const $btnShadow = 'rgba(0, 0, 0, 0.6)';
-const white = '#fff';
 const styles = StyleSheet.create({
   iconWrapper: {
     justifyContent: 'center',
@@ -40,12 +38,11 @@ const styles = StyleSheet.create({
   },
   navIcon: {
     borderRadius: 20,
-    backgroundColor: $transparentDarkPurple,
-    // backgroundColor: '#282640',
+    backgroundColor: colors.$transparentDarkPurple,
     justifyContent: 'center',
     alignItems: 'center',
     margin: 10,
-    shadowColor: $btnShadow,
+    shadowColor: colors.$btnShadow,
     shadowOffset: { width: 2, height: 10 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
@@ -54,7 +51,7 @@ const styles = StyleSheet.create({
   navText: {
     textAlign: 'center',
     fontSize: 18,
-    color: white,
+    color: colors.$white,
     fontWeight: 'bold',
     marginBottom: 4
   },
@@ -66,12 +63,11 @@ const styles = StyleSheet.create({
   },
   smButton: {
     borderRadius: 20,
-    backgroundColor: $transparentDarkPurple,
-    // backgroundColor: '#282640',
+    backgroundColor: colors.$transparentDarkPurple,
     justifyContent: 'center',
     alignItems: 'center',
     margin: 5,
-    shadowColor: $btnShadow,
+    shadowColor: colors.$btnShadow,
     shadowOffset: { width: 2, height: 10 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
@@ -84,7 +80,7 @@ const styles = StyleSheet.create({
   smText: {
     textAlign: 'center',
     fontSize: 12,
-    color: white,
+    color: colors.$white,
     marginBottom: 4
   }
 });
