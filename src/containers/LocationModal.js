@@ -15,19 +15,17 @@ class LocationModal extends Component {
   };
 
   getGeolocation = (nextPage) => {
-    console.log(nextPage);
     navigator.geolocation.getCurrentPosition(({coords}) => {
       const lat = coords.latitude.toFixed(3);
       const lon = coords.longitude.toFixed(3);
       const location = {lat, lon};
       this.props.setLocation(location);
       this.props.changePage(nextPage);
-      calculateRA(lon)
+      calculateRA(-105);
     });
   };
 
   handleSearchLocation = async (nextPage) => {
-    console.log(nextPage);
     const cityState = this.state.text.split(', ');
     const city = cityState[0];
     const state = cityState[1];

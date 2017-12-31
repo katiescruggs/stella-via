@@ -5,7 +5,6 @@ import { changePage } from '../actions';
 
 const NavButton = ({name, path, changePage, page, navBar}) => {
   handlePress = () => {
-    console.log('pressed');
     changePage(page);
   }
 
