@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import  { connect } from 'react-redux';
 import NavButton from '../components/NavButton';
+import { colors } from '../assets/colors';
 
 class NavBar extends Component {
   constructor(props) {
@@ -56,11 +57,10 @@ class NavBar extends Component {
   }
 }
 
-const $purple = '#735290';
 const styles = StyleSheet.create({
   container: {
     padding: 7,
-    backgroundColor: $purple,
+    backgroundColor: colors.$purple,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'center',

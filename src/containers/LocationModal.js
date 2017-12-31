@@ -5,6 +5,7 @@ import { setLocation, changePage, setSkyCoords } from '../actions';
 import { googleKey } from '../helpers/apiKey.js';
 import NavBar from './NavBar.js';
 import { calculateRA } from '../helpers/starCoords.js';
+import { colors } from '../assets/colors.js';
 
 class LocationModal extends Component {
   constructor(props) {
@@ -85,7 +86,7 @@ class LocationModal extends Component {
   }
 }
 
-const styles = {
+const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     alignContent: 'center',
@@ -93,8 +94,8 @@ const styles = {
   },
   modalContainer: {
     alignSelf: 'center',
-    backgroundColor: 'white',
-    borderColor: '#502F4C',
+    backgroundColor: colors.$white,
+    borderColor: colors.$redPurple,
     borderWidth: 7,
     justifyContent: 'center',
     minHeight: 300,
@@ -112,8 +113,8 @@ const styles = {
   },
   modalButton: {
     alignSelf: 'center',
-    backgroundColor: '#C8B8DB',
-    borderColor: '#C8B8DB',
+    backgroundColor: colors.$lavender,
+    borderColor: colors.$lavender,
     borderRadius: 25,
     borderWidth: 2,
     padding: 10
@@ -122,13 +123,13 @@ const styles = {
     fontSize: 20
   },
   modalTextInput: {
-    borderColor: '#502F4C',
+    borderColor: colors.$redPurple,
     borderWidth: 1,
     fontSize: 20,
     padding: 10,
     marginBottom: 10
   }
-};
+});
 
 const mapStateToProps = state => ({
   currentPage: state.page
