@@ -3,6 +3,7 @@ import { StyleSheet, ImageBackground, View, Image } from 'react-native';
 import NavButton from './NavButton.js';
 import { connect } from 'react-redux';
 import { changePage } from '../actions';
+import { colors } from '../assets/colors.js';
 
 const Welcome = (props) => {
   const buttons = [
@@ -40,7 +41,6 @@ const Welcome = (props) => {
   return (
     <ImageBackground source={require('../assets/star-background.jpg')} style={styles.container}>
       <Image style={styles.mainTitle} source={require('../assets/stella-via-logo-gradient.png')}/>
-      {/*<Text style={styles.mainTitle}>Stella Via</Text>*/}
       <View style={styles.nav}>
         {navButtons}
       </View>
@@ -48,7 +48,6 @@ const Welcome = (props) => {
   );
 };
 
-const $white = '#fff';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -65,8 +64,8 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    borderWidth: 5,
-    borderColor: $white,
+    borderWidth: 3,
+    borderColor: colors.$white,
     justifyContent: 'center',
     alignItems: 'center',
     paddingBottom: 25,
