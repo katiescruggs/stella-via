@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import { StyleSheet, AppRegistry, WebView, View, Text } from 'react-native';
 import NavBar from './NavBar.js';
 
-const StarMap = ({ lat, lon }) => {
+const StarMap = ({ lat, lon, dec, RA }) => {
   //side-real time math!!
 
-  const ra = 5;
-  const dec = 5;
-  const path = `http://server1.sky-map.org/skywindow?ra=${ra}&dec=${dec}&zoom=8&img_source=SDSS`;
+  const arrayRA = RA.split(' ');
+  const formattedRA = `${arrayRA[0]}h, ${arrayRA[1]}m, ${arrayRA[2]}s`;
+
+
+  const path = `http://server1.sky-map.org/skywindow?ra=${RA}&dec=${dec}&zoom=8&img_source=SDSS`;
 
   return (
     <View style={styles.container}>
@@ -20,7 +22,7 @@ const StarMap = ({ lat, lon }) => {
         </View>
         <View>
           <Text style={styles.starCoordsText}>{`Declination: ${dec}\xb0`}</Text>
-          <Text style={styles.starCoordsText}>{`Right Acension: ${ra}hrs`}</Text>
+          <Text style={styles.starCoordsText}>{`Right Acension: ${formattedRA}`}</Text>
         </View>
       </View>
       <WebView
@@ -68,7 +70,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
   lat: state.location.lat,
-  lon: state.location.lon
+  lon: state.location.lon,
+  dec: state.skyCoords.dec,
+  RA: state.skyCoords.stringRA
 });
 
 export default connect(mapStateToProps, null)(StarMap);
