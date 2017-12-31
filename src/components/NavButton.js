@@ -75,8 +75,8 @@ const styles = StyleSheet.create({
     elevation: 1
   },
   smIcon: {
-    height: 20, 
-    width: 20,
+    height: 25, 
+    width: 25,
   },
   smText: {
     textAlign: 'center',

@@ -14,8 +14,8 @@ const Welcome = (props) => {
 
   const paths = [
     require('../assets/search.png'),
-    require('../assets/planet.png'),
-    require('../assets/photo.png'),
+    require('../assets/night-sky.png'),
+    require('../assets/observatory.png'),
     require('../assets/user.png'),
   ];
 

@@ -22,9 +22,9 @@ class NavBar extends Component {
 
     const paths = [
       require('../assets/search.png'),
-      require('../assets/planet.png'),
-      require('../assets/planet.png'),
-      require('../assets/photo.png'),
+      require('../assets/night-sky.png'),
+      require('../assets/star-map.png'),
+      require('../assets/observatory.png'),
       require('../assets/user.png'),
     ];
 
