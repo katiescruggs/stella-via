@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, AppRegistry, TextInput, View, Text, Button, Image, TouchableHighlight } from 'react-native';
 import  { connect } from 'react-redux';
-import { setLocation, changePage } from '../actions';
+import { setLocation, changePage, setSkyCoords } from '../actions';
 import { googleKey } from '../helpers/apiKey.js';
 import NavBar from './NavBar.js';
 import { calculateRA } from '../helpers/starCoords.js';
@@ -19,9 +19,11 @@ class LocationModal extends Component {
       const lat = coords.latitude.toFixed(3);
       const lon = coords.longitude.toFixed(3);
       const location = {lat, lon};
+      const skyCoords = calculateRA(lat, lon);
+
       this.props.setLocation(location);
+      this.props.setSkyCoords(skyCoords);
       this.props.changePage(nextPage);
-      calculateRA(lat, lon);
     });
   };
 
@@ -40,10 +42,12 @@ class LocationModal extends Component {
       const lon = coords.lng.toFixed(3);
 
       const location = {lat, lon, city, state};
+      const skyCoords = calculateRA(lat, lon);
+      
       this.setState({text: ''});
       this.props.setLocation(location);
+      this.props.setSkyCoords(skyCoords);
       this.props.changePage(nextPage);
-      calculateRA(lat, lon);
     }
   };
 
@@ -136,6 +140,9 @@ const mapDispatchToProps = dispatch => ({
   },
   changePage: (page) => {
     dispatch(changePage(page));
+  },
+  setSkyCoords: (skyCoords) => {
+    dispatch(setSkyCoords(skyCoords));
   }
 });
 

@@ -12,3 +12,8 @@ export const changePage = (page) => ({
   type: 'CHANGE_PAGE',
   page
 });
+
+export const setSkyCoords = (skyCoords) => ({
+  type: 'SET_SKY_COORDS',
+  skyCoords
+});
