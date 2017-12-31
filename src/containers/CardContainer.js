@@ -5,8 +5,20 @@ import Card from '../components/Card.js';
 
 import constellations from '../../constellations/constellations.js';
 
-const CardContainer = (props) => {
-  const cards = constellations.map((constellation, index) => (
+const CardContainer = ({RA, dec}) => {
+  const rangeRA = [RA - 25, RA + 25];
+  const rangeDec = [dec - 25, dec + 25];
+
+  const matchConstellations = constellations.filter(constellation => {
+    const matchRA = constellation.coords.ra > rangeRA[0] && constellation.coords.ra < rangeRA[1]
+    const matchDec = constellation.coords.dec > rangeDec[0] && constellation.coords.dec < rangeDec[1]
+
+    return matchRA && matchDec;
+  });
+
+  console.log(matchConstellations.length)
+
+  const cards = matchConstellations.map((constellation, index) => (
     <Card
       key={`card-${index}`} 
       constellation={constellation}/>
@@ -26,4 +38,9 @@ const styles = {
   }
 }
 
-export default CardContainer;
+const mapStateToProps = state => ({
+  RA: state.skyCoords.decimalRA,
+  dec: state.skyCoords.dec
+});
+
+export default connect(mapStateToProps, null)(CardContainer);

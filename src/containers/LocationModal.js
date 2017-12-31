@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, AppRegistry, TextInput, View, Text, Button, Image, TouchableHighlight } from 'react-native';
 import  { connect } from 'react-redux';
-import { setLocation, changePage } from '../actions';
+import { setLocation, changePage, setSkyCoords } from '../actions';
 import { googleKey } from '../helpers/apiKey.js';
 import NavBar from './NavBar.js';
 import { calculateRA } from '../helpers/starCoords.js';
@@ -15,19 +15,19 @@ class LocationModal extends Component {
   };
 
   getGeolocation = (nextPage) => {
-    console.log(nextPage);
     navigator.geolocation.getCurrentPosition(({coords}) => {
       const lat = coords.latitude.toFixed(3);
       const lon = coords.longitude.toFixed(3);
       const location = {lat, lon};
+      const skyCoords = calculateRA(lat, lon);
+
       this.props.setLocation(location);
+      this.props.setSkyCoords(skyCoords);
       this.props.changePage(nextPage);
-      calculateRA(lon)
     });
   };
 
   handleSearchLocation = async (nextPage) => {
-    console.log(nextPage);
     const cityState = this.state.text.split(', ');
     const city = cityState[0];
     const state = cityState[1];
@@ -42,8 +42,11 @@ class LocationModal extends Component {
       const lon = coords.lng.toFixed(3);
 
       const location = {lat, lon, city, state};
+      const skyCoords = calculateRA(lat, lon);
+      
       this.setState({text: ''});
       this.props.setLocation(location);
+      this.props.setSkyCoords(skyCoords);
       this.props.changePage(nextPage);
     }
   };
@@ -137,6 +140,9 @@ const mapDispatchToProps = dispatch => ({
   },
   changePage: (page) => {
     dispatch(changePage(page));
+  },
+  setSkyCoords: (skyCoords) => {
+    dispatch(setSkyCoords(skyCoords));
   }
 });
 

@@ -12,7 +12,9 @@ class TonightsSky extends Component {
     return (
       <View style={styles.constellationsContainer}>
         <ScrollView>
-          <Text style={styles.skyTitle}>Tonight's Sky</Text>
+          <View style={styles.titleContainer}>
+            <Text style={styles.skyTitle}>Tonight's Sky</Text>
+          </View>
           <Forecast />
           <Text style={styles.constellationsTitle}>
             {`Constellations For ${lat}\xb0, ${lon}\xb0`}
@@ -27,12 +29,22 @@ class TonightsSky extends Component {
 
 const styles = {
   constellationsContainer: {
-    paddingTop: 50
+    backgroundColor: 'rgb(40, 38, 64)',
+    width: '100%',
+    height: '100%'
+  },
+  titleContainer: {
+    backgroundColor: '#735290',
   },
   skyTitle: {
-    fontSize: 34
+    color: '#fff',
+    fontSize: 35,
+    textAlign: 'center',
+    paddingTop: 35,
+    paddingBottom: 5
   },
   constellationsTitle: {
+    color: '#fff',
     fontSize: 20,
     marginBottom: 10
   }
