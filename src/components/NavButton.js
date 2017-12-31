@@ -14,7 +14,6 @@ class NavButton extends Component {
   }
     
   handlePress = () => {
-    console.log(this.props.pageRoute)
     this.props.changePage(this.props.pageRoute);
   };
 
@@ -22,13 +21,18 @@ class NavButton extends Component {
     const navBarIcons = this.props.small ? 'smIcon' : null;
     const wrapper = this.props.small ? 'smWrapper' : 'iconWrapper';
     const navButton = this.props.small ? 'smButton' : 'navIcon';
+
+    const isActive = this.props.active && this.props.small 
+      ? styles.active 
+      : styles[navButton];
+
     const text = !this.props.small 
       ? <Text style={styles.navText}>{this.props.name}</Text> 
       : null;
 
     return (
       <TouchableHighlight 
-        style={styles[navButton]} 
+        style={isActive} 
         onPress={this.handlePress} 
         activeOpacity={0.3} 
         underlayColor={colors.$purple}>
@@ -92,18 +96,30 @@ const styles = StyleSheet.create({
   smIcon: {
     height: 40, 
     width: 40,
+  },
+  active: {
+    borderRadius: 20,
+    backgroundColor: colors.$black,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 5,
+    shadowColor: colors.$btnShadow,
+    shadowOffset: { width: 1, height: 3 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 1
   }
 });
 
-// const mapStateToProps = state => ({
-//   page: state.page
-// });
+const mapStateToProps = state => ({
+  page: state.page
+});
 
 const mapDispatchToProps = dispatch => ({
-  changePage: (page) => {
-    dispatch(changePage(page));
+  changePage: (pageRoute) => {
+    dispatch(changePage(pageRoute));
   }
 });
 
-export default connect(null, mapDispatchToProps)(NavButton);
+export default connect(mapStateToProps, mapDispatchToProps)(NavButton);
 
