@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import { locationReducer } from './locationReducer';
-import { timeReducer } from './timeReducer';
 import { pageReducer } from './pageReducer';
+import { skyCoordsReducer } from './skyCoordsReducer';
 
 const rootReducer = combineReducers({
   location: locationReducer,
   page: pageReducer,
-  now: timeReducer
+  skyCoords: skyCoordsReducer
 });
 
 export default rootReducer;
