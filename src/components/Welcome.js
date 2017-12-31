@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { StyleSheet, AppRegistry, ImageBackground, TextInput, View, Text, Button, Image, TouchableHighlight } from 'react-native';
+import React from 'react';
+import { StyleSheet, ImageBackground, View, Image } from 'react-native';
 import NavButton from './NavButton.js';
 import { connect } from 'react-redux';
 import { changePage } from '../actions';
@@ -14,8 +14,8 @@ const Welcome = (props) => {
 
   const paths = [
     require('../assets/search.png'),
-    require('../assets/planet.png'),
-    require('../assets/photo.png'),
+    require('../assets/night-sky.png'),
+    require('../assets/observatory.png'),
     require('../assets/user.png'),
   ];
 
@@ -34,7 +34,7 @@ const Welcome = (props) => {
         path={paths[index]}
         page={pages[index]}
       />
-    )
+    );
   });
 
   return (
@@ -42,12 +42,13 @@ const Welcome = (props) => {
       <Image style={styles.mainTitle} source={require('../assets/stella-via-logo-gradient.png')}/>
       {/*<Text style={styles.mainTitle}>Stella Via</Text>*/}
       <View style={styles.nav}>
-      {navButtons}
+        {navButtons}
       </View>
     </ImageBackground>
-  )
-}
+  );
+};
 
+const $white = '#fff';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     borderWidth: 5,
-    borderColor: '#fff',
+    borderColor: $white,
     justifyContent: 'center',
     alignItems: 'center',
     paddingBottom: 25,

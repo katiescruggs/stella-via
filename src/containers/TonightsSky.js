@@ -25,7 +25,7 @@ class TonightsSky extends Component {
       </View>
     );
   }
-};
+}
 
 const styles = {
   constellationsContainer: {
@@ -48,7 +48,7 @@ const styles = {
     fontSize: 20,
     marginBottom: 10
   }
-}
+};
 
 const mapStateToProps = state => ({
   lat: state.location.lat,

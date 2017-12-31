@@ -23,7 +23,7 @@ export const calculateRA = (lat, lon) => {
   };
 
   return skyCoords;
-}
+};
 
 const toLocalTime = (lon) => {
   let degrees = lon;
@@ -33,8 +33,9 @@ const toLocalTime = (lon) => {
   }
 
   const decimalTime = degrees / 15;
+
   return decimalTime;
-}
+};
 
 const toStringRA = (RA) => {
   const hours = Math.floor(RA);
@@ -43,4 +44,4 @@ const toStringRA = (RA) => {
   const seconds = Math.floor((minutesSeconds - minutes) * 60);
 
   return (`${hours} ${minutes} ${seconds}`);
-}
+};

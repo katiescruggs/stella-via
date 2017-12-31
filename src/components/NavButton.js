@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { StyleSheet, AppRegistry, ImageBackground, TextInput, View, Text, Button, Image, TouchableHighlight } from 'react-native';
+import React from 'react';
+import { StyleSheet, View, Text, Image, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import { changePage } from '../actions';
 
 const NavButton = ({name, path, changePage, page, navBar}) => {
   handlePress = () => {
     changePage(page);
-  }
+  };
 
   const navBarIcons = navBar ? 'smIcon' : null;
   const textStyle = navBar ? 'smText' : 'navText';
@@ -21,13 +21,16 @@ const NavButton = ({name, path, changePage, page, navBar}) => {
       underlayColor={'#735290'}>
     
       <View style={styles[wrapper]}> 
-        <Text style={styles[textStyle]}>{name}</Text>
         <Image style={styles[navBarIcons]} source={path}/>
+        <Text style={styles[textStyle]}>{name}</Text>
       </View>
     </TouchableHighlight>
-  )
-}
+  );
+};
 
+const $transparentDarkPurple = 'rgba(40, 38, 64, 0.7)';
+const $btnShadow = 'rgba(0, 0, 0, 0.6)';
+const white = '#fff';
 const styles = StyleSheet.create({
   iconWrapper: {
     justifyContent: 'center',
@@ -37,12 +40,12 @@ const styles = StyleSheet.create({
   },
   navIcon: {
     borderRadius: 20,
-    backgroundColor: 'rgba(40, 38, 64, 0.7)',
+    backgroundColor: $transparentDarkPurple,
     // backgroundColor: '#282640',
     justifyContent: 'center',
     alignItems: 'center',
     margin: 10,
-    shadowColor: 'rgba(0, 0, 0, 0.6)',
+    shadowColor: $btnShadow,
     shadowOffset: { width: 2, height: 10 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
@@ -51,7 +54,7 @@ const styles = StyleSheet.create({
   navText: {
     textAlign: 'center',
     fontSize: 18,
-    color: '#fff',
+    color: white,
     fontWeight: 'bold',
     marginBottom: 4
   },
@@ -63,26 +66,25 @@ const styles = StyleSheet.create({
   },
   smButton: {
     borderRadius: 20,
-    backgroundColor: 'rgba(40, 38, 64, 0.7)',
+    backgroundColor: $transparentDarkPurple,
     // backgroundColor: '#282640',
     justifyContent: 'center',
     alignItems: 'center',
     margin: 5,
-    shadowColor: 'rgba(0, 0, 0, 0.6)',
+    shadowColor: $btnShadow,
     shadowOffset: { width: 2, height: 10 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 1
   },
   smIcon: {
-    height: 20, 
-    width: 20,
+    height: 25, 
+    width: 25,
   },
   smText: {
     textAlign: 'center',
     fontSize: 12,
-    color: '#fff',
-    // fontWeight: 'bold',
+    color: white,
     marginBottom: 4
   }
 });
