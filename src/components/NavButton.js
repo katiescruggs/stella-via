@@ -1,33 +1,48 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import { changePage } from '../actions';
 import { colors } from '../assets/colors';
 
-const NavButton = ({name, path, changePage, page, small}) => {
+class NavButton extends Component { 
+  constructor() {
+    super();
+
+    this.state = {
+      active: false
+    };
+  }
+    
   handlePress = () => {
-    changePage(page);
+    console.log(this.props.page)
+    this.props.changePage(this.props.page);
   };
 
-  const navBarIcons = small ? 'smIcon' : null;
-  const wrapper = small ? 'smWrapper' : 'iconWrapper';
-  const navButton = small ? 'smButton' : 'navIcon';
+  render() {
+    const navBarIcons = this.props.small ? 'smIcon' : null;
+    const wrapper = this.props.small ? 'smWrapper' : 'iconWrapper';
+    const navButton = this.props.small ? 'smButton' : 'navIcon';
+    const text = !this.props.small 
+      ? <Text style={styles.navText}>{this.props.name}</Text> 
+      : null;
 
-  const text = !small ? <Text style={styles.navText}>{name}</Text> : null;
-
-  return (
-    <TouchableHighlight 
-      style={styles[navButton]} 
-      onPress={handlePress} 
-      activeOpacity={0.3} 
-      underlayColor={'#735290'}>
-    
-      <View style={styles[wrapper]}> 
-        <Image style={styles[navBarIcons]} source={path}/>
-        {text}
-      </View>
-    </TouchableHighlight>
-  );
+    return (
+      <TouchableHighlight 
+        style={styles[navButton]} 
+        onPress={this.handlePress} 
+        activeOpacity={0.3} 
+        underlayColor={colors.$purple}>
+      
+        <View style={styles[wrapper]}> 
+          <Image 
+            style={styles[navBarIcons]} 
+            source={this.props.path}
+          />
+          {text}
+        </View>
+      </TouchableHighlight>
+    );
+  }
 };
 
 const styles = StyleSheet.create({
@@ -79,6 +94,10 @@ const styles = StyleSheet.create({
     width: 40,
   }
 });
+
+// const mapStateToProps = state => ({
+//   page: state.page
+// });
 
 const mapDispatchToProps = dispatch => ({
   changePage: (page) => {
