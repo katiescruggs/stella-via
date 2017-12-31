@@ -1,52 +1,42 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import { changePage } from '../actions';
 import { colors } from '../assets/colors';
 
-class NavButton extends Component { 
-  constructor() {
-    super();
-
-    this.state = {
-      active: false
-    };
-  }
-    
+const NavButton = ({name, path, changePage, pageRoute, small, active}) => {   
   handlePress = () => {
-    this.props.changePage(this.props.pageRoute);
+    changePage(pageRoute);
   };
 
-  render() {
-    const navBarIcons = this.props.small ? 'smIcon' : null;
-    const wrapper = this.props.small ? 'smWrapper' : 'iconWrapper';
-    const navButton = this.props.small ? 'smButton' : 'navIcon';
+  const navBarIcons = small ? 'smIcon' : null;
+  const wrapper = small ? 'smWrapper' : 'iconWrapper';
+  const navButton = small ? 'smButton' : 'welcomeButton';
 
-    const isActive = this.props.active && this.props.small 
-      ? styles.active 
-      : styles[navButton];
+  const isActive = active && small 
+    ? styles.active 
+    : styles[navButton];
 
-    const text = !this.props.small 
-      ? <Text style={styles.navText}>{this.props.name}</Text> 
-      : null;
+  const text = !small 
+    ? <Text style={styles.navText}>{name}</Text> 
+    : null;
 
-    return (
-      <TouchableHighlight 
-        style={isActive} 
-        onPress={this.handlePress} 
-        activeOpacity={0.3} 
-        underlayColor={colors.$purple}>
-      
-        <View style={styles[wrapper]}> 
-          <Image 
-            style={styles[navBarIcons]} 
-            source={this.props.path}
-          />
-          {text}
-        </View>
-      </TouchableHighlight>
-    );
-  }
+  return (
+    <TouchableHighlight 
+      style={isActive} 
+      onPress={this.handlePress} 
+      activeOpacity={0.3} 
+      underlayColor={colors.$purple}>
+    
+      <View style={styles[wrapper]}> 
+        <Image 
+          style={styles[navBarIcons]} 
+          source={path}
+        />
+        {text}
+      </View>
+    </TouchableHighlight>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -56,7 +46,7 @@ const styles = StyleSheet.create({
     height: 130, 
     width: 130,
   },
-  navIcon: {
+  welcomeButton: {
     borderRadius: 20,
     backgroundColor: colors.$transparentDarkPurple,
     justifyContent: 'center',
