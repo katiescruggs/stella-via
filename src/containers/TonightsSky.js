@@ -19,7 +19,7 @@ class TonightsSky extends Component {
             <NavButton 
               path={require('../assets/location.png')}
               name={null}
-              page='LocationModalTonight'
+              pageRoute='LocationModalTonight'
               small={true}
             />
           </View>

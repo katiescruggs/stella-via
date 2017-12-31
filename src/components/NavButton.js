@@ -14,8 +14,8 @@ class NavButton extends Component {
   }
     
   handlePress = () => {
-    console.log(this.props.page)
-    this.props.changePage(this.props.page);
+    console.log(this.props.pageRoute)
+    this.props.changePage(this.props.pageRoute);
   };
 
   render() {

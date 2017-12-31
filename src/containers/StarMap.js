@@ -17,7 +17,7 @@ const StarMap = ({ lat, lon, dec, RA }) => {
         <NavButton 
           path={require('../assets/location.png')}
           name={null}
-          page='LocationModalMap'
+          pageRoute='LocationModalMap'
           small={true}
         />
       </View>
