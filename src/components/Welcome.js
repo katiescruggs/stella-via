@@ -6,34 +6,32 @@ import { changePage } from '../actions';
 import { colors } from '../assets/colors.js';
 
 const Welcome = (props) => {
-  const buttons = [
-    'Search', 
-    'Tonight\'s Sky', 
-    'Daily Image', 
-    'Login'
-  ];
+  const navRouteData = {
+    'Search': {
+      source: require('../assets/search.png'),
+      pageRoute: 'Search'
+    },
+    'Tonight\'s Sky': {
+      source: require('../assets/night-sky.png'),
+      pageRoute: props.location ? 'TonightsSky' : 'LocationModalTonight'
+    }, 
+    'Daily Image': {
+      source: require('../assets/observatory.png'),
+      pageRoute: 'APOD'
+    }, 
+    'Login': {
+      source: require('../assets/user.png'),
+      pageRoute: 'User'
+    }, 
+  };
 
-  const paths = [
-    require('../assets/search.png'),
-    require('../assets/night-sky.png'),
-    require('../assets/observatory.png'),
-    require('../assets/user.png'),
-  ];
-
-  const pages = [
-    'Search',
-    props.location ? 'TonightsSky' : 'LocationModalTonight',
-    'APOD',
-    'User'
-  ];
-
-  const navButtons = buttons.map((name, index) => {
+  const navButtons = Object.keys(navRouteData).map((name, index) => {
     return (
       <NavButton 
         key={`nav-btn-${index}`}
         name={name}
-        path={paths[index]}
-        pageRoute={pages[index]}
+        path={navRouteData[name].source}
+        pageRoute={navRouteData[name].pageRoute}
       />
     );
   });

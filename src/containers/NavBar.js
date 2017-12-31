@@ -5,7 +5,6 @@ import NavButton from '../components/NavButton';
 import { colors } from '../assets/colors';
 
 const NavBar = (props) => {
-  
   const navRouteData = {
     'Search': {
       source: require('../assets/search.png'),
@@ -15,15 +14,15 @@ const NavBar = (props) => {
       source: require('../assets/night-sky.png'),
       pageRoute: props.location ? 'TonightsSky' : 'LocationModalTonight'
     }, 
-    'Daily Image': {
+    'Star Map': {
       source: require('../assets/star-map.png'),
       pageRoute: props.location ? 'StarMap' : 'LocationModalMap'
     }, 
-    'Login': {
+    'Daily Image': {
       source: require('../assets/observatory.png'),
       pageRoute: 'APOD'
     }, 
-    'Star Map': {
+    'Login': {
       source: require('../assets/user.png'),
       pageRoute: 'User'
     }, 
