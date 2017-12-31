@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, AppRegistry, WebView, View, Text } from 'react-native';
+import { StyleSheet, WebView, View, Text } from 'react-native';
 import NavBar from './NavBar.js';
 
 const StarMap = ({ lat, lon, dec, RA }) => {
@@ -32,41 +32,43 @@ const StarMap = ({ lat, lon, dec, RA }) => {
       />
       <NavBar />
     </View>
-  )
-}
+  );
+};
 
+const $purple = '#735290';
+const $white = '#fff';
+const $transparentDarkPurple = 'rgba(40, 38, 64, 0.7)';
 const styles = StyleSheet.create({
   container: {
     flex: 1, 
-    backgroundColor: '#735290',
+    backgroundColor: $purple,
   },
   webView: {
-    borderColor: 'magenta',
     borderRadius: 50,
   },
   titleText: {
-    color: '#fff',
+    color: $white,
     textAlign: 'center',
     paddingTop: 35,
     paddingBottom: 5,
     fontSize: 35
   },
   coordsContainer: {
-    backgroundColor: 'rgba(40, 38, 64, 0.7)',
+    backgroundColor: $transparentDarkPurple,
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 5,
   },
   earthCoordsText: {
-    color: '#fff',
+    color: $white,
     fontSize: 14,
   },
   starCoordsText: {
-    color: '#fff',
+    color: $white,
     fontSize: 14,
     textAlign: 'right'
   }
-})
+});
 
 const mapStateToProps = state => ({
   lat: state.location.lat,
