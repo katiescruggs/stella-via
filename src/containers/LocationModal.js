@@ -21,7 +21,7 @@ class LocationModal extends Component {
       const location = {lat, lon};
       this.props.setLocation(location);
       this.props.changePage(nextPage);
-      calculateRA(-105);
+      calculateRA(lat, lon);
     });
   };
 
