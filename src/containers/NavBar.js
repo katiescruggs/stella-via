@@ -13,21 +13,13 @@ class NavBar extends Component {
   }
 
   render() {
-    const buttons = [
-      'Search', 
-      'Tonight\'s Sky',
-      'Star Map', 
-      'Daily Image', 
-      'Login'
-    ];
-
-    const paths = [
-      require('../assets/search.png'),
-      require('../assets/night-sky.png'),
-      require('../assets/star-map.png'),
-      require('../assets/observatory.png'),
-      require('../assets/user.png'),
-    ];
+    const navRouteData = {
+      'Search': require('../assets/search.png'),
+      'Tonight\'s Sky': require('../assets/night-sky.png'), 
+      'Daily Image': require('../assets/star-map.png'), 
+      'Login': require('../assets/observatory.png'), 
+      'Star Map': require('../assets/user.png'), 
+    };
 
     const pages = [
       'Search',
@@ -37,13 +29,13 @@ class NavBar extends Component {
       'User'
     ];
 
-    const navButtons = buttons.map((name, index) => {
+    const navButtons = Object.keys(navRouteData).map((name, index) => {
       const active = this.props.page === pages[index] ? true : false;
       return (
         <NavButton 
           key={`nav-btn-${index}`}
           name={name}
-          path={paths[index]}
+          path={navRouteData[name]}
           pageRoute={pages[index]}
           small={true}
           active={active}
