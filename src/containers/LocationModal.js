@@ -43,6 +43,7 @@ class LocationModal extends Component {
       this.setState({text: ''});
       this.props.setLocation(location);
       this.props.changePage(nextPage);
+      calculateRA(lat, lon);
     }
   };
 
