@@ -12,14 +12,16 @@ const StarMap = ({ lat, lon, dec, RA }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titleText}>Star Map</Text>
-      <NavButton 
-        path={require('../assets/planet.png')}
-        name={null}
-        page='LocationModalMap'
-        small={true}
-      />
-      <View style={styles.coordsContainer}>
+      <View style={styles.header}>
+        <Text style={styles.titleText}>Star Map</Text>
+        <NavButton 
+          path={require('../assets/location.png')}
+          name={null}
+          page='LocationModalMap'
+          small={true}
+        />
+      </View>
+      <View style={styles.coordsBanner}>
         <View>
           <Text style={styles.earthCoordsText}>{`Latitude: ${lat}\xb0`}</Text>
           <Text style={styles.earthCoordsText}>{`Longitude: ${lon}\xb0`}</Text>
@@ -32,7 +34,6 @@ const StarMap = ({ lat, lon, dec, RA }) => {
       <WebView
         scalesPageToFit={false}
         source={{uri: path}}
-        style={styles.webView}
       />
       <NavBar />
     </View>
@@ -44,17 +45,18 @@ const styles = StyleSheet.create({
     flex: 1, 
     backgroundColor: colors.$purple,
   },
-  webView: {
-    borderRadius: 50,
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 10
   },
   titleText: {
     color: colors.$white,
-    textAlign: 'center',
-    paddingTop: 35,
-    paddingBottom: 5,
+    paddingTop: 30,
     fontSize: 35
   },
-  coordsContainer: {
+  coordsBanner: {
     backgroundColor: colors.$transparentDarkPurple,
     flexDirection: 'row',
     justifyContent: 'space-between',

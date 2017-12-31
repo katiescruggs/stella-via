@@ -10,9 +10,10 @@ const NavButton = ({name, path, changePage, page, small}) => {
   };
 
   const navBarIcons = small ? 'smIcon' : null;
-  const textStyle = small ? 'smText' : 'navText';
   const wrapper = small ? 'smWrapper' : 'iconWrapper';
   const navButton = small ? 'smButton' : 'navIcon';
+
+  const text = !small ? <Text style={styles.navText}>{name}</Text> : null;
 
   return (
     <TouchableHighlight 
@@ -23,7 +24,7 @@ const NavButton = ({name, path, changePage, page, small}) => {
     
       <View style={styles[wrapper]}> 
         <Image style={styles[navBarIcons]} source={path}/>
-        <Text style={styles[textStyle]}>{name}</Text>
+        {text}
       </View>
     </TouchableHighlight>
   );
@@ -74,14 +75,8 @@ const styles = StyleSheet.create({
     elevation: 1
   },
   smIcon: {
-    height: 25, 
-    width: 25,
-  },
-  smText: {
-    textAlign: 'center',
-    fontSize: 12,
-    color: colors.$white,
-    marginBottom: 4
+    height: 40, 
+    width: 40,
   }
 });
 
