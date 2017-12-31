@@ -44,7 +44,7 @@ class NavBar extends Component {
           name={name}
           path={paths[index]}
           page={pages[index]}
-          navBar={true}
+          small={true}
         />
       );
     });

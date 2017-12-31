@@ -1,21 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, WebView, View, Text } from 'react-native';
-import NavBar from './NavBar.js';
+import NavBar from './NavBar';
+import NavButton from '../components/NavButton';
 import { colors } from '../assets/colors';
 
 const StarMap = ({ lat, lon, dec, RA }) => {
-  //side-real time math!!
-
   const arrayRA = RA.split(' ');
   const formattedRA = `${arrayRA[0]}h, ${arrayRA[1]}m, ${arrayRA[2]}s`;
-
-
-  const path = `http://server1.sky-map.org/skywindow?ra=${RA}&dec=${dec}&zoom=8&img_source=SDSS`;
+  const path = `http://server1.sky-map.org/skywindow?ra=${arrayRA[0]} ${arrayRA[1]} ${arrayRA[2]}&dec=${dec}&zoom=8&img_source=SDSS`;
 
   return (
     <View style={styles.container}>
       <Text style={styles.titleText}>Star Map</Text>
+      <NavButton 
+        path={require('../assets/planet.png')}
+        name={null}
+        page='LocationModalMap'
+        small={true}
+      />
       <View style={styles.coordsContainer}>
         <View>
           <Text style={styles.earthCoordsText}>{`Latitude: ${lat}\xb0`}</Text>

@@ -4,15 +4,15 @@ import { connect } from 'react-redux';
 import { changePage } from '../actions';
 import { colors } from '../assets/colors';
 
-const NavButton = ({name, path, changePage, page, navBar}) => {
+const NavButton = ({name, path, changePage, page, small}) => {
   handlePress = () => {
     changePage(page);
   };
 
-  const navBarIcons = navBar ? 'smIcon' : null;
-  const textStyle = navBar ? 'smText' : 'navText';
-  const wrapper = navBar ? 'smWrapper' : 'iconWrapper';
-  const navButton = navBar ? 'smButton' : 'navIcon';
+  const navBarIcons = small ? 'smIcon' : null;
+  const textStyle = small ? 'smText' : 'navText';
+  const wrapper = small ? 'smWrapper' : 'iconWrapper';
+  const navButton = small ? 'smButton' : 'navIcon';
 
   return (
     <TouchableHighlight 
