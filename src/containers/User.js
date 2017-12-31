@@ -14,6 +14,6 @@ const styles = StyleSheet.create({
     height: '100%', 
     paddingTop: 100
   }
-})
+});
 
 export default User;

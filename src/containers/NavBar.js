@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, AppRegistry, TextInput, View, Text, Button, Image, TouchableHighlight } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import  { connect } from 'react-redux';
 import NavButton from '../components/NavButton';
 
@@ -9,15 +9,15 @@ class NavBar extends Component {
     this.state = {
 
     };
-  };
+  }
 
   render() {
     const buttons = [
-    'Search', 
-    'Tonight\'s Sky',
-    'Star Map', 
-    'Daily Image', 
-    'Login'
+      'Search', 
+      'Tonight\'s Sky',
+      'Star Map', 
+      'Daily Image', 
+      'Login'
     ];
 
     const paths = [
@@ -45,20 +45,22 @@ class NavBar extends Component {
           page={pages[index]}
           navBar={true}
         />
-      )
-    })
+      );
+    });
+
     return (
       <View style={styles.container}>
         {navButtons}
       </View>
-    )
+    );
   }
-};
+}
 
+const $purple = '#735290';
 const styles = StyleSheet.create({
   container: {
     padding: 7,
-    backgroundColor: '#735290',
+    backgroundColor: $purple,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'center',
