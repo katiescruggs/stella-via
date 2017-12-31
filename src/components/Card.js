@@ -11,7 +11,7 @@ const Card = ({constellation}) => {
       <Text>{`Stars: ${constellation.stars.join(', ')}`}</Text>
       <Text>{`Description: ${description}...`}</Text>
     </View>
-  )
+  );
 };
 
 const styles = {
@@ -26,6 +26,6 @@ const styles = {
   cardTitle: {
     fontSize: 18
   }
-}
+};
 
 export default Card;
