@@ -1,62 +1,53 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import  { connect } from 'react-redux';
 import NavButton from '../components/NavButton';
 import { colors } from '../assets/colors';
 
-class NavBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+const NavBar = (props) => {
+  const navRouteData = {
+    'Search': {
+      source: require('../assets/search.png'),
+      pageRoute: 'Search'
+    },
+    'Tonight\'s Sky': {
+      source: require('../assets/night-sky.png'),
+      pageRoute: props.location ? 'TonightsSky' : 'LocationModalTonight'
+    }, 
+    'Star Map': {
+      source: require('../assets/star-map.png'),
+      pageRoute: props.location ? 'StarMap' : 'LocationModalMap'
+    }, 
+    'Daily Image': {
+      source: require('../assets/observatory.png'),
+      pageRoute: 'APOD'
+    }, 
+    'Login': {
+      source: require('../assets/user.png'),
+      pageRoute: 'User'
+    }, 
+  };
 
-    };
-  }
-
-  render() {
-    const buttons = [
-      'Search', 
-      'Tonight\'s Sky',
-      'Star Map', 
-      'Daily Image', 
-      'Login'
-    ];
-
-    const paths = [
-      require('../assets/search.png'),
-      require('../assets/night-sky.png'),
-      require('../assets/star-map.png'),
-      require('../assets/observatory.png'),
-      require('../assets/user.png'),
-    ];
-
-    const pages = [
-      'Search',
-      this.props.location ? 'TonightsSky' : 'LocationModalTonight',
-      this.props.location ? 'StarMap' : 'LocationModalMap',
-      'APOD',
-      'User'
-    ];
-
-    const navButtons = buttons.map((name, index) => {
-      const active = this.props.page === pages[index] ? true : false;
-      return (
-        <NavButton 
-          key={`nav-btn-${index}`}
-          name={name}
-          path={paths[index]}
-          pageRoute={pages[index]}
-          small={true}
-          active={active}
-        />
-      );
-    });
+  const navButtons = Object.keys(navRouteData).map((name, index) => {
+    const active = props.page === navRouteData[name].pageRoute ? true : false;
 
     return (
-      <View style={styles.container}>
-        {navButtons}
-      </View>
+      <NavButton 
+        key={`nav-btn-${index}`}
+        name={name}
+        path={navRouteData[name].source}
+        pageRoute={navRouteData[name].pageRoute}
+        small={true}
+        active={active}
+      />
     );
-  }
+  });
+
+  return (
+    <View style={styles.container}>
+      {navButtons}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
