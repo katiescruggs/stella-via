@@ -1,38 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, ScrollView, View, Text, TouchableHighlight } from 'react-native';
+import { StyleSheet, ScrollView, View, Text } from 'react-native';
 import CardContainer from './CardContainer';
 import Forecast from '../components/Forecast';
 import NavBar from './NavBar';
 import NavButton from '../components/NavButton'
 import { colors } from '../assets/colors';
 
-class TonightsSky extends Component {
-  render() {
-    const { lat, lon } = this.props;
-
-    return (
-      <View style={styles.constellationsContainer}>
-        <ScrollView>
-          <View style={styles.titleContainer}>
-            <Text style={styles.skyTitle}>Tonight's Sky</Text>
-            <NavButton 
-              path={require('../assets/icons/location.png')}
-              name={null}
-              pageRoute='LocationModalTonight'
-              small={true}
-            />
-          </View>
-          <Forecast />
-          <Text style={styles.constellationsTitle}>
-            {`Constellations For ${lat}\xb0, ${lon}\xb0`}
-          </Text>
-          <CardContainer />
-        </ScrollView>
-        <NavBar />
-      </View>
-    );
-  }
+const TonightsSky = ({ lat, lon }) => {
+  return (
+    <View style={styles.constellationsContainer}>
+      <ScrollView>
+        <View style={styles.titleContainer}>
+          <Text style={styles.skyTitle}>Tonight's Sky</Text>
+          <NavButton 
+            path={require('../assets/icons/location.png')}
+            name={null}
+            pageRoute='LocationModalTonight'
+            small={true}
+          />
+        </View>
+        <Forecast />
+        <Text style={styles.constellationsTitle}>
+          {`Constellations For ${lat}\xb0, ${lon}\xb0`}
+        </Text>
+        <CardContainer />
+      </ScrollView>
+      <NavBar />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

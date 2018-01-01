@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
-import { StyleSheet, AppRegistry, TextInput, View, Text, Button, Image, TouchableHighlight } from 'react-native';
 import  { connect } from 'react-redux';
 import { setLocation, changePage, setSkyCoords } from '../actions';
 import { googleKey } from '../helpers/apiKey.js';
 import NavBar from './NavBar.js';
 import { calculateRA } from '../helpers/starCoords.js';
 import { colors } from '../assets/colors.js';
+import { 
+  StyleSheet, 
+  TextInput, 
+  View, 
+  Text, 
+  TouchableHighlight 
+} from 'react-native';
 
 class LocationModal extends Component {
   constructor(props) {
@@ -59,28 +65,38 @@ class LocationModal extends Component {
 
     return (
       <View style={styles.mainContainer}>
-      <View style={styles.modalContainer}>
-        <Text style={styles.modalTitle}>Finding Your Night Sky</Text>
-        <View style={styles.inputContainer}> 
-          <TouchableHighlight style={styles.modalButton}
-            onPress={() => this.getGeolocation(nextPage)}>
-            <Text style={styles.modalButtonText}>Use Current Location</Text>
-          </TouchableHighlight>
-          <View>
-            <TextInput
-              style = {styles.modalTextInput}
-              value={this.state.text}
-              placeholder='City, State'
-              onChangeText={(text) => this.setState({text})}
-            />
-            <TouchableHighlight style={styles.modalButton}
-              onPress={() => this.handleSearchLocation(nextPage)}>
-              <Text style={styles.modalButtonText}>Set New Location</Text>
+        <View style={styles.modalContainer}>
+          <Text style={styles.modalTitle}>
+            Finding Your Night Sky
+          </Text>
+          <View style={styles.inputContainer}> 
+            <TouchableHighlight 
+              style={styles.modalButton}
+              onPress={() => this.getGeolocation(nextPage)}>
+              
+              <Text style={styles.modalButtonText}>
+                Use Current Location
+              </Text>
             </TouchableHighlight>
+            <View>
+              <TextInput
+                style = {styles.modalTextInput}
+                value={this.state.text}
+                placeholder='City, State'
+                onChangeText={(text) => this.setState({text})}
+              />
+              <TouchableHighlight 
+                style={styles.modalButton}
+                onPress={() => this.handleSearchLocation(nextPage)}>
+
+                <Text style={styles.modalButtonText}>
+                  Set New Location
+                </Text>
+              </TouchableHighlight>
+            </View>
           </View>
         </View>
-      </View>
-      <NavBar />
+        <NavBar />
       </View>
     );
   }
