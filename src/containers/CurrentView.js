@@ -1,23 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Welcome from '../components/Welcome.js';
-import APOD from '../components/APOD.js';
-import LocationModal from './LocationModal.js';
-import TonightsSky from './TonightsSky.js';
-import StarMap from './StarMap.js';
-import Search from './Search.js';
 import User from './User.js';
+import Search from './Search.js';
+import StarMap from './StarMap.js';
+import APOD from '../components/APOD.js';
+import TonightsSky from './TonightsSky.js';
+import Welcome from '../components/Welcome.js';
+import LocationModal from './LocationModal.js';
 
-const CurrentView = ({page}) => {
+const CurrentView = ({ page }) => {
   const pages = {
-    welcome: <Welcome />,
-    LocationModalTonight: <LocationModal />,
-    LocationModalMap: <LocationModal />,
-    TonightsSky: <TonightsSky />,
-    StarMap: <StarMap />,
+    User: <User />,
     APOD: <APOD />,
     Search: <Search />,
-    User: <User />,
+    Welcome: <Welcome />,
+    StarMap: <StarMap />,
+    TonightsSky: <TonightsSky />,
+    LocationModalMap: <LocationModal />,
+    LocationModalTonight: <LocationModal />,
   };
 
   return pages[page];

@@ -9,18 +9,18 @@ const CardContainer = ({RA, dec}) => {
   const rangeDec = [dec - 25, dec + 25];
 
   const matchConstellations = constellations.filter(constellation => {
-    const matchRA = constellation.coords.ra > rangeRA[0] && constellation.coords.ra < rangeRA[1];
-    const matchDec = constellation.coords.dec > rangeDec[0] && constellation.coords.dec < rangeDec[1];
+    const { ra, dec } = constellation.coords;
+    const matchRA = ra > rangeRA[0] && ra < rangeRA[1];
+    const matchDec = dec > rangeDec[0] && dec < rangeDec[1];
 
     return matchRA && matchDec;
   });
 
-  console.log(matchConstellations.length);
-
   const cards = matchConstellations.map((constellation, index) => (
     <Card
       key={`card-${index}`} 
-      constellation={constellation}/>
+      constellation={constellation}
+    />
   ));
 
   return (
