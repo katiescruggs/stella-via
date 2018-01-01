@@ -8,19 +8,19 @@ import { colors } from '../assets/colors.js';
 const Welcome = (props) => {
   const navRouteData = {
     'Search': {
-      source: require('../assets/search.png'),
+      source: require('../assets/icons/search.png'),
       pageRoute: 'Search'
     },
     'Tonight\'s Sky': {
-      source: require('../assets/night-sky.png'),
+      source: require('../assets/icons/night-sky.png'),
       pageRoute: props.location ? 'TonightsSky' : 'LocationModalTonight'
     }, 
     'Daily Image': {
-      source: require('../assets/observatory.png'),
+      source: require('../assets/icons/observatory.png'),
       pageRoute: 'APOD'
     }, 
     'Login': {
-      source: require('../assets/user.png'),
+      source: require('../assets/icons/user.png'),
       pageRoute: 'User'
     }, 
   };
