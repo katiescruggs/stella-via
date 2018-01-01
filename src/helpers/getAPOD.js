@@ -4,6 +4,8 @@ const getAPOD = async () => {
   try {
     const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${nasaKey}`);
     const apodData = await response.json();
+    console.log(apodData)
+
     return apodData
   } catch(error) {
     console.log(error)
