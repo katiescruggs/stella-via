@@ -1,69 +1,47 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, View, ScrollView, Text, Image, WebView, TouchableHighlight } from 'react-native';
 import getAPOD from '../helpers/getAPOD';
 import NavBar from '../containers/NavBar';
 import { colors } from '../assets/colors';
+import { connect } from 'react-redux';
+import { 
+  AppRegistry, 
+  StyleSheet, 
+  View, 
+  ScrollView, 
+  Text, 
+  Image, 
+  WebView, 
+  TouchableHighlight 
+} from 'react-native';
 
-class APOD extends Component {
-  constructor() {
-    super();
-    this.state = {
-      image: null,
-      type: 'image',
-      title: '',
-      details: ''
-    };
-  }
+const APOD = ({ apodData }) => {
+  const { image, type, title, details } = apodData;
+  const apod = type === 'image' 
+    ? <Image
+        style={styles.img} 
+        source={image} />
+    : <WebView 
+        style={styles.vid} 
+        scalesPageToFit={false}
+        source={image} />
 
-  fetchAPOD = async () => {
-    const apodData = await getAPOD();
-
-    if (!apodData) {
-      const image = { uri: 'https://www.rugbywarfare.com/store/wp-content/uploads/2017/04/random-image-005.jpg' };
-      this.setState({ image });
-    }
-    const { image, type, title, details } = apodData;
-    
-    this.setState({ image, type, title, details });
-  }
-
-  componentDidMount() {
-    this.fetchAPOD();
-  }
-
-  render() {
-    const apod = this.state.type === 'image' 
-      ? <Image
-          style={styles.img} 
-          source={this.state.image} />
-      : <WebView 
-          style={styles.vid} 
-          scalesPageToFit={false}
-          source={this.state.image} />
-
-    const display = !this.state.image 
-      ? <Text style={{color: colors.$white}}>Loading...</Text> 
-      : apod
-
-
-    return (
-      <View style={styles.container}>
-        <View style={styles.topBorder}></View>
-        <View style={styles.imageView}>
-          <View style={styles.textView}>
-            <Text style={styles.teleText}>Astronomy Picture of the Day</Text>
-            <Text style={styles.teleText}>{this.state.title}</Text>
-          </View>
-          {display}
+  return (
+    <View style={styles.container}>
+      <View style={styles.topBorder}></View>
+      <View style={styles.imageView}>
+        <View style={styles.textView}>
+          <Text style={styles.teleText}>Astronomy Picture of the Day</Text>
+          <Text style={styles.teleText}>{title}</Text>
         </View>
-        <ScrollView style={styles.detailView}>
-          <Text style={styles.detailsHeader}>Today's Image:</Text>
-          <Text style={styles.details}>{this.state.details}</Text>
-        </ScrollView>
-        <NavBar />
+        {apod}
       </View>
-    )
-  }
+      <ScrollView style={styles.detailView}>
+        <Text style={styles.detailsHeader}>Today's Image:</Text>
+        <Text style={styles.details}>{details}</Text>
+      </ScrollView>
+      <NavBar />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -147,4 +125,9 @@ const styles = StyleSheet.create({
   }
 });
 
-export default APOD;
+const mapStateToProps = state => ({
+  apodData: state.apodData
+});
+
+export default connect(mapStateToProps, null)(APOD);
+
