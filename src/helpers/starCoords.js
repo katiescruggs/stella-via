@@ -14,6 +14,10 @@ export const calculateRA = (lat, lon) => {
     decimalRA -= 24;
   }
 
+  if(decimalRA <= 0) {
+    decimalRA += 24;
+  }
+
   const stringRA = toStringRA(decimalRA);
 
   const skyCoords = {
