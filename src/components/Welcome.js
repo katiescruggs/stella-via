@@ -33,7 +33,7 @@ const Welcome = (props) => {
         key={`nav-btn-${index}`}
         name={name}
         path={paths[index]}
-        page={pages[index]}
+        pageRoute={pages[index]}
       />
     );
   });

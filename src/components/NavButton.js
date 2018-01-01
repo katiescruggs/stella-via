@@ -4,26 +4,36 @@ import { connect } from 'react-redux';
 import { changePage } from '../actions';
 import { colors } from '../assets/colors';
 
-const NavButton = ({name, path, changePage, page, navBar}) => {
+const NavButton = ({name, path, changePage, pageRoute, small, active}) => {   
   handlePress = () => {
-    changePage(page);
+    changePage(pageRoute);
   };
 
-  const navBarIcons = navBar ? 'smIcon' : null;
-  const textStyle = navBar ? 'smText' : 'navText';
-  const wrapper = navBar ? 'smWrapper' : 'iconWrapper';
-  const navButton = navBar ? 'smButton' : 'navIcon';
+  const navBarIcons = small ? 'smIcon' : null;
+  const wrapper = small ? 'smWrapper' : 'iconWrapper';
+  const navButton = small ? 'smButton' : 'welcomeButton';
+
+  const isActive = active && small 
+    ? styles.active 
+    : styles[navButton];
+
+  const text = !small 
+    ? <Text style={styles.navText}>{name}</Text> 
+    : null;
 
   return (
     <TouchableHighlight 
-      style={styles[navButton]} 
-      onPress={handlePress} 
+      style={isActive} 
+      onPress={this.handlePress} 
       activeOpacity={0.3} 
-      underlayColor={'#735290'}>
+      underlayColor={colors.$purple}>
     
       <View style={styles[wrapper]}> 
-        <Image style={styles[navBarIcons]} source={path}/>
-        <Text style={styles[textStyle]}>{name}</Text>
+        <Image 
+          style={styles[navBarIcons]} 
+          source={path}
+        />
+        {text}
       </View>
     </TouchableHighlight>
   );
@@ -36,7 +46,7 @@ const styles = StyleSheet.create({
     height: 130, 
     width: 130,
   },
-  navIcon: {
+  welcomeButton: {
     borderRadius: 20,
     backgroundColor: colors.$transparentDarkPurple,
     justifyContent: 'center',
@@ -74,22 +84,32 @@ const styles = StyleSheet.create({
     elevation: 1
   },
   smIcon: {
-    height: 25, 
-    width: 25,
+    height: 40, 
+    width: 40,
   },
-  smText: {
-    textAlign: 'center',
-    fontSize: 12,
-    color: colors.$white,
-    marginBottom: 4
+  active: {
+    borderRadius: 20,
+    backgroundColor: colors.$black,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 5,
+    shadowColor: colors.$btnShadow,
+    shadowOffset: { width: 1, height: 3 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 1
   }
+});
+
+const mapStateToProps = state => ({
+  page: state.page
 });
 
 const mapDispatchToProps = dispatch => ({
-  changePage: (page) => {
-    dispatch(changePage(page));
+  changePage: (pageRoute) => {
+    dispatch(changePage(pageRoute));
   }
 });
 
-export default connect(null, mapDispatchToProps)(NavButton);
+export default connect(mapStateToProps, mapDispatchToProps)(NavButton);
 

@@ -38,13 +38,15 @@ class NavBar extends Component {
     ];
 
     const navButtons = buttons.map((name, index) => {
+      const active = this.props.page === pages[index] ? true : false;
       return (
         <NavButton 
           key={`nav-btn-${index}`}
           name={name}
           path={paths[index]}
-          page={pages[index]}
-          navBar={true}
+          pageRoute={pages[index]}
+          small={true}
+          active={active}
         />
       );
     });
@@ -71,7 +73,8 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-  location: state.location
+  location: state.location,
+  page: state.page
 });
 
 export default connect(mapStateToProps, null)(NavBar);
