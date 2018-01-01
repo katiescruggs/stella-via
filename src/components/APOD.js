@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, View, ScrollView, Text, Image, TouchableHighlight } from 'react-native';
+import { AppRegistry, StyleSheet, View, ScrollView, Text, Image, WebView, TouchableHighlight } from 'react-native';
 import getAPOD from '../helpers/getAPOD';
 import NavBar from '../containers/NavBar';
 import { colors } from '../assets/colors';
 
 class APOD extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       image: null,
+      type: 'image',
       title: '',
       details: ''
     };
@@ -16,13 +17,14 @@ class APOD extends Component {
 
   fetchAPOD = async () => {
     const apodData = await getAPOD();
-    const image = !apodData 
-      ? { uri: 'https://www.rugbywarfare.com/store/wp-content/uploads/2017/04/random-image-005.jpg' }
-      : { uri: apodData.url };
 
-    const title = apodData.title;
-    const details = apodData.explanation;
-    this.setState({ image, title, details });
+    if (!apodData) {
+      const image = { uri: 'https://www.rugbywarfare.com/store/wp-content/uploads/2017/04/random-image-005.jpg' };
+      this.setState({ image });
+    }
+    const { image, type, title, details } = apodData;
+    
+    this.setState({ image, type, title, details });
   }
 
   componentDidMount() {
@@ -30,11 +32,19 @@ class APOD extends Component {
   }
 
   render() {
-    const image = !this.state.image 
+    const apod = this.state.type === 'image' 
+      ? <Image
+          style={styles.img} 
+          source={this.state.image} />
+      : <WebView 
+          style={styles.vid} 
+          scalesPageToFit={false}
+          source={this.state.image} />
+
+    const display = !this.state.image 
       ? <Text style={{color: colors.$white}}>Loading...</Text> 
-      : <Image
-            style={styles.img} 
-            source={this.state.image} />
+      : apod
+
 
     return (
       <View style={styles.container}>
@@ -44,7 +54,7 @@ class APOD extends Component {
             <Text style={styles.teleText}>Astronomy Picture of the Day</Text>
             <Text style={styles.teleText}>{this.state.title}</Text>
           </View>
-          {image}
+          {display}
         </View>
         <ScrollView style={styles.detailView}>
           <Text style={styles.detailsHeader}>Today's Image:</Text>
@@ -78,6 +88,11 @@ const styles = StyleSheet.create({
     padding: 10,
     height: 300,
     width: 300, 
+  },
+  vid: {
+    height: 300,
+    width: 300,
+    margin: 10
   },
   imageView : {
     backgroundColor: colors.$black,
