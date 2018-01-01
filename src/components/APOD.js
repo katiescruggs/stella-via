@@ -15,15 +15,15 @@ class APOD extends Component {
     };
   }
 
-  //clean up helper?
   fetchAPOD = async () => {
     const apodData = await getAPOD();
-    const image = !apodData 
-      ? { uri: 'https://www.rugbywarfare.com/store/wp-content/uploads/2017/04/random-image-005.jpg' }
-      : { uri: apodData.url };
-    const type = apodData.media_type;
-    const title = apodData.title;
-    const details = apodData.explanation;
+
+    if (!apodData) {
+      const image = { uri: 'https://www.rugbywarfare.com/store/wp-content/uploads/2017/04/random-image-005.jpg' };
+      this.setState({ image });
+    }
+    const { image, type, title, details } = apodData;
+    
     this.setState({ image, type, title, details });
   }
 
