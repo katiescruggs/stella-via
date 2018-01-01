@@ -2,35 +2,43 @@ import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import { changePage } from '../actions';
+import { colors } from '../assets/colors';
 
-const NavButton = ({name, path, changePage, page, navBar}) => {
+const NavButton = ({name, path, changePage, pageRoute, small, active}) => {   
   handlePress = () => {
-    changePage(page);
+    changePage(pageRoute);
   };
 
-  const navBarIcons = navBar ? 'smIcon' : null;
-  const textStyle = navBar ? 'smText' : 'navText';
-  const wrapper = navBar ? 'smWrapper' : 'iconWrapper';
-  const navButton = navBar ? 'smButton' : 'navIcon';
+  const navBarIcons = small ? 'smIcon' : null;
+  const wrapper = small ? 'smWrapper' : 'iconWrapper';
+  const navButton = small ? 'smButton' : 'welcomeButton';
+
+  const isActive = active && small 
+    ? styles.active 
+    : styles[navButton];
+
+  const text = !small 
+    ? <Text style={styles.navText}>{name}</Text> 
+    : null;
 
   return (
     <TouchableHighlight 
-      style={styles[navButton]} 
-      onPress={handlePress} 
+      style={isActive} 
+      onPress={this.handlePress} 
       activeOpacity={0.3} 
-      underlayColor={'#735290'}>
+      underlayColor={colors.$purple}>
     
       <View style={styles[wrapper]}> 
-        <Image style={styles[navBarIcons]} source={path}/>
-        {/*<Text style={styles[textStyle]}>{name}</Text>*/}
+        <Image 
+          style={styles[navBarIcons]} 
+          source={path}
+        />
+        {text}
       </View>
     </TouchableHighlight>
   );
 };
 
-const $transparentDarkPurple = 'rgba(40, 38, 64, 0.7)';
-const $btnShadow = 'rgba(0, 0, 0, 0.6)';
-const white = '#fff';
 const styles = StyleSheet.create({
   iconWrapper: {
     justifyContent: 'center',
@@ -38,14 +46,13 @@ const styles = StyleSheet.create({
     height: 130, 
     width: 130,
   },
-  navIcon: {
+  welcomeButton: {
     borderRadius: 20,
-    backgroundColor: $transparentDarkPurple,
-    // backgroundColor: '#282640',
+    backgroundColor: colors.$transparentDarkPurple,
     justifyContent: 'center',
     alignItems: 'center',
     margin: 10,
-    shadowColor: $btnShadow,
+    shadowColor: colors.$btnShadow,
     shadowOffset: { width: 2, height: 10 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
@@ -54,7 +61,7 @@ const styles = StyleSheet.create({
   navText: {
     textAlign: 'center',
     fontSize: 18,
-    color: white,
+    color: colors.$white,
     fontWeight: 'bold',
     marginBottom: 4
   },
@@ -66,12 +73,11 @@ const styles = StyleSheet.create({
   },
   smButton: {
     borderRadius: 20,
-    backgroundColor: $transparentDarkPurple,
-    // backgroundColor: '#282640',
+    backgroundColor: colors.$transparentDarkPurple,
     justifyContent: 'center',
     alignItems: 'center',
     margin: 5,
-    shadowColor: $btnShadow,
+    shadowColor: colors.$btnShadow,
     shadowOffset: { width: 2, height: 10 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
@@ -81,19 +87,29 @@ const styles = StyleSheet.create({
     height: 40, 
     width: 40,
   },
-  smText: {
-    textAlign: 'center',
-    fontSize: 12,
-    color: white,
-    marginBottom: 4
+  active: {
+    borderRadius: 20,
+    backgroundColor: colors.$black,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 5,
+    shadowColor: colors.$btnShadow,
+    shadowOffset: { width: 1, height: 3 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 1
   }
+});
+
+const mapStateToProps = state => ({
+  page: state.page
 });
 
 const mapDispatchToProps = dispatch => ({
-  changePage: (page) => {
-    dispatch(changePage(page));
+  changePage: (pageRoute) => {
+    dispatch(changePage(pageRoute));
   }
 });
 
-export default connect(null, mapDispatchToProps)(NavButton);
+export default connect(mapStateToProps, mapDispatchToProps)(NavButton);
 

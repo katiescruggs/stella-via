@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ScrollView, View, Text, TouchableHighlight } from 'react-native';
-import CardContainer from './CardContainer.js';
-import Forecast from '../components/Forecast.js';
-import NavBar from './NavBar.js';
+import { StyleSheet, ScrollView, View, Text, TouchableHighlight } from 'react-native';
+import CardContainer from './CardContainer';
+import Forecast from '../components/Forecast';
+import NavBar from './NavBar';
+import NavButton from '../components/NavButton'
+import { colors } from '../assets/colors';
 
 class TonightsSky extends Component {
   render() {
@@ -14,6 +16,12 @@ class TonightsSky extends Component {
         <ScrollView>
           <View style={styles.titleContainer}>
             <Text style={styles.skyTitle}>Tonight's Sky</Text>
+            <NavButton 
+              path={require('../assets/icons/location.png')}
+              name={null}
+              pageRoute='LocationModalTonight'
+              small={true}
+            />
           </View>
           <Forecast />
           <Text style={styles.constellationsTitle}>
@@ -27,28 +35,32 @@ class TonightsSky extends Component {
   }
 }
 
-const styles = {
+const styles = StyleSheet.create({
   constellationsContainer: {
-    backgroundColor: 'rgb(40, 38, 64)',
+    backgroundColor: colors.$darkPurple,
     width: '100%',
     height: '100%'
   },
   titleContainer: {
-    backgroundColor: '#735290',
+    backgroundColor: colors.$purple,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 10
   },
   skyTitle: {
-    color: '#fff',
+    color: colors.$white,
     fontSize: 35,
     textAlign: 'center',
     paddingTop: 35,
     paddingBottom: 5
   },
   constellationsTitle: {
-    color: '#fff',
+    color: colors.$white,
     fontSize: 20,
     marginBottom: 10
   }
-};
+});
 
 const mapStateToProps = state => ({
   lat: state.location.lat,

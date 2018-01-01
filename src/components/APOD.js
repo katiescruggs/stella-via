@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, View, ScrollView, Text, Image, TouchableHighlight } from 'react-native';
-import getAPOD from '../helpers/getAPOD.js';
-import NavBar from '../containers/NavBar.js';
+import { AppRegistry, StyleSheet, View, ScrollView, Text, Image, WebView, TouchableHighlight } from 'react-native';
+import getAPOD from '../helpers/getAPOD';
+import NavBar from '../containers/NavBar';
+import { colors } from '../assets/colors';
 
 class APOD extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       image: null,
+      type: 'image',
       title: '',
       details: ''
     };
@@ -15,13 +17,14 @@ class APOD extends Component {
 
   fetchAPOD = async () => {
     const apodData = await getAPOD();
-    const image = !apodData 
-      ? { uri: 'https://www.rugbywarfare.com/store/wp-content/uploads/2017/04/random-image-005.jpg' }
-      : { uri: apodData.url };
 
-    const title = apodData.title;
-    const details = apodData.explanation;
-    this.setState({ image, title, details });
+    if (!apodData) {
+      const image = { uri: 'https://www.rugbywarfare.com/store/wp-content/uploads/2017/04/random-image-005.jpg' };
+      this.setState({ image });
+    }
+    const { image, type, title, details } = apodData;
+    
+    this.setState({ image, type, title, details });
   }
 
   componentDidMount() {
@@ -29,11 +32,19 @@ class APOD extends Component {
   }
 
   render() {
-    const image = !this.state.image 
-      ? <Text style={{color: '#fff'}}>Loading...</Text> 
-      : <Image
-            style={styles.img} 
-            source={this.state.image} />
+    const apod = this.state.type === 'image' 
+      ? <Image
+          style={styles.img} 
+          source={this.state.image} />
+      : <WebView 
+          style={styles.vid} 
+          scalesPageToFit={false}
+          source={this.state.image} />
+
+    const display = !this.state.image 
+      ? <Text style={{color: colors.$white}}>Loading...</Text> 
+      : apod
+
 
     return (
       <View style={styles.container}>
@@ -43,7 +54,7 @@ class APOD extends Component {
             <Text style={styles.teleText}>Astronomy Picture of the Day</Text>
             <Text style={styles.teleText}>{this.state.title}</Text>
           </View>
-          {image}
+          {display}
         </View>
         <ScrollView style={styles.detailView}>
           <Text style={styles.detailsHeader}>Today's Image:</Text>
@@ -58,7 +69,7 @@ class APOD extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: colors.$black,
     alignItems: 'center',
     justifyContent: 'space-around',
     width: '100%'
@@ -66,21 +77,26 @@ const styles = StyleSheet.create({
   topBorder: {
     width: '100%',
     height: 50,
-    backgroundColor: '#735290'
+    backgroundColor: colors.$purple
   },
   img: {
     borderRadius: 150,
     borderWidth: 1,
-    shadowColor: '#000',
+    shadowColor: colors.$black,
     shadowRadius: 600,
     shadowOpacity: 1,
     padding: 10,
     height: 300,
     width: 300, 
   },
+  vid: {
+    height: 300,
+    width: 300,
+    margin: 10
+  },
   imageView : {
-    backgroundColor: '#000',
-    borderColor: '#fff',
+    backgroundColor: colors.$black,
+    borderColor: colors.$white,
     borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -102,27 +118,27 @@ const styles = StyleSheet.create({
     width: '90%',
   },
   teleText: {
-    color: '#fff',
+    color: colors.$white,
     fontSize: 16,
   },
   detailView: {
     flex: 1,
-    backgroundColor: 'rgba(40, 38, 64, 0.7)',
-    borderColor: '#fff',
+    backgroundColor: colors.$transparentDarkPurple,
+    borderColor: colors.$white,
     borderWidth: 1,
     borderBottomWidth: 0,
     width: '93%',
   },
   detailsHeader: {
-    backgroundColor: '#735290',
-    color: '#fff',
+    backgroundColor: colors.$purple,
+    color: colors.$white,
     fontSize: 28,
     textAlign: 'center',
     padding: 10,
     width: '100%',
   },
   details: {
-    color: '#fff',
+    color: colors.$white,
     fontSize: 18,
     lineHeight: 25,
     textAlign: 'center',

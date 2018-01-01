@@ -1,66 +1,59 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import  { connect } from 'react-redux';
 import NavButton from '../components/NavButton';
+import { colors } from '../assets/colors';
 
-class NavBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+const NavBar = (props) => {
+  const navRouteData = {
+    'Search': {
+      source: require('../assets/icons/search.png'),
+      pageRoute: 'Search'
+    },
+    'Tonight\'s Sky': {
+      source: require('../assets/icons/night-sky.png'),
+      pageRoute: props.location ? 'TonightsSky' : 'LocationModalTonight'
+    }, 
+    'Star Map': {
+      source: require('../assets/icons/star-map.png'),
+      pageRoute: props.location ? 'StarMap' : 'LocationModalMap'
+    }, 
+    'Daily Image': {
+      source: require('../assets/icons/observatory.png'),
+      pageRoute: 'APOD'
+    }, 
+    'Login': {
+      source: require('../assets/icons/user.png'),
+      pageRoute: 'User'
+    }, 
+  };
 
-    };
-  }
-
-  render() {
-    const buttons = [
-      'Search', 
-      'Tonight\'s Sky',
-      'Star Map', 
-      'Daily Image', 
-      'Login'
-    ];
-
-    const paths = [
-      require('../assets/search.png'),
-      require('../assets/night-sky.png'),
-      require('../assets/star-map.png'),
-      require('../assets/observatory.png'),
-      require('../assets/user.png'),
-    ];
-
-    const pages = [
-      'Search',
-      this.props.location ? 'TonightsSky' : 'LocationModalTonight',
-      this.props.location ? 'StarMap' : 'LocationModalMap',
-      'APOD',
-      'User'
-    ];
-
-    const navButtons = buttons.map((name, index) => {
-      return (
-        <NavButton 
-          key={`nav-btn-${index}`}
-          name={name}
-          path={paths[index]}
-          page={pages[index]}
-          navBar={true}
-        />
-      );
-    });
+  const navButtons = Object.keys(navRouteData).map((name, index) => {
+    const active = props.page === navRouteData[name].pageRoute ? true : false;
 
     return (
-      <View style={styles.container}>
-        {navButtons}
-      </View>
+      <NavButton 
+        key={`nav-btn-${index}`}
+        name={name}
+        path={navRouteData[name].source}
+        pageRoute={navRouteData[name].pageRoute}
+        small={true}
+        active={active}
+      />
     );
-  }
+  });
+
+  return (
+    <View style={styles.container}>
+      {navButtons}
+    </View>
+  );
 }
 
-const $purple = '#735290';
 const styles = StyleSheet.create({
   container: {
     padding: 7,
-    backgroundColor: $purple,
+    backgroundColor: colors.$purple,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'center',
@@ -71,7 +64,8 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-  location: state.location
+  location: state.location,
+  page: state.page
 });
 
 export default connect(mapStateToProps, null)(NavBar);

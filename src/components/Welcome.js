@@ -3,36 +3,35 @@ import { StyleSheet, ImageBackground, View, Image } from 'react-native';
 import NavButton from './NavButton.js';
 import { connect } from 'react-redux';
 import { changePage } from '../actions';
+import { colors } from '../assets/colors.js';
 
 const Welcome = (props) => {
-  const buttons = [
-    'Search', 
-    'Tonight\'s Sky', 
-    'Daily Image', 
-    'Login'
-  ];
+  const navRouteData = {
+    'Search': {
+      source: require('../assets/icons/search.png'),
+      pageRoute: 'Search'
+    },
+    'Tonight\'s Sky': {
+      source: require('../assets/icons/night-sky.png'),
+      pageRoute: props.location ? 'TonightsSky' : 'LocationModalTonight'
+    }, 
+    'Daily Image': {
+      source: require('../assets/icons/observatory.png'),
+      pageRoute: 'APOD'
+    }, 
+    'Login': {
+      source: require('../assets/icons/user.png'),
+      pageRoute: 'User'
+    }, 
+  };
 
-  const paths = [
-    require('../assets/search.png'),
-    require('../assets/night-sky.png'),
-    require('../assets/observatory.png'),
-    require('../assets/user.png'),
-  ];
-
-  const pages = [
-    'Search',
-    props.location ? 'TonightsSky' : 'LocationModalTonight',
-    'APOD',
-    'User'
-  ];
-
-  const navButtons = buttons.map((name, index) => {
+  const navButtons = Object.keys(navRouteData).map((name, index) => {
     return (
       <NavButton 
         key={`nav-btn-${index}`}
         name={name}
-        path={paths[index]}
-        page={pages[index]}
+        path={navRouteData[name].source}
+        pageRoute={navRouteData[name].pageRoute}
       />
     );
   });
@@ -40,7 +39,6 @@ const Welcome = (props) => {
   return (
     <ImageBackground source={require('../assets/star-background.jpg')} style={styles.container}>
       <Image style={styles.mainTitle} source={require('../assets/stella-via-logo-gradient.png')}/>
-      {/*<Text style={styles.mainTitle}>Stella Via</Text>*/}
       <View style={styles.nav}>
         {navButtons}
       </View>
@@ -48,7 +46,6 @@ const Welcome = (props) => {
   );
 };
 
-const $white = '#fff';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -65,8 +62,8 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    borderWidth: 5,
-    borderColor: $white,
+    borderWidth: 3,
+    borderColor: colors.$white,
     justifyContent: 'center',
     alignItems: 'center',
     paddingBottom: 25,
