@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, View, ScrollView, Text, Image, TouchableHighlight } from 'react-native';
-import getAPOD from '../helpers/getAPOD.js';
-import NavBar from '../containers/NavBar.js';
+import getAPOD from '../helpers/getAPOD';
+import NavBar from '../containers/NavBar';
+import { colors } from '../assets/colors';
 
 class APOD extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class APOD extends Component {
 
   render() {
     const image = !this.state.image 
-      ? <Text style={{color: '#fff'}}>Loading...</Text> 
+      ? <Text style={{color: colors.$white}}>Loading...</Text> 
       : <Image
             style={styles.img} 
             source={this.state.image} />
@@ -58,7 +59,7 @@ class APOD extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: colors.$black,
     alignItems: 'center',
     justifyContent: 'space-around',
     width: '100%'
@@ -66,12 +67,12 @@ const styles = StyleSheet.create({
   topBorder: {
     width: '100%',
     height: 50,
-    backgroundColor: '#735290'
+    backgroundColor: colors.$purple
   },
   img: {
     borderRadius: 150,
     borderWidth: 1,
-    shadowColor: '#000',
+    shadowColor: colors.$black,
     shadowRadius: 600,
     shadowOpacity: 1,
     padding: 10,
@@ -79,8 +80,8 @@ const styles = StyleSheet.create({
     width: 300, 
   },
   imageView : {
-    backgroundColor: '#000',
-    borderColor: '#fff',
+    backgroundColor: colors.$black,
+    borderColor: colors.$white,
     borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -102,27 +103,27 @@ const styles = StyleSheet.create({
     width: '90%',
   },
   teleText: {
-    color: '#fff',
+    color: colors.$white,
     fontSize: 16,
   },
   detailView: {
     flex: 1,
-    backgroundColor: 'rgba(40, 38, 64, 0.7)',
-    borderColor: '#fff',
+    backgroundColor: colors.$transparentDarkPurple,
+    borderColor: colors.$white,
     borderWidth: 1,
     borderBottomWidth: 0,
     width: '93%',
   },
   detailsHeader: {
-    backgroundColor: '#735290',
-    color: '#fff',
+    backgroundColor: colors.$purple,
+    color: colors.$white,
     fontSize: 28,
     textAlign: 'center',
     padding: 10,
     width: '100%',
   },
   details: {
-    color: '#fff',
+    color: colors.$white,
     fontSize: 18,
     lineHeight: 25,
     textAlign: 'center',

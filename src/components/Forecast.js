@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
 const Forecast = () => {
   return (
@@ -7,6 +7,10 @@ const Forecast = () => {
       <Text>Forecast</Text>
     </View>
   );
+
+  const styles = StyleSheet.create({
+    
+  })
 };
 
 export default Forecast;

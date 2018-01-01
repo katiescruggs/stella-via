@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ScrollView, View, Text, TouchableHighlight } from 'react-native';
+import { StyleSheet, ScrollView, View, Text, TouchableHighlight } from 'react-native';
 import CardContainer from './CardContainer.js';
 import Forecast from '../components/Forecast.js';
 import NavBar from './NavBar.js';
+import { colors } from '../assets/colors';
 
 class TonightsSky extends Component {
   render() {
@@ -27,28 +28,28 @@ class TonightsSky extends Component {
   }
 }
 
-const styles = {
+const styles = StyleSheet.create({
   constellationsContainer: {
-    backgroundColor: 'rgb(40, 38, 64)',
+    backgroundColor: colors.$darkPurple,
     width: '100%',
     height: '100%'
   },
   titleContainer: {
-    backgroundColor: '#735290',
+    backgroundColor: colors.$purple,
   },
   skyTitle: {
-    color: '#fff',
+    color: colors.$white,
     fontSize: 35,
     textAlign: 'center',
     paddingTop: 35,
     paddingBottom: 5
   },
   constellationsTitle: {
-    color: '#fff',
+    color: colors.$white,
     fontSize: 20,
     marginBottom: 10
   }
-};
+});
 
 const mapStateToProps = state => ({
   lat: state.location.lat,
