@@ -7,23 +7,23 @@ import { colors } from '../assets/colors';
 const NavBar = (props) => {
   const navRouteData = {
     'Search': {
-      source: require('../assets/search.png'),
+      source: require('../assets/icons/search.png'),
       pageRoute: 'Search'
     },
     'Tonight\'s Sky': {
-      source: require('../assets/night-sky.png'),
+      source: require('../assets/icons/night-sky.png'),
       pageRoute: props.location ? 'TonightsSky' : 'LocationModalTonight'
     }, 
     'Star Map': {
-      source: require('../assets/star-map.png'),
+      source: require('../assets/icons/star-map.png'),
       pageRoute: props.location ? 'StarMap' : 'LocationModalMap'
     }, 
     'Daily Image': {
-      source: require('../assets/observatory.png'),
+      source: require('../assets/icons/observatory.png'),
       pageRoute: 'APOD'
     }, 
     'Login': {
-      source: require('../assets/user.png'),
+      source: require('../assets/icons/user.png'),
       pageRoute: 'User'
     }, 
   };
