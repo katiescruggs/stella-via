@@ -22,7 +22,7 @@ const NavButton = ({name, path, changePage, page, navBar}) => {
     
       <View style={styles[wrapper]}> 
         <Image style={styles[navBarIcons]} source={path}/>
-        <Text style={styles[textStyle]}>{name}</Text>
+        {/*<Text style={styles[textStyle]}>{name}</Text>*/}
       </View>
     </TouchableHighlight>
   );
@@ -78,8 +78,8 @@ const styles = StyleSheet.create({
     elevation: 1
   },
   smIcon: {
-    height: 25, 
-    width: 25,
+    height: 40, 
+    width: 40,
   },
   smText: {
     textAlign: 'center',
