@@ -13,7 +13,13 @@ const getAPOD = async () => {
 }
 
 const formatAPOD = (apodData) => {
-  const { url, media_type, title, explanation } = apodData;
+  const { 
+    url, 
+    media_type, 
+    title, 
+    explanation 
+  } = apodData;
+  
   return {
     image: {uri: url},
     type: media_type,
