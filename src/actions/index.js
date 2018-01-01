@@ -17,3 +17,8 @@ export const setSkyCoords = skyCoords => ({
   type: 'SET_SKY_COORDS',
   skyCoords
 });
+
+export const setAPOD = apodData => ({
+  type: 'SET_APOD',
+  apodData
+});
