@@ -23,7 +23,7 @@ export const setAPOD = apodData => ({
   apodData
 });
 
-export const logIn = user => ({
+export const logIn = userInfo => ({
   type: 'LOGIN',
-  user
+  userInfo
 });

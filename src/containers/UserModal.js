@@ -108,9 +108,11 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapDispatchToProps = {
-  
-}
+const mapDispatchToProps = dispatch => ({
+  logIn: userInfo => {
+    dispatch(logIn(userInfo));
+  }
+});
 
-export default UserModal;
+export default connect(null, mapDispatchToProps)(UserModal);
 
