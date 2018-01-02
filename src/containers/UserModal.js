@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import NavBar from './NavBar.js';
 import { colors } from '../assets/colors.js';
+import { LogIn } from '../actions';
 import {
   StyleSheet,
   TextInput,
@@ -19,6 +20,10 @@ class UserModal extends Component {
     };
   };
 
+  handleUserSubmit = () => {
+    this.props.logIn(this.state);
+  }
+
   render() {
     return (
       <View style={styles.mainContainer}>
@@ -31,14 +36,16 @@ class UserModal extends Component {
               style={styles.modalTextInput}
               value={this.state.username}
               placeholder='Username'
-              onChangeText={this.handleInputChange}
+              name='username'
+              onChangeText={text => this.setState({username: text})}
             />
 
             <TextInput
               style={styles.modalTextInput}
               value={this.state.password}
               placeholder='Password'
-              onChangeText={this.handleInputChange}
+              name='password'
+              onChangeText={text => this.setState({password: text})}
             />
 
             <TouchableHighlight
