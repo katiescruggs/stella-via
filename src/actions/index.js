@@ -22,3 +22,12 @@ export const setAPOD = apodData => ({
   type: 'SET_APOD',
   apodData
 });
+
+export const logIn = userInfo => ({
+  type: 'LOGIN',
+  userInfo
+});
+
+export const logOut = () => ({
+  type: 'LOGOUT'
+});

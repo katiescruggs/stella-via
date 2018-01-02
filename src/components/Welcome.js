@@ -32,7 +32,7 @@ class Welcome extends Component {
       }, 
       'Login': {
         source: require('../assets/icons/user.png'),
-        pageRoute: 'User'
+        pageRoute: this.props.user ? 'User' : 'UserModal'
       }, 
     };
 
@@ -91,7 +91,8 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-  location: state.location
+  location: state.location,
+  user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({

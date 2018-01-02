@@ -24,7 +24,7 @@ const NavBar = (props) => {
     }, 
     'Login': {
       source: require('../assets/icons/user.png'),
-      pageRoute: 'User'
+      pageRoute: props.user ? 'User' : 'UserModal'
     }, 
   };
 
@@ -65,7 +65,8 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
   location: state.location,
-  page: state.page
+  page: state.page,
+  user: state.user
 });
 
 export default connect(mapStateToProps, null)(NavBar);
