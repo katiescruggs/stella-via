@@ -22,3 +22,8 @@ export const setAPOD = apodData => ({
   type: 'SET_APOD',
   apodData
 });
+
+export const logIn = user => ({
+  type: 'LOGIN',
+  user
+});

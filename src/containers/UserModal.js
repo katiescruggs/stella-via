@@ -108,4 +108,9 @@ const styles = StyleSheet.create({
   }
 });
 
+const mapDispatchToProps = {
+  
+}
+
 export default UserModal;
+
