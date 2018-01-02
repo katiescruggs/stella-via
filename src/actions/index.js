@@ -27,3 +27,7 @@ export const logIn = userInfo => ({
   type: 'LOGIN',
   userInfo
 });
+
+export const logOut = () => ({
+  type: 'LOGOUT'
+});
