@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet, ImageBackground, View, Image } from 'react-native';
-import NavButton from './NavButton';
 import { connect } from 'react-redux';
+import { StyleSheet, ImageBackground, View, Image } from 'react-native';
 import { changePage, setAPOD } from '../actions';
 import { colors } from '../assets/colors';
+import NavButton from './NavButton';
 import getAPOD from '../helpers/getAPOD';
-
-
 
 class Welcome extends Component {
   async componentDidMount() {
@@ -50,8 +48,14 @@ class Welcome extends Component {
     });
 
     return (
-      <ImageBackground source={require('../assets/star-background.jpg')} style={styles.container}>
-        <Image style={styles.mainTitle} source={require('../assets/stella-via-logo-gradient.png')}/>
+      <ImageBackground 
+        source={require('../assets/star-background.jpg')} 
+        style={styles.container}>
+
+        <Image 
+          style={styles.mainTitle} 
+          source={require('../assets/stella-via-logo-gradient.png')}
+        />
         <View style={styles.nav}>
           {navButtons}
         </View>

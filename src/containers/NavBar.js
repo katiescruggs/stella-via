@@ -29,7 +29,7 @@ const NavBar = (props) => {
   };
 
   const navButtons = Object.keys(navRouteData).map((name, index) => {
-    const active = props.page === navRouteData[name].pageRoute ? true : false;
+    const active = props.page === navRouteData[name].pageRoute;
 
     return (
       <NavButton 

@@ -1,4 +1,4 @@
-export const pageReducer = (state = 'welcome', action) => {
+export const pageReducer = (state = 'Welcome', action) => {
   switch(action.type) {
   case 'CHANGE_PAGE':
     return action.page;

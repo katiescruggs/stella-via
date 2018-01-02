@@ -1,8 +1,14 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import { changePage } from '../actions';
 import { colors } from '../assets/colors';
+import { 
+  StyleSheet, 
+  View, 
+  Text, 
+  Image, 
+  TouchableHighlight 
+} from 'react-native';
 
 const NavButton = ({name, path, changePage, pageRoute, small, active}) => {   
   handlePress = () => {
@@ -27,7 +33,7 @@ const NavButton = ({name, path, changePage, pageRoute, small, active}) => {
       onPress={this.handlePress} 
       activeOpacity={0.3} 
       underlayColor={colors.$purple}>
-    
+
       <View style={styles[wrapper]}> 
         <Image 
           style={styles[navBarIcons]} 

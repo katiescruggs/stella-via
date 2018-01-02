@@ -2,19 +2,37 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { colors } from '../assets/colors';
 
-const Card = ({constellation}) => {
-  const description = constellation.description ? constellation.description.substring(0, 140) : null;
+const Card = ({ constellation }) => {
+  const { description, stars, translation, coords, name } = constellation;
+  const descriptionText = description 
+    ? description.substring(0, 140) 
+    : null;
+
+  const displayDescription = descriptionText 
+    ? <Text>
+        {`Description: ${descriptionText}...`}
+      </Text>
+    : null;
+
+  const starsString = stars.length 
+    ? stars.join(', ')
+    : 'none';
 
   return (
     <View style={styles.card}>
-      <Text style={styles.cardTitle}>{`${constellation.name} (${constellation.translation})`}</Text>
-      <Text>{`Location: RA ${constellation.coords.ra}, DEC ${constellation.coords.dec}`}</Text>
-      <Text>{`Stars: ${constellation.stars.join(', ')}`}</Text>
-      <Text>{`Description: ${description}...`}</Text>
+      <Text style={styles.cardTitle}>
+        {`${name} (${translation})`}
+      </Text>
+      <Text>
+        {`Location: RA ${coords.ra}, DEC ${coords.dec}`}
+      </Text>
+      <Text>
+        {`Named Stars: ${starsString}`}
+      </Text>
+      {displayDescription}
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   card: {

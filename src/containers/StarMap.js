@@ -8,12 +8,14 @@ import { colors } from '../assets/colors';
 const StarMap = ({ lat, lon, dec, RA }) => {
   const arrayRA = RA.split(' ');
   const formattedRA = `${arrayRA[0]}h, ${arrayRA[1]}m, ${arrayRA[2]}s`;
-  const path = `http://server1.sky-map.org/skywindow?ra=${arrayRA[0]} ${arrayRA[1]} ${arrayRA[2]}&dec=${dec}&zoom=8&img_source=SDSS`;
+  const path = `http://server1.sky-map.org/skywindow?ra=${RA}&dec=${dec}&zoom=8&img_source=SDSS`;
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.titleText}>Star Map</Text>
+        <Text style={styles.titleText}>
+          Star Map
+        </Text>
         <NavButton 
           path={require('../assets/icons/location.png')}
           name={null}
@@ -23,12 +25,20 @@ const StarMap = ({ lat, lon, dec, RA }) => {
       </View>
       <View style={styles.coordsBanner}>
         <View>
-          <Text style={styles.earthCoordsText}>{`Latitude: ${lat}\xb0`}</Text>
-          <Text style={styles.earthCoordsText}>{`Longitude: ${lon}\xb0`}</Text>
+          <Text style={styles.earthCoordsText}>
+            {`Latitude: ${lat}\xb0`}
+          </Text>
+          <Text style={styles.earthCoordsText}>
+            {`Longitude: ${lon}\xb0`}
+          </Text>
         </View>
         <View>
-          <Text style={styles.starCoordsText}>{`Declination: ${dec}\xb0`}</Text>
-          <Text style={styles.starCoordsText}>{`Right Acension: ${formattedRA}`}</Text>
+          <Text style={styles.starCoordsText}>
+            {`Declination: ${dec}\xb0`}
+          </Text>
+          <Text style={styles.starCoordsText}>
+            {`Right Acension: ${formattedRA}`}
+          </Text>
         </View>
       </View>
       <WebView
