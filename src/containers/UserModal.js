@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import NavBar from './NavBar.js';
 import { colors } from '../assets/colors.js';
-import { LogIn } from '../actions';
+import { logIn, changePage } from '../actions';
 import {
   StyleSheet,
   TextInput,
@@ -22,6 +22,7 @@ class UserModal extends Component {
 
   handleUserSubmit = () => {
     this.props.logIn(this.state);
+    this.props.changePage('User');
   }
 
   render() {
@@ -111,6 +112,9 @@ const styles = StyleSheet.create({
 const mapDispatchToProps = dispatch => ({
   logIn: userInfo => {
     dispatch(logIn(userInfo));
+  },
+  changePage: page => {
+    dispatch(changePage(page));
   }
 });
 

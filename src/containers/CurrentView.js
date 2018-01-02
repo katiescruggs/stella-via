@@ -11,11 +11,12 @@ import LocationModal from './LocationModal.js';
 
 const CurrentView = ({ page }) => {
   const pages = {
-    User: <UserModal />,
+    User: <User />,
     APOD: <APOD />,
     Search: <Search />,
     Welcome: <Welcome />,
     StarMap: <StarMap />,
+    UserModal: <UserModal />,
     TonightsSky: <TonightsSky />,
     LocationModalMap: <LocationModal />,
     LocationModalTonight: <LocationModal />,
