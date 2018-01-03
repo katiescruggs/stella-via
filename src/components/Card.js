@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableHighlight, Image } from 'react-native';
 import { colors } from '../assets/colors';
 
 const Card = ({ constellation }) => {
@@ -20,9 +20,20 @@ const Card = ({ constellation }) => {
 
   return (
     <View style={styles.card}>
-      <Text style={styles.cardTitle}>
-        {`${name} (${translation})`}
-      </Text>
+      <View style={styles.cardHeader}>
+        <Text style={styles.cardTitle}>
+          {`${name} (${translation})`}
+        </Text>
+        <TouchableHighlight 
+          // style={styles.}
+          onPress={() => console.log('pressed')} 
+          activeOpacity={0.3} 
+          underlayColor={colors.$purple}>
+          <Image 
+            style={styles.icon}
+            source={require('../assets/icons/search.png')}/>
+        </TouchableHighlight>
+      </View>
       <Text>
         {`Location: RA ${coords.ra}, DEC ${coords.dec}`}
       </Text>
@@ -44,7 +55,20 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   cardTitle: {
-    fontSize: 18
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: colors.$white
+  },
+  icon: {
+    height: 30,
+    width: 30
+  },
+  cardHeader: {
+    backgroundColor: 'black',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 5
   }
 });
 
