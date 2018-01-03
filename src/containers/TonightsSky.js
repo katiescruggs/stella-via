@@ -36,7 +36,7 @@ const TonightsSky = ({ lat, lon, RA, dec }) => {
         <Text style={styles.constellationsTitle}>
           {`Constellations For ${lat}\xb0, ${lon}\xb0`}
         </Text>
-        <CardContainer constellations={matchConstellations}/>
+        <CardContainer constellations={constellations}/>
       </ScrollView>
       <NavBar />
     </View>

@@ -18,7 +18,15 @@ class Card extends Component {
   }
 
   render() {
-    const { description, stars, translation, coords, name } = this.props.constellation;
+    const { 
+      description, 
+      stars, 
+      translation, 
+      coords, 
+      name, 
+      image 
+    } = this.props.constellation;
+
     const descriptionText = description 
       ? description.substring(0, 140) 
       : null;
@@ -45,12 +53,18 @@ class Card extends Component {
         </View>
       : null;
 
+    const source = image ? image : null;
+
     return (
       <View style={styles.card}>
         <View style={styles.cardHeader}>
           <Text style={styles.cardTitle}>
             {`${name} (${translation})`}
           </Text>
+          <Image 
+            source={source}
+            style={{height: 50, width: 50}}
+          />
           <TouchableHighlight 
             onPress={this.handlePress} 
             activeOpacity={0.3} 
