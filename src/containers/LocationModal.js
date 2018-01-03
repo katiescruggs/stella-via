@@ -10,7 +10,9 @@ import {
   TextInput, 
   View, 
   Text, 
-  TouchableHighlight 
+  Image,
+  TouchableHighlight,
+  ImageBackground 
 } from 'react-native';
 
 class LocationModal extends Component {
@@ -64,7 +66,10 @@ class LocationModal extends Component {
       : 'StarMap';
 
     return (
-      <View style={styles.mainContainer}>
+      <ImageBackground 
+        source={require('../assets/star-background.jpg')} 
+        style={styles.mainContainer}>
+
         <View style={styles.modalContainer}>
           <Text style={styles.modalTitle}>
             Finding Your Night Sky
@@ -79,12 +84,18 @@ class LocationModal extends Component {
               </Text>
             </TouchableHighlight>
             <View>
-              <TextInput
-                style = {styles.modalTextInput}
-                value={this.state.text}
-                placeholder='City, State'
-                onChangeText={(text) => this.setState({text})}
-              />
+              <View style={styles.inputWrapper}>
+                <Image 
+                  source={require('../assets/icons/location.png')}
+                  style={styles.locationIcon}
+                />
+                <TextInput
+                  style = {styles.modalTextInput}
+                  value={this.state.text}
+                  placeholder='City, State'
+                  onChangeText={(text) => this.setState({text})}
+                />
+              </View>
               <TouchableHighlight 
                 style={styles.modalButton}
                 onPress={() => this.handleSearchLocation(nextPage)}>
@@ -97,7 +108,7 @@ class LocationModal extends Component {
           </View>
         </View>
         <NavBar />
-      </View>
+      </ImageBackground>
     );
   }
 }
@@ -106,45 +117,65 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     alignContent: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    width: '100%'
   },
   modalContainer: {
     alignSelf: 'center',
-    backgroundColor: colors.$white,
-    borderColor: colors.$redPurple,
-    borderWidth: 7,
+    // borderColor: colors.$white,
+    // borderRadius: 50,
+    // borderWidth: 2,
     justifyContent: 'center',
     minHeight: 300,
     padding: 20,
     width: '95%'
   },
   inputContainer: {
-    justifyContent: 'space-between',
-    height: 200
+    justifyContent: 'space-around',
+    height: 300
+  },
+  inputWrapper: {
+    borderRadius: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: colors.$purple,
+    marginBottom: 10, 
+    padding: 3
+  },
+  locationIcon: {
+    height: 32,
+    width: 32,
+    backgroundColor: colors.$purple,
   },
   modalTitle: {
-    alignSelf: 'center',
-    fontSize: 30,
-    marginBottom: 20
+    backgroundColor: 'transparent',
+    color: colors.$white,
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginTop: 20,
+    marginBottom: 20,
+    textAlign: 'center'
   },
   modalButton: {
     alignSelf: 'center',
     backgroundColor: colors.$lavender,
-    borderColor: colors.$lavender,
     borderRadius: 25,
-    borderWidth: 2,
-    padding: 10
+    padding: 15
   },
   modalButtonText: {
+    color: colors.$darkPurple,
     fontSize: 20
   },
   modalTextInput: {
-    borderColor: colors.$redPurple,
-    borderWidth: 1,
+    backgroundColor: colors.$white,
+    borderColor: colors.$purple,
+    borderWidth: 4,
+    color: colors.$darkPurple,
     fontSize: 20,
     padding: 10,
-    marginBottom: 10
-  }
+    width: '88%'
+  },
 });
 
 const mapStateToProps = state => ({

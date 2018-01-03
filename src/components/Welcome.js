@@ -77,16 +77,16 @@ const styles = StyleSheet.create({
     height: 200
   },
   nav: {
-    borderRadius: 50,
+    // borderRadius: 50,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    borderWidth: 3,
-    borderColor: colors.$white,
+    // borderWidth: 2,
+    // borderColor: colors.$white,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingBottom: 25,
-    paddingTop: 30,
-    marginBottom: 20,
+    // paddingBottom: 25,
+    // paddingTop: 30,
+    marginBottom: 60,
   }
 });
 
