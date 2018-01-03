@@ -10,7 +10,8 @@ import {
   TextInput, 
   View, 
   Text, 
-  TouchableHighlight 
+  TouchableHighlight,
+  ImageBackground 
 } from 'react-native';
 
 class LocationModal extends Component {
@@ -64,7 +65,10 @@ class LocationModal extends Component {
       : 'StarMap';
 
     return (
-      <View style={styles.mainContainer}>
+      <ImageBackground 
+        source={require('../assets/star-background.jpg')} 
+        style={styles.mainContainer}>
+
         <View style={styles.modalContainer}>
           <Text style={styles.modalTitle}>
             Finding Your Night Sky
@@ -97,7 +101,7 @@ class LocationModal extends Component {
           </View>
         </View>
         <NavBar />
-      </View>
+      </ImageBackground>
     );
   }
 }
@@ -106,13 +110,15 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     alignContent: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    width: '100%'
   },
   modalContainer: {
     alignSelf: 'center',
-    backgroundColor: colors.$white,
-    borderColor: colors.$redPurple,
-    borderWidth: 7,
+    borderColor: colors.$white,
+    borderRadius: 50,
+    borderWidth: 2,
+    // backgroundColor: 'rgba(255, 255, 255, 0.3)',
     justifyContent: 'center',
     minHeight: 300,
     padding: 20,
@@ -123,24 +129,27 @@ const styles = StyleSheet.create({
     height: 200
   },
   modalTitle: {
+    backgroundColor: 'transparent',
     alignSelf: 'center',
+    color: colors.$white,
     fontSize: 30,
     marginBottom: 20
   },
   modalButton: {
     alignSelf: 'center',
     backgroundColor: colors.$lavender,
-    borderColor: colors.$lavender,
     borderRadius: 25,
-    borderWidth: 2,
-    padding: 10
+    padding: 15
   },
   modalButtonText: {
+    color: colors.$darkPurple,
     fontSize: 20
   },
   modalTextInput: {
-    borderColor: colors.$redPurple,
-    borderWidth: 1,
+    backgroundColor: colors.$white,
+    borderColor: colors.$purple,
+    borderWidth: 4,
+    color: colors.$darkPurple,
     fontSize: 20,
     padding: 10,
     marginBottom: 10
