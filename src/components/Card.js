@@ -27,7 +27,6 @@ class Card extends Component {
       image 
     } = this.props.constellation;
 
-    console.log(image)
     const descriptionText = description 
       ? description.substring(0, 140) 
       : null;
