@@ -7,7 +7,7 @@ import NavButton from './NavButton';
 import getAPOD from '../helpers/getAPOD';
 
 class Welcome extends Component {
-  async componentDidMount() {
+  async componentWillMount() {
     await this.fetchAPOD();
   }
 

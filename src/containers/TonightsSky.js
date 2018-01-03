@@ -6,8 +6,20 @@ import Forecast from '../components/Forecast';
 import NavBar from './NavBar';
 import NavButton from '../components/NavButton'
 import { colors } from '../assets/colors';
+import constellations from '../../constellations/constellations.js';
 
-const TonightsSky = ({ lat, lon }) => {
+const TonightsSky = ({ lat, lon, RA, dec }) => {
+  const rangeRA = [RA - 4, RA + 4];
+  const rangeDec = [dec - 25, dec + 25];
+
+  const matchConstellations = constellations.filter(constellation => {
+    const { ra, dec } = constellation.coords;
+    const matchRA = ra > rangeRA[0] && ra < rangeRA[1];
+    const matchDec = dec > rangeDec[0] && dec < rangeDec[1];
+
+    return matchRA && matchDec;
+  });
+
   return (
     <View style={styles.constellationsContainer}>
       <ScrollView>
@@ -24,7 +36,7 @@ const TonightsSky = ({ lat, lon }) => {
         <Text style={styles.constellationsTitle}>
           {`Constellations For ${lat}\xb0, ${lon}\xb0`}
         </Text>
-        <CardContainer />
+        <CardContainer constellations={matchConstellations}/>
       </ScrollView>
       <NavBar />
     </View>
@@ -48,8 +60,7 @@ const styles = StyleSheet.create({
     color: colors.$white,
     fontSize: 35,
     textAlign: 'center',
-    paddingTop: 35,
-    paddingBottom: 5
+    paddingTop: 30
   },
   constellationsTitle: {
     color: colors.$white,
@@ -60,7 +71,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
   lat: state.location.lat,
-  lon: state.location.lon
+  lon: state.location.lon,
+  RA: state.skyCoords.decimalRA,
+  dec: state.skyCoords.dec
 });
 
 export default connect(mapStateToProps, null)(TonightsSky);
