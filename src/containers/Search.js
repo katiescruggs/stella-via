@@ -15,7 +15,6 @@ class Search extends Component {
   }
 
   handleSearch = () => {
-    console.log('handleSearch');
     const matchConstellations = constellations.filter(constellation => {
       return constellation.name.includes(this.state.text);
     });
@@ -26,8 +25,6 @@ class Search extends Component {
     const displayConstellations = this.state.matchConstellations 
       ? <CardContainer constellations={this.state.matchConstellations} />
       : null;
-
-    console.log(this.state.matchConstellations);
 
     return (
       <View style={styles.container}>
