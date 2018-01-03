@@ -5,7 +5,7 @@ import Card from '../components/Card.js';
 import constellations from '../../constellations/constellations.js';
 
 const CardContainer = ({RA, dec}) => {
-  const rangeRA = [RA - 25, RA + 25];
+  const rangeRA = [RA - 4, RA + 4];
   const rangeDec = [dec - 25, dec + 25];
 
   const matchConstellations = constellations.filter(constellation => {
