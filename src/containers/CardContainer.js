@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import Card from '../components/Card.js'; 
 
-const CardContainer = ({RA, dec, constellations}) => {
+const CardContainer = ({constellations}) => {
   const cards = constellations.map((constellation, index) => (
     <Card
       key={`card-${index}`} 
@@ -12,9 +12,9 @@ const CardContainer = ({RA, dec, constellations}) => {
   ));
 
   return (
-    <View style={styles.cardContainer}>
+    <ScrollView style={styles.cardContainer}>
       {cards}
-    </View>
+    </ScrollView>
   );
 };
 
@@ -25,9 +25,4 @@ const styles = {
   }
 };
 
-const mapStateToProps = state => ({
-  RA: state.skyCoords.decimalRA,
-  dec: state.skyCoords.dec
-});
-
-export default connect(mapStateToProps, null)(CardContainer);
+export default CardContainer;

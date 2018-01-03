@@ -60,8 +60,7 @@ const styles = StyleSheet.create({
     color: colors.$white,
     fontSize: 35,
     textAlign: 'center',
-    paddingTop: 35,
-    paddingBottom: 5
+    paddingTop: 30
   },
   constellationsTitle: {
     color: colors.$white,
