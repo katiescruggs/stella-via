@@ -10,6 +10,7 @@ import {
   TextInput, 
   View, 
   Text, 
+  Image,
   TouchableHighlight,
   ImageBackground 
 } from 'react-native';
@@ -83,12 +84,18 @@ class LocationModal extends Component {
               </Text>
             </TouchableHighlight>
             <View>
-              <TextInput
-                style = {styles.modalTextInput}
-                value={this.state.text}
-                placeholder='City, State'
-                onChangeText={(text) => this.setState({text})}
-              />
+              <View style={styles.inputWrapper}>
+                <Image 
+                  source={require('../assets/icons/location.png')}
+                  style={styles.locationIcon}
+                />
+                <TextInput
+                  style = {styles.modalTextInput}
+                  value={this.state.text}
+                  placeholder='City, State'
+                  onChangeText={(text) => this.setState({text})}
+                />
+              </View>
               <TouchableHighlight 
                 style={styles.modalButton}
                 onPress={() => this.handleSearchLocation(nextPage)}>
@@ -115,25 +122,40 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     alignSelf: 'center',
-    borderColor: colors.$white,
-    borderRadius: 50,
-    borderWidth: 2,
-    // backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    // borderColor: colors.$white,
+    // borderRadius: 50,
+    // borderWidth: 2,
     justifyContent: 'center',
     minHeight: 300,
     padding: 20,
     width: '95%'
   },
   inputContainer: {
-    justifyContent: 'space-between',
-    height: 200
+    justifyContent: 'space-around',
+    height: 300
+  },
+  inputWrapper: {
+    borderRadius: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: colors.$purple,
+    marginBottom: 10, 
+    padding: 3
+  },
+  locationIcon: {
+    height: 32,
+    width: 32,
+    backgroundColor: colors.$purple,
   },
   modalTitle: {
     backgroundColor: 'transparent',
-    alignSelf: 'center',
     color: colors.$white,
-    fontSize: 30,
-    marginBottom: 20
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginTop: 20,
+    marginBottom: 20,
+    textAlign: 'center'
   },
   modalButton: {
     alignSelf: 'center',
@@ -152,8 +174,8 @@ const styles = StyleSheet.create({
     color: colors.$darkPurple,
     fontSize: 20,
     padding: 10,
-    marginBottom: 10
-  }
+    width: '88%'
+  },
 });
 
 const mapStateToProps = state => ({
