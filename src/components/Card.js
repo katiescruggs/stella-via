@@ -57,23 +57,24 @@ class Card extends Component {
 
     return (
       <View style={styles.card}>
-        {/*<View style={styles.cardHeader}>*/}
+        <View style={styles.cardHeader}>
           <Text style={styles.cardTitle}>
             {`${name} (${translation})`}
           </Text>
-          {/*<TouchableHighlight 
-                      onPress={this.handlePress} 
-                      activeOpacity={0.3} 
-                      underlayColor={colors.$purple}>
-                      <Image 
-                        style={styles.icon}
-                        source={require('../assets/icons/search.png')}/>
-                    </TouchableHighlight>*/}
+        </View>
+        <TouchableHighlight 
+          style={styles.button}
+          onPress={this.handlePress} 
+          activeOpacity={0.3} 
+          underlayColor={colors.$purple}>
           <Image 
-            source={source}
-            style={{height: 300, width: 300, padding: 10}}
-          />
-        {/*</View>*/}
+            style={styles.icon}
+            source={require('../assets/icons/search.png')}/>
+        </TouchableHighlight>
+        <Image 
+          source={source}
+          style={{height: 200, width: 200}}
+        />
         {cardDropDown}
       </View>
     );
@@ -83,9 +84,9 @@ class Card extends Component {
 const styles = StyleSheet.create({
   card: {
     alignItems: 'center',
-    backgroundColor: colors.$purple,
-    borderColor: colors.$black,
-    borderWidth: 1,
+    backgroundColor: colors.$transparentDarkPurple,
+    borderColor: colors.$purple,
+    borderWidth: 4,
     marginBottom: 10,
     // padding: 10,
     width: '100%'
@@ -99,10 +100,19 @@ const styles = StyleSheet.create({
     height: 30,
     width: 30
   },
+  button: {
+    position: 'absolute', 
+    right: 15, 
+    bottom: 15,
+    backgroundColor: colors.$purple,
+    borderRadius: 10,
+    padding: 5
+  },
   cardHeader: {
-    backgroundColor: 'black',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    backgroundColor: colors.$purple,
+    width: '100%',
+    // flexDirection: 'row',
+    // justifyContent: 'space-between',
     alignItems: 'center',
     padding: 5
   }
