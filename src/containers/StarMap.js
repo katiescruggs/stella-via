@@ -8,7 +8,8 @@ import { colors } from '../assets/colors';
 const StarMap = ({ lat, lon, dec, RA }) => {
   const arrayRA = RA.split(' ');
   const formattedRA = `${arrayRA[0]}h, ${arrayRA[1]}m, ${arrayRA[2]}s`;
-  const path = `http://server1.sky-map.org/skywindow?ra=${RA}&dec=${dec}&zoom=8&img_source=SDSS`;
+  //const path = `http://server1.sky-map.org/skywindow?ra=${RA}&dec=${dec}&zoom=8&img_source=SDSS`;
+  const path = `http://www.sky-map.org/?ra=4.5&de=39.9&zoom=2`;
 
   return (
     <View style={styles.container}>
@@ -42,7 +43,7 @@ const StarMap = ({ lat, lon, dec, RA }) => {
         </View>
       </View>
       <WebView
-        scalesPageToFit={false}
+        scalesPageToFit={true}
         source={{uri: path}}
       />
       <NavBar />
