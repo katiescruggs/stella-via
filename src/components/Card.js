@@ -57,23 +57,23 @@ class Card extends Component {
 
     return (
       <View style={styles.card}>
-        <View style={styles.cardHeader}>
+        {/*<View style={styles.cardHeader}>*/}
           <Text style={styles.cardTitle}>
             {`${name} (${translation})`}
           </Text>
+          {/*<TouchableHighlight 
+                      onPress={this.handlePress} 
+                      activeOpacity={0.3} 
+                      underlayColor={colors.$purple}>
+                      <Image 
+                        style={styles.icon}
+                        source={require('../assets/icons/search.png')}/>
+                    </TouchableHighlight>*/}
           <Image 
             source={source}
-            style={{height: 50, width: 50}}
+            style={{height: 300, width: 300, padding: 10}}
           />
-          <TouchableHighlight 
-            onPress={this.handlePress} 
-            activeOpacity={0.3} 
-            underlayColor={colors.$purple}>
-            <Image 
-              style={styles.icon}
-              source={require('../assets/icons/search.png')}/>
-          </TouchableHighlight>
-        </View>
+        {/*</View>*/}
         {cardDropDown}
       </View>
     );
@@ -82,11 +82,12 @@ class Card extends Component {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: colors.$white,
+    alignItems: 'center',
+    backgroundColor: colors.$purple,
     borderColor: colors.$black,
     borderWidth: 1,
     marginBottom: 10,
-    padding: 10,
+    // padding: 10,
     width: '100%'
   },
   cardTitle: {
