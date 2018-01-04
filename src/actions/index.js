@@ -3,11 +3,6 @@ export const setLocation = location => ({
   location
 });
 
-export const setTime = now => ({
-  type: 'SET_TIME',
-  now
-});
-
 export const changePage = page => ({
   type: 'CHANGE_PAGE',
   page
@@ -21,13 +16,4 @@ export const setSkyCoords = skyCoords => ({
 export const setAPOD = apodData => ({
   type: 'SET_APOD',
   apodData
-});
-
-export const logIn = userInfo => ({
-  type: 'LOGIN',
-  userInfo
-});
-
-export const logOut = () => ({
-  type: 'LOGOUT'
 });
