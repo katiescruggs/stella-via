@@ -20,7 +20,6 @@ const CardContainer = ({constellations}) => {
 
 const styles = {
   cardContainer: {
-    paddingBottom: 100,
     width: '100%'
   }
 };

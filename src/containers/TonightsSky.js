@@ -53,9 +53,9 @@ const TonightsSky = ({ lat, lon, RA, dec }) => {
         <Text style={styles.constellationsTitle}>
           {`Constellations For ${lat}\xb0, ${lon}\xb0`}
         </Text>
-        <Text>Best Constellations to See This Month:</Text>
+        <Text style={styles.constellationsSubheader}>Best Constellations to See This Month:</Text>
         <CardContainer constellations={matchConstellations}/>
-        <Text>More Constellations:</Text>
+        <Text style={styles.constellationsSubheader}>More Constellations:</Text>
         <CardContainer constellations={nearConstellations}/>
       </ScrollView>
       <NavBar />
@@ -67,7 +67,8 @@ const styles = StyleSheet.create({
   constellationsContainer: {
     backgroundColor: colors.$darkPurple,
     width: '100%',
-    height: '100%'
+    height: '100%',
+    paddingBottom: 100
   },
   titleContainer: {
     backgroundColor: colors.$purple,
@@ -86,6 +87,9 @@ const styles = StyleSheet.create({
     color: colors.$white,
     fontSize: 20,
     marginBottom: 10
+  },
+  constellationsSubheader: {
+    color: colors.$white
   }
 });
 
