@@ -7,7 +7,7 @@ import NavBar from './NavBar';
 import NavButton from '../components/NavButton'
 import { colors } from '../assets/colors';
 import constellations from '../../constellations/constellations';
-import getMonth from '../helpers/getMonth';
+import { getMonth } from '../helpers/getMonth';
 
 const TonightsSky = ({ lat, lon, RA, dec }) => {
   const { currentMonth, lastMonth, nextMonth } = getMonth();
