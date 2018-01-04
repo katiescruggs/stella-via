@@ -1,23 +1,46 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableHighlight } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableHighlight, Picker } from 'react-native';
 import NavBar from './NavBar.js';
 import { colors } from '../assets/colors';
 import constellations from '../../constellations/constellations';
 import CardContainer from './CardContainer';
+import { getLastNextMonth } from '../helpers/getMonth';
+
 
 class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: '',
-      matchConstellations: null
+      matchConstellations: constellations
     }
   }
 
-  handleSearch = () => {
+  handleSearch = (text) => {
     const matchConstellations = constellations.filter(constellation => {
-      return constellation.name.includes(this.state.text);
+      return constellation.name.includes(text);
     });
+    this.setState({matchConstellations});
+  }
+
+  filterSeason = (season) => {
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    
+    const seasons = {
+      winter: 1,
+      spring: 4,
+      summer: 7, 
+      fall: 10
+    };
+
+    const monthIndex = seasons[season];
+    const currentMonth = months[monthIndex];
+    const { lastMonth, nextMonth } = getLastNextMonth(monthIndex);
+
+    const matchConstellations = constellations.filter(constellation => {
+      const seenMonth = constellation.coords.bestSeen;
+      return (seenMonth === currentMonth || seenMonth === nextMonth || seenMonth === lastMonth);
+    });
+
     this.setState({matchConstellations});
   }
 
@@ -31,17 +54,50 @@ class Search extends Component {
         <View style={styles.header}>
           <Text style={styles.searchTitle}>Search</Text>
         </View>
-          <TextInput
-            style = {styles.textInput}
-            value={this.state.text}
-            placeholder='Search for a constellation.'
-            onChangeText={(text) => this.setState({text})}
-          />
-          <TouchableHighlight 
-            style={styles.button}
-            onPress={this.handleSearch}>
-            <Text style={styles.buttonText}>Search</Text>
+        <TextInput
+          style = {styles.textInput}
+          placeholder='Search for a constellation.'
+          onChangeText={(text) => this.handleSearch(text)}
+        />
+
+        <View style={styles.seasonContainer}>
+          <TouchableHighlight style={styles.seasonButton}>
+            <Text 
+              style={styles.seasonText}
+              onPress={() => this.filterSeason('summer')}
+            >
+              Summer
+            </Text>
           </TouchableHighlight>
+
+          <TouchableHighlight style={styles.seasonButton}>
+            <Text 
+              style={styles.seasonText}
+              onPress={() => this.filterSeason('fall')}
+            >
+              Fall
+            </Text>
+          </TouchableHighlight>
+
+          <TouchableHighlight style={styles.seasonButton}>
+            <Text 
+              style={styles.seasonText}
+              onPress={() => this.filterSeason('winter')}
+            >
+              Winter
+            </Text>
+          </TouchableHighlight>
+
+          <TouchableHighlight style={styles.seasonButton}>
+            <Text 
+              style={styles.seasonText}
+              onPress={() => this.filterSeason('spring')}
+            >
+              Spring
+            </Text>
+          </TouchableHighlight>
+        </View>
+
         {displayConstellations}
         <NavBar />
       </View>
@@ -74,9 +130,12 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: 10,
     marginBottom: 10,
-    width: '70%'
+    width: '100%'
   },
-  button: {
+  seasonContainer: {
+    flexDirection: 'row'
+  },
+  seasonButton: {
     alignSelf: 'flex-end',
     backgroundColor: colors.$lavender,
     borderColor: colors.$lavender,
@@ -85,9 +144,9 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     padding: 10
   },
-  buttonText: {
+  seasonText: {
     fontSize: 20
-  }
+  },
 });
 
 export default Search;

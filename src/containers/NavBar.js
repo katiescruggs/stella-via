@@ -6,11 +6,7 @@ import { colors } from '../assets/colors';
 
 const NavBar = (props) => {
   const navRouteData = {
-    'Search': {
-      source: require('../assets/icons/search.png'),
-      pageRoute: 'Search'
-    },
-    'Tonight\'s Sky': {
+    'Tonight': {
       source: require('../assets/icons/night-sky.png'),
       pageRoute: props.location ? 'TonightsSky' : 'LocationModalTonight'
     }, 
@@ -21,11 +17,11 @@ const NavBar = (props) => {
     'Daily Image': {
       source: require('../assets/icons/observatory.png'),
       pageRoute: 'APOD'
-    }, 
-    'Login': {
-      source: require('../assets/icons/user.png'),
-      pageRoute: props.user ? 'User' : 'UserModal'
-    }, 
+    },
+    'Explore': {
+      source: require('../assets/icons/search.png'),
+      pageRoute: 'Search'
+    }
   };
 
   const navButtons = Object.keys(navRouteData).map((name, index) => {

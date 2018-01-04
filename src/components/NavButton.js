@@ -25,7 +25,7 @@ const NavButton = ({name, path, changePage, pageRoute, small, active}) => {
 
   const text = !small 
     ? <Text style={styles.navText}>{name}</Text> 
-    : null;
+    : <Text style={styles.smNavText}>{name}</Text>;
 
   return (
     <TouchableHighlight 
@@ -71,11 +71,19 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 4
   },
+  smNavText: {
+    textAlign: 'center',
+    fontSize: 14,
+    color: colors.$white,
+    fontWeight: 'bold',
+    marginTop: 2,
+    marginBottom: 2
+  },
   smWrapper: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: 60, 
-    width: 60,
+    height: 80, 
+    width: 80,
   },
   smButton: {
     borderRadius: 20,

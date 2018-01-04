@@ -18,22 +18,22 @@ class Welcome extends Component {
 
   render() {
     const navRouteData = {
-      'Search': {
-        source: require('../assets/icons/search.png'),
-        pageRoute: 'Search'
-      },
-      'Tonight\'s Sky': {
+      'Tonight': {
         source: require('../assets/icons/night-sky.png'),
         pageRoute: this.props.location ? 'TonightsSky' : 'LocationModalTonight'
+      }, 
+      'Star Map': {
+        source: require('../assets/icons/star-map.png'),
+        pageRoute: this.props.location ? 'StarMap' : 'LocationModalMap'
       }, 
       'Daily Image': {
         source: require('../assets/icons/observatory.png'),
         pageRoute: 'APOD'
       }, 
-      'Login': {
-        source: require('../assets/icons/user.png'),
-        pageRoute: this.props.user ? 'User' : 'UserModal'
-      }, 
+      'Explore': {
+        source: require('../assets/icons/search.png'),
+        pageRoute: 'Search'
+      }
     };
 
     const navButtons = Object.keys(navRouteData).map((name, index) => {

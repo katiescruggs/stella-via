@@ -6,18 +6,19 @@ import Forecast from '../components/Forecast';
 import NavBar from './NavBar';
 import NavButton from '../components/NavButton'
 import { colors } from '../assets/colors';
-import constellations from '../../constellations/constellations.js';
+import constellations from '../../constellations/constellations';
+import { getMonth } from '../helpers/getMonth';
 
 const TonightsSky = ({ lat, lon, RA, dec }) => {
-  const rangeRA = [RA - 4, RA + 4];
-  const rangeDec = [dec - 25, dec + 25];
+  const { currentMonth, lastMonth, nextMonth } = getMonth();
 
   const matchConstellations = constellations.filter(constellation => {
-    const { ra, dec } = constellation.coords;
-    const matchRA = ra > rangeRA[0] && ra < rangeRA[1];
-    const matchDec = dec > rangeDec[0] && dec < rangeDec[1];
+    return constellation.coords.bestSeen === currentMonth;
+  });
 
-    return matchRA && matchDec;
+  const nearConstellations = constellations.filter(constellation => {
+    let seenMonth = constellation.coords.bestSeen;
+    return (seenMonth === lastMonth || seenMonth === nextMonth);
   });
 
   return (
@@ -36,7 +37,10 @@ const TonightsSky = ({ lat, lon, RA, dec }) => {
         <Text style={styles.constellationsTitle}>
           {`Constellations For ${lat}\xb0, ${lon}\xb0`}
         </Text>
-        <CardContainer constellations={constellations}/>
+        <Text style={styles.constellationsSubheader}>Best Constellations to See This Month:</Text>
+        <CardContainer constellations={matchConstellations}/>
+        <Text style={styles.constellationsSubheader}>More Constellations:</Text>
+        <CardContainer constellations={nearConstellations}/>
       </ScrollView>
       <NavBar />
     </View>
@@ -47,7 +51,8 @@ const styles = StyleSheet.create({
   constellationsContainer: {
     backgroundColor: colors.$darkPurple,
     width: '100%',
-    height: '100%'
+    height: '100%',
+    paddingBottom: 100
   },
   titleContainer: {
     backgroundColor: colors.$purple,
@@ -66,6 +71,9 @@ const styles = StyleSheet.create({
     color: colors.$white,
     fontSize: 20,
     marginBottom: 10
+  },
+  constellationsSubheader: {
+    color: colors.$white
   }
 });
 
