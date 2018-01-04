@@ -9,15 +9,32 @@ import { colors } from '../assets/colors';
 import constellations from '../../constellations/constellations.js';
 
 const TonightsSky = ({ lat, lon, RA, dec }) => {
-  const rangeRA = [RA - 4, RA + 4];
-  const rangeDec = [dec - 25, dec + 25];
+  // const rangeRA = [RA - 4, RA + 4];
+  // const rangeDec = [dec - 25, dec + 25];
+
+  // const matchConstellations = constellations.filter(constellation => {
+  //   const { ra, dec } = constellation.coords;
+  //   const matchRA = ra > rangeRA[0] && ra < rangeRA[1];
+  //   const matchDec = dec > rangeDec[0] && dec < rangeDec[1];
+
+  //   return matchRA && matchDec;
+  // });
+
+  const monthIndex = new Date().getMonth();
+
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const month = months[monthIndex];
+
+  const lastMonth = monthIndex === 0 ? 'December' : months[monthIndex - 1];
+  const nextMonth = monthIndex === 11 ? 'January' : months[monthIndex + 1];
 
   const matchConstellations = constellations.filter(constellation => {
-    const { ra, dec } = constellation.coords;
-    const matchRA = ra > rangeRA[0] && ra < rangeRA[1];
-    const matchDec = dec > rangeDec[0] && dec < rangeDec[1];
+    return constellation.coords.bestSeen === month;
+  });
 
-    return matchRA && matchDec;
+  const nearConstellations = constellations.filter(constellation => {
+    let seenMonth = constellation.coords.bestSeen;
+    return (seenMonth === lastMonth || seenMonth === nextMonth);
   });
 
   return (
@@ -36,7 +53,10 @@ const TonightsSky = ({ lat, lon, RA, dec }) => {
         <Text style={styles.constellationsTitle}>
           {`Constellations For ${lat}\xb0, ${lon}\xb0`}
         </Text>
-        <CardContainer constellations={constellations}/>
+        <Text>Best Constellations to See This Month:</Text>
+        <CardContainer constellations={matchConstellations}/>
+        <Text>More Constellations:</Text>
+        <CardContainer constellations={nearConstellations}/>
       </ScrollView>
       <NavBar />
     </View>
