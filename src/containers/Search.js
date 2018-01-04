@@ -4,22 +4,25 @@ import NavBar from './NavBar.js';
 import { colors } from '../assets/colors';
 import constellations from '../../constellations/constellations';
 import CardContainer from './CardContainer';
+import { getLastNextMonth } from '../helpers/getMonth';
+
 
 class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: '',
-      matchConstellations: null
+      matchConstellations: constellations
     }
   }
 
-  handleSearch = () => {
+  handleSearch = (text) => {
     const matchConstellations = constellations.filter(constellation => {
-      return constellation.name.includes(this.state.text);
+      return constellation.name.includes(text);
     });
     this.setState({matchConstellations});
   }
+
+
 
   render () {
     const displayConstellations = this.state.matchConstellations 
@@ -33,15 +36,9 @@ class Search extends Component {
         </View>
           <TextInput
             style = {styles.textInput}
-            value={this.state.text}
             placeholder='Search for a constellation.'
-            onChangeText={(text) => this.setState({text})}
+            onChangeText={(text) => this.handleSearch(text)}
           />
-          <TouchableHighlight 
-            style={styles.button}
-            onPress={this.handleSearch}>
-            <Text style={styles.buttonText}>Search</Text>
-          </TouchableHighlight>
         {displayConstellations}
         <NavBar />
       </View>
@@ -74,7 +71,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: 10,
     marginBottom: 10,
-    width: '70%'
+    width: '100%'
   },
   button: {
     alignSelf: 'flex-end',

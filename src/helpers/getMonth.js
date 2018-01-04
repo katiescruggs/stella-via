@@ -2,9 +2,7 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 
 export const getMonth = () => {
   const monthIndex = new Date().getMonth();
-
   const currentMonth = months[monthIndex];
-
   const { lastMonth, nextMonth } = getLastNextMonth(monthIndex);
 
   return { currentMonth, lastMonth, nextMonth };  
