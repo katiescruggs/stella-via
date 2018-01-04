@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, ScrollView, View, Text } from 'react-native';
+import { StyleSheet, ScrollView, View, Text, ImageBackground } from 'react-native';
 import CardContainer from './CardContainer';
 import NavBar from './NavBar';
 import NavButton from '../components/NavButton'
@@ -21,7 +21,9 @@ const TonightsSky = ({ lat, lon, RA, dec }) => {
   });
 
   return (
-    <View style={styles.constellationsContainer}>
+    <ImageBackground
+      source={require('../assets/star-background.jpg')}
+      style={styles.constellationsContainer}>
       <ScrollView>
         <View style={styles.titleContainer}>
           <Text style={styles.skyTitle}>Tonight's Sky</Text>
@@ -41,13 +43,13 @@ const TonightsSky = ({ lat, lon, RA, dec }) => {
         <CardContainer constellations={nearConstellations}/>
       </ScrollView>
       <NavBar />
-    </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   constellationsContainer: {
-    backgroundColor: colors.$darkPurple,
+    // backgroundColor: colors.$darkPurple,
     width: '100%',
     height: '100%',
     paddingBottom: 100

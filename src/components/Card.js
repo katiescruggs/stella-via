@@ -19,39 +19,41 @@ class Card extends Component {
 
   render() {
     const { 
-      description, 
-      stars, 
+      // description, 
+      // stars, 
       translation, 
-      coords, 
+      // coords, 
       name, 
       image 
     } = this.props.constellation;
 
-    const descriptionText = description 
-      ? description.substring(0, 140) 
-      : null;
+    //THIS WILL ALL GET DISPLAYED IN CARD FULL VIEW PAGE
 
-    const displayDescription = descriptionText 
-      ? <Text>
-          {`Description: ${descriptionText}...`}
-        </Text>
-      : null;
+    // const descriptionText = description 
+    //   ? description.substring(0, 140) 
+    //   : null;
 
-    const starsString = stars.length 
-      ? stars.join(', ')
-      : 'none';
+    // const displayDescription = descriptionText 
+    //   ? <Text>
+    //       {`Description: ${descriptionText}...`}
+    //     </Text>
+    //   : null;
 
-    const cardDropDown = this.state.showDetails 
-      ? <View>
-          <Text>
-          {`Location: RA ${coords.ra}, DEC ${coords.dec}`}
-          </Text>
-          <Text>
-            {`Named Stars: ${starsString}`}
-          </Text>
-          {displayDescription}
-        </View>
-      : null;
+    // const starsString = stars.length 
+    //   ? stars.join(', ')
+    //   : 'none';
+
+    // const cardDropDown = this.state.showDetails 
+    //   ? <View>
+    //       <Text>
+    //       {`Location: RA ${coords.ra}, DEC ${coords.dec}`}
+    //       </Text>
+    //       <Text>
+    //         {`Named Stars: ${starsString}`}
+    //       </Text>
+    //       {displayDescription}
+    //     </View>
+    //   : null;
 
     const source = image ? image : null;
 
@@ -59,22 +61,26 @@ class Card extends Component {
       <View style={styles.card}>
         <View style={styles.cardHeader}>
           <Text style={styles.cardTitle}>
-            {`${name} (${translation})`}
+            {name}
           </Text>
-          <Image 
-            source={source}
-            style={{height: 50, width: 50}}
-          />
-          <TouchableHighlight 
-            onPress={this.handlePress} 
-            activeOpacity={0.3} 
-            underlayColor={colors.$purple}>
-            <Image 
-              style={styles.icon}
-              source={require('../assets/icons/search.png')}/>
-          </TouchableHighlight>
+          <Text style={styles.translation}>
+            {`"${translation}"`}
+          </Text>
         </View>
-        {cardDropDown}
+        <TouchableHighlight 
+          style={styles.button}
+          onPress={this.handlePress} 
+          activeOpacity={0.3} 
+          underlayColor={colors.$purple}>
+          <Image 
+            style={styles.icon}
+            source={require('../assets/icons/search.png')}/>
+        </TouchableHighlight>
+        <Image 
+          source={source}
+          style={{height: 200, width: 200}}
+        />
+        {/*cardDropDown*/}
       </View>
     );
   }
@@ -82,29 +88,45 @@ class Card extends Component {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: colors.$white,
-    borderColor: colors.$black,
-    borderWidth: 1,
-    marginBottom: 10,
-    padding: 10,
+    alignItems: 'center',
+    backgroundColor: colors.$cardShadow,
+    borderColor: colors.$purple,
+    // borderRightWidth: 0, 
+    // borderLeftWidth: 0,
+    borderBottomWidth: 6,
+    // marginBottom: 20,
+    paddingBottom: 10,
+    // paddingTop: 10,
     width: '100%'
   },
+  cardHeader: {
+    backgroundColor: colors.$darkPurple,
+    width: '100%',
+    alignItems: 'center',
+    padding: 5,
+    marginBottom: 5
+  },
   cardTitle: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
     color: colors.$white
+  },
+  translation: {
+    fontSize: 16,
+    color: colors.$white
+  },
+  button: {
+    position: 'absolute', 
+    right: 15, 
+    bottom: 15,
+    backgroundColor: colors.$purple,
+    borderRadius: 10,
+    padding: 5
   },
   icon: {
     height: 30,
     width: 30
   },
-  cardHeader: {
-    backgroundColor: 'black',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 5
-  }
 });
 
 export default Card;
