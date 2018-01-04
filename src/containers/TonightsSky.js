@@ -73,7 +73,8 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   constellationsSubheader: {
-    color: colors.$white
+    color: colors.$white,
+    backgroundColor: 'transparent'
   }
 });
 
