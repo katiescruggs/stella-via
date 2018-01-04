@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, ScrollView, View, Text } from 'react-native';
 import CardContainer from './CardContainer';
-import Forecast from '../components/Forecast';
 import NavBar from './NavBar';
 import NavButton from '../components/NavButton'
 import { colors } from '../assets/colors';
@@ -33,7 +32,6 @@ const TonightsSky = ({ lat, lon, RA, dec }) => {
             small={true}
           />
         </View>
-        <Forecast />
         <Text style={styles.constellationsTitle}>
           {`Constellations For ${lat}\xb0, ${lon}\xb0`}
         </Text>
