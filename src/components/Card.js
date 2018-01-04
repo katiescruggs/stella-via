@@ -59,7 +59,10 @@ class Card extends Component {
       <View style={styles.card}>
         <View style={styles.cardHeader}>
           <Text style={styles.cardTitle}>
-            {`${name} (${translation})`}
+            {name}
+          </Text>
+          <Text style={styles.translation}>
+            {`"${translation}"`}
           </Text>
         </View>
         <TouchableHighlight 
@@ -84,21 +87,33 @@ class Card extends Component {
 const styles = StyleSheet.create({
   card: {
     alignItems: 'center',
-    backgroundColor: colors.$transparentDarkPurple,
+    backgroundColor: colors.$btnShadow,
     borderColor: colors.$purple,
+    // borderRadius: 10,
+    borderRightWidth: 0, 
+    borderLeftWidth: 0,
     borderWidth: 4,
-    marginBottom: 10,
-    // padding: 10,
+    marginBottom: 20,
+    paddingBottom: 5,
     width: '100%'
   },
+  cardHeader: {
+    backgroundColor: colors.$darkPurple,
+    width: '100%',
+    // flexDirection: 'row',
+    // justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 5,
+    marginBottom: 5
+  },
   cardTitle: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
     color: colors.$white
   },
-  icon: {
-    height: 30,
-    width: 30
+  translation: {
+    fontSize: 16,
+    color: colors.$white
   },
   button: {
     position: 'absolute', 
@@ -108,14 +123,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 5
   },
-  cardHeader: {
-    backgroundColor: colors.$purple,
-    width: '100%',
-    // flexDirection: 'row',
-    // justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 5
-  }
+  icon: {
+    height: 30,
+    width: 30
+  },
 });
 
 export default Card;

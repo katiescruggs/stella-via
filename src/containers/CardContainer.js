@@ -12,9 +12,9 @@ const CardContainer = ({constellations}) => {
   ));
 
   return (
-    <ScrollView style={styles.cardContainer}>
-      {cards}
-    </ScrollView>
+      <ScrollView style={styles.cardContainer}>
+        {cards}
+      </ScrollView>
   );
 };
 
