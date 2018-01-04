@@ -19,39 +19,41 @@ class Card extends Component {
 
   render() {
     const { 
-      description, 
-      stars, 
+      // description, 
+      // stars, 
       translation, 
-      coords, 
+      // coords, 
       name, 
       image 
     } = this.props.constellation;
 
-    const descriptionText = description 
-      ? description.substring(0, 140) 
-      : null;
+    //THIS WILL ALL GET DISPLAYED IN CARD FULL VIEW PAGE
 
-    const displayDescription = descriptionText 
-      ? <Text>
-          {`Description: ${descriptionText}...`}
-        </Text>
-      : null;
+    // const descriptionText = description 
+    //   ? description.substring(0, 140) 
+    //   : null;
 
-    const starsString = stars.length 
-      ? stars.join(', ')
-      : 'none';
+    // const displayDescription = descriptionText 
+    //   ? <Text>
+    //       {`Description: ${descriptionText}...`}
+    //     </Text>
+    //   : null;
 
-    const cardDropDown = this.state.showDetails 
-      ? <View>
-          <Text>
-          {`Location: RA ${coords.ra}, DEC ${coords.dec}`}
-          </Text>
-          <Text>
-            {`Named Stars: ${starsString}`}
-          </Text>
-          {displayDescription}
-        </View>
-      : null;
+    // const starsString = stars.length 
+    //   ? stars.join(', ')
+    //   : 'none';
+
+    // const cardDropDown = this.state.showDetails 
+    //   ? <View>
+    //       <Text>
+    //       {`Location: RA ${coords.ra}, DEC ${coords.dec}`}
+    //       </Text>
+    //       <Text>
+    //         {`Named Stars: ${starsString}`}
+    //       </Text>
+    //       {displayDescription}
+    //     </View>
+    //   : null;
 
     const source = image ? image : null;
 
@@ -78,7 +80,7 @@ class Card extends Component {
           source={source}
           style={{height: 200, width: 200}}
         />
-        {cardDropDown}
+        {/*cardDropDown*/}
       </View>
     );
   }
@@ -87,21 +89,19 @@ class Card extends Component {
 const styles = StyleSheet.create({
   card: {
     alignItems: 'center',
-    backgroundColor: colors.$btnShadow,
+    backgroundColor: colors.$cardShadow,
     borderColor: colors.$purple,
-    // borderRadius: 10,
-    borderRightWidth: 0, 
-    borderLeftWidth: 0,
-    borderWidth: 4,
-    marginBottom: 20,
-    paddingBottom: 5,
+    // borderRightWidth: 0, 
+    // borderLeftWidth: 0,
+    borderBottomWidth: 6,
+    // marginBottom: 20,
+    paddingBottom: 10,
+    // paddingTop: 10,
     width: '100%'
   },
   cardHeader: {
     backgroundColor: colors.$darkPurple,
     width: '100%',
-    // flexDirection: 'row',
-    // justifyContent: 'space-between',
     alignItems: 'center',
     padding: 5,
     marginBottom: 5
