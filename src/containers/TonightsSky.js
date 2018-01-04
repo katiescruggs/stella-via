@@ -6,30 +6,14 @@ import Forecast from '../components/Forecast';
 import NavBar from './NavBar';
 import NavButton from '../components/NavButton'
 import { colors } from '../assets/colors';
-import constellations from '../../constellations/constellations.js';
+import constellations from '../../constellations/constellations';
+import getMonth from '../helpers/getMonth';
 
 const TonightsSky = ({ lat, lon, RA, dec }) => {
-  // const rangeRA = [RA - 4, RA + 4];
-  // const rangeDec = [dec - 25, dec + 25];
-
-  // const matchConstellations = constellations.filter(constellation => {
-  //   const { ra, dec } = constellation.coords;
-  //   const matchRA = ra > rangeRA[0] && ra < rangeRA[1];
-  //   const matchDec = dec > rangeDec[0] && dec < rangeDec[1];
-
-  //   return matchRA && matchDec;
-  // });
-
-  const monthIndex = new Date().getMonth();
-
-  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  const month = months[monthIndex];
-
-  const lastMonth = monthIndex === 0 ? 'December' : months[monthIndex - 1];
-  const nextMonth = monthIndex === 11 ? 'January' : months[monthIndex + 1];
+  const { currentMonth, lastMonth, nextMonth } = getMonth();
 
   const matchConstellations = constellations.filter(constellation => {
-    return constellation.coords.bestSeen === month;
+    return constellation.coords.bestSeen === currentMonth;
   });
 
   const nearConstellations = constellations.filter(constellation => {
