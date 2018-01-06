@@ -13,7 +13,7 @@ const CurrentView = ({ page }) => {
     APOD: <APOD />,
     Search: <Search />,
     Welcome: <Welcome />,
-    StarMap: <Constellation />,
+    StarMap: <StarMap />,
     TonightsSky: <TonightsSky />,
     Constellation: <Constellation />,
     LocationModalMap: <LocationModal />,

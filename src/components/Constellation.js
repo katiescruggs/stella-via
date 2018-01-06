@@ -1,8 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import { StyleSheet, View, Text, Image, ImageBackground } from 'react-native';
 import { colors } from '../assets/colors';
+import { changePage } from '../actions';
 
-const Constellation = (props) => {
+const Constellation = ({ constellation }) => {
+  const { 
+      description, 
+      stars, 
+      translation, 
+      coords, 
+      name, 
+      image 
+    } = constellation;
+
+  const starsString = stars.length 
+    ? stars.join(', ')
+    : 'none';
+
   return (
     <ImageBackground
       source={require('../assets/star-background.jpg')}
@@ -10,15 +25,28 @@ const Constellation = (props) => {
       <View style={styles.contentContainer}>
         <View style={styles.header}>
           <Text style={styles.title}>
-            ORION
+            {name.toUpperCase()}
           </Text>
           <Text style={styles.translation}>
-            "The Great Hunter"
+            {`"${translation}"`}
+          </Text>
+        </View>
+        <View style={styles.detailsContainer}>
+          <Text style={styles.detailText}>
+          {`Location: RA ${coords.ra}, DEC ${coords.dec}`}
+          </Text>
+          <View style={styles.stars}> 
+            <Text style={styles.detailText}>
+              {`Named Stars: ${starsString}`}
+            </Text>
+          </View>
+          <Text style={styles.detailText}>
+            {`Description: ${description}`}
           </Text>
         </View>
       </View>
       <Image 
-        source={require('../assets/constellations-images/Orion.png')}
+        source={image}
         style={styles.constellationImage}
       />
     </ImageBackground>
@@ -62,7 +90,28 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center'
+  },
+  detailsContainer: {
+    marginBottom: 200,
+    height: '75%',
+    justifyContent: 'space-around'
+  },
+  detailText: {
+    color: colors.$white,
+    padding: 5,
+    fontSize: 18,
+    margin: 10
+  }
+});
+
+const mapStateToProps = state => ({
+  constellation: state.constellation
+});
+
+const mapDispatchToProps = dispatch => ({
+  changePage: (pageRoute) => {
+    dispatch(changePage(pageRoute));
   }
 })
 
-export default Constellation;
+export default connect(mapStateToProps, mapDispatchToProps)(Constellation);

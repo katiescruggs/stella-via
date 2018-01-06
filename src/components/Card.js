@@ -2,22 +2,26 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableHighlight, Image } from 'react-native';
 import { colors } from '../assets/colors';
 import { connect } from 'react-redux';
-import { changePage } from '../actions';
+import { changePage, setConstellation } from '../actions';
 
 class Card extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      showDetails: false
-    };
+    // this.state = {
+    //   showDetails: false
+    // };
   };
 
 
   handlePress = () => {
+    console.log('pressed');
+    console.log(this.props)
     // const showDetails = !this.state.showDetails;
     // this.setState({ showDetails });
-    changePage('Constellation');
+    const { constellation } = this.props;
+    this.props.setConstellation(constellation)
+    this.props.changePage('Constellation');
   }
 
   render() {
@@ -29,34 +33,6 @@ class Card extends Component {
       name, 
       image 
     } = this.props.constellation;
-
-    //THIS WILL ALL GET DISPLAYED IN CARD FULL VIEW PAGE
-
-    // const descriptionText = description 
-    //   ? description.substring(0, 140) 
-    //   : null;
-
-    // const displayDescription = descriptionText 
-    //   ? <Text>
-    //       {`Description: ${descriptionText}...`}
-    //     </Text>
-    //   : null;
-
-    // const starsString = stars.length 
-    //   ? stars.join(', ')
-    //   : 'none';
-
-    // const cardDropDown = this.state.showDetails 
-    //   ? <View>
-    //       <Text>
-    //       {`Location: RA ${coords.ra}, DEC ${coords.dec}`}
-    //       </Text>
-    //       <Text>
-    //         {`Named Stars: ${starsString}`}
-    //       </Text>
-    //       {displayDescription}
-    //     </View>
-    //   : null;
 
     const source = image ? image : null;
 
@@ -83,7 +59,6 @@ class Card extends Component {
           source={source}
           style={{height: 200, width: 200}}
         />
-        {/*cardDropDown*/}
       </View>
     );
   }
@@ -94,12 +69,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: colors.$cardShadow,
     borderColor: colors.$purple,
-    // borderRightWidth: 0, 
-    // borderLeftWidth: 0,
     borderBottomWidth: 6,
-    // marginBottom: 20,
     paddingBottom: 10,
-    // paddingTop: 10,
     width: '100%'
   },
   cardHeader: {
@@ -135,6 +106,9 @@ const styles = StyleSheet.create({
 const mapDispatchToProps = dispatch => ({
   changePage: (pageRoute) => {
     dispatch(changePage(pageRoute));
+  },
+  setConstellation: (pageRoute) => {
+    dispatch(setConstellation(pageRoute));
   }
 });
 
