@@ -15,7 +15,8 @@ const CurrentView = ({ page }) => {
     Welcome: <Welcome />,
     StarMap: <StarMap />,
     TonightsSky: <TonightsSky />,
-    Constellation: <Constellation />,
+    ConstellationSearch: <Constellation />,
+    ConstellationTonight: <Constellation />,
     LocationModalMap: <LocationModal />,
     LocationModalTonight: <LocationModal />,
   };

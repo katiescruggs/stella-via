@@ -4,64 +4,49 @@ import { colors } from '../assets/colors';
 import { connect } from 'react-redux';
 import { changePage, setConstellation } from '../actions';
 
-class Card extends Component {
-  constructor(props) {
-    super(props);
+const Card = ({ currentPage, changePage, setConstellation, constellation }) => {
+  const handlePress = () => {    
+    const nextPage = currentPage === 'Search' 
+      ? 'ConstellationSearch' 
+      : 'ConstellationTonight';
 
-    // this.state = {
-    //   showDetails: false
-    // };
-  };
-
-
-  handlePress = () => {
-    console.log('pressed');
-    console.log(this.props)
-    // const showDetails = !this.state.showDetails;
-    // this.setState({ showDetails });
-    const { constellation } = this.props;
-    this.props.setConstellation(constellation)
-    this.props.changePage('Constellation');
+    setConstellation(constellation)
+    changePage(nextPage);
   }
 
-  render() {
-    const { 
-      // description, 
-      // stars, 
-      translation, 
-      // coords, 
-      name, 
-      image 
-    } = this.props.constellation;
+  const { 
+    translation, 
+    name, 
+    image 
+  } = constellation;
 
-    const source = image ? image : null;
+  const source = image ? image : null;
 
-    return (
-      <View style={styles.card}>
-        <View style={styles.cardHeader}>
-          <Text style={styles.cardTitle}>
-            {name}
-          </Text>
-          <Text style={styles.translation}>
-            {`"${translation}"`}
-          </Text>
-        </View>
-        <TouchableHighlight 
-          style={styles.button}
-          onPress={this.handlePress} 
-          activeOpacity={0.3} 
-          underlayColor={colors.$darkPurple}>
-          <Image 
-            style={styles.icon}
-            source={require('../assets/icons/star.png')}/>
-        </TouchableHighlight>
-        <Image 
-          source={source}
-          style={{height: 200, width: 200}}
-        />
+  return (
+    <View style={styles.card}>
+      <View style={styles.cardHeader}>
+        <Text style={styles.cardTitle}>
+          {name}
+        </Text>
+        <Text style={styles.translation}>
+          {`"${translation}"`}
+        </Text>
       </View>
-    );
-  }
+      <TouchableHighlight 
+        style={styles.button}
+        onPress={handlePress} 
+        activeOpacity={0.3} 
+        underlayColor={colors.$darkPurple}>
+        <Image 
+          style={styles.icon}
+          source={require('../assets/icons/star.png')}/>
+      </TouchableHighlight>
+      <Image 
+        source={source}
+        style={{height: 200, width: 200}}
+      />
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -103,6 +88,10 @@ const styles = StyleSheet.create({
   },
 });
 
+const mapStateToProps = state => ({
+  currentPage: state.page
+});
+
 const mapDispatchToProps = dispatch => ({
   changePage: (pageRoute) => {
     dispatch(changePage(pageRoute));
@@ -112,4 +101,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(null, mapDispatchToProps)(Card);
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
