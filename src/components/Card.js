@@ -4,7 +4,7 @@ import { colors } from '../assets/colors';
 import { connect } from 'react-redux';
 import { changePage, setConstellation } from '../actions';
 
-const Card = ({ currentPage, changePage, setConstellation, constellation, visible }) => {
+const Card = ({ currentPage, changePage, setConstellation, constellation }) => {
   const handlePress = () => {    
     const nextPage = currentPage === 'Search' 
       ? 'ConstellationSearch' 
@@ -17,7 +17,8 @@ const Card = ({ currentPage, changePage, setConstellation, constellation, visibl
   const { 
     translation, 
     name, 
-    image 
+    image,
+    visible 
   } = constellation;
 
   const source = image ? image : null;

@@ -4,7 +4,7 @@ import NavBar from './NavBar.js';
 import { colors } from '../assets/colors';
 import constellations from '../../constellations/constellations';
 import CardContainer from './CardContainer';
-import { getLastNextMonth, months } from '../helpers/getMonth';
+import { getLastNextMonth, getMonth, months } from '../helpers/getMonth';
 
 
 class Search extends Component {
@@ -16,9 +16,12 @@ class Search extends Component {
   }
 
   handleSearch = (text) => {
-    const matchConstellations = constellations.filter(constellation => {
+    let matchConstellations = constellations.filter(constellation => {
       return constellation.name.includes(text);
     });
+    // matchConstellations = matchConstellations.map(constellation => {
+    //   constellation.visible
+    // })
     this.setState({matchConstellations});
   }
 
@@ -47,8 +50,7 @@ class Search extends Component {
 
     const displayConstellations = this.state.matchConstellations 
       ? <CardContainer 
-        constellations={this.state.matchConstellations} 
-        visible={true} />
+        constellations={this.state.matchConstellations} />
       : null;
 
     return (
