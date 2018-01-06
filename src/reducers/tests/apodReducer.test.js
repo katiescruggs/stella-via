@@ -2,8 +2,14 @@ import { apodReducer } from '../apodReducer';
 import * as actions from '../../actions';
 
 describe('apodReducer', () => {
-  it('should return null by default', () => {
-    const expected = null;
+  it('should return  by loading object as default', () => {
+    const expected = {
+      image: require('../assets/star-background.jpg'),
+      type: 'image',
+      title: 'Loading... Please wait...',
+      details: `Loading... Please wait...`
+    };
+
     const action = {type: 'mockAction'};
 
     expect(apodReducer(undefined, action)).toEqual(expected);
