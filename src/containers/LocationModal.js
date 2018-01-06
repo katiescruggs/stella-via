@@ -116,22 +116,16 @@ class LocationModal extends Component {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    alignContent: 'center',
-    justifyContent: 'center',
     width: '100%'
   },
   modalContainer: {
     alignSelf: 'center',
-    // borderColor: colors.$white,
-    // borderRadius: 50,
-    // borderWidth: 2,
-    justifyContent: 'center',
-    minHeight: 300,
+    marginTop: 50,
     padding: 20,
     width: '95%'
   },
   inputContainer: {
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     height: 300
   },
   inputWrapper: {
@@ -160,12 +154,14 @@ const styles = StyleSheet.create({
   modalButton: {
     alignSelf: 'center',
     backgroundColor: colors.$lavender,
-    borderRadius: 25,
-    padding: 15
+    borderRadius: 10,
+    padding: 10,
+    width: '100%'
   },
   modalButtonText: {
     color: colors.$darkPurple,
-    fontSize: 20
+    fontSize: 20,
+    textAlign: 'center'
   },
   modalTextInput: {
     backgroundColor: colors.$white,

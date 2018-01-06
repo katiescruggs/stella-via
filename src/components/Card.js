@@ -74,7 +74,7 @@ class Card extends Component {
           underlayColor={colors.$purple}>
           <Image 
             style={styles.icon}
-            source={require('../assets/icons/search.png')}/>
+            source={require('../assets/icons/star.png')}/>
         </TouchableHighlight>
         <Image 
           source={source}
