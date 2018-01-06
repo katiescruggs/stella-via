@@ -49,7 +49,7 @@ const Constellation = ({ constellation, currentPage, changePage }) => {
             underlayColor={colors.$darkPurple}>
             <Image 
               style={styles.icon}
-              source={require('../assets/icons/star.png')}/>
+              source={require('../assets/icons/go-back.png')}/>
           </TouchableHighlight>
           <Text style={styles.detailText}>
           {`Location: RA ${coords.ra}, DEC ${coords.dec}`}
