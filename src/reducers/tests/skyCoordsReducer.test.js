@@ -4,8 +4,17 @@ import * as actions from '../../actions';
 describe('skyCoordsReducer', () => {
   it('should return null by default', () => {
     const expected = null;
-    const mockAction = {type: 'mockAction'};
+    const action = {type: 'mockAction'};
 
-    expect(skyCoordsReducer(undefined, mockAction)).toEqual(null);
+    expect(skyCoordsReducer(undefined, action)).toEqual(expected);
+  });
+
+  it('should return skyCoords when SET_SKY_COORDS is dispatched', () => {
+    const mockSkyCoords = { ra: 4.5, dec: 39 };
+    const action = actions.setSkyCoords(mockSkyCoords);
+
+    const expected = mockSkyCoords;
+
+    expect(skyCoordsReducer(undefined, action)).toEqual(expected);
   });
 });
