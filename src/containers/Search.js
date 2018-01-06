@@ -121,7 +121,6 @@ const styles = StyleSheet.create({
     padding: 10
   },
   container: {
-    // backgroundColor: colors.$darkPurple,
     width: '100%',
     height: '100%',
     paddingBottom: 100
@@ -137,19 +136,23 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   seasonContainer: {
-    flexDirection: 'row'
+    backgroundColor: colors.$purple,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 10
   },
   seasonButton: {
     alignSelf: 'flex-end',
     backgroundColor: colors.$lavender,
     borderColor: colors.$lavender,
-    borderRadius: 25,
+    borderRadius: 10,
     borderWidth: 2,
-    marginBottom: 10,
-    padding: 10
+    padding: 3,
+    width: '23%'
   },
   seasonText: {
-    fontSize: 20
+    fontSize: 18,
+    textAlign: 'center'
   },
 });
 

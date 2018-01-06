@@ -70,11 +70,14 @@ const styles = StyleSheet.create({
   constellationsTitle: {
     color: colors.$white,
     fontSize: 20,
-    marginBottom: 10
+    // marginBottom: 10
   },
   constellationsSubheader: {
     color: colors.$white,
-    backgroundColor: 'transparent'
+    backgroundColor: colors.$purple,
+    fontSize: 16,
+    fontWeight: 'bold',
+    padding: 10
   }
 });
 
