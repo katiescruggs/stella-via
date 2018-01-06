@@ -20,28 +20,40 @@ class LocationModal extends Component {
     super(props);
     this.state = {
       text: '',
-      geolocation: true
+      geolocation: true,
+      nextPage: this.props.currentPage === 'LocationModalTonight'
+      ? 'TonightsSky'
+      : 'StarMap'
     };
   };
 
-  getGeolocation = (nextPage) => {
-    if(navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(({coords}) => {
-        const lat = coords.latitude.toFixed(3);
-        const lon = coords.longitude.toFixed(3);
-        const location = {lat, lon};
-        const skyCoords = calculateRA(lat, lon);
+  getGeolocation = (setAllLocations) => {
+    navigator.geolocation.getCurrentPosition(({coords}) => {
+      const location = {
+        lat: coords.latitude.toFixed(3), 
+        lon: coords.longitude.toFixed(3)
+      };
+      const skyCoords = calculateRA(location.lat, location.lon);
 
-        this.props.setLocation(location);
-        this.props.setSkyCoords(skyCoords);
-        this.props.changePage(nextPage);
-      });
+      setAllLocations(location, skyCoords);
+    });
+  }
+
+  setAllLocations = (location, skyCoords) => {
+    this.props.setLocation(location);
+    this.props.setSkyCoords(skyCoords);
+    this.props.changePage(this.state.nextPage);
+  }
+
+  checkGeolocation = () => {
+    if(navigator.geolocation) {
+      this.getGeolocation(this.setAllLocations);
     } else {
       this.setState({geolocation: false});
     }
   };
 
-  handleSearchLocation = async (nextPage) => {
+  handleSearchLocation = async () => {
     const cityState = this.state.text.split(', ');
     const city = cityState[0];
     const state = cityState[1];
@@ -61,19 +73,15 @@ class LocationModal extends Component {
       this.setState({text: ''});
       this.props.setLocation(location);
       this.props.setSkyCoords(skyCoords);
-      this.props.changePage(nextPage);
+      this.props.changePage(this.state.nextPage);
     }
   };
 
   render() {
-    const nextPage = this.props.currentPage === 'LocationModalTonight'
-      ? 'TonightsSky'
-      : 'StarMap';
-
     const currentLocation = this.state.geolocation 
       ? <TouchableHighlight 
         style={styles.modalButton}
-        onPress={() => this.getGeolocation(nextPage)}>
+        onPress={() => this.checkGeolocation()}>
               
         <Text style={styles.modalButtonText}>
           Use Current Location
@@ -111,7 +119,7 @@ class LocationModal extends Component {
               </View>
               <TouchableHighlight 
                 style={styles.modalButton}
-                onPress={() => this.handleSearchLocation(nextPage)}>
+                onPress={() => this.handleSearchLocation()}>
 
                 <Text style={styles.modalButtonText}>
                   Set New Location
