@@ -26,7 +26,7 @@ const TonightsSky = ({ lat, lon, RA, dec }) => {
       style={styles.constellationsContainer}>
       <ScrollView>
         <View style={styles.titleContainer}>
-          <Text style={styles.skyTitle}>Tonight's Sky</Text>
+          <Text style={styles.skyTitle}>TONIGHT'S SKY</Text>
           <NavButton 
             path={require('../assets/icons/location.png')}
             name={null}

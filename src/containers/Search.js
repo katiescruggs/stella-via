@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableHighlight, Picker } from 'react-native';
+import { StyleSheet, View, ImageBackground, Text, TextInput, TouchableHighlight, Picker } from 'react-native';
 import NavBar from './NavBar.js';
 import { colors } from '../assets/colors';
 import constellations from '../../constellations/constellations';
@@ -50,9 +50,11 @@ class Search extends Component {
       : null;
 
     return (
-      <View style={styles.container}>
+      <ImageBackground 
+        source={require('../assets/star-background.jpg')}
+        style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.searchTitle}>Search</Text>
+          <Text style={styles.searchTitle}>EXPLORE</Text>
         </View>
         <TextInput
           style = {styles.textInput}
@@ -100,7 +102,7 @@ class Search extends Component {
 
         {displayConstellations}
         <NavBar />
-      </View>
+      </ImageBackground>
     );
   }
 } 
@@ -119,8 +121,10 @@ const styles = StyleSheet.create({
     padding: 10
   },
   container: {
+    // backgroundColor: colors.$darkPurple,
+    width: '100%',
     height: '100%',
-    backgroundColor: colors.$darkPurple
+    paddingBottom: 100
   },
   textInput: {
     backgroundColor: colors.$white,
