@@ -19,21 +19,26 @@ class LocationModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: ''
+      text: '',
+      geolocation: true
     };
   };
 
   getGeolocation = (nextPage) => {
-    navigator.geolocation.getCurrentPosition(({coords}) => {
-      const lat = coords.latitude.toFixed(3);
-      const lon = coords.longitude.toFixed(3);
-      const location = {lat, lon};
-      const skyCoords = calculateRA(lat, lon);
+    if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(({coords}) => {
+        const lat = coords.latitude.toFixed(3);
+        const lon = coords.longitude.toFixed(3);
+        const location = {lat, lon};
+        const skyCoords = calculateRA(lat, lon);
 
-      this.props.setLocation(location);
-      this.props.setSkyCoords(skyCoords);
-      this.props.changePage(nextPage);
-    });
+        this.props.setLocation(location);
+        this.props.setSkyCoords(skyCoords);
+        this.props.changePage(nextPage);
+      });
+    } else {
+      this.setState({geolocation: false});
+    }
   };
 
   handleSearchLocation = async (nextPage) => {
@@ -65,6 +70,21 @@ class LocationModal extends Component {
       ? 'TonightsSky'
       : 'StarMap';
 
+    const currentLocation = this.state.geolocation 
+      ? <TouchableHighlight 
+        style={styles.modalButton}
+        onPress={() => this.getGeolocation(nextPage)}>
+              
+        <Text style={styles.modalButtonText}>
+          Use Current Location
+        </Text>
+      </TouchableHighlight>
+      : <View style={styles.modalButton}>
+          <Text style={styles.errorText}>
+            Unable to access current location. Please enter a location below.
+          </Text>
+        </View>;
+
     return (
       <ImageBackground 
         source={require('../assets/star-background.jpg')} 
@@ -75,14 +95,7 @@ class LocationModal extends Component {
             Finding Your Night Sky
           </Text>
           <View style={styles.inputContainer}> 
-            <TouchableHighlight 
-              style={styles.modalButton}
-              onPress={() => this.getGeolocation(nextPage)}>
-              
-              <Text style={styles.modalButtonText}>
-                Use Current Location
-              </Text>
-            </TouchableHighlight>
+            {currentLocation}
             <View>
               <View style={styles.inputWrapper}>
                 <Image 
@@ -172,6 +185,14 @@ const styles = StyleSheet.create({
     padding: 10,
     width: '88%'
   },
+  errorText: {
+    backgroundColor: colors.$purple,
+    color: colors.$white,
+    fontSize: 20,
+    margin: -3,
+    padding: 10,
+    textAlign: 'center'
+  }
 });
 
 const mapStateToProps = state => ({
