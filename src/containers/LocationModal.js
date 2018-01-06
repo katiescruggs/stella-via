@@ -3,6 +3,7 @@ import  { connect } from 'react-redux';
 import { setLocation, changePage, setSkyCoords } from '../actions';
 import NavBar from './NavBar.js';
 import { fetchLocationCoords } from '../helpers/fetchLocationCoords';
+import { calculateRA } from '../helpers/starCoords';
 import { colors } from '../assets/colors.js';
 import { 
   StyleSheet, 

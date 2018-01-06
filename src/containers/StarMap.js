@@ -8,8 +8,12 @@ import { colors } from '../assets/colors';
 const StarMap = ({ lat, lon, dec, RA }) => {
   const arrayRA = RA.split(' ');
   const formattedRA = `${arrayRA[0]}h, ${arrayRA[1]}m, ${arrayRA[2]}s`;
-  //const path = `http://server1.sky-map.org/skywindow?ra=${RA}&dec=${dec}&zoom=8&img_source=SDSS`;
-  const path = `http://www.sky-map.org/?ra=4.5&de=39.9&zoom=2`;
+  const path = `http://www.sky-map.org/?ra=${RA}&de=${dec}&zoom=2`;
+
+  const errorMessage = 
+    <Text style={styles.errorMessage}>
+      404: Star Map cannot load.
+    </Text>
 
   return (
     <View style={styles.container}>
@@ -43,8 +47,11 @@ const StarMap = ({ lat, lon, dec, RA }) => {
         </View>
       </View>
       <WebView
+        renderError={() => errorMessage}
+        style={styles.webView}
         scalesPageToFit={true}
         source={{uri: path}}
+        contentInset={{top: -50, left: 0, bottom: -5, right: -50}}
       />
       <NavBar />
     </View>
@@ -71,7 +78,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.$transparentDarkPurple,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 5,
+    padding: 5
   },
   earthCoordsText: {
     color: colors.$white,
@@ -81,6 +88,14 @@ const styles = StyleSheet.create({
     color: colors.$white,
     fontSize: 14,
     textAlign: 'right'
+  },
+  webView: {
+    marginTop: 0
+  },
+  errorMessage: {
+    fontSize: 20,
+    marginTop: 50,
+    textAlign: 'center'
   }
 });
 
