@@ -4,7 +4,7 @@ import { colors } from '../assets/colors';
 import { connect } from 'react-redux';
 import { changePage, setConstellation } from '../actions';
 
-const Card = ({ currentPage, changePage, setConstellation, constellation }) => {
+const Card = ({ currentPage, changePage, setConstellation, constellation, visible }) => {
   const handlePress = () => {    
     const nextPage = currentPage === 'Search' 
       ? 'ConstellationSearch' 
@@ -22,9 +22,16 @@ const Card = ({ currentPage, changePage, setConstellation, constellation }) => {
 
   const source = image ? image : null;
 
+  const visibleEye = visible 
+    ? <Image 
+      style={styles.eye}
+      source={require('../assets/icons/eye.png')} /> 
+    : null;
+
   return (
     <View style={styles.card}>
       <View style={styles.cardHeader}>
+        {visibleEye}
         <Text style={styles.cardTitle}>
           {name}
         </Text>
@@ -64,6 +71,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 5,
     marginBottom: 5
+  },
+  eye: {
+    position: 'absolute',
+    top: 5,
+    left: 5, 
+    height: 40,
+    width: 40,
   },
   cardTitle: {
     fontSize: 18,

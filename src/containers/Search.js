@@ -4,7 +4,7 @@ import NavBar from './NavBar.js';
 import { colors } from '../assets/colors';
 import constellations from '../../constellations/constellations';
 import CardContainer from './CardContainer';
-import { getLastNextMonth } from '../helpers/getMonth';
+import { getLastNextMonth, months } from '../helpers/getMonth';
 
 
 class Search extends Component {
@@ -22,9 +22,7 @@ class Search extends Component {
     this.setState({matchConstellations});
   }
 
-  filterSeason = (season) => {
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    
+  filterSeason = (season) => {    
     const seasons = {
       winter: 1,
       spring: 4,
@@ -45,8 +43,12 @@ class Search extends Component {
   }
 
   render () {
+    // const visible = 
+
     const displayConstellations = this.state.matchConstellations 
-      ? <CardContainer constellations={this.state.matchConstellations} />
+      ? <CardContainer 
+        constellations={this.state.matchConstellations} 
+        visible={true} />
       : null;
 
     return (

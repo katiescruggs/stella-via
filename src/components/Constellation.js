@@ -137,8 +137,6 @@ const styles = StyleSheet.create({
   },
   detailsContainer: {
     marginBottom: 120,
-    // height: '75%',
-    // justifyContent: 'space-around'
   },
   detailText: {
     backgroundColor: 'transparent',
