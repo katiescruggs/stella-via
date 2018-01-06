@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import  { connect } from 'react-redux';
 import { setLocation, changePage, setSkyCoords } from '../actions';
-import { googleKey } from '../helpers/apiKey.js';
 import NavBar from './NavBar.js';
-import { calculateRA } from '../helpers/starCoords.js';
+import { fetchLocationCoords } from '../helpers/fetchLocationCoords';
+import { calculateRA } from '../helpers/starCoords';
 import { colors } from '../assets/colors.js';
 import { 
   StyleSheet, 
@@ -19,51 +19,79 @@ class LocationModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: ''
+      text: '',
+      geolocation: true,
+      validLocation: true,
+      nextPage: this.props.currentPage === 'LocationModalTonight'
+      ? 'TonightsSky'
+      : 'StarMap'
     };
   };
 
-  getGeolocation = (nextPage) => {
+  getGeolocation = () => {
     navigator.geolocation.getCurrentPosition(({coords}) => {
-      const lat = coords.latitude.toFixed(3);
-      const lon = coords.longitude.toFixed(3);
-      const location = {lat, lon};
-      const skyCoords = calculateRA(lat, lon);
+      const location = {
+        lat: coords.latitude.toFixed(3), 
+        lon: coords.longitude.toFixed(3)
+      };
+      const skyCoords = calculateRA(location.lat, location.lon);
 
-      this.props.setLocation(location);
-      this.props.setSkyCoords(skyCoords);
-      this.props.changePage(nextPage);
+      this.setAllLocations(location, skyCoords);
     });
+  }
+
+  setAllLocations = (location, skyCoords) => {
+    this.props.setLocation(location);
+    this.props.setSkyCoords(skyCoords);
+    this.props.changePage(this.state.nextPage);
+  }
+
+  checkGeolocation = () => {
+    if(navigator.geolocation) {
+      this.getGeolocation();
+    } else {
+      this.setState({geolocation: false});
+    }
   };
 
-  handleSearchLocation = async (nextPage) => {
-    const cityState = this.state.text.split(', ');
-    const city = cityState[0];
-    const state = cityState[1];
-
+  handleSearchLocation = async () => {
     if(this.state.text) {
-      const coordsFetch = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${city},+${state}&key=${googleKey}`);
-      const coordsResult = await coordsFetch.json();
-
-      const coords = coordsResult.results[0].geometry.location;
-
-      const lat = coords.lat.toFixed(3);
-      const lon = coords.lng.toFixed(3);
-
-      const location = {lat, lon, city, state};
-      const skyCoords = calculateRA(lat, lon);
-      
-      this.setState({text: ''});
-      this.props.setLocation(location);
-      this.props.setSkyCoords(skyCoords);
-      this.props.changePage(nextPage);
+      try {
+        const [city, state] = this.state.text.split(', ');
+        const { location, skyCoords } = await fetchLocationCoords(city, state);
+        
+        this.setState({text: ''});
+        this.setAllLocations(location, skyCoords);
+      }
+      catch (error) {
+        this.setState({validLocation: false, text: ''});
+      }
     }
   };
 
   render() {
-    const nextPage = this.props.currentPage === 'LocationModalTonight'
-      ? 'TonightsSky'
-      : 'StarMap';
+    const currentLocation = this.state.geolocation 
+      ? <TouchableHighlight 
+        style={styles.modalButton}
+        onPress={() => this.checkGeolocation()}>
+              
+        <Text style={styles.modalButtonText}>
+          Use Current Location
+        </Text>
+      </TouchableHighlight>
+      : <View style={styles.modalButton}>
+          <Text style={styles.errorText}>
+            Unable to access current location. Please enter a location below.
+          </Text>
+        </View>;
+
+    const errorMessage = this.state.validLocation 
+      ? null
+      : <View style={styles.modalButton}>
+          <Text style={styles.errorText}>
+            Location not found. Please enter a valid location.
+          </Text>
+        </View>; 
 
     return (
       <ImageBackground 
@@ -75,14 +103,8 @@ class LocationModal extends Component {
             Finding Your Night Sky
           </Text>
           <View style={styles.inputContainer}> 
-            <TouchableHighlight 
-              style={styles.modalButton}
-              onPress={() => this.getGeolocation(nextPage)}>
-              
-              <Text style={styles.modalButtonText}>
-                Use Current Location
-              </Text>
-            </TouchableHighlight>
+            {currentLocation}
+            {errorMessage}
             <View>
               <View style={styles.inputWrapper}>
                 <Image 
@@ -98,7 +120,7 @@ class LocationModal extends Component {
               </View>
               <TouchableHighlight 
                 style={styles.modalButton}
-                onPress={() => this.handleSearchLocation(nextPage)}>
+                onPress={() => this.handleSearchLocation()}>
 
                 <Text style={styles.modalButtonText}>
                   Set New Location
@@ -172,6 +194,14 @@ const styles = StyleSheet.create({
     padding: 10,
     width: '88%'
   },
+  errorText: {
+    backgroundColor: colors.$purple,
+    color: colors.$white,
+    fontSize: 20,
+    margin: -3,
+    padding: 10,
+    textAlign: 'center'
+  }
 });
 
 const mapStateToProps = state => ({
