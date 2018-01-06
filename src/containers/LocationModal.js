@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import  { connect } from 'react-redux';
 import { setLocation, changePage, setSkyCoords } from '../actions';
-import { googleKey } from '../helpers/apiKey.js';
 import NavBar from './NavBar.js';
-import { calculateRA } from '../helpers/starCoords.js';
+import { fetchLocationCoords } from '../helpers/fetchLocationCoords';
 import { colors } from '../assets/colors.js';
 import { 
   StyleSheet, 
@@ -55,20 +54,10 @@ class LocationModal extends Component {
   };
 
   handleSearchLocation = async () => {
-    const [city, state] = this.state.text.split(', ');
-
     if(this.state.text) {
       try {
-        const coordsFetch = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${city},+${state}&key=${googleKey}`);
-        const coordsResult = await coordsFetch.json();
-
-        const coords = coordsResult.results[0].geometry.location;
-
-        const lat = coords.lat.toFixed(3);
-        const lon = coords.lng.toFixed(3);
-
-        const location = {lat, lon, city, state};
-        const skyCoords = calculateRA(lat, lon);
+        const [city, state] = this.state.text.split(', ');
+        const { location, skyCoords } = await fetchLocationCoords(city, state);
         
         this.setState({text: ''});
         this.setAllLocations(location, skyCoords);
