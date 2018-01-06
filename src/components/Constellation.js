@@ -123,7 +123,8 @@ const styles = StyleSheet.create({
     top: 15,
     backgroundColor: colors.$purple,
     borderRadius: 10,
-    padding: 5
+    padding: 5,
+    zIndex: 10
   },
   icon: {
     height: 40,
