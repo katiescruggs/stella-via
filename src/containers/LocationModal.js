@@ -21,13 +21,14 @@ class LocationModal extends Component {
     this.state = {
       text: '',
       geolocation: true,
+      validLocation: true,
       nextPage: this.props.currentPage === 'LocationModalTonight'
       ? 'TonightsSky'
       : 'StarMap'
     };
   };
 
-  getGeolocation = (setAllLocations) => {
+  getGeolocation = () => {
     navigator.geolocation.getCurrentPosition(({coords}) => {
       const location = {
         lat: coords.latitude.toFixed(3), 
@@ -35,7 +36,7 @@ class LocationModal extends Component {
       };
       const skyCoords = calculateRA(location.lat, location.lon);
 
-      setAllLocations(location, skyCoords);
+      this.setAllLocations(location, skyCoords);
     });
   }
 
@@ -47,33 +48,34 @@ class LocationModal extends Component {
 
   checkGeolocation = () => {
     if(navigator.geolocation) {
-      this.getGeolocation(this.setAllLocations);
+      this.getGeolocation();
     } else {
       this.setState({geolocation: false});
     }
   };
 
   handleSearchLocation = async () => {
-    const cityState = this.state.text.split(', ');
-    const city = cityState[0];
-    const state = cityState[1];
+    const [city, state] = this.state.text.split(', ');
 
     if(this.state.text) {
-      const coordsFetch = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${city},+${state}&key=${googleKey}`);
-      const coordsResult = await coordsFetch.json();
+      try {
+        const coordsFetch = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${city},+${state}&key=${googleKey}`);
+        const coordsResult = await coordsFetch.json();
 
-      const coords = coordsResult.results[0].geometry.location;
+        const coords = coordsResult.results[0].geometry.location;
 
-      const lat = coords.lat.toFixed(3);
-      const lon = coords.lng.toFixed(3);
+        const lat = coords.lat.toFixed(3);
+        const lon = coords.lng.toFixed(3);
 
-      const location = {lat, lon, city, state};
-      const skyCoords = calculateRA(lat, lon);
-      
-      this.setState({text: ''});
-      this.props.setLocation(location);
-      this.props.setSkyCoords(skyCoords);
-      this.props.changePage(this.state.nextPage);
+        const location = {lat, lon, city, state};
+        const skyCoords = calculateRA(lat, lon);
+        
+        this.setState({text: ''});
+        this.setAllLocations(location, skyCoords);
+      }
+      catch (error) {
+        this.setState({validLocation: false, text: ''});
+      }
     }
   };
 
@@ -93,6 +95,14 @@ class LocationModal extends Component {
           </Text>
         </View>;
 
+    const errorMessage = this.state.validLocation 
+      ? null
+      : <View style={styles.modalButton}>
+          <Text style={styles.errorText}>
+            Location not found. Please enter a valid location.
+          </Text>
+        </View>; 
+
     return (
       <ImageBackground 
         source={require('../assets/star-background.jpg')} 
@@ -104,6 +114,7 @@ class LocationModal extends Component {
           </Text>
           <View style={styles.inputContainer}> 
             {currentLocation}
+            {errorMessage}
             <View>
               <View style={styles.inputWrapper}>
                 <Image 
