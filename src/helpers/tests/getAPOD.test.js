@@ -3,10 +3,13 @@ import { getAPOD, formatAPOD } from '../getAPOD';
 describe('APOD fetch helper functions', () => {
   describe('getAPOD', () => {
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-      json: () => Promise.resolve(
-        {data: 'data'}
-      )
-      }));
+      json: () => Promise.resolve({
+        url: 'URL',
+        media_type: 'image',
+        title: 'TITLE',
+        explanation: 'EXPLANATION'
+      })
+    }));
 
     it('should be a function', () => {
       expect(getAPOD).toBeAFunction;
