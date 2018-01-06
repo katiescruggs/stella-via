@@ -7,8 +7,12 @@ const getAPOD = async () => {
 
     return formatAPOD(apodData)
   } catch(error) {
-    console.log(error)
-    return null;
+    return {
+      image: require('../assets/star-background.jpg'),
+      type: 'image',
+      title: 'Image Did Not Load',
+      details: `Sorry, the NASA image did not load properly today. Please try again or check back tomorrow!`
+    };
   }
 }
 
