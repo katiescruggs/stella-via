@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableHighlight, Image } from 'react-native';
 import { colors } from '../assets/colors';
+import { connect } from 'react-redux';
+import { changePage } from '../actions';
 
 class Card extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       showDetails: false
@@ -13,8 +15,9 @@ class Card extends Component {
 
 
   handlePress = () => {
-    const showDetails = !this.state.showDetails;
-    this.setState({ showDetails });
+    // const showDetails = !this.state.showDetails;
+    // this.setState({ showDetails });
+    changePage('Constellation');
   }
 
   render() {
@@ -71,7 +74,7 @@ class Card extends Component {
           style={styles.button}
           onPress={this.handlePress} 
           activeOpacity={0.3} 
-          underlayColor={colors.$purple}>
+          underlayColor={colors.$darkPurple}>
           <Image 
             style={styles.icon}
             source={require('../assets/icons/star.png')}/>
@@ -129,4 +132,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Card;
+const mapDispatchToProps = dispatch => ({
+  changePage: (pageRoute) => {
+    dispatch(changePage(pageRoute));
+  }
+});
+
+export default connect(null, mapDispatchToProps)(Card);
