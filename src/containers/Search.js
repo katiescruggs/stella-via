@@ -5,8 +5,7 @@ import { colors } from '../assets/colors';
 import constellations from '../../constellations/constellations';
 import CardContainer from './CardContainer';
 import { getLastNextMonth, getMonth, months } from '../helpers/getMonth';
-
-
+import { assignVisibility } from '../helpers/assignVisibility';
 
 class Search extends Component {
   constructor(props) {
@@ -21,7 +20,7 @@ class Search extends Component {
       return constellation.name.includes(text);
     });
 
-    matchConstellations = this.assignVisibility(matchConstellations);
+    matchConstellations = assignVisibility(matchConstellations);
 
     this.setState({ matchConstellations });
   }
@@ -43,22 +42,9 @@ class Search extends Component {
       return (seenMonth === currentMonth || seenMonth === nextMonth || seenMonth === lastMonth);
     });
 
-    matchConstellations = this.assignVisibility(matchConstellations);
+    matchConstellations = assignVisibility(matchConstellations);
 
     this.setState({ matchConstellations });
-  }
-
-  assignVisibility = (constellationArray) => {
-    return constellationArray.map(constellation => {
-      const { currentMonth, lastMonth, nextMonth } = getMonth();
-      const seenMonth = constellation.coords.bestSeen;
-
-      if (seenMonth === currentMonth || seenMonth === lastMonth || seenMonth === nextMonth) {
-        return Object.assign({}, constellation, { visible: true })
-      }
-
-      return constellation
-    });
   };
 
   render () {

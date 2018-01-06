@@ -7,6 +7,7 @@ import NavButton from '../components/NavButton'
 import { colors } from '../assets/colors';
 import constellations from '../../constellations/constellations';
 import { getMonth } from '../helpers/getMonth';
+import { assignVisibility } from '../helpers/assignVisibility';
 
 const TonightsSky = ({ lat, lon, RA, dec }) => {
   const { currentMonth, lastMonth, nextMonth } = getMonth();
@@ -19,12 +20,6 @@ const TonightsSky = ({ lat, lon, RA, dec }) => {
     const seenMonth = constellation.coords.bestSeen;
     return (seenMonth === lastMonth || seenMonth === nextMonth);
   });
-
-  const assignVisibility = (constellationArray => 
-    constellationArray.map(constellation => 
-      Object.assign({}, constellation, { visible: true })
-    )
-  );
 
   return (
     <ImageBackground
