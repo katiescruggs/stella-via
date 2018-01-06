@@ -17,3 +17,8 @@ export const setAPOD = apodData => ({
   type: 'SET_APOD',
   apodData
 });
+
+export const setConstellation = constellation => ({
+  type: 'SET_CONSTELLATION',
+  constellation
+});
