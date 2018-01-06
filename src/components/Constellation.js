@@ -32,16 +32,16 @@ const Constellation = ({ constellation, currentPage, changePage }) => {
     <ImageBackground
       source={require('../assets/star-background.jpg')}
       style={styles.container}>
-      <View style={styles.contentContainer}>
         <View style={styles.header}>
+          <Image 
+            style={styles.eye}
+            source={require('../assets/icons/eye.png')}
+          />
           <Text style={styles.title}>
             {name.toUpperCase()}
           </Text>
-          <Text style={styles.translation}>
-            {`"${translation}"`}
-          </Text>
         </View>
-        <View style={styles.detailsContainer}>
+        <View style={styles.imageContainer}>
           <TouchableHighlight 
             style={styles.button}
             onPress={handlePress} 
@@ -51,6 +51,15 @@ const Constellation = ({ constellation, currentPage, changePage }) => {
               style={styles.icon}
               source={require('../assets/icons/go-back.png')}/>
           </TouchableHighlight>
+          <Image 
+            source={image}
+            style={styles.constellationImage}
+          />
+          <Text style={styles.translation}>
+            {`"${translation}"`}
+          </Text>
+        </View>
+        <View style={styles.detailsContainer}>
           <Text style={styles.detailText}>
           {`Location: RA ${coords.ra}, DEC ${coords.dec}`}
           </Text>
@@ -64,11 +73,6 @@ const Constellation = ({ constellation, currentPage, changePage }) => {
           </Text>
         </View>
         <NavBar />
-      </View>
-      <Image 
-        source={image}
-        style={styles.constellationImage}
-      />
     </ImageBackground>
   )
 }
@@ -78,20 +82,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     alignItems: 'center', 
-    justifyContent: 'center'
-  },
-  constellationImage: {
-    width: 350,
-    height: 350,
-  },
-  contentContainer: {
-    backgroundColor: colors.$fullCardShadow,
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    alignItems: 'center', 
-    justifyContent: 'space-between',
-    zIndex: 10
+    justifyContent: 'space-between'
   },
   header: {
     backgroundColor: colors.$purple,
@@ -99,22 +90,28 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     width: '100%'
   },
+  eye: {
+    position: 'absolute',
+    top: 40,
+    left: 40, 
+    height: 40,
+    width: 40,
+    zIndex: 10
+  },
   title: {
     color: colors.$white,
     fontSize: 22,
     fontWeight: 'bold',
     textAlign: 'center'
   },
-  translation: {
-    color: colors.$white,
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center'
+  imageContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%'
   },
-  detailsContainer: {
-    marginBottom: 200,
-    height: '75%',
-    justifyContent: 'space-around'
+  constellationImage: {
+    width: 300,
+    height: 300,
   },
   button: {
     position: 'absolute', 
@@ -128,11 +125,26 @@ const styles = StyleSheet.create({
     height: 40,
     width: 40
   },
+  translation: {
+    backgroundColor: colors.$purple,
+    color: colors.$white,
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    paddingTop: 10,
+    paddingBottom: 10,
+    width: '100%'
+  },
+  detailsContainer: {
+    marginBottom: 120,
+    // height: '75%',
+    // justifyContent: 'space-around'
+  },
   detailText: {
+    backgroundColor: 'transparent',
     color: colors.$white,
     padding: 5,
     fontSize: 18,
-    margin: 10
   }
 });
 
