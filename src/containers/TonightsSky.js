@@ -11,18 +11,20 @@ import { getMonth } from '../helpers/getMonth';
 const TonightsSky = ({ lat, lon, RA, dec }) => {
   const { currentMonth, lastMonth, nextMonth } = getMonth();
 
-  let matchConstellations = constellations.filter(constellation => {
-    return constellation.coords.bestSeen === currentMonth;
-  });
+  const matchConstellations = constellations.filter(constellation => 
+    constellation.coords.bestSeen === currentMonth
+  );
 
-  matchConstellations = matchConstellations.map(constellation => Object.assign({}, constellation, { visible: true }))
-
-  let nearConstellations = constellations.filter(constellation => {
-    let seenMonth = constellation.coords.bestSeen;
+  const nearConstellations = constellations.filter(constellation => {
+    const seenMonth = constellation.coords.bestSeen;
     return (seenMonth === lastMonth || seenMonth === nextMonth);
   });
 
-  nearConstellations = nearConstellations.map(constellation => Object.assign({}, constellation, { visible: true }))
+  const assignVisibility = (constellationArray => 
+    constellationArray.map(constellation => 
+      Object.assign({}, constellation, { visible: true })
+    )
+  );
 
   return (
     <ImageBackground
@@ -43,10 +45,10 @@ const TonightsSky = ({ lat, lon, RA, dec }) => {
         </Text>
         <Text style={styles.constellationsSubheader}>Best Constellations to See This Month:</Text>
         <CardContainer 
-          constellations={matchConstellations} />
+          constellations={assignVisibility(matchConstellations)} />
         <Text style={styles.constellationsSubheader}>More Constellations:</Text>
         <CardContainer 
-          constellations={nearConstellations} />
+          constellations={assignVisibility(nearConstellations)} />
       </ScrollView>
       <NavBar />
     </ImageBackground>

@@ -12,7 +12,8 @@ const Constellation = ({ constellation, currentPage, changePage }) => {
       translation, 
       coords, 
       name, 
-      image 
+      image,
+      visible
     } = constellation;
 
   const starsString = stars.length 
@@ -28,15 +29,18 @@ const Constellation = ({ constellation, currentPage, changePage }) => {
     changePage(backPage);
   };
 
+  const visibleEye = visible 
+    ? <Image 
+      style={styles.eye}
+      source={require('../assets/icons/eye.png')} /> 
+    : null;
+
   return (
     <ImageBackground
       source={require('../assets/star-background.jpg')}
       style={styles.container}>
         <View style={styles.header}>
-          <Image 
-            style={styles.eye}
-            source={require('../assets/icons/eye.png')}
-          />
+          {visibleEye}
           <Text style={styles.title}>
             {name.toUpperCase()}
           </Text>

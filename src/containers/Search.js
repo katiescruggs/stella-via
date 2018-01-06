@@ -7,6 +7,7 @@ import CardContainer from './CardContainer';
 import { getLastNextMonth, getMonth, months } from '../helpers/getMonth';
 
 
+
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -19,10 +20,10 @@ class Search extends Component {
     let matchConstellations = constellations.filter(constellation => {
       return constellation.name.includes(text);
     });
-    // matchConstellations = matchConstellations.map(constellation => {
-    //   constellation.visible
-    // })
-    this.setState({matchConstellations});
+
+    matchConstellations = this.assignVisibility(matchConstellations);
+
+    this.setState({ matchConstellations });
   }
 
   filterSeason = (season) => {    
@@ -37,17 +38,30 @@ class Search extends Component {
     const currentMonth = months[monthIndex];
     const { lastMonth, nextMonth } = getLastNextMonth(monthIndex);
 
-    const matchConstellations = constellations.filter(constellation => {
+    let matchConstellations = constellations.filter(constellation => {
       const seenMonth = constellation.coords.bestSeen;
       return (seenMonth === currentMonth || seenMonth === nextMonth || seenMonth === lastMonth);
     });
 
-    this.setState({matchConstellations});
+    matchConstellations = this.assignVisibility(matchConstellations);
+
+    this.setState({ matchConstellations });
   }
 
-  render () {
-    // const visible = 
+  assignVisibility = (constellationArray) => {
+    return constellationArray.map(constellation => {
+      const { currentMonth, lastMonth, nextMonth } = getMonth();
+      const seenMonth = constellation.coords.bestSeen;
 
+      if (seenMonth === currentMonth || seenMonth === lastMonth || seenMonth === nextMonth) {
+        return Object.assign({}, constellation, { visible: true })
+      }
+
+      return constellation
+    });
+  };
+
+  render () {
     const displayConstellations = this.state.matchConstellations 
       ? <CardContainer 
         constellations={this.state.matchConstellations} />
