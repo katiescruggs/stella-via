@@ -38,7 +38,7 @@ const TonightsSky = ({ lat, lon, RA, dec }) => {
           {`Constellations For ${lat}\xb0, ${lon}\xb0`}
         </Text>
         <Text style={styles.constellationsSubheader}>Best Constellations to See This Month:</Text>
-        <CardContainer constellations={constellations}/>
+        <CardContainer constellations={matchConstellations}/>
         <Text style={styles.constellationsSubheader}>More Constellations:</Text>
         <CardContainer constellations={nearConstellations}/>
       </ScrollView>
