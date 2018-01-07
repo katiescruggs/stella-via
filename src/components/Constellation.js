@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { StyleSheet, View, Text, Image, ImageBackground, TouchableHighlight } from 'react-native';
+import { StyleSheet, View, Text, Image, ImageBackground, TouchableHighlight, ScrollView } from 'react-native';
 import { colors } from '../assets/colors';
 import { changePage } from '../actions';
 import NavBar from '../containers/NavBar';
@@ -12,7 +12,8 @@ const Constellation = ({ constellation, currentPage, changePage }) => {
       translation, 
       coords, 
       name, 
-      image 
+      image,
+      visible
     } = constellation;
 
   const starsString = stars.length 
@@ -28,47 +29,63 @@ const Constellation = ({ constellation, currentPage, changePage }) => {
     changePage(backPage);
   };
 
+  const visibleEye = visible 
+    ? <Image 
+      style={styles.eye}
+      source={require('../assets/icons/eye.png')} /> 
+    : null;
+
   return (
     <ImageBackground
       source={require('../assets/star-background.jpg')}
       style={styles.container}>
-      <View style={styles.contentContainer}>
-        <View style={styles.header}>
-          <Text style={styles.title}>
-            {name.toUpperCase()}
-          </Text>
-          <Text style={styles.translation}>
-            {`"${translation}"`}
-          </Text>
-        </View>
+      <View style={styles.header}>
+        {visibleEye}
+        <Text style={styles.title}>
+          {name.toUpperCase()}
+        </Text>
+        <Text style={styles.translation}>
+          {`"${translation}"`}
+        </Text>
+      </View>
+      <View style={styles.imageContainer}>
+        <TouchableHighlight 
+          style={styles.button}
+          onPress={handlePress} 
+          activeOpacity={0.3} 
+          underlayColor={colors.$darkPurple}>
+          <Image 
+            style={styles.icon}
+            source={require('../assets/icons/go-back.png')}/>
+        </TouchableHighlight>
+        <Image 
+          source={image}
+          style={styles.constellationImage}
+        />
+      </View>
+      <ScrollView style={{width: '100%'}}>
         <View style={styles.detailsContainer}>
-          <TouchableHighlight 
-            style={styles.button}
-            onPress={handlePress} 
-            activeOpacity={0.3} 
-            underlayColor={colors.$darkPurple}>
-            <Image 
-              style={styles.icon}
-              source={require('../assets/icons/star.png')}/>
-          </TouchableHighlight>
-          <Text style={styles.detailText}>
-          {`Location: RA ${coords.ra}, DEC ${coords.dec}`}
-          </Text>
-          <View style={styles.stars}> 
-            <Text style={styles.detailText}>
-              {`Named Stars: ${starsString}`}
-            </Text>
+          <View style={styles.detailHeader}>          
+            <Text style={styles.detailHeaderText}>Location:</Text>
           </View>
           <Text style={styles.detailText}>
-            {`Description: ${description}`}
+          {`RA ${coords.ra}, DEC ${coords.dec}`}
+          </Text>
+          <View style={styles.detailHeader}>          
+            <Text style={styles.detailHeaderText}>Named Stars:</Text>
+          </View>
+          <Text style={styles.detailText}>
+            {`${starsString}`}
+          </Text>
+          <View style={styles.detailHeader}>          
+            <Text style={styles.detailHeaderText}>Description:</Text>
+          </View>
+          <Text style={styles.detailText}>
+            {`${description}`}
           </Text>
         </View>
-        <NavBar />
-      </View>
-      <Image 
-        source={image}
-        style={styles.constellationImage}
-      />
+      </ScrollView>
+      <NavBar />
     </ImageBackground>
   )
 }
@@ -78,26 +95,20 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     alignItems: 'center', 
-    justifyContent: 'center'
-  },
-  constellationImage: {
-    width: 350,
-    height: 350,
-  },
-  contentContainer: {
-    backgroundColor: colors.$fullCardShadow,
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    alignItems: 'center', 
-    justifyContent: 'space-between',
-    zIndex: 10
   },
   header: {
     backgroundColor: colors.$purple,
     paddingTop: 50,
     paddingBottom: 10,
     width: '100%'
+  },
+  eye: {
+    position: 'absolute',
+    top: 40,
+    left: 40, 
+    height: 40,
+    width: 40,
+    zIndex: 10
   },
   title: {
     color: colors.$white,
@@ -106,15 +117,23 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   translation: {
+    backgroundColor: colors.$purple,
     color: colors.$white,
     fontSize: 18,
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
+    paddingTop: 10,
+    paddingBottom: 10,
+    width: '100%'
   },
-  detailsContainer: {
-    marginBottom: 200,
-    height: '75%',
-    justifyContent: 'space-around'
+  imageContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%'
+  },
+  constellationImage: {
+    width: 300,
+    height: 300,
   },
   button: {
     position: 'absolute', 
@@ -122,17 +141,37 @@ const styles = StyleSheet.create({
     top: 15,
     backgroundColor: colors.$purple,
     borderRadius: 10,
-    padding: 5
+    padding: 5,
+    zIndex: 10
   },
   icon: {
     height: 40,
     width: 40
   },
-  detailText: {
+  detailsContainer: {
+    marginBottom: 120,
+  },
+  detailHeader: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.$lavender,
+    width: '100%'
+  },
+  detailHeaderText: {
+    backgroundColor: colors.$purple,
     color: colors.$white,
     padding: 5,
-    fontSize: 18,
-    margin: 10
+    fontSize: 16,
+    fontWeight: 'bold',
+    margin: 5,
+    width: '100%'
+  },
+  detailText: {
+    backgroundColor: 'transparent',
+    color: colors.$white,
+    padding: 5,
+    fontSize: 16,
+    margin: 5
   }
 });
 

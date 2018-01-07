@@ -4,49 +4,74 @@ import NavBar from './NavBar.js';
 import { colors } from '../assets/colors';
 import constellations from '../../constellations/constellations';
 import CardContainer from './CardContainer';
-import { getLastNextMonth } from '../helpers/getMonth';
-
+import { getLastNextMonth, getMonth, months } from '../helpers/getMonth';
+import { assignVisibility } from '../helpers/assignVisibility';
 
 class Search extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       matchConstellations: constellations
-    }
-  }
+    };
 
-  handleSearch = (text) => {
-    const matchConstellations = constellations.filter(constellation => {
-      return constellation.name.includes(text);
-    });
-    this.setState({matchConstellations});
-  }
-
-  filterSeason = (season) => {
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    
-    const seasons = {
+    this.seasons = {
       winter: 1,
       spring: 4,
       summer: 7, 
       fall: 10
     };
+  }
 
-    const monthIndex = seasons[season];
+  handleSearch = (text) => {
+    const filteredConstellations = constellations.filter(constellation => {
+      return constellation.name.includes(text);
+    });
+
+    const matchConstellations = assignVisibility(filteredConstellations);
+
+    this.setState({ matchConstellations });
+  }
+
+  filterSeason = (season) => {    
+    const monthIndex = this.seasons[season];
     const currentMonth = months[monthIndex];
     const { lastMonth, nextMonth } = getLastNextMonth(monthIndex);
 
-    const matchConstellations = constellations.filter(constellation => {
+    const filteredConstellations = constellations.filter(constellation => {
       const seenMonth = constellation.coords.bestSeen;
-      return (seenMonth === currentMonth || seenMonth === nextMonth || seenMonth === lastMonth);
+
+      return (
+        seenMonth === currentMonth 
+        || seenMonth === nextMonth 
+        || seenMonth === lastMonth
+      );
     });
 
-    this.setState({matchConstellations});
-  }
+    const matchConstellations = assignVisibility(filteredConstellations);
+
+    this.setState({ matchConstellations });
+  };
 
   render () {
+    const seasonButtons = Object.keys(this.seasons).map((season, index) => {
+      const name = (season.charAt(0)).toUpperCase() + season.slice(1);
+      return (
+        <TouchableHighlight 
+          key={`button-${index}`}
+          style={styles.seasonButton}>
+          <Text 
+            style={styles.seasonText}
+            onPress={() => this.filterSeason(season)}>
+            {name}
+          </Text>
+        </TouchableHighlight>
+      )
+    });
+
     const displayConstellations = this.state.matchConstellations 
-      ? <CardContainer constellations={this.state.matchConstellations} />
+      ? <CardContainer 
+        constellations={this.state.matchConstellations} />
       : null;
 
     return (
@@ -61,45 +86,9 @@ class Search extends Component {
           placeholder='Search for a constellation.'
           onChangeText={(text) => this.handleSearch(text)}
         />
-
         <View style={styles.seasonContainer}>
-          <TouchableHighlight style={styles.seasonButton}>
-            <Text 
-              style={styles.seasonText}
-              onPress={() => this.filterSeason('summer')}
-            >
-              Summer
-            </Text>
-          </TouchableHighlight>
-
-          <TouchableHighlight style={styles.seasonButton}>
-            <Text 
-              style={styles.seasonText}
-              onPress={() => this.filterSeason('fall')}
-            >
-              Fall
-            </Text>
-          </TouchableHighlight>
-
-          <TouchableHighlight style={styles.seasonButton}>
-            <Text 
-              style={styles.seasonText}
-              onPress={() => this.filterSeason('winter')}
-            >
-              Winter
-            </Text>
-          </TouchableHighlight>
-
-          <TouchableHighlight style={styles.seasonButton}>
-            <Text 
-              style={styles.seasonText}
-              onPress={() => this.filterSeason('spring')}
-            >
-              Spring
-            </Text>
-          </TouchableHighlight>
+          {seasonButtons}
         </View>
-
         {displayConstellations}
         <NavBar />
       </ImageBackground>

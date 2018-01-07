@@ -7,16 +7,17 @@ import NavButton from '../components/NavButton'
 import { colors } from '../assets/colors';
 import constellations from '../../constellations/constellations';
 import { getMonth } from '../helpers/getMonth';
+import { assignVisibility } from '../helpers/assignVisibility';
 
 const TonightsSky = ({ lat, lon, RA, dec }) => {
   const { currentMonth, lastMonth, nextMonth } = getMonth();
 
-  const matchConstellations = constellations.filter(constellation => {
-    return constellation.coords.bestSeen === currentMonth;
-  });
+  const matchConstellations = constellations.filter(constellation => 
+    constellation.coords.bestSeen === currentMonth
+  );
 
   const nearConstellations = constellations.filter(constellation => {
-    let seenMonth = constellation.coords.bestSeen;
+    const seenMonth = constellation.coords.bestSeen;
     return (seenMonth === lastMonth || seenMonth === nextMonth);
   });
 
@@ -38,9 +39,11 @@ const TonightsSky = ({ lat, lon, RA, dec }) => {
           {`Constellations For ${lat}\xb0, ${lon}\xb0`}
         </Text>
         <Text style={styles.constellationsSubheader}>Best Constellations to See This Month:</Text>
-        <CardContainer constellations={matchConstellations}/>
+        <CardContainer 
+          constellations={assignVisibility(matchConstellations)} />
         <Text style={styles.constellationsSubheader}>More Constellations:</Text>
-        <CardContainer constellations={nearConstellations}/>
+        <CardContainer 
+          constellations={assignVisibility(nearConstellations)} />
       </ScrollView>
       <NavBar />
     </ImageBackground>
