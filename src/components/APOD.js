@@ -36,9 +36,13 @@ export class APOD extends Component {
       details 
     } = this.props.apodData;
 
+    const imageStyle = title === 'Image Did Not Load'
+      ? styles.imgError
+      : styles.img;
+
     const apod = type === 'image' 
       ? <Image
-        style={styles.img} 
+        style={imageStyle} 
         source={image} />
       : <WebView 
         style={styles.vid} 
@@ -113,6 +117,10 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: colors.$white,
     height: 465
+  },
+  imgError: {
+    height: 340,
+    width: 340, 
   },
   img: {
     height: '100%',
