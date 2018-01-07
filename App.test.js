@@ -8,3 +8,10 @@ it('renders without crashing', () => {
   
   expect(rendered).toBeTruthy();
 });
+
+it('matches the snapshot', () => {
+  const rendered = renderer.create(<App />).toJSON();
+
+  expect(rendered).toMatchSnapshot();
+});
+
