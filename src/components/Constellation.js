@@ -40,9 +40,9 @@ export const Constellation = ({ constellation, currentPage, changePage }) => {
     changePage(backPage);
   };
 
-  const visibleEye = visible 
+  const visibility = visible 
     ? <Image 
-      style={styles.eye}
+      style={styles.visibleIcon}
       source={require('../assets/icons/night-sky.png')} /> 
     : null;
     
@@ -51,7 +51,7 @@ export const Constellation = ({ constellation, currentPage, changePage }) => {
       source={require('../assets/star-background.jpg')}
       style={styles.container}>
       <View style={styles.header}>
-        {visibleEye}
+        {visibility}
         <Text style={styles.title}>
           {name.toUpperCase()}
         </Text>
@@ -113,12 +113,12 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     width: '100%'
   },
-  eye: {
+  visibleIcon: {
     position: 'absolute',
-    top: 40,
-    left: 40, 
-    height: 40,
-    width: 40,
+    top: 60,
+    left: 20, 
+    height: 35,
+    width: 35,
     zIndex: 10
   },
   title: {

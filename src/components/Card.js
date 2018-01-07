@@ -29,16 +29,16 @@ export const Card = ({ currentPage, changePage, setConstellation, constellation 
 
   const source = image ? image : null;
 
-  const visibleEye = visible 
+  const visibility = visible 
     ? <Image 
-      style={styles.eye}
-      source={require('../assets/icons/night-sky.png')} /> 
+      style={styles.visibleIcon}
+      source={require('../assets/icons/night-sky-light.png')} /> 
     : null;
 
   return (
     <View style={styles.card}>
       <View style={styles.cardHeader}>
-        {visibleEye}
+        {visibility}
         <Text style={styles.cardTitle}>
           {name}
         </Text>
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     padding: 5,
     marginBottom: 5
   },
-  eye: {
+  visibleIcon: {
     position: 'absolute',
     top: 5,
     left: 5, 
@@ -104,8 +104,8 @@ const styles = StyleSheet.create({
     padding: 5
   },
   icon: {
-    height: 30,
-    width: 30
+    height: 35,
+    width: 35
   },
   img: {
     height: 200, 
