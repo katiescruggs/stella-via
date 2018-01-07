@@ -8,12 +8,11 @@ export const LocationBanner = ({ lat, lon, dec, RA, page, changePage }) => {
   const arrayRA = RA.split(' ');
   const formattedRA = `${arrayRA[0]}h, ${arrayRA[1]}m, ${arrayRA[2]}s`;
 
-
   const changeLocationClick = () => {
     const nextPage = page === 'StarMap' 
       ? 'LocationModalMap' 
       : 'LocationModalTonight';
-      
+
     changePage(nextPage);
   };
 
