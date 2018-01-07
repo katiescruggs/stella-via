@@ -4,7 +4,8 @@ import { changePage } from '../actions';
 import { StyleSheet, WebView, View, Text, TouchableHighlight, Image } from 'react-native';
 import { colors } from '../assets/colors';
 
-export const LocationBanner = ({ lat, lon, dec, RA, page, changePage }) => {
+export const LocationBanner = ({ location, dec, RA, page, changePage }) => {
+  const { lat, lon, city, state } = location;
   const arrayRA = RA.split(' ');
   const formattedRA = `${arrayRA[0]}h, ${arrayRA[1]}m, ${arrayRA[2]}s`;
 
@@ -20,7 +21,7 @@ export const LocationBanner = ({ lat, lon, dec, RA, page, changePage }) => {
     <View style={styles.coordsBanner}>
         <View style={styles.leftView}>
           <Text style={styles.locationName}>
-            Oklahoma City, OK
+            {`${city}, ${state}`}
           </Text>
           <TouchableHighlight 
             style={styles.changeLocationButton}
@@ -87,8 +88,7 @@ const styles = StyleSheet.create({
 });
 
 export const mapStateToProps = state => ({
-  lat: state.location.lat,
-  lon: state.location.lon,
+  location: state.location,
   dec: state.skyCoords.dec,
   RA: state.skyCoords.stringRA,
   page: state.page
