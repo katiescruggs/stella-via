@@ -15,7 +15,7 @@ const NavBar = (props) => {
       pageRoute: props.location ? 'StarMap' : 'LocationModalMap'
     }, 
     'Daily Image': {
-      source: require('../assets/icons/observatory.png'),
+      source: require('../assets/icons/photo.png'),
       pageRoute: 'APOD'
     },
     'Explore': {
