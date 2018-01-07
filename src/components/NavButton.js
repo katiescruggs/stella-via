@@ -15,14 +15,12 @@ export const NavButton = ({name, path, changePage, pageRoute, small, active}) =>
     changePage(pageRoute);
   };
 
-  const navBarIcons = small ? 'smIcon' : null;
-  const wrapper = small ? 'smWrapper' : 'iconWrapper';
-  const navButton = small ? 'smButton' : 'welcomeButton';
-
-  const isActive = active && small 
-    ? styles.active 
-    : styles[navButton];
-
+  const navBarIcons = small ? styles.smIcon : null;
+  const wrapper = small ? styles.smWrapper : styles.iconWrapper;
+  const navButton = small ? styles.smButton : styles.welcomeButton;
+  
+  const isActive = active ? styles.active : navButton;
+  
   const text = !small 
     ? <Text style={styles.navText}>{name}</Text> 
     : <Text style={styles.smNavText}>{name}</Text>;
@@ -34,9 +32,9 @@ export const NavButton = ({name, path, changePage, pageRoute, small, active}) =>
       activeOpacity={0.3} 
       underlayColor={colors.$purple}>
 
-      <View style={styles[wrapper]}> 
+      <View style={wrapper}> 
         <Image 
-          style={styles[navBarIcons]} 
+          style={navBarIcons} 
           source={path}
         />
         {text}

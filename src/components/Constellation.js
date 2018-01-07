@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   detailText: {
-    backgroundColor: 'transparent',
+    backgroundColor: colors.$transparent,
     color: colors.$white,
     padding: 5,
     fontSize: 16,

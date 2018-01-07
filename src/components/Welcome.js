@@ -27,7 +27,7 @@ export class Welcome extends Component {
         pageRoute: this.props.location ? 'StarMap' : 'LocationModalMap'
       }, 
       'Daily Image': {
-        source: require('../assets/icons/observatory.png'),
+        source: require('../assets/icons/photo.png'),
         pageRoute: 'APOD'
       }, 
       'Explore': {

@@ -8,7 +8,7 @@ export const getAPOD = async () => {
     return formatAPOD(apodData)
   } catch(error) {
     return {
-      image: require('../assets/star-background.jpg'),
+      image: require('../assets/icons/404alien.png'),
       type: 'image',
       title: 'Image Did Not Load',
       details: `Sorry, the NASA image did not load properly today. Please try again or check back tomorrow!`

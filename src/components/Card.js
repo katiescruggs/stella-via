@@ -16,7 +16,7 @@ export const Card = ({ currentPage, changePage, setConstellation, constellation 
       ? 'ConstellationSearch' 
       : 'ConstellationTonight';
 
-    setConstellation(constellation)
+    setConstellation(constellation);
     changePage(nextPage);
   };
 
@@ -57,7 +57,7 @@ export const Card = ({ currentPage, changePage, setConstellation, constellation 
       </TouchableHighlight>
       <Image 
         source={source}
-        style={{height: 200, width: 200}}
+        style={styles.img}
       />
     </View>
   );
@@ -107,6 +107,10 @@ const styles = StyleSheet.create({
     height: 30,
     width: 30
   },
+  img: {
+    height: 200, 
+    width: 200
+  }
 });
 
 export const mapStateToProps = state => ({
