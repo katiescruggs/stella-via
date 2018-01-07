@@ -23,6 +23,11 @@ class Search extends Component {
     };
   }
 
+  componentDidMount() {
+    const matchConstellations = assignVisibility(constellations)
+    this.setState({ matchConstellations });
+  }
+
   handleSearch = (text) => {
     const filteredConstellations = constellations.filter(constellation => {
       return constellation.name.includes(text);
