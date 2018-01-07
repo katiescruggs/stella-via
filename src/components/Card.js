@@ -32,7 +32,7 @@ export const Card = ({ currentPage, changePage, setConstellation, constellation 
   const visibleEye = visible 
     ? <Image 
       style={styles.eye}
-      source={require('../assets/icons/eye.png')} /> 
+      source={require('../assets/icons/night-sky.png')} /> 
     : null;
 
   return (
@@ -53,7 +53,7 @@ export const Card = ({ currentPage, changePage, setConstellation, constellation 
         underlayColor={colors.$darkPurple}>
         <Image 
           style={styles.icon}
-          source={require('../assets/icons/star.png')}/>
+          source={require('../assets/icons/eye.png')}/>
       </TouchableHighlight>
       <Image 
         source={source}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import CardContainer from './CardContainer';
 import NavBar from './NavBar';
 import { colors } from '../assets/colors';
@@ -15,7 +14,7 @@ import {
   ScrollView
 } from 'react-native';
 
-export const TonightsSky = ({ lat, lon }) => {
+const TonightsSky = () => {
   const { currentMonth, lastMonth, nextMonth } = getMonth();
 
   const matchConstellations = constellations.filter(constellation => 
@@ -82,10 +81,5 @@ const styles = StyleSheet.create({
   }
 });
 
-export const mapStateToProps = state => ({
-  lat: state.location.lat,
-  lon: state.location.lon
-});
-
-export default connect(mapStateToProps, null)(TonightsSky);
+export default TonightsSky;
 
