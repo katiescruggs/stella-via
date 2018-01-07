@@ -5,16 +5,16 @@ export const getAPOD = async () => {
     const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${nasaKey}`);
     const apodData = await response.json();
 
-    return formatAPOD(apodData)
+    return formatAPOD(apodData);
   } catch(error) {
     return {
       image: require('../assets/icons/404alien.png'),
       type: 'image',
       title: 'Image Did Not Load',
-      details: `Sorry, the NASA image did not load properly today. Please try again or check back tomorrow!`
+      details: 'Sorry, the NASA image did not load properly today. Please try again or check back tomorrow!'
     };
   }
-}
+};
 
 export const formatAPOD = (apodData) => {
   const { 
@@ -29,7 +29,7 @@ export const formatAPOD = (apodData) => {
     type: media_type,
     title,
     details: explanation
-  }
-}
+  };
+};
 
 export default getAPOD;

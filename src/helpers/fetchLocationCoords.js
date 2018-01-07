@@ -14,5 +14,6 @@ export const fetchLocationCoords = async (city, state) => {
   };
 
   const skyCoords = calculateRA(lat, lng);
+  
   return { location, skyCoords };
 };

@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import getAPOD from '../helpers/getAPOD';
 import NavBar from '../containers/NavBar';
 import { colors } from '../assets/colors';
 import { connect } from 'react-redux';
 import { 
-  AppRegistry, 
   StyleSheet, 
   View, 
   Text, 
@@ -21,10 +19,11 @@ class APOD extends Component {
     this.state = {
       displayDetails: false
     };
-  };
+  }
 
   handlePress = () => {
     const displayDetails = !this.state.displayDetails;
+
     this.setState({ displayDetails });
   };
 
@@ -38,21 +37,21 @@ class APOD extends Component {
 
     const apod = type === 'image' 
       ? <Image
-          style={styles.img} 
-          source={image} />
+        style={styles.img} 
+        source={image} />
       : <WebView 
-          style={styles.vid} 
-          scalesPageToFit={false}
-          source={image} />;
+        style={styles.vid} 
+        scalesPageToFit={false}
+        source={image} />;
 
     const detailsDisplay = !this.state.displayDetails 
       ? null
       : <ImageBackground 
-          source={require('../assets/star-background.jpg')}
-          style={styles.detailView}>
-          <Text style={styles.frameText}>{title.toUpperCase()}:</Text>
-          <Text style={styles.details}>{details}</Text>
-        </ImageBackground>;
+        source={require('../assets/star-background.jpg')}
+        style={styles.detailView}>
+        <Text style={styles.frameText}>{title.toUpperCase()}:</Text>
+        <Text style={styles.details}>{details}</Text>
+      </ImageBackground>;
 
     return (
       <View style={styles.container}>
@@ -101,7 +100,7 @@ const styles = StyleSheet.create({
     alignItems: 'center', 
     paddingTop: 20,
     marginBottom: 100,
-    width: '100%',
+    width: '100%'
   },
   img: {
     height: '100%',
@@ -112,7 +111,7 @@ const styles = StyleSheet.create({
     width: 300,
     margin: 10
   },
-  imageView : {
+  imageView: {
     backgroundColor: colors.$black,
     borderColor: colors.$white,
     borderTopWidth: 1,
@@ -120,10 +119,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: 400,
-    width: '100%',
+    width: 400
   },
   frameText: {
-    backgroundColor: 'transparent',
+    backgroundColor: colors.$transparent,
     color: colors.$white,
     fontSize: 16,
     padding: 5,

@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, ImageBackground, Text, TextInput, TouchableHighlight, Picker } from 'react-native';
 import NavBar from './NavBar.js';
 import { colors } from '../assets/colors';
 import constellations from '../../constellations/constellations';
 import CardContainer from './CardContainer';
-import { getLastNextMonth, getMonth, months } from '../helpers/getMonth';
+import { getLastNextMonth, months } from '../helpers/getMonth';
 import { assignVisibility } from '../helpers/assignVisibility';
+import { 
+  StyleSheet, 
+  View, 
+  ImageBackground, 
+  Text, 
+  TextInput, 
+  TouchableHighlight, 
+} from 'react-native';
 
 class Search extends Component {
   constructor(props) {
@@ -24,7 +31,8 @@ class Search extends Component {
   }
 
   componentDidMount() {
-    const matchConstellations = assignVisibility(constellations)
+    const matchConstellations = assignVisibility(constellations);
+
     this.setState({ matchConstellations });
   }
 
@@ -61,6 +69,7 @@ class Search extends Component {
   render () {
     const seasonButtons = Object.keys(this.seasons).map((season, index) => {
       const name = (season.charAt(0)).toUpperCase() + season.slice(1);
+
       return (
         <TouchableHighlight 
           key={`button-${index}`}
@@ -71,7 +80,7 @@ class Search extends Component {
             {name}
           </Text>
         </TouchableHighlight>
-      )
+      );
     });
 
     const displayConstellations = this.state.matchConstellations 

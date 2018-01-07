@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import CardContainer from './CardContainer';
 import NavBar from './NavBar';
-import NavButton from '../components/NavButton';
 import { colors } from '../assets/colors';
 import constellations from '../../constellations/constellations';
 import { getMonth } from '../helpers/getMonth';
@@ -52,7 +51,6 @@ export const TonightsSky = ({ lat, lon }) => {
 
 const styles = StyleSheet.create({
   constellationsContainer: {
-    // backgroundColor: colors.$darkPurple,
     width: '100%',
     height: '100%',
     paddingBottom: 100
@@ -69,11 +67,6 @@ const styles = StyleSheet.create({
     fontSize: 35,
     textAlign: 'center',
     paddingTop: 30
-  },
-  constellationsTitle: {
-    color: colors.$white,
-    fontSize: 20,
-    // marginBottom: 10
   },
   constellationsSubheader: {
     color: colors.$white,
