@@ -10,7 +10,7 @@ import {
   TouchableHighlight 
 } from 'react-native';
 
-const NavButton = ({name, path, changePage, pageRoute, small, active}) => {   
+export const NavButton = ({name, path, changePage, pageRoute, small, active}) => {   
   const handlePress = () => {
     changePage(pageRoute);
   };
@@ -115,15 +115,11 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = state => ({
-  page: state.page
-});
-
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   changePage: (pageRoute) => {
     dispatch(changePage(pageRoute));
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavButton);
+export default connect(null, mapDispatchToProps)(NavButton);
 
