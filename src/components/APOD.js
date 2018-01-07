@@ -8,6 +8,7 @@ import {
   Text, 
   Image, 
   WebView,
+  ScrollView,
   TouchableHighlight,
   ImageBackground 
 } from 'react-native';
@@ -50,7 +51,9 @@ export class APOD extends Component {
         source={require('../assets/star-background.jpg')}
         style={styles.detailView}>
         <Text style={styles.frameText}>{title.toUpperCase()}:</Text>
-        <Text style={styles.details}>{details}</Text>
+        <ScrollView>
+          <Text style={styles.details}>{details}</Text>
+        </ScrollView>
       </ImageBackground>;
 
     return (
@@ -59,22 +62,24 @@ export class APOD extends Component {
         <ImageBackground 
           source={require('../assets/star-background.jpg')}
           style={styles.imageBackground}>
-          <TouchableHighlight 
-            onPress={this.handlePress}
-            style={styles.button}>
-            <Text style={styles.buttonText}>
-              Image Details
+          <View style={styles.imageContainer}>
+            <Text style={styles.frameText}>
+              Astronomy Picture of the Day
             </Text>
-          </TouchableHighlight>
-          <Text style={styles.frameText}>
-            Astronomy Picture of the Day
-          </Text>
-          <View style={styles.imageView}>
-            {apod}
+            <View style={styles.imageView}>
+              {apod}
+            </View>
+            <Text style={styles.frameText}>
+              {title}
+            </Text>
+            <TouchableHighlight 
+              onPress={this.handlePress}
+              style={styles.button}>
+              <Text style={styles.buttonText}>
+                Image Details
+              </Text>
+            </TouchableHighlight>
           </View>
-          <Text style={styles.frameText}>
-            {title}
-          </Text>
         </ImageBackground>
         {detailsDisplay} 
         <NavBar />
@@ -88,6 +93,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.$black,
     alignItems: 'center',
+    justifyContent: 'center',
     width: '100%'
   },
   topBorder: {
@@ -98,9 +104,15 @@ const styles = StyleSheet.create({
   imageBackground: {
     flex: 1,
     alignItems: 'center', 
-    paddingTop: 20,
+    justifyContent: 'space-between',
     marginBottom: 100,
     width: '100%'
+  },
+  imageContainer: {
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: colors.$white,
+    height: 465
   },
   img: {
     height: '100%',
@@ -124,7 +136,7 @@ const styles = StyleSheet.create({
   frameText: {
     backgroundColor: colors.$transparent,
     color: colors.$white,
-    fontSize: 16,
+    fontSize: 18,
     padding: 5,
     textAlign: 'center'
   },
@@ -132,7 +144,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.$purple,
     padding: 10,
     borderRadius: 10,
-    marginBottom: 20,
+    alignSelf: 'center',
+    marginTop: 120,
     width: '50%'
   },
   buttonText: {
@@ -145,7 +158,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderBottomWidth: 1,
     position: 'absolute',
-    top: 160,
+    top: 80,
     width: '100%'
   },
   details: {
