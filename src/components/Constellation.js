@@ -28,6 +28,9 @@ export const Constellation = ({ constellation, currentPage, changePage }) => {
     ? stars.join(', ')
     : 'none';
 
+  const descriptionString = description 
+    ? description 
+    : 'None given for this constellation.';
 
   const handlePress = () => {
     const backPage = currentPage === 'ConstellationSearch' 
@@ -89,7 +92,7 @@ export const Constellation = ({ constellation, currentPage, changePage }) => {
             <Text style={styles.detailHeaderText}>Description:</Text>
           </View>
           <Text style={styles.detailText}>
-            {`${description}`}
+            {`${descriptionString}`}
           </Text>
         </View>
       </ScrollView>
