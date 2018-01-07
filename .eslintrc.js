@@ -7,10 +7,11 @@ module.exports = {
         "react-native/react-native": true
     },
     "extends": "eslint:recommended",
+    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
-            "experimentalObjectRestSpread": true,
             "arrowFunctions": true,
+            "experimentalObjectRestSpread": true,
             "jsx": true
         },
         "sourceType": "module"

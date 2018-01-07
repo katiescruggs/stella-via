@@ -40,9 +40,9 @@ export const Constellation = ({ constellation, currentPage, changePage }) => {
   const visibleEye = visible 
     ? <Image 
       style={styles.eye}
-      source={require('../assets/icons/eye.png')} /> 
+      source={require('../assets/icons/night-sky.png')} /> 
     : null;
-
+    
   return (
     <ImageBackground
       source={require('../assets/star-background.jpg')}
@@ -161,15 +161,17 @@ const styles = StyleSheet.create({
   },
   detailsContainer: {
     marginBottom: 120,
+    height: '100%',
+    backgroundColor: colors.$transparentPurple
   },
   detailHeader: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.$lavender,
+    backgroundColor: colors.$purple,
     width: '100%'
   },
   detailHeaderText: {
-    backgroundColor: colors.$purple,
+    backgroundColor: colors.$transparentDarkPurple,
     color: colors.$white,
     padding: 5,
     fontSize: 16,

@@ -1,8 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { changePage } from '../actions';
-import { StyleSheet, WebView, View, Text, TouchableHighlight, Image } from 'react-native';
 import { colors } from '../assets/colors';
+import { 
+  StyleSheet, 
+  View, 
+  Text, 
+  TouchableHighlight, 
+  Image 
+} from 'react-native';
 
 export const LocationBanner = ({ location, dec, RA, page, changePage }) => {
   const { lat, lon, city, state } = location;
@@ -19,39 +25,39 @@ export const LocationBanner = ({ location, dec, RA, page, changePage }) => {
 
   return (
     <View style={styles.coordsBanner}>
-        <View style={styles.leftView}>
-          <Text style={styles.locationName}>
-            {`${city}, ${state}`}
-          </Text>
-          <TouchableHighlight 
-            style={styles.changeLocationButton}
-            onPress={changeLocationClick}>
-            <View style={styles.changeLocationButtonHolder}>
-              <Text style={styles.locationName}>Change Location</Text>
-              <Image
-                style={styles.changeLocationIcon} 
-                source={require('../assets/icons/location.png')} />
-            </View>
-          </TouchableHighlight>
-        </View>
-
-        <View style={styles.rightView}>
-          <Text style={styles.coordsText}>
-            {`Lat: ${lat}\xb0`}
-          </Text>
-          <Text style={styles.coordsText}>
-            {`Lon: ${lon}\xb0`}
-          </Text>
-          <Text style={styles.coordsText}>
-            {`Dec: ${dec}\xb0`}
-          </Text>
-          <Text style={styles.coordsText}>
-            {`RA: ${formattedRA}`}
-          </Text>
-        </View>
+      <View style={styles.leftView}>
+        <Text style={styles.locationName}>
+          {`${city}, ${state}`}
+        </Text>
+        <TouchableHighlight 
+          style={styles.changeLocationButton}
+          onPress={changeLocationClick}>
+          <View style={styles.changeLocationButtonHolder}>
+            <Text style={styles.locationName}>Change Location</Text>
+            <Image
+              style={styles.changeLocationIcon} 
+              source={require('../assets/icons/location.png')} />
+          </View>
+        </TouchableHighlight>
       </View>
+
+      <View style={styles.rightView}>
+        <Text style={styles.coordsText}>
+          {`Lat: ${lat}\xb0`}
+        </Text>
+        <Text style={styles.coordsText}>
+          {`Lon: ${lon}\xb0`}
+        </Text>
+        <Text style={styles.coordsText}>
+          {`Dec: ${dec}\xb0`}
+        </Text>
+        <Text style={styles.coordsText}>
+          {`RA: ${formattedRA}`}
+        </Text>
+      </View>
+    </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   coordsBanner: {

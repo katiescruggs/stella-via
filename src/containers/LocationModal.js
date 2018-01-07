@@ -23,10 +23,10 @@ export class LocationModal extends Component {
       geolocation: true,
       validLocation: true,
       nextPage: this.props.currentPage === 'LocationModalTonight'
-      ? 'TonightsSky'
-      : 'StarMap'
+        ? 'TonightsSky'
+        : 'StarMap'
     };
-  };
+  }
 
   getGeolocation = () => {
     navigator.geolocation.getCurrentPosition(({coords}) => {
@@ -80,18 +80,18 @@ export class LocationModal extends Component {
         </Text>
       </TouchableHighlight>
       : <View style={styles.modalButton}>
-          <Text style={styles.errorText}>
-            Unable to access current location. Please enter a location below.
-          </Text>
-        </View>;
+        <Text style={styles.errorText}>
+          Unable to access current location. Please enter a location below.
+        </Text>
+      </View>;
 
     const errorMessage = this.state.validLocation 
       ? null
       : <View style={styles.modalButton}>
-          <Text style={styles.errorText}>
-            Location not found. Please enter a valid location.
-          </Text>
-        </View>; 
+        <Text style={styles.errorText}>
+          Location not found. Please enter a valid location.
+        </Text>
+      </View>; 
 
     return (
       <ImageBackground 
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.$purple,
   },
   modalTitle: {
-    backgroundColor: 'transparent',
+    backgroundColor: colors.$transparent,
     color: colors.$white,
     fontSize: 28,
     fontWeight: 'bold',

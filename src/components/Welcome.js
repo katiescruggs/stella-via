@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, ImageBackground, View, Image } from 'react-native';
 import { changePage, setAPOD } from '../actions';
-import { colors } from '../assets/colors';
 import NavButton from './NavButton';
 import getAPOD from '../helpers/getAPOD';
+import { 
+  StyleSheet, 
+  ImageBackground, 
+  View, 
+  Image 
+} from 'react-native';
 
 export class Welcome extends Component {
   async componentWillMount() {
@@ -13,6 +17,7 @@ export class Welcome extends Component {
 
   fetchAPOD = async () => {
     const apodData = await getAPOD();
+
     this.props.setAPOD(apodData);
   }
 
@@ -54,7 +59,7 @@ export class Welcome extends Component {
 
         <Image 
           style={styles.mainTitle} 
-          source={require('../assets/stella-via-logo-gradient.png')}
+          source={require('../assets/stella-via-logo.png')}
         />
         <View style={styles.nav}>
           {navButtons}
@@ -62,7 +67,7 @@ export class Welcome extends Component {
       </ImageBackground>
     );    
   }
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -77,15 +82,10 @@ const styles = StyleSheet.create({
     height: 200
   },
   nav: {
-    // borderRadius: 50,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    // borderWidth: 2,
-    // borderColor: colors.$white,
     justifyContent: 'center',
     alignItems: 'center',
-    // paddingBottom: 25,
-    // paddingTop: 30,
     marginBottom: 60,
   }
 });

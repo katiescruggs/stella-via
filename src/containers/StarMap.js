@@ -1,12 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, WebView, View, Text, TouchableHighlight } from 'react-native';
 import NavBar from './NavBar';
-import NavButton from '../components/NavButton';
 import { colors } from '../assets/colors';
 import LocationBanner from './LocationBanner';
+import { 
+  StyleSheet, 
+  WebView, 
+  View, 
+  Text, 
+} from 'react-native';
 
-export const StarMap = ({ lat, lon, dec, RA }) => {
+export const StarMap = ({ dec, RA }) => {
   const path = `http://www.sky-map.org/?ra=${RA}&de=${dec}&zoom=2`;
 
   const errorMessage = 
@@ -20,12 +24,6 @@ export const StarMap = ({ lat, lon, dec, RA }) => {
         <Text style={styles.titleText}>
           Star Map
         </Text>
-{/*        <NavButton 
-          path={require('../assets/icons/location.png')}
-          name={null}
-          pageRoute='LocationModalMap'
-          small={true}
-        /> */}
       </View>
       <LocationBanner />
       <WebView
@@ -67,8 +65,6 @@ const styles = StyleSheet.create({
 });
 
 export const mapStateToProps = state => ({
-  lat: state.location.lat,
-  lon: state.location.lon,
   dec: state.skyCoords.dec,
   RA: state.skyCoords.stringRA
 });
