@@ -42,9 +42,6 @@ export const TonightsSky = ({ lat, lon }) => {
             small={true}
           />
         </View>
-        <Text style={styles.constellationsTitle}>
-          {`Constellations For ${lat}\xb0, ${lon}\xb0`}
-        </Text>
         <Text style={styles.constellationsSubheader}>Best Constellations to See This Month:</Text>
         <CardContainer 
           constellations={assignVisibility(matchConstellations)} />
