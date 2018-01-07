@@ -35,10 +35,10 @@ const APOD = ({ apodData }) => {
         </View>
         {apod}
       </View>
-      <ScrollView style={styles.detailView}>
-        <Text style={styles.detailsHeader}>Today's Image:</Text>
-        <Text style={styles.details}>{details}</Text>
-      </ScrollView>
+      {/*<ScrollView style={styles.detailView}>
+              <Text style={styles.detailsHeader}>Today's Image:</Text>
+              <Text style={styles.details}>{details}</Text>
+            </ScrollView>*/}
       <NavBar />
     </View>
   );
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.$black,
     alignItems: 'center',
-    justifyContent: 'space-around',
+    // justifyContent: 'space-around',
     width: '100%'
   },
   topBorder: {
@@ -58,14 +58,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.$purple
   },
   img: {
-    borderRadius: 150,
-    borderWidth: 1,
-    shadowColor: colors.$black,
-    shadowRadius: 600,
-    shadowOpacity: 1,
-    padding: 10,
-    height: 300,
-    width: 300, 
+    height: '100%',
+    width: '100%', 
   },
   vid: {
     height: 300,
@@ -75,19 +69,21 @@ const styles = StyleSheet.create({
   imageView : {
     backgroundColor: colors.$black,
     borderColor: colors.$white,
-    borderWidth: 1,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 20,
     marginBottom: 20,
-    height: 350,
-    width: '93%',
+    height: 450,
+    width: '100%',
   },
   textView: {
     alignItems: 'center',
     justifyContent: 'space-between',
-    height: 355,
+    height: '100%',
     position: 'absolute',
+    width: '100%',
     zIndex: 10,
   },
   upperText: {
