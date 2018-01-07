@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { colors } from '../assets/colors';
 import { changePage } from '../actions';
-import NavBar from '../containers/NavBar';
+import NavBar from './NavBar';
 import { 
   StyleSheet, 
   View, 

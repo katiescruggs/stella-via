@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from './src/reducers/rootReducer';
-import CurrentView from './src/containers/CurrentView';
+import CurrentView from './src/components/CurrentView';
 
 const Store = createStore(
   rootReducer

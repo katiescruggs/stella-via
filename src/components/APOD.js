@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavBar from '../containers/NavBar';
+import NavBar from '../components/NavBar';
 import { colors } from '../assets/colors';
 import { connect } from 'react-redux';
 import { 
