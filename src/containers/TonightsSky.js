@@ -15,7 +15,7 @@ import {
   ImageBackground 
 } from 'react-native';
 
-const TonightsSky = ({ lat, lon }) => {
+export const TonightsSky = ({ lat, lon }) => {
   const { currentMonth, lastMonth, nextMonth } = getMonth();
 
   const matchConstellations = constellations.filter(constellation => 
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   lat: state.location.lat,
   lon: state.location.lon
 });
