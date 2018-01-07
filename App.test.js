@@ -2,8 +2,14 @@ import React from 'react';
 import App from './App';
 import renderer from 'react-test-renderer';
 
-it('renders without crashing', () => {
+describe('App', () => {
   const rendered = renderer.create(<App />).toJSON();
-
-  expect(rendered).toBeTruthy();
+  
+  it('renders without crashing', () => {
+    expect(rendered).toBeTruthy();
+  });
+  
+  it('matches the snapshot', () => {
+    expect(rendered).toMatchSnapshot;
+  });
 });
