@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { changePage } from '../actions';
 import { StyleSheet, WebView, View, Text, TouchableHighlight, Image } from 'react-native';
 import { colors } from '../assets/colors';
 
@@ -7,11 +8,14 @@ export const LocationBanner = ({ lat, lon, dec, RA, page, changePage }) => {
   const arrayRA = RA.split(' ');
   const formattedRA = `${arrayRA[0]}h, ${arrayRA[1]}m, ${arrayRA[2]}s`;
 
-  console.log(changePage);
 
   const changeLocationClick = () => {
-    changePage('Welcome');
-  }
+    const nextPage = page === 'StarMap' 
+      ? 'LocationModalMap' 
+      : 'LocationModalTonight';
+      
+    changePage(nextPage);
+  };
 
   return (
     <View style={styles.coordsBanner}>
@@ -92,8 +96,8 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  changePage: (page) => {
-    dispatch(changePage(page));
+  changePage: (pageRoute) => {
+    dispatch(changePage(pageRoute));
   }
 });
 
