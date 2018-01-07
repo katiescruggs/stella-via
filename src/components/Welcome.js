@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, ImageBackground, View, Image } from 'react-native';
 import { changePage, setAPOD } from '../actions';
 import NavButton from './NavButton';
 import getAPOD from '../helpers/getAPOD';
+import { 
+  StyleSheet, 
+  ImageBackground, 
+  View, 
+  Image 
+} from 'react-native';
 
 export class Welcome extends Component {
   async componentWillMount() {
@@ -51,7 +56,7 @@ export class Welcome extends Component {
       <ImageBackground 
         source={require('../assets/star-background.jpg')} 
         style={styles.container}>
-        
+
         <Image 
           style={styles.mainTitle} 
           source={require('../assets/stella-via-logo-gradient.png')}

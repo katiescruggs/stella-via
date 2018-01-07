@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   welcomeButton: {
     borderRadius: 20,
-    backgroundColor: colors.$transparentDarkPurple,
+    backgroundColor: colors.$transparentPurple,
     justifyContent: 'center',
     alignItems: 'center',
     margin: 10,

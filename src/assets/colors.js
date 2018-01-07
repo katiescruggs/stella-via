@@ -8,5 +8,6 @@ export const colors = {
   $transparent: 'transparent',
   $btnShadow: 'rgba(0, 0, 0, 0.6)',
   $cardShadow: 'rgba(0, 0, 0, 0.3)',
-  $transparentDarkPurple: 'rgba(40, 38, 64, 0.7)',
+  $transparentPurple: 'rgba(95, 68, 118, 0.6)',
+  $transparentDarkPurple: 'rgba(40, 38, 64, 0.3)',
 }; 
