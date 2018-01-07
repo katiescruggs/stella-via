@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Search from './Search';
 import StarMap from './StarMap';
-import APOD from '../components/APOD';
+import APOD from './APOD';
 import TonightsSky from './TonightsSky';
-import Welcome from '../components/Welcome';
+import Welcome from './Welcome';
 import LocationModal from './LocationModal';
-import Constellation from '../components/Constellation';
+import Constellation from './Constellation';
 
 export const CurrentView = ({ page }) => {
   const pages = {

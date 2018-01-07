@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import  { connect } from 'react-redux';
-import NavButton from '../components/NavButton';
+import NavButton from './NavButton';
 import { colors } from '../assets/colors';
 
 export const NavBar = (props) => {

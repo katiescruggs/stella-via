@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import Card from '../components/Card.js'; 
+import Card from './Card.js'; 
 
 const CardContainer = ({constellations, visible, returnToTop}) => {
   const cards = constellations.map((constellation, index) => (
