@@ -45,6 +45,13 @@ describe('LocationBanner Container', () => {
   });
 
   describe('mapDispatchToProps', () => {
+    it('calls dispatch when changePage is called', () => {
+      const mockDispatch = jest.fn();
+      const result = mapDispatchToProps(mockDispatch);
+      
+      result.changePage();
+      expect(mockDispatch).toHaveBeenCalled;  
+    });
 
   });
 });
