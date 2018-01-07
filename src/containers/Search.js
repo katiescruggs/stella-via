@@ -24,11 +24,11 @@ class Search extends Component {
   }
 
   handleSearch = (text) => {
-    let matchConstellations = constellations.filter(constellation => {
+    const filteredConstellations = constellations.filter(constellation => {
       return constellation.name.includes(text);
     });
 
-    matchConstellations = assignVisibility(matchConstellations);
+    const matchConstellations = assignVisibility(filteredConstellations);
 
     this.setState({ matchConstellations });
   }
@@ -38,18 +38,24 @@ class Search extends Component {
     const currentMonth = months[monthIndex];
     const { lastMonth, nextMonth } = getLastNextMonth(monthIndex);
 
-    let matchConstellations = constellations.filter(constellation => {
+    const filteredConstellations = constellations.filter(constellation => {
       const seenMonth = constellation.coords.bestSeen;
-      return (seenMonth === currentMonth || seenMonth === nextMonth || seenMonth === lastMonth);
+
+      return (
+        seenMonth === currentMonth 
+        || seenMonth === nextMonth 
+        || seenMonth === lastMonth
+      );
     });
 
-    matchConstellations = assignVisibility(matchConstellations);
+    const matchConstellations = assignVisibility(filteredConstellations);
 
     this.setState({ matchConstellations });
   };
 
   render () {
     const seasonButtons = Object.keys(this.seasons).map((season, index) => {
+      const name = (season.charAt(0)).toUpperCase() + season.slice(1);
       return (
         <TouchableHighlight 
           key={`button-${index}`}
@@ -57,7 +63,7 @@ class Search extends Component {
           <Text 
             style={styles.seasonText}
             onPress={() => this.filterSeason(season)}>
-            {season}
+            {name}
           </Text>
         </TouchableHighlight>
       )
