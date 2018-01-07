@@ -28,12 +28,21 @@ const APOD = ({ apodData }) => {
   return (
     <View style={styles.container}>
       <View style={styles.topBorder}></View>
+      <Text style={styles.frameText}>
+        Astronomy Picture of the Day
+      </Text>
       <View style={styles.imageView}>
-        <View style={styles.textView}>
-          <Text style={styles.teleText}>Astronomy Picture of the Day</Text>
-          <Text style={styles.teleText}>{title}</Text>
-        </View>
         {apod}
+      </View>
+      <Text style={styles.frameText}>
+        {title}
+      </Text>
+      <View style={styles.buttonView}>
+        <TouchableHighlight>
+          <Text>
+            Image Details
+          </Text>
+        </TouchableHighlight>
       </View>
       {/*<ScrollView style={styles.detailView}>
               <Text style={styles.detailsHeader}>Today's Image:</Text>
@@ -55,7 +64,9 @@ const styles = StyleSheet.create({
   topBorder: {
     width: '100%',
     height: 50,
-    backgroundColor: colors.$purple
+    backgroundColor: colors.$purple,
+    borderColor: colors.$white,
+    borderBottomWidth: 1,
   },
   img: {
     height: '100%',
@@ -73,35 +84,23 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 20,
-    marginBottom: 20,
     height: 450,
     width: '100%',
   },
-  textView: {
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    height: '100%',
-    position: 'absolute',
-    width: '100%',
-    zIndex: 10,
-  },
-  upperText: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '90%',
-  },
-  teleText: {
+  frameText: {
     color: colors.$white,
     fontSize: 16,
+    padding: 5,
   },
-  detailView: {
+  buttonView: {
     flex: 1,
+    alignItems: 'center', 
+    justifyContent: 'center',
     backgroundColor: colors.$transparentDarkPurple,
     borderColor: colors.$white,
-    borderWidth: 1,
+    borderTopWidth: 1,
     borderBottomWidth: 0,
-    width: '93%',
+    width: '100%',
   },
   detailsHeader: {
     backgroundColor: colors.$purple,
