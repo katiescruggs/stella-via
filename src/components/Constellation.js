@@ -40,7 +40,7 @@ export const Constellation = ({ constellation, currentPage, changePage }) => {
   const visibleEye = visible 
     ? <Image 
       style={styles.eye}
-      source={require('../assets/icons/night-sky.png')} /> 
+      source={require('../assets/icons/night-sky-light.png')} /> 
     : null;
     
   return (
