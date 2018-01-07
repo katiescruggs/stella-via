@@ -10,9 +10,17 @@ import { assignVisibility } from '../helpers/assignVisibility';
 class Search extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       matchConstellations: constellations
-    }
+    };
+
+    this.seasons = {
+      winter: 1,
+      spring: 4,
+      summer: 7, 
+      fall: 10
+    };
   }
 
   handleSearch = (text) => {
@@ -26,14 +34,7 @@ class Search extends Component {
   }
 
   filterSeason = (season) => {    
-    const seasons = {
-      winter: 1,
-      spring: 4,
-      summer: 7, 
-      fall: 10
-    };
-
-    const monthIndex = seasons[season];
+    const monthIndex = this.seasons[season];
     const currentMonth = months[monthIndex];
     const { lastMonth, nextMonth } = getLastNextMonth(monthIndex);
 
@@ -48,6 +49,20 @@ class Search extends Component {
   };
 
   render () {
+    const seasonButtons = Object.keys(this.seasons).map((season, index) => {
+      return (
+        <TouchableHighlight 
+          key={`button-${index}`}
+          style={styles.seasonButton}>
+          <Text 
+            style={styles.seasonText}
+            onPress={() => this.filterSeason(season)}>
+            {season}
+          </Text>
+        </TouchableHighlight>
+      )
+    });
+
     const displayConstellations = this.state.matchConstellations 
       ? <CardContainer 
         constellations={this.state.matchConstellations} />
@@ -65,45 +80,9 @@ class Search extends Component {
           placeholder='Search for a constellation.'
           onChangeText={(text) => this.handleSearch(text)}
         />
-
         <View style={styles.seasonContainer}>
-          <TouchableHighlight style={styles.seasonButton}>
-            <Text 
-              style={styles.seasonText}
-              onPress={() => this.filterSeason('summer')}
-            >
-              Summer
-            </Text>
-          </TouchableHighlight>
-
-          <TouchableHighlight style={styles.seasonButton}>
-            <Text 
-              style={styles.seasonText}
-              onPress={() => this.filterSeason('fall')}
-            >
-              Fall
-            </Text>
-          </TouchableHighlight>
-
-          <TouchableHighlight style={styles.seasonButton}>
-            <Text 
-              style={styles.seasonText}
-              onPress={() => this.filterSeason('winter')}
-            >
-              Winter
-            </Text>
-          </TouchableHighlight>
-
-          <TouchableHighlight style={styles.seasonButton}>
-            <Text 
-              style={styles.seasonText}
-              onPress={() => this.filterSeason('spring')}
-            >
-              Spring
-            </Text>
-          </TouchableHighlight>
+          {seasonButtons}
         </View>
-
         {displayConstellations}
         <NavBar />
       </ImageBackground>
