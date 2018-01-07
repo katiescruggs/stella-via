@@ -11,7 +11,8 @@ import {
   Text, 
   Image, 
   WebView, 
-  TouchableHighlight 
+  TouchableHighlight,
+  ImageBackground 
 } from 'react-native';
 
 const APOD = ({ apodData }) => {
@@ -37,13 +38,15 @@ const APOD = ({ apodData }) => {
       <Text style={styles.frameText}>
         {title}
       </Text>
-      <View style={styles.buttonView}>
-        <TouchableHighlight>
-          <Text>
+      <ImageBackground 
+        source={require('../assets/star-background.jpg')}
+        style={styles.buttonView}>
+        <TouchableHighlight style={styles.button}>
+          <Text style={styles.buttonText}>
             Image Details
           </Text>
         </TouchableHighlight>
-      </View>
+      </ImageBackground>
       {/*<ScrollView style={styles.detailView}>
               <Text style={styles.detailsHeader}>Today's Image:</Text>
               <Text style={styles.details}>{details}</Text>
@@ -84,7 +87,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    height: 450,
+    height: 400,
     width: '100%',
   },
   frameText: {
@@ -100,24 +103,28 @@ const styles = StyleSheet.create({
     borderColor: colors.$white,
     borderTopWidth: 1,
     borderBottomWidth: 0,
+    marginBottom: 100,
     width: '100%',
   },
-  detailsHeader: {
+  button: {
     backgroundColor: colors.$purple,
-    color: colors.$white,
-    fontSize: 28,
-    textAlign: 'center',
     padding: 10,
-    width: '100%',
+    borderRadius: 10,
+    width: '50%'
   },
-  details: {
+  buttonText: {
     color: colors.$white,
     fontSize: 18,
-    lineHeight: 25,
-    textAlign: 'center',
-    marginBottom: 105,
-    padding: 20,
-  }
+    textAlign: 'center'
+  },
+  // details: {
+  //   color: colors.$white,
+  //   fontSize: 18,
+  //   lineHeight: 25,
+  //   textAlign: 'center',
+  //   marginBottom: 105,
+  //   padding: 20,
+  // }
 });
 
 const mapStateToProps = state => ({

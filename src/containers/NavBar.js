@@ -48,14 +48,14 @@ const NavBar = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 7,
-    backgroundColor: colors.$purple,
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'absolute',
-    bottom: 0
+  padding: 7,
+  backgroundColor: colors.$purple,
+  width: '100%',
+  flexDirection: 'row',
+  justifyContent: 'center',
+  alignItems: 'center',
+  position: 'absolute',
+  bottom: 0
   }
 });
 
