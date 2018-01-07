@@ -105,7 +105,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center', 
     justifyContent: 'space-between',
-    paddingTop: 20,
     marginBottom: 100,
     width: '100%'
   },
@@ -146,7 +145,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
     alignSelf: 'center',
-    marginTop: 100,
+    marginTop: 120,
     width: '50%'
   },
   buttonText: {
@@ -159,7 +158,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderBottomWidth: 1,
     position: 'absolute',
-    top: 100,
+    top: 80,
     width: '100%'
   },
   details: {
