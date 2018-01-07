@@ -137,7 +137,8 @@ const styles = StyleSheet.create({
   imageContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: '100%'
+    width: '100%',
+    margin: 5
   },
   constellationImage: {
     width: 300,
