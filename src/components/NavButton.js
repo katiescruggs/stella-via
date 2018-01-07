@@ -17,10 +17,10 @@ const NavButton = ({name, path, changePage, pageRoute, small, active}) => {
 
   const navBarIcons = small ? styles.smIcon : null;
   const wrapper = small ? styles.smWrapper : styles.iconWrapper;
-  const navButton = small ? 'smButton' : 'welcomeButton';
-  const isActive = active && small 
-    ? styles.active 
-    : styles[navButton];
+  const navButton = small ? styles.smButton : styles.welcomeButton;
+  
+  const isActive = active ? styles.active : navButton;
+  
   const text = !small 
     ? <Text style={styles.navText}>{name}</Text> 
     : <Text style={styles.smNavText}>{name}</Text>;
