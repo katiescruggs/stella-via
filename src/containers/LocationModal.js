@@ -15,7 +15,7 @@ import {
   ImageBackground 
 } from 'react-native';
 
-class LocationModal extends Component {
+export class LocationModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -204,11 +204,11 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   currentPage: state.page
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   setLocation: (location) => {
     dispatch(setLocation(location));
   },
