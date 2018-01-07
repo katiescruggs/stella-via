@@ -9,10 +9,10 @@ import { assignVisibility } from '../helpers/assignVisibility';
 import LocationBanner from './LocationBanner';
 import { 
   StyleSheet, 
-  ScrollView, 
   View, 
   Text, 
-  ImageBackground 
+  ImageBackground, 
+  ScrollView
 } from 'react-native';
 
 export const TonightsSky = ({ lat, lon }) => {
@@ -32,18 +32,20 @@ export const TonightsSky = ({ lat, lon }) => {
     <ImageBackground
       source={require('../assets/star-background.jpg')}
       style={styles.constellationsContainer}>
-      <ScrollView>
+      <View>
         <View style={styles.titleContainer}>
           <Text style={styles.skyTitle}>TONIGHT'S SKY</Text>
         </View>
         <LocationBanner />
         <Text style={styles.constellationsSubheader}>Best Constellations to See This Month:</Text>
-        <CardContainer 
-          constellations={assignVisibility(matchConstellations)} />
-        <Text style={styles.constellationsSubheader}>More Constellations:</Text>
-        <CardContainer 
-          constellations={assignVisibility(nearConstellations)} />
-      </ScrollView>
+        <ScrollView style={styles.ScrollView}>
+          <CardContainer 
+            constellations={assignVisibility(matchConstellations)} />
+          <Text style={styles.constellationsSubheader}>More Constellations:</Text>
+          <CardContainer 
+            constellations={assignVisibility(nearConstellations)} />
+        </ScrollView>
+      </View>
       <NavBar />
     </ImageBackground>
   );
@@ -74,6 +76,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     padding: 10
+  },
+  ScrollView: {
+    marginBottom: 210
   }
 });
 

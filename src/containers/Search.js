@@ -19,7 +19,8 @@ class Search extends Component {
     super(props);
 
     this.state = {
-      matchConstellations: constellations
+      matchConstellations: constellations,
+      returnToTop: false
     };
 
     this.seasons = {
@@ -63,7 +64,7 @@ class Search extends Component {
 
     const matchConstellations = assignVisibility(filteredConstellations);
 
-    this.setState({ matchConstellations });
+    this.setState({ matchConstellations, returnToTop: true });
   };
 
   render () {
@@ -85,7 +86,8 @@ class Search extends Component {
 
     const displayConstellations = this.state.matchConstellations 
       ? <CardContainer 
-        constellations={this.state.matchConstellations} />
+        constellations={this.state.matchConstellations}
+        returnToTop={this.state.returnToTop} />
       : null;
 
     return (
