@@ -44,7 +44,7 @@ const NavBar = (props) => {
       {navButtons}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

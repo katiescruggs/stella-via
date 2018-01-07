@@ -1,20 +1,28 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import { StyleSheet, View, Text, Image, ImageBackground, TouchableHighlight, ScrollView } from 'react-native';
+import { connect } from 'react-redux';
 import { colors } from '../assets/colors';
 import { changePage } from '../actions';
 import NavBar from '../containers/NavBar';
+import { 
+  StyleSheet, 
+  View, 
+  Text, 
+  Image, 
+  ImageBackground, 
+  TouchableHighlight, 
+  ScrollView 
+} from 'react-native';
 
 const Constellation = ({ constellation, currentPage, changePage }) => {
   const { 
-      description, 
-      stars, 
-      translation, 
-      coords, 
-      name, 
-      image,
-      visible
-    } = constellation;
+    description, 
+    stars, 
+    translation, 
+    coords, 
+    name, 
+    image,
+    visible
+  } = constellation;
 
   const starsString = stars.length 
     ? stars.join(', ')
@@ -63,13 +71,13 @@ const Constellation = ({ constellation, currentPage, changePage }) => {
           style={styles.constellationImage}
         />
       </View>
-      <ScrollView style={{width: '100%'}}>
+      <ScrollView style={styles.scroll}>
         <View style={styles.detailsContainer}>
           <View style={styles.detailHeader}>          
             <Text style={styles.detailHeaderText}>Location:</Text>
           </View>
           <Text style={styles.detailText}>
-          {`RA ${coords.ra}, DEC ${coords.dec}`}
+            {`RA ${coords.ra}, DEC ${coords.dec}`}
           </Text>
           <View style={styles.detailHeader}>          
             <Text style={styles.detailHeaderText}>Named Stars:</Text>
@@ -87,8 +95,8 @@ const Constellation = ({ constellation, currentPage, changePage }) => {
       </ScrollView>
       <NavBar />
     </ImageBackground>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -148,6 +156,9 @@ const styles = StyleSheet.create({
     height: 40,
     width: 40
   },
+  scroll: {
+    width: '100%'
+  },
   detailsContainer: {
     marginBottom: 120,
   },
@@ -184,6 +195,6 @@ const mapDispatchToProps = dispatch => ({
   changePage: (pageRoute) => {
     dispatch(changePage(pageRoute));
   }
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Constellation);

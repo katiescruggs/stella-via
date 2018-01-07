@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { ScrollView } from 'react-native';
 import Card from '../components/Card.js'; 
 
@@ -13,9 +12,9 @@ const CardContainer = ({constellations, visible}) => {
   ));
 
   return (
-      <ScrollView style={styles.cardContainer}>
-        {cards}
-      </ScrollView>
+    <ScrollView style={styles.cardContainer}>
+      {cards}
+    </ScrollView>
   );
 };
 

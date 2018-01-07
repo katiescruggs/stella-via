@@ -6,7 +6,7 @@ export const assignVisibility = (constellationArray) => {
     const seenMonth = constellation.coords.bestSeen;
 
     if (seenMonth === currentMonth || seenMonth === lastMonth || seenMonth === nextMonth) {
-      return Object.assign({}, constellation, { visible: true })
+      return Object.assign({}, constellation, { visible: true });
     }
 
     return constellation;

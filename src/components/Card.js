@@ -1,8 +1,14 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, Text, TouchableHighlight, Image } from 'react-native';
+import React from 'react';
 import { colors } from '../assets/colors';
 import { connect } from 'react-redux';
 import { changePage, setConstellation } from '../actions';
+import { 
+  StyleSheet, 
+  View, 
+  Text, 
+  TouchableHighlight, 
+  Image 
+} from 'react-native';
 
 const Card = ({ currentPage, changePage, setConstellation, constellation }) => {
   const handlePress = () => {    
@@ -12,7 +18,7 @@ const Card = ({ currentPage, changePage, setConstellation, constellation }) => {
 
     setConstellation(constellation)
     changePage(nextPage);
-  }
+  };
 
   const { 
     translation, 
