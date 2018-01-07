@@ -2,7 +2,7 @@ import { nasaKey } from './apiKey.js';
 
 export const getAPOD = async () => {
   try {
-    const response = await fetch(`https://api.asa.gov/planetary/apod?api_key=${nasaKey}`);
+    const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${nasaKey}`);
     const apodData = await response.json();
 
     return formatAPOD(apodData);
