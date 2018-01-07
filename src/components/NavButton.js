@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 
 const NavButton = ({name, path, changePage, pageRoute, small, active}) => {   
-  handlePress = () => {
+  const handlePress = () => {
     changePage(pageRoute);
   };
 
@@ -30,7 +30,7 @@ const NavButton = ({name, path, changePage, pageRoute, small, active}) => {
   return (
     <TouchableHighlight 
       style={isActive} 
-      onPress={this.handlePress} 
+      onPress={handlePress} 
       activeOpacity={0.3} 
       underlayColor={colors.$purple}>
 

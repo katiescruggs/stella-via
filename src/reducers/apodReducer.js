@@ -2,7 +2,7 @@ const defaultAPODData = {
   image: require('../assets/star-background.jpg'),
   type: 'image',
   title: 'Loading... Please wait...',
-  details: `Loading... Please wait...`
+  details: 'Loading... Please wait...'
 };
 
 

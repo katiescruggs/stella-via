@@ -13,7 +13,7 @@ const StarMap = ({ lat, lon, dec, RA }) => {
   const errorMessage = 
     <Text style={styles.errorMessage}>
       404: Star Map cannot load.
-    </Text>
+    </Text>;
 
   return (
     <View style={styles.container}>

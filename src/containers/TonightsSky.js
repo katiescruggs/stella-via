@@ -1,15 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, ScrollView, View, Text, ImageBackground } from 'react-native';
 import CardContainer from './CardContainer';
 import NavBar from './NavBar';
-import NavButton from '../components/NavButton'
+import NavButton from '../components/NavButton';
 import { colors } from '../assets/colors';
 import constellations from '../../constellations/constellations';
 import { getMonth } from '../helpers/getMonth';
 import { assignVisibility } from '../helpers/assignVisibility';
+import { 
+  StyleSheet, 
+  ScrollView, 
+  View, 
+  Text, 
+  ImageBackground 
+} from 'react-native';
 
-const TonightsSky = ({ lat, lon, RA, dec }) => {
+const TonightsSky = ({ lat, lon }) => {
   const { currentMonth, lastMonth, nextMonth } = getMonth();
 
   const matchConstellations = constellations.filter(constellation => 
@@ -18,6 +24,7 @@ const TonightsSky = ({ lat, lon, RA, dec }) => {
 
   const nearConstellations = constellations.filter(constellation => {
     const seenMonth = constellation.coords.bestSeen;
+
     return (seenMonth === lastMonth || seenMonth === nextMonth);
   });
 
@@ -48,7 +55,7 @@ const TonightsSky = ({ lat, lon, RA, dec }) => {
       <NavBar />
     </ImageBackground>
   );
-}
+};
 
 const styles = StyleSheet.create({
   constellationsContainer: {
@@ -86,9 +93,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
   lat: state.location.lat,
-  lon: state.location.lon,
-  RA: state.skyCoords.decimalRA,
-  dec: state.skyCoords.dec
+  lon: state.location.lon
 });
 
 export default connect(mapStateToProps, null)(TonightsSky);
