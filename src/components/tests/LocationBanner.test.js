@@ -2,7 +2,9 @@ import { LocationBanner, mapStateToProps, mapDispatchToProps } from '../Location
 
 describe('LocationBanner Container', () => {
   describe('LocationBanner Component', () => {
-
+    it('should exist', () => {
+      expect(LocationBanner).toBeDefined();
+    });
   });
 
   describe('mapStateToProps', () => {
