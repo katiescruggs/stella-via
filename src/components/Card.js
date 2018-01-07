@@ -104,8 +104,8 @@ const styles = StyleSheet.create({
     padding: 5
   },
   icon: {
-    height: 30,
-    width: 30
+    height: 35,
+    width: 35
   },
   img: {
     height: 200, 
