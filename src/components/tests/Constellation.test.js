@@ -2,7 +2,9 @@ import { Constellation, mapStateToProps, mapDispatchToProps } from '../Constella
 
 describe('Constellation Container', () => {
   describe('Constellation component', () => {
-
+    it('Constellation exists', () => {
+      expect(Constellation).toBeDefined();
+    });
   });
 
   describe('mapStateToProps', () => {

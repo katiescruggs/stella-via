@@ -2,7 +2,9 @@ import { NavButton, mapDispatchToProps } from '../NavButton';
 
 describe('NavButton Container', () => {
   describe('NavButton', () => {
-
+    it('NavButton exists', () => {
+      expect(NavButton).toBeDefined();
+    });
   });
 
   describe('mapDispatchToProps', () => {

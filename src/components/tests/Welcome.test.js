@@ -2,7 +2,9 @@ import { Welcome, mapStateToProps, mapDispatchToProps } from '../Welcome';
 
 describe('Welcome Container', () => {
   describe('Welcome Component', () => {
-
+    it('Welcome exists', () => {
+      expect(Welcome).toBeDefined();
+    });
   });
 
   describe('mapStateToProps', () => {

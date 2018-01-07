@@ -2,7 +2,9 @@ import { APOD, mapStateToProps } from '../APOD';
 
 describe('APOD container', () => {
   describe('APOD component', () => {
-
+    it('APOD exists', () => {
+      expect(APOD).toBeDefined();
+    });
   });
 
   describe('mapStateToProps', () => {

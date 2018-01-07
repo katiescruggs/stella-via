@@ -2,7 +2,9 @@ import { Card, mapStateToProps, mapDispatchToProps } from '../Card';
 
 describe('Card Container', () => {
   describe('Card Component', () => {
-
+    it('Card exists', () => {
+      expect(Card).toBeDefined();
+    });
   });
 
   describe('mapStateToProps', () => {
