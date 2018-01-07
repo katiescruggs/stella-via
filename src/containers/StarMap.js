@@ -5,7 +5,7 @@ import NavBar from './NavBar';
 import NavButton from '../components/NavButton';
 import { colors } from '../assets/colors';
 
-const StarMap = ({ lat, lon, dec, RA }) => {
+export const StarMap = ({ lat, lon, dec, RA }) => {
   const arrayRA = RA.split(' ');
   const formattedRA = `${arrayRA[0]}h, ${arrayRA[1]}m, ${arrayRA[2]}s`;
   const path = `http://www.sky-map.org/?ra=${RA}&de=${dec}&zoom=2`;
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   lat: state.location.lat,
   lon: state.location.lon,
   dec: state.skyCoords.dec,

@@ -14,7 +14,7 @@ import {
   TouchableHighlight 
 } from 'react-native';
 
-const APOD = ({ apodData }) => {
+export const APOD = ({ apodData }) => {
   const { image, type, title, details } = apodData;
   const apod = type === 'image' 
     ? <Image
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   apodData: state.apodData
 });
 

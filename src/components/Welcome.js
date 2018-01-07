@@ -6,7 +6,7 @@ import { colors } from '../assets/colors';
 import NavButton from './NavButton';
 import getAPOD from '../helpers/getAPOD';
 
-class Welcome extends Component {
+export class Welcome extends Component {
   async componentWillMount() {
     await this.fetchAPOD();
   }
@@ -90,12 +90,11 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = state => ({
-  location: state.location,
-  user: state.user
+export const mapStateToProps = state => ({
+  location: state.location
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   changePage: page => {
     dispatch(changePage(page));
   },
