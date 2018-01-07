@@ -12,7 +12,7 @@ import {
   ImageBackground 
 } from 'react-native';
 
-class APOD extends Component {
+export class APOD extends Component {
   constructor(props) {
     super(props);
 
