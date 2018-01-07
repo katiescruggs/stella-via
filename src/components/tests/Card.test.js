@@ -17,6 +17,20 @@ describe('Card Container', () => {
   });
 
   describe('mapDispatchToProps', () => {
+    it('should call dispatch when changePage is called', () => {
+      const mockDispatch = jest.fn();
+      const result = mapDispatchToProps(mockDispatch);
 
+      result.changePage();
+      expect(mockDispatch).toHaveBeenCalled;
+    });
+
+    it('should call dispatch when setConstellation is called', () => {
+      const mockDispatch = jest.fn();
+      const result = mapDispatchToProps(mockDispatch);
+
+      result.setConstellation();
+      expect(mockDispatch).toHaveBeenCalled;
+    });
   });
 });
