@@ -26,8 +26,11 @@ export const Constellation = ({ constellation, currentPage, changePage }) => {
 
   const starsString = stars.length 
     ? stars.join(', ')
-    : 'none';
+    : 'None.';
 
+  const descriptionString = description 
+    ? description 
+    : 'None given for this constellation.';
 
   const handlePress = () => {
     const backPage = currentPage === 'ConstellationSearch' 
@@ -83,13 +86,13 @@ export const Constellation = ({ constellation, currentPage, changePage }) => {
             <Text style={styles.detailHeaderText}>Named Stars:</Text>
           </View>
           <Text style={styles.detailText}>
-            {`${starsString}`}
+            {starsString}
           </Text>
           <View style={styles.detailHeader}>          
             <Text style={styles.detailHeaderText}>Description:</Text>
           </View>
           <Text style={styles.detailText}>
-            {`${description}`}
+            {descriptionString}
           </Text>
         </View>
       </ScrollView>
