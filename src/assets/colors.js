@@ -1,6 +1,6 @@
 export const colors = {
-  $black: '#000',
   $white: '#fff',
+  $black: '#1A1629',
   $purple: '#735290',
   $lavender: '#C8B8DB',
   $redPurple: '#502F4C',

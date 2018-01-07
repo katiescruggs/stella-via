@@ -59,7 +59,7 @@ export class Welcome extends Component {
 
         <Image 
           style={styles.mainTitle} 
-          source={require('../assets/stella-via-logo-gradient.png')}
+          source={require('../assets/stella-via-logo.png')}
         />
         <View style={styles.nav}>
           {navButtons}
