@@ -10,7 +10,7 @@ import {
   Image 
 } from 'react-native';
 
-const Card = ({ currentPage, changePage, setConstellation, constellation }) => {
+export const Card = ({ currentPage, changePage, setConstellation, constellation }) => {
   const handlePress = () => {    
     const nextPage = currentPage === 'Search' 
       ? 'ConstellationSearch' 
@@ -113,11 +113,11 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   currentPage: state.page
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   changePage: (pageRoute) => {
     dispatch(changePage(pageRoute));
   },

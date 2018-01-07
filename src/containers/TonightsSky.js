@@ -7,6 +7,7 @@ import { colors } from '../assets/colors';
 import constellations from '../../constellations/constellations';
 import { getMonth } from '../helpers/getMonth';
 import { assignVisibility } from '../helpers/assignVisibility';
+import LocationBanner from './LocationBanner';
 import { 
   StyleSheet, 
   ScrollView, 
@@ -15,7 +16,7 @@ import {
   ImageBackground 
 } from 'react-native';
 
-const TonightsSky = ({ lat, lon }) => {
+export const TonightsSky = ({ lat, lon }) => {
   const { currentMonth, lastMonth, nextMonth } = getMonth();
 
   const matchConstellations = constellations.filter(constellation => 
@@ -35,16 +36,8 @@ const TonightsSky = ({ lat, lon }) => {
       <ScrollView>
         <View style={styles.titleContainer}>
           <Text style={styles.skyTitle}>TONIGHT'S SKY</Text>
-          <NavButton 
-            path={require('../assets/icons/location.png')}
-            name={null}
-            pageRoute='LocationModalTonight'
-            small={true}
-          />
         </View>
-        <Text style={styles.constellationsTitle}>
-          {`Constellations For ${lat}\xb0, ${lon}\xb0`}
-        </Text>
+        <LocationBanner />
         <Text style={styles.constellationsSubheader}>Best Constellations to See This Month:</Text>
         <CardContainer 
           constellations={assignVisibility(matchConstellations)} />
@@ -91,7 +84,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   lat: state.location.lat,
   lon: state.location.lon
 });

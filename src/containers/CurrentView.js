@@ -8,7 +8,7 @@ import Welcome from '../components/Welcome';
 import LocationModal from './LocationModal';
 import Constellation from '../components/Constellation';
 
-const CurrentView = ({ page }) => {
+export const CurrentView = ({ page }) => {
   const pages = {
     APOD: <APOD />,
     Search: <Search />,
@@ -24,7 +24,7 @@ const CurrentView = ({ page }) => {
   return pages[page];
 };
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   page: state.page
 });
 

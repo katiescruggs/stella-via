@@ -4,7 +4,7 @@ import  { connect } from 'react-redux';
 import NavButton from '../components/NavButton';
 import { colors } from '../assets/colors';
 
-const NavBar = (props) => {
+export const NavBar = (props) => {
   const navRouteData = {
     'Tonight': {
       source: require('../assets/icons/night-sky.png'),
@@ -59,10 +59,9 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   location: state.location,
-  page: state.page,
-  user: state.user
+  page: state.page
 });
 
 export default connect(mapStateToProps, null)(NavBar);

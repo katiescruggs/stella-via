@@ -13,7 +13,7 @@ import {
   ScrollView 
 } from 'react-native';
 
-const Constellation = ({ constellation, currentPage, changePage }) => {
+export const Constellation = ({ constellation, currentPage, changePage }) => {
   const { 
     description, 
     stars, 
@@ -186,12 +186,12 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   constellation: state.constellation,
   currentPage: state.page
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   changePage: (pageRoute) => {
     dispatch(changePage(pageRoute));
   }

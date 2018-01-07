@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   apodData: state.apodData
 });
 
