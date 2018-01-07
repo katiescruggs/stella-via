@@ -6,6 +6,12 @@ describe('NavButton Container', () => {
   });
 
   describe('mapDispatchToProps', () => {
+    it('should call dispatch when changePage is called', () => {
+      const mockDispatch = jest.fn();
+      const result = mapDispatchToProps(mockDispatch);
 
+      result.changePage();
+      expect(mockDispatch).toHaveBeenCalled;
+    });
   });
 });
