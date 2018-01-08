@@ -115,15 +115,14 @@ class Search extends Component {
 const styles = StyleSheet.create({
   searchTitle: {
     color: colors.$white,
-    fontSize: 35,
+    fontSize: 25,
     paddingTop: 30
   },
   header: {
     backgroundColor: colors.$purple,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 10
+    alignItems: 'center'
   },
   container: {
     width: '100%',
