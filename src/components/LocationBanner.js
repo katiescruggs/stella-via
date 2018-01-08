@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.$transparentDarkPurple,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 5
+    padding: 7
   },
   coordsText: {
     color: colors.$white,
@@ -89,7 +89,8 @@ const styles = StyleSheet.create({
     width: 20
   },
   leftView: {
-    justifyContent: 'space-between'
+    justifyContent: 'space-around',
+    marginLeft: 20
   }
 });
 

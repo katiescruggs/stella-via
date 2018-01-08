@@ -36,11 +36,15 @@ const TonightsSky = () => {
           <Text style={styles.skyTitle}>TONIGHT'S SKY</Text>
         </View>
         <LocationBanner />
-        <Text style={styles.constellationsSubheader}>Best Constellations to See This Month:</Text>
         <ScrollView style={styles.ScrollView}>
+          <Text style={styles.constellationsSubheader}>
+            Best Constellations to See This Month:
+          </Text>
           <CardContainer 
             constellations={assignVisibility(matchConstellations)} />
-          <Text style={styles.constellationsSubheader}>More Constellations:</Text>
+          <Text style={styles.constellationsSubheader}>
+            More Constellations:
+          </Text>
           <CardContainer 
             constellations={assignVisibility(nearConstellations)} />
         </ScrollView>
