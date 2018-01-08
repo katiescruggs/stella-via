@@ -36,8 +36,8 @@ const TonightsSky = () => {
           <Text style={styles.skyTitle}>TONIGHT'S SKY</Text>
         </View>
         <LocationBanner />
-        <Text style={styles.constellationsSubheader}>Best Constellations to See This Month:</Text>
         <ScrollView style={styles.ScrollView}>
+          <Text style={styles.constellationsSubheader}>Best Constellations to See This Month:</Text>
           <CardContainer 
             constellations={assignVisibility(matchConstellations)} />
           <Text style={styles.constellationsSubheader}>More Constellations:</Text>
@@ -54,18 +54,18 @@ const styles = StyleSheet.create({
   constellationsContainer: {
     width: '100%',
     height: '100%',
-    paddingBottom: 100
+    paddingBottom: 210
   },
   titleContainer: {
     backgroundColor: colors.$purple,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 10
+    padding: 0
   },
   skyTitle: {
     color: colors.$white,
-    fontSize: 35,
+    fontSize: 25,
     textAlign: 'center',
     paddingTop: 30
   },
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     padding: 10
   },
   ScrollView: {
-    marginBottom: 210
+    marginBottom: 0
   }
 });
 
