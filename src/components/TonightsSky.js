@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   constellationsContainer: {
     width: '100%',
     height: '100%',
-    paddingBottom: 210
+    paddingBottom: 205
   },
   titleContainer: {
     backgroundColor: colors.$purple,

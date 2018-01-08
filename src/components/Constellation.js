@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
   },
   visibleIcon: {
     position: 'absolute',
-    top: 60,
+    top: 43,
     left: 20, 
     height: 35,
     width: 35,

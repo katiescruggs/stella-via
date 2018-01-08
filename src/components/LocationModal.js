@@ -117,6 +117,8 @@ export class LocationModal extends Component {
                   style = {styles.modalTextInput}
                   value={this.state.text}
                   placeholder='City, State'
+                  underlineColorAndroid='transparent'
+                  placeholderTextColor={colors.$transparentPurple}
                   onChangeText={(text) => this.setState({text})}
                 />
               </View>

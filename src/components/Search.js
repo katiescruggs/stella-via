@@ -121,18 +121,16 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: colors.$purple,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center'
   },
   container: {
     width: '100%',
     height: '100%',
-    paddingBottom: 80
+    paddingBottom: 75
   },
   textInput: {
     backgroundColor: colors.$white,
-    borderColor: colors.$redPurple,
-    borderWidth: 1,
     color: colors.$white,
     fontSize: 20,
     padding: 5,
