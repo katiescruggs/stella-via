@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Search from './Search';
 import StarMap from './StarMap';
@@ -29,3 +30,7 @@ export const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, null)(CurrentView);
+
+CurrentView.propTypes = {
+  page: PropTypes.string,
+};

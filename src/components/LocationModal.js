@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import  { connect } from 'react-redux';
 import { setLocation, changePage, setSkyCoords } from '../actions';
 import NavBar from './NavBar.js';
@@ -226,4 +227,9 @@ export const mapDispatchToProps = dispatch => ({
 
 export default connect(mapStateToProps, mapDispatchToProps)(LocationModal);
 
-
+LocationModal.propTypes = {
+  currentPage: PropTypes.string,
+  setLocation: PropTypes.func,
+  setSkyCoords: PropTypes.func,
+  changePage: PropTypes.func
+};

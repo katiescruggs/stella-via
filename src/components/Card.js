@@ -1,5 +1,6 @@
 import React from 'react';
 import { colors } from '../assets/colors';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { changePage, setConstellation } from '../actions';
 import { 
@@ -127,3 +128,10 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
+
+Card.propTypes = {
+  currentPage: PropTypes.string,
+  changePage: PropTypes.func,
+  setConstellation: PropTypes.func,
+  constellation: PropTypes.object
+};

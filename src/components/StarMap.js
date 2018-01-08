@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import NavBar from './NavBar';
 import { colors } from '../assets/colors';
@@ -73,3 +74,8 @@ export const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, null)(StarMap);
+
+StarMap.propTypes = {
+  dec: PropTypes.string,
+  RA: PropTypes.string
+};
