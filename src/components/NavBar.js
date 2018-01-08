@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, View } from 'react-native';
 import  { connect } from 'react-redux';
 import NavButton from './NavButton';
@@ -65,3 +66,8 @@ export const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, null)(NavBar);
+
+NavBar.propTypes = {
+  location: PropTypes.string,
+  page: PropTypes.string,
+};

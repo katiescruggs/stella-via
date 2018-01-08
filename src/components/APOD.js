@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import NavBar from '../components/NavBar';
 import { colors } from '../assets/colors';
 import { connect } from 'react-redux';
@@ -182,4 +183,8 @@ export const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, null)(APOD);
+
+APOD.propTypes = {
+  apodData: PropTypes.object
+};
 

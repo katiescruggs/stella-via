@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ScrollView } from 'react-native';
 import Card from './Card.js'; 
 
@@ -31,3 +32,9 @@ const styles = {
 };
 
 export default CardContainer;
+
+CardContainer.propTypes = {
+  returnToTop: PropTypes.bool,
+  visible: PropTypes.bool,
+  constellations: PropTypes.array
+};

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { changePage, setAPOD } from '../actions';
 import NavButton from './NavButton';
@@ -105,3 +106,8 @@ export const mapDispatchToProps = dispatch => ({
 
 export default connect(mapStateToProps, mapDispatchToProps)(Welcome);
 
+Welcome.propTypes = {
+  changePage: PropTypes.func,
+  setAPOD: PropTypes.func,
+  location: PropTypes.string
+};

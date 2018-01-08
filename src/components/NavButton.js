@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { changePage } from '../actions';
 import { colors } from '../assets/colors';
@@ -121,3 +122,6 @@ export const mapDispatchToProps = dispatch => ({
 
 export default connect(null, mapDispatchToProps)(NavButton);
 
+NavButton.propTypes = {
+  changePage: PropTypes.func,
+};
