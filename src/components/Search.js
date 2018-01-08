@@ -134,16 +134,14 @@ const styles = StyleSheet.create({
     borderColor: colors.$redPurple,
     borderWidth: 1,
     fontSize: 20,
-    padding: 10,
-    marginTop: 10,
-    marginBottom: 10,
+    padding: 5,
     width: '100%'
   },
   seasonContainer: {
     backgroundColor: colors.$purple,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 10
+    padding: 5
   },
   seasonButton: {
     alignSelf: 'flex-end',
