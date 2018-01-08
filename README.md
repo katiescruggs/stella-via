@@ -8,7 +8,7 @@ Platforms: Android and iOS
 APIs Used: NASA, Google Geocoding, Navigator Geolocation, wUnderground, Sky-Map
 
 <!-- ![alt text](./src/assets/iOS-views.png "iOS Views") -->
-![alt text](./src/assets/android-views.png "Android Views")
+![alt text](./src/assets/android-view.png "Android Views")
 
 
 
