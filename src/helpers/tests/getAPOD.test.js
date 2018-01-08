@@ -17,6 +17,7 @@ describe('APOD fetch helper functions', () => {
 
     it('should return formatted apodData object', async () => {
       const result = await getAPOD();
+      
       expect(typeof result).toEqual('object');
 
       const keys = Object.keys(result);
@@ -34,10 +35,11 @@ describe('APOD fetch helper functions', () => {
         image: require('../assets/star-background.jpg'),
         type: 'image',
         title: 'Image Did Not Load',
-        details: `Sorry, the NASA image did not load properly today. Please try again or check back tomorrow!`
+        details: 'Sorry, the NASA image did not load properly today. Please try again or check back tomorrow!'
       };
 
       const result = await getAPOD();
+      
       expect(result).toEqual(errorObject);
     });
   });

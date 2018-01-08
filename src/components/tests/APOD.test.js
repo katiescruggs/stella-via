@@ -18,8 +18,9 @@ describe('APOD container', () => {
         }
       };
 
-        const result = mapStateToProps(mockStore);
-        expect(result.apodData).toEqual(mockStore.apodData);
+      const result = mapStateToProps(mockStore);
+    
+      expect(result.apodData).toEqual(mockStore.apodData);
     });
   });
 });

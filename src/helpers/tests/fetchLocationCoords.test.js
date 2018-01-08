@@ -22,10 +22,12 @@ describe('fetchLocationCoords', () => {
 
   it('should return an object with location and skyCoords', async () => {
     const result = await fetchLocationCoords('Denver', 'CO');
+    
     expect(typeof result).toEqual('object');
 
     const keys = Object.keys(result);
     const expectedKeys = ['location', 'skyCoords'];
+    
     expect(keys).toEqual(expectedKeys);
   });
 
@@ -34,6 +36,7 @@ describe('fetchLocationCoords', () => {
 
     const keys = Object.keys(location);
     const expectedKeys = ['lat', 'lon', 'city', 'state'];
+    
     expect(keys).toEqual(expectedKeys);
 
 

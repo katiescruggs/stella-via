@@ -13,7 +13,8 @@ describe('Constellation Container', () => {
         page: 'Welcome'
       };
 
-      const result = mapStateToProps(mockStore)
+      const result = mapStateToProps(mockStore);
+      
       expect(result.currentPage).toEqual(mockStore.page);
     });
 
@@ -23,6 +24,7 @@ describe('Constellation Container', () => {
       };
 
       const result = mapStateToProps(mockStore);
+      
       expect(result.constellation).toEqual(mockStore.constellation);
     });
   });

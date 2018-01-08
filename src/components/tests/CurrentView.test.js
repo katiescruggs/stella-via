@@ -13,7 +13,8 @@ describe('CurrentView Container', () => {
         page: 'Welcome'
       };
 
-      const result = mapStateToProps(mockStore)
+      const result = mapStateToProps(mockStore);
+      
       expect(result.page).toEqual(mockStore.page);
     });
   });

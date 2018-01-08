@@ -15,9 +15,7 @@ describe('month helper functions', () => {
     });
   });
   
-  describe('getLastNextMonth', () => {
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    
+  describe('getLastNextMonth', () => {    
     it('return an object', () => {
       expect(typeof getLastNextMonth(2)).toEqual('object');
     });

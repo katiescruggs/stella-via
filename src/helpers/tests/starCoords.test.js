@@ -51,6 +51,7 @@ describe('Star Coords helper functions', () => {
 
     it('should calculate the hours, min, sec from decimal form', () => {
       let expected = '4 30 0';
+      
       expect(toStringRA(4.5)).toEqual(expected);
 
       expected = '12 45 30';
