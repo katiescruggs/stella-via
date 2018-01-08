@@ -45,14 +45,14 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
-    padding: 10
+    padding: 0
   },
   titleText: {
     color: colors.$white,
     paddingTop: 30,
-    fontSize: 30,
+    fontSize: 25
   },
   webView: {
     marginTop: 0

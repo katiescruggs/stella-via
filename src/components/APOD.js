@@ -66,6 +66,13 @@ export class APOD extends Component {
         <ImageBackground 
           source={require('../assets/star-background.jpg')}
           style={styles.imageBackground}>
+            <TouchableHighlight 
+              onPress={this.handlePress}
+              style={styles.button}>
+              <Text style={styles.buttonText}>
+                Image Details
+              </Text>
+            </TouchableHighlight>
           <View style={styles.imageContainer}>
             <Text style={styles.frameText}>
               Astronomy Picture of the Day
@@ -76,13 +83,6 @@ export class APOD extends Component {
             <Text style={styles.frameText}>
               {title}
             </Text>
-            <TouchableHighlight 
-              onPress={this.handlePress}
-              style={styles.button}>
-              <Text style={styles.buttonText}>
-                Image Details
-              </Text>
-            </TouchableHighlight>
           </View>
         </ImageBackground>
         {detailsDisplay} 
@@ -108,8 +108,7 @@ const styles = StyleSheet.create({
   imageBackground: {
     flex: 1,
     alignItems: 'center', 
-    justifyContent: 'space-between',
-    marginBottom: 100,
+    marginBottom: 70,
     width: '100%'
   },
   imageContainer: {
@@ -150,10 +149,10 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: colors.$purple,
-    padding: 10,
+    padding: 5,
     borderRadius: 10,
     alignSelf: 'center',
-    marginTop: 120,
+    margin: 15,
     width: '50%'
   },
   buttonText: {
@@ -166,7 +165,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderBottomWidth: 1,
     position: 'absolute',
-    top: 80,
+    top: 145,
     width: '100%'
   },
   details: {

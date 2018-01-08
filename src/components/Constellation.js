@@ -109,13 +109,13 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: colors.$purple,
-    paddingTop: 50,
+    paddingTop: 30,
     paddingBottom: 10,
     width: '100%'
   },
   visibleIcon: {
     position: 'absolute',
-    top: 60,
+    top: 43,
     left: 20, 
     height: 35,
     width: 35,
@@ -133,8 +133,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingTop: 3,
+    paddingBottom: 3,
     width: '100%'
   },
   imageContainer: {

@@ -74,13 +74,13 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.$white,
     fontWeight: 'bold',
-    marginTop: 2,
-    marginBottom: 2
+    marginTop: 1,
+    marginBottom: 1
   },
   smWrapper: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: 80, 
+    height: 60, 
     width: 80,
   },
   smButton: {
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.$transparentDarkPurple,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 5,
+    margin: 2.5,
     shadowColor: colors.$btnShadow,
     shadowOffset: { width: 2, height: 10 },
     shadowOpacity: 0.8,
@@ -96,8 +96,8 @@ const styles = StyleSheet.create({
     elevation: 1
   },
   smIcon: {
-    height: 40, 
-    width: 40,
+    height: 35, 
+    width: 35,
   },
   active: {
     borderRadius: 20,

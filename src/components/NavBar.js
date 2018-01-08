@@ -48,7 +48,7 @@ export const NavBar = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 7,
+    padding: 0,
     backgroundColor: colors.$purple,
     width: '100%',
     flexDirection: 'row',

@@ -115,36 +115,32 @@ class Search extends Component {
 const styles = StyleSheet.create({
   searchTitle: {
     color: colors.$white,
-    fontSize: 35,
+    fontSize: 25,
     paddingTop: 30
   },
   header: {
     backgroundColor: colors.$purple,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 10
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   container: {
     width: '100%',
     height: '100%',
-    paddingBottom: 100
+    paddingBottom: 75
   },
   textInput: {
     backgroundColor: colors.$white,
-    borderColor: colors.$redPurple,
-    borderWidth: 1,
+    color: colors.$white,
     fontSize: 20,
-    padding: 10,
-    marginTop: 10,
-    marginBottom: 10,
+    padding: 5,
     width: '100%'
   },
   seasonContainer: {
     backgroundColor: colors.$purple,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 10
+    padding: 5
   },
   seasonButton: {
     alignSelf: 'flex-end',

@@ -58,18 +58,17 @@ const styles = StyleSheet.create({
   constellationsContainer: {
     width: '100%',
     height: '100%',
-    paddingBottom: 60
+    paddingBottom: 205
   },
   titleContainer: {
     backgroundColor: colors.$purple,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
-    padding: 10
   },
   skyTitle: {
     color: colors.$white,
-    fontSize: 30,
+    fontSize: 25,
     textAlign: 'center',
     paddingTop: 30
   },
@@ -80,9 +79,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     padding: 5,
     textAlign: 'center'
-  },
-  ScrollView: {
-    marginBottom: 210
   }
 });
 
