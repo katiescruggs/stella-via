@@ -61,7 +61,7 @@ export const LocationBanner = ({ location, dec, RA, page, changePage }) => {
 
 const styles = StyleSheet.create({
   coordsBanner: {
-    backgroundColor: colors.$transparentDarkPurple,
+    backgroundColor: colors.$black,
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 7

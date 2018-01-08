@@ -38,7 +38,7 @@ const TonightsSky = () => {
         <LocationBanner />
         <ScrollView style={styles.ScrollView}>
           <Text style={styles.constellationsSubheader}>
-            Best Constellations to See This Month:
+            Easiest To View This Month:
           </Text>
           <CardContainer 
             constellations={assignVisibility(matchConstellations)} />
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   constellationsContainer: {
     width: '100%',
     height: '100%',
-    paddingBottom: 100
+    paddingBottom: 60
   },
   titleContainer: {
     backgroundColor: colors.$purple,
@@ -75,8 +75,8 @@ const styles = StyleSheet.create({
   },
   constellationsSubheader: {
     color: colors.$white,
-    backgroundColor: colors.$purple,
-    fontSize: 16,
+    backgroundColor: colors.$transparentPurple,
+    fontSize: 18,
     fontWeight: 'bold',
     padding: 10
   },
