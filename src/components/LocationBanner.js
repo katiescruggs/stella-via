@@ -33,7 +33,9 @@ export const LocationBanner = ({ location, dec, RA, page, changePage }) => {
           style={styles.changeLocationButton}
           onPress={changeLocationClick}>
           <View style={styles.changeLocationButtonHolder}>
-            <Text style={styles.locationName}>Change Location</Text>
+            <Text style={styles.locationName}>
+              New Location
+            </Text>
             <Image
               style={styles.changeLocationIcon} 
               source={require('../assets/icons/location.png')} />
@@ -64,7 +66,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.$black,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 7
+    padding: 10
   },
   coordsText: {
     color: colors.$white,
@@ -81,12 +83,16 @@ const styles = StyleSheet.create({
   },
   changeLocationButtonHolder: {
     flexDirection: 'row',
-    alignItems: 'flex-end'
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   changeLocationIcon: {
     height: 20,
     marginLeft: 5,
     width: 20
+  },
+  rightView: {
+    marginRight: 5
   },
   leftView: {
     justifyContent: 'space-around',
