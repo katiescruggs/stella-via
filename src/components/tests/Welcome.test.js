@@ -13,7 +13,8 @@ describe('Welcome Container', () => {
         location: 'Welcome'
       };
 
-      const result = mapStateToProps(mockStore)
+      const result = mapStateToProps(mockStore);
+      
       expect(result.location).toEqual(mockStore.location);
     });
   });

@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.$black,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 10
+    padding: 5,
+    zIndex: 9000
   },
   coordsText: {
     color: colors.$white,

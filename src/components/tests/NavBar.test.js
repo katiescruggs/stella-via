@@ -14,6 +14,7 @@ describe('NavBar Container', () => {
       };
 
       const result = mapStateToProps(mockStore);
+      
       expect(result.page).toEqual(mockStore.page);
     });
 
@@ -28,6 +29,7 @@ describe('NavBar Container', () => {
       };
 
       const result = mapStateToProps(mockStore);
+      
       expect(result.location).toEqual(mockStore.location);
     });
   });

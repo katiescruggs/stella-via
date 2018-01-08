@@ -14,6 +14,7 @@ describe('Card Container', () => {
       };
 
       const result = mapStateToProps(mockStore);
+      
       expect(result.currentPage).toEqual(mockStore.page);
     });
   });

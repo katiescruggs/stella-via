@@ -66,13 +66,13 @@ export class APOD extends Component {
         <ImageBackground 
           source={require('../assets/star-background.jpg')}
           style={styles.imageBackground}>
-            <TouchableHighlight 
-              onPress={this.handlePress}
-              style={styles.button}>
-              <Text style={styles.buttonText}>
-                Image Details
-              </Text>
-            </TouchableHighlight>
+          <TouchableHighlight 
+            onPress={this.handlePress}
+            style={styles.button}>
+            <Text style={styles.buttonText}>
+              Image Details
+            </Text>
+          </TouchableHighlight>
           <View style={styles.imageContainer}>
             <Text style={styles.frameText}>
               Astronomy Picture of the Day
