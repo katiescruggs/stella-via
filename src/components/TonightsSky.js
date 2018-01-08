@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   titleContainer: {
     backgroundColor: colors.$purple,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
   },
   skyTitle: {
