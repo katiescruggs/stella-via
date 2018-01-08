@@ -12,6 +12,8 @@ import {
 
 export const StarMap = ({ dec, RA }) => {
   const path = `http://www.sky-map.org/?ra=${RA}&de=${dec}&zoom=2`;
+  //const path = `http://server1.sky-map.org/skywindow?ra=${RA}&dec=${dec}&zoom=8&img_source=SDSS`;
+
 
   const errorMessage = 
     <Text style={styles.errorMessage}>
@@ -31,7 +33,6 @@ export const StarMap = ({ dec, RA }) => {
         style={styles.webView}
         scalesPageToFit={true}
         source={{uri: path}}
-        contentInset={{top: -50, left: 0, bottom: -5, right: -50}}
       />
       <NavBar />
     </View>
@@ -41,13 +42,14 @@ export const StarMap = ({ dec, RA }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1, 
-    backgroundColor: colors.$purple,
   },
   header: {
+    backgroundColor: colors.$purple,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 0
+    padding: 0,
+    zIndex: 9000
   },
   titleText: {
     color: colors.$white,
@@ -55,7 +57,8 @@ const styles = StyleSheet.create({
     fontSize: 25
   },
   webView: {
-    marginTop: 0
+    marginTop: -120,
+    zIndex: -10
   },
   errorMessage: {
     fontSize: 20,
