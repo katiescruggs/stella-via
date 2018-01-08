@@ -10,7 +10,7 @@ APIs Used: NASA, Google Geocoding, Navigator Geolocation, wUnderground, Sky-Map
 
 ## iOS View:
 
-<!-- ![alt text](./src/assets/iOS-views.png "iOS Views") -->
+![alt text](./src/assets/iOS-view.png "iOS Views")
 
 ## Android View:
 
