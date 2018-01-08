@@ -22,7 +22,7 @@ export const StarMap = ({ dec, RA }) => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.titleText}>
-          Star Map
+          STAR MAP
         </Text>
       </View>
       <LocationBanner />
@@ -47,12 +47,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 10
+    padding: 0
   },
   titleText: {
     color: colors.$white,
     paddingTop: 30,
-    fontSize: 35
+    fontSize: 25
   },
   webView: {
     marginTop: 0
