@@ -133,6 +133,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.$white,
     borderColor: colors.$redPurple,
     borderWidth: 1,
+    color: colors.$white,
     fontSize: 20,
     padding: 5,
     width: '100%'
