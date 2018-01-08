@@ -3,6 +3,7 @@ import  { connect } from 'react-redux';
 import { setLocation, changePage, setSkyCoords } from '../actions';
 import NavBar from './NavBar.js';
 import { fetchLocationCoords } from '../helpers/fetchLocationCoords';
+import { getCityState } from '../helpers/getCityState';
 import { calculateRA } from '../helpers/starCoords';
 import { colors } from '../assets/colors.js';
 import { 
@@ -29,12 +30,13 @@ export class LocationModal extends Component {
   }
 
   getGeolocation = () => {
-    navigator.geolocation.getCurrentPosition(({coords}) => {
-      const location = {
-        lat: coords.latitude.toFixed(3), 
-        lon: coords.longitude.toFixed(3)
-      };
-      const skyCoords = calculateRA(location.lat, location.lon);
+    navigator.geolocation.getCurrentPosition(async ({coords}) => {
+      const lat = coords.latitude.toFixed(3);
+      const lon = coords.longitude.toFixed(3);
+
+      const skyCoords = calculateRA(lat, lon);
+      const { city, state } = await getCityState(lat, lon);
+      const location = {lat, lon, city, state};
 
       this.setAllLocations(location, skyCoords);
     });
