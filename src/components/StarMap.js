@@ -11,13 +11,13 @@ import {
   Text, 
 } from 'react-native';
 
-import RNSimpleCompass from 'react-native-simple-compass';
+// import RNSimpleCompass from 'react-native-simple-compass';
 
-const degree_update_rate = 3; // Number of degrees changed before the callback is triggered
-RNSimpleCompass.start(degree_update_rate, (degree) => {
-  console.log('You are facing', degree);
-  RNSimpleCompass.stop();
-});
+// const degree_update_rate = 3; // Number of degrees changed before the callback is triggered
+// RNSimpleCompass.start(degree_update_rate, (degree) => {
+//   console.log('You are facing', degree);
+//   RNSimpleCompass.stop();
+// });
 
 export const StarMap = ({ lat, lon }) => {
   const path = `https://virtualsky.lco.global/embed/?longitude=${lon}&latitude=${lat}&projection=stereo&keyboard=false&constellations=true&constellationlabels=true&showstarlabels=true&showdate=false&showposition=false&gridlines_az=true&live=true&az=0`
