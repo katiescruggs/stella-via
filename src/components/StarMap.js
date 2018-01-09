@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import NavBar from './NavBar';
 import { colors } from '../assets/colors';
 import LocationBanner from './LocationBanner';
+import { Location } from 'expo';
 import { 
   StyleSheet, 
   WebView, 
@@ -19,7 +20,16 @@ import {
 //   RNSimpleCompass.stop();
 // });
 
+let location = null;
+
+const getNorth = async () => {
+  console.log('getNorth running');
+  location = await Location.getCurrentPositionAsync({});
+}
+
+
 export const StarMap = ({ lat, lon }) => {
+  getNorth();
   const path = `https://virtualsky.lco.global/embed/?longitude=${lon}&latitude=${lat}&projection=stereo&keyboard=false&constellations=true&constellationlabels=true&showstarlabels=true&showdate=false&showposition=false&gridlines_az=true&live=true&az=0`
 
   const errorMessage = 
@@ -32,6 +42,8 @@ export const StarMap = ({ lat, lon }) => {
       <View style={styles.header}>
         <Text style={styles.titleText}>
           STAR MAP
+          {location && 
+            <Text>location.heading</Text>}
         </Text>
       </View>
       <LocationBanner />
