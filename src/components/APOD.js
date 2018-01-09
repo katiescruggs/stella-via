@@ -25,7 +25,14 @@ export class APOD extends Component {
 
   handlePress = () => {
     const displayDetails = !this.state.displayDetails;
+
     this.setState({ displayDetails });
+  };
+
+  renderIt = (check, first, second) => {
+    const toReturn = check ? first : second;
+
+    return toReturn;
   };
 
   render() {
@@ -40,34 +47,33 @@ export class APOD extends Component {
       ? styles.imgError
       : styles.img;
 
-    const apod = type === 'image' 
-      ? <Image
-        style={imageStyle} 
-        source={image} />
-      : <WebView 
-        style={styles.vid} 
-        scalesPageToFit={false}
-        source={image} />;
+    const imageTag = <Image
+      style={imageStyle} 
+      source={image} />;
 
-    const detailsDisplay = !this.state.displayDetails 
-      ? <View style={styles.imageContainer}>
-          <Text style={styles.frameText}>
-            Astronomy Picture of the Day
-          </Text>
-          <View style={styles.imageView}>
-            {apod}
-          </View>
-          <Text style={styles.frameText}>
-            {title}
-          </Text>
-        </View>
-      :
-        <View style={styles.imageContainer}>
-          <Text style={styles.frameText}>{title.toUpperCase()}:</Text>
-          <ScrollView style={styles.detailView}>
-            <Text style={styles.details}>{details}</Text>
-          </ScrollView>
-        </View>;
+    const webView = <WebView 
+      style={styles.vid} 
+      scalesPageToFit={false}
+      source={image} />;
+
+    const apodImage = <View style={styles.imageContainer}>
+      <Text style={styles.frameText}>
+        Astronomy Picture of the Day
+      </Text>
+      <View style={styles.imageView}>
+        {this.renderIt(type === 'image', imageTag, webView)}
+      </View>
+      <Text style={styles.frameText}>
+        {title}
+      </Text>
+    </View>;
+
+    const imageDetails = <View style={styles.imageContainer}>
+      <Text style={styles.frameText}>{title.toUpperCase()}:</Text>
+      <ScrollView style={styles.detailView}>
+        <Text style={styles.details}>{details}</Text>
+      </ScrollView>
+    </View>;
 
     return (
       <View style={styles.container}>
@@ -75,8 +81,7 @@ export class APOD extends Component {
         <ImageBackground 
           source={require('../assets/star-background.jpg')}
           style={styles.imageBackground}>
-        {detailsDisplay} 
-
+          {this.renderIt(!this.state.displayDetails, apodImage, imageDetails)} 
           <TouchableHighlight 
             onPress={this.handlePress}
             style={styles.button}>
