@@ -34,6 +34,7 @@
     "react-icons": "^2.2.7",
     "react-iframe": "^1.1.0",
     "react-native": "0.50.3",
+    "react-native-simple-compass": "^1.0.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"

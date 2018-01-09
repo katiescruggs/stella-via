@@ -63,10 +63,6 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     fontSize: 25
   },
-  webView: {
-    marginTop: -120,
-    zIndex: -10
-  },
   errorMessage: {
     fontSize: 20,
     marginTop: 50,
