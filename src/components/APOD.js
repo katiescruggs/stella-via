@@ -25,13 +25,15 @@ export class APOD extends Component {
 
   handlePress = () => {
     const displayDetails = !this.state.displayDetails;
+
     this.setState({ displayDetails });
   };
 
   renderIt = (check, first, second) => {
     const toReturn = check ? first : second;
-    return toReturn
-  }
+
+    return toReturn;
+  };
 
   render() {
     const { 
@@ -79,14 +81,14 @@ export class APOD extends Component {
         <ImageBackground 
           source={require('../assets/star-background.jpg')}
           style={styles.imageBackground}>
-        {this.renderIt(!this.state.displayDetails, apodImage, imageDetails)} 
-        <TouchableHighlight 
-          onPress={this.handlePress}
-          style={styles.button}>
-          <Text style={styles.buttonText}>
-            Image Details
-          </Text>
-        </TouchableHighlight>
+          {this.renderIt(!this.state.displayDetails, apodImage, imageDetails)} 
+          <TouchableHighlight 
+            onPress={this.handlePress}
+            style={styles.button}>
+            <Text style={styles.buttonText}>
+              Image Details
+            </Text>
+          </TouchableHighlight>
         </ImageBackground>
         <NavBar />
       </View>
