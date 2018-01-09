@@ -119,7 +119,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(LocationBanner);
 
 LocationBanner.propTypes = {
   page: PropTypes.string,
-  location: PropTypes.string,
+  location: PropTypes.object,
   dec: PropTypes.string,
   RA: PropTypes.string,
   changePage: PropTypes.func
