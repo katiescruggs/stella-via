@@ -29,6 +29,11 @@ export class APOD extends Component {
     this.setState({ displayDetails });
   };
 
+  renderIt = (check, first, second) => {
+    const toReturn = check ? first : second;
+    return toReturn
+  }
+
   render() {
     const { 
       image, 
@@ -41,14 +46,25 @@ export class APOD extends Component {
       ? styles.imgError
       : styles.img;
 
-    const apod = type === 'image' 
-      ? <Image
+    // const apod = type === 'image' 
+    //   ? <Image
+    //     style={imageStyle} 
+    //     source={image} />
+    //   : <WebView 
+    //     style={styles.vid} 
+    //     scalesPageToFit={false}
+    //     source={image} />;
+
+    const imageTag = <Image
         style={imageStyle} 
-        source={image} />
-      : <WebView 
+        source={image} />;
+
+    const webView = <WebView 
         style={styles.vid} 
         scalesPageToFit={false}
         source={image} />;
+
+    const 
 
     const detailsDisplay = !this.state.displayDetails 
       ? null
@@ -79,7 +95,7 @@ export class APOD extends Component {
               Astronomy Picture of the Day
             </Text>
             <View style={styles.imageView}>
-              {apod}
+              {this.renderIt(type === 'image', imageTag, webView)}
             </View>
             <Text style={styles.frameText}>
               {title}
