@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     backgroundColor: colors.$white,
-    color: colors.$white,
+    color: colors.$darkPurple,
     fontSize: 20,
     padding: 5,
     width: '100%'

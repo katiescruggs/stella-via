@@ -68,6 +68,6 @@ export const mapStateToProps = state => ({
 export default connect(mapStateToProps, null)(NavBar);
 
 NavBar.propTypes = {
-  location: PropTypes.string,
+  location: PropTypes.object,
   page: PropTypes.string,
 };
