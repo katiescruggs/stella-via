@@ -51,15 +51,11 @@ export class APOD extends Component {
         source={image} />;
 
     const detailsDisplay = !this.state.displayDetails 
-      ? null
-      : <ImageBackground 
-        source={require('../assets/star-background.jpg')}
-        style={styles.detailView}>
-        <Text style={styles.frameText}>{title.toUpperCase()}:</Text>
+      ? null :
         <ScrollView>
+          <Text style={styles.frameText}>{title.toUpperCase()}:</Text>
           <Text style={styles.details}>{details}</Text>
-        </ScrollView>
-      </ImageBackground>;
+        </ScrollView>;
 
     return (
       <View style={styles.container}>
@@ -85,8 +81,8 @@ export class APOD extends Component {
               {title}
             </Text>
           </View>
-        </ImageBackground>
         {detailsDisplay} 
+        </ImageBackground>
         <NavBar />
       </View>
     );
