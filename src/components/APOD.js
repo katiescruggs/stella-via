@@ -114,7 +114,8 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderBottomWidth: 1,
     borderColor: colors.$white,
-    height: 465
+    minHeight: 465,
+    maxHeight: 485
   },
   imgError: {
     height: 340,
@@ -134,7 +135,6 @@ const styles = StyleSheet.create({
     borderColor: colors.$white,
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    alignItems: 'center',
     justifyContent: 'center',
     height: 400,
     width: 400
@@ -144,6 +144,7 @@ const styles = StyleSheet.create({
     color: colors.$white,
     fontSize: 18,
     padding: 5,
+    alignSelf: 'center',
     textAlign: 'center'
   },
   button: {
