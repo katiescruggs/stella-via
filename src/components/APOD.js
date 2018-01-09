@@ -25,7 +25,6 @@ export class APOD extends Component {
 
   handlePress = () => {
     const displayDetails = !this.state.displayDetails;
-
     this.setState({ displayDetails });
   };
 
@@ -51,11 +50,24 @@ export class APOD extends Component {
         source={image} />;
 
     const detailsDisplay = !this.state.displayDetails 
-      ? null :
-        <ScrollView>
+      ? <View style={styles.imageContainer}>
+          <Text style={styles.frameText}>
+            Astronomy Picture of the Day
+          </Text>
+          <View style={styles.imageView}>
+            {apod}
+          </View>
+          <Text style={styles.frameText}>
+            {title}
+          </Text>
+        </View>
+      :
+        <View style={styles.imageContainer}>
           <Text style={styles.frameText}>{title.toUpperCase()}:</Text>
-          <Text style={styles.details}>{details}</Text>
-        </ScrollView>;
+          <ScrollView style={styles.detailView}>
+            <Text style={styles.details}>{details}</Text>
+          </ScrollView>
+        </View>;
 
     return (
       <View style={styles.container}>
@@ -63,6 +75,8 @@ export class APOD extends Component {
         <ImageBackground 
           source={require('../assets/star-background.jpg')}
           style={styles.imageBackground}>
+        {detailsDisplay} 
+
           <TouchableHighlight 
             onPress={this.handlePress}
             style={styles.button}>
@@ -70,18 +84,6 @@ export class APOD extends Component {
               Image Details
             </Text>
           </TouchableHighlight>
-          <View style={styles.imageContainer}>
-            <Text style={styles.frameText}>
-              Astronomy Picture of the Day
-            </Text>
-            <View style={styles.imageView}>
-              {apod}
-            </View>
-            <Text style={styles.frameText}>
-              {title}
-            </Text>
-          </View>
-        {detailsDisplay} 
         </ImageBackground>
         <NavBar />
       </View>
@@ -94,7 +96,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.$black,
     alignItems: 'center',
-    justifyContent: 'center',
     width: '100%'
   },
   topBorder: {
@@ -104,7 +105,8 @@ const styles = StyleSheet.create({
   },
   imageBackground: {
     flex: 1,
-    alignItems: 'center', 
+    alignItems: 'center',
+    justifyContent: 'space-around',
     marginBottom: 70,
     width: '100%'
   },
@@ -149,7 +151,6 @@ const styles = StyleSheet.create({
     padding: 5,
     borderRadius: 10,
     alignSelf: 'center',
-    margin: 15,
     width: '50%'
   },
   buttonText: {
@@ -160,10 +161,7 @@ const styles = StyleSheet.create({
   detailView: {
     borderColor: colors.$white,
     borderTopWidth: 1,
-    borderBottomWidth: 1,
-    position: 'absolute',
-    top: 145,
-    width: '100%'
+    borderBottomWidth: 1
   },
   details: {
     backgroundColor: colors.$transparentDarkPurple,
