@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import NavBar from './NavBar';
@@ -20,43 +20,67 @@ import {
 //   RNSimpleCompass.stop();
 // });
 
-let location = null;
+// let location = null;
 
 const getNorth = async () => {
   console.log('getNorth running');
-  location = await Expo.Location.getHeadingAsync();
-  console.log(location)
+  const location = await Expo.Location.getHeadingAsync();
+  return location.magHeading
 }
 
+// const azDegree = getNorth();
 
-export const StarMap = ({ lat, lon }) => {
-  getNorth();
-  const path = `https://virtualsky.lco.global/embed/?longitude=${lon}&latitude=${lat}&projection=stereo&keyboard=false&constellations=true&constellationlabels=true&showstarlabels=true&showdate=false&showposition=false&gridlines_az=true&live=true&az=0`
+// const path = `https://virtualsky.lco.global/embed/?longitude=${lon}&latitude=${lat}&projection=stereo&keyboard=false&constellations=true&constellationlabels=true&showstarlabels=true&showdate=false&showposition=false&gridlines_az=true&live=true&az=${azDegree}`
 
-  const errorMessage = 
-    <Text style={styles.errorMessage}>
-      404: Star Map cannot load.
-    </Text>;
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.titleText}>
-          STAR MAP
-          {location && 
-            <Text>location.heading</Text>}
-        </Text>
+
+export class StarMap extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      azDegree: 0
+    };
+  }
+
+  async componentDidMount() {
+    azDegree = await this.setAZ();
+    await this.setState({ azDegree });
+  }
+
+  setAZ = async() => {
+    return await getNorth();
+  }
+
+  render() {
+    const { lat, lon } = this.props;
+    const { azDegree } = this.state;
+    console.log(azDegree)
+    const path = `https://virtualsky.lco.global/embed/?longitude=${lon}&latitude=${lat}&projection=stereo&keyboard=false&constellations=true&constellationlabels=true&showstarlabels=true&showdate=false&showposition=false&gridlines_az=true&live=true&az=${azDegree}`
+
+    const errorMessage = 
+      <Text style={styles.errorMessage}>
+        404: Star Map cannot load.
+      </Text>;
+
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.titleText}>
+            STAR MAP
+          </Text>
+        </View>
+        <LocationBanner />
+        <WebView
+          renderError={() => errorMessage}
+          style={styles.webView}
+          scalesPageToFit={true}
+          source={{uri: path}}
+        />
+        <NavBar />
       </View>
-      <LocationBanner />
-      <WebView
-        renderError={() => errorMessage}
-        style={styles.webView}
-        scalesPageToFit={true}
-        source={{uri: path}}
-      />
-      <NavBar />
-    </View>
-  );
+    );
+  };
 };
 
 const styles = StyleSheet.create({
