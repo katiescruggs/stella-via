@@ -99,6 +99,9 @@ const styles = StyleSheet.create({
     fontSize: 30,
     marginTop: 50,
     textAlign: 'center'
+  },
+  webView: {
+    marginBottom: 70
   }
 });
 
