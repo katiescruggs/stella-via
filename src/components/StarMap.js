@@ -21,7 +21,7 @@ import {
 //   RNSimpleCompass.stop();
 // });
 
-
+let watching;
 export class StarMap extends Component {
   constructor(props) {
     super(props);
@@ -32,20 +32,36 @@ export class StarMap extends Component {
   }
 
   async componentDidMount() {
-    azDegree = await this.setAZ();
-    await this.setState({ azDegree });
+    const heading = await this.findAZ();
+    watching = await Expo.Location.watchHeadingAsync(heading => {
+      console.log('watch', heading)
+        this.setAZ(heading.magHeading)
+        return heading;
+     });
+  };
+
+  async componentWillUnmount() {
+    await watching.remove();
+  }
+
+  setAZ = async (azDegree) => {
+    const currentAZ = this.state.azDegree;
+    if (azDegree > (currentAZ + 10) || azDegree < (currentAZ - 10)) {
+      console.log('setState')
+      await this.setState({ azDegree })
+    }
   }
 
   //could be a helper
-  setAZ = async() => {
+  findAZ = async () => {
     const location = await Expo.Location.getHeadingAsync();
-    return location.magHeading
+    return location
   }
 
   render() {
     const { lat, lon } = this.props;
     const { azDegree } = this.state;
-    console.log(azDegree)
+    console.log('rendering az', azDegree)
     const path = `https://virtualsky.lco.global/embed/?longitude=${lon}&latitude=${lat}&projection=stereo&keyboard=false&constellations=true&constellationlabels=true&showstarlabels=true&showdate=false&showposition=false&gridlines_az=true&live=true&az=${azDegree}`
 
     const errorMessage = 
