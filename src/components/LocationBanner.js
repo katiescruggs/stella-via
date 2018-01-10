@@ -51,12 +51,6 @@ export const LocationBanner = ({ location, dec, RA, page, changePage }) => {
         <Text style={styles.coordsText}>
           {`Lon: ${lon}\xb0`}
         </Text>
-        <Text style={styles.coordsText}>
-          {`Dec: ${dec}\xb0`}
-        </Text>
-        <Text style={styles.coordsText}>
-          {`RA: ${formattedRA}`}
-        </Text>
       </View>
     </View>
   );
@@ -72,7 +66,7 @@ const styles = StyleSheet.create({
   },
   coordsText: {
     color: colors.$white,
-    fontSize: 14,
+    fontSize: 16,
   },
   locationName: {
     color: colors.$white,
@@ -94,10 +88,12 @@ const styles = StyleSheet.create({
     width: 20
   },
   rightView: {
+    justifyContent: 'center',
     marginRight: 5
   },
   leftView: {
-    justifyContent: 'space-around',
+    alignItems: 'center',
+    justifyContent: 'center',
     marginLeft: 20
   }
 });

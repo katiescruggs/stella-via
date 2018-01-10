@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import NavBar from './NavBar';
 import { colors } from '../assets/colors';
 import LocationBanner from './LocationBanner';
+import { Location } from 'expo';
 import { 
   StyleSheet, 
   WebView, 
@@ -11,10 +12,25 @@ import {
   Text, 
 } from 'react-native';
 
-export const StarMap = ({ dec, RA }) => {
-  const path = `http://www.sky-map.org/?ra=${RA}&de=${dec}&zoom=2`;
-  //const path = `http://server1.sky-map.org/skywindow?ra=${RA}&dec=${dec}&zoom=8&img_source=SDSS`;
+// import RNSimpleCompass from 'react-native-simple-compass';
 
+// const degree_update_rate = 3; // Number of degrees changed before the callback is triggered
+// RNSimpleCompass.start(degree_update_rate, (degree) => {
+//   console.log('You are facing', degree);
+//   RNSimpleCompass.stop();
+// });
+
+let location = null;
+
+const getNorth = async () => {
+  console.log('getNorth running');
+  location = await Location.getCurrentPositionAsync({});
+}
+
+
+export const StarMap = ({ lat, lon }) => {
+  getNorth();
+  const path = `https://virtualsky.lco.global/embed/?longitude=${lon}&latitude=${lat}&projection=stereo&keyboard=false&constellations=true&constellationlabels=true&showstarlabels=true&showdate=false&showposition=false&gridlines_az=true&live=true&az=0`
 
   const errorMessage = 
     <Text style={styles.errorMessage}>
@@ -26,6 +42,8 @@ export const StarMap = ({ dec, RA }) => {
       <View style={styles.header}>
         <Text style={styles.titleText}>
           STAR MAP
+          {location && 
+            <Text>location.heading</Text>}
         </Text>
       </View>
       <LocationBanner />
@@ -57,10 +75,6 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     fontSize: 25
   },
-  webView: {
-    marginTop: -120,
-    zIndex: -10
-  },
   errorMessage: {
     fontSize: 20,
     marginTop: 50,
@@ -69,8 +83,8 @@ const styles = StyleSheet.create({
 });
 
 export const mapStateToProps = state => ({
-  dec: state.skyCoords.dec,
-  RA: state.skyCoords.stringRA
+  lat: state.location.lat,
+  lon: state.location.lon
 });
 
 export default connect(mapStateToProps, null)(StarMap);
