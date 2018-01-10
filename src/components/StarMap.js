@@ -10,6 +10,7 @@ import {
   WebView, 
   View, 
   Text, 
+  Image
 } from 'react-native';
 
 // import RNSimpleCompass from 'react-native-simple-compass';
@@ -59,9 +60,20 @@ export class StarMap extends Component {
     const path = `https://virtualsky.lco.global/embed/?longitude=${lon}&latitude=${lat}&projection=stereo&keyboard=false&constellations=true&constellationlabels=true&showstarlabels=true&showdate=false&showposition=false&gridlines_az=true&live=true&az=${azDegree}`
 
     const errorMessage = 
-      <Text style={styles.errorMessage}>
+      <Text style={styles.msgText}>
         404: Star Map cannot load.
       </Text>;
+
+    const displayStarMap = azDegree 
+      ? <WebView
+          renderError={() => errorMessage}
+          style={styles.webView}
+          scalesPageToFit={true}
+          source={{uri: path}} />
+      : <View>
+          <Text style={styles.msgText}>Loading Night Sky...</Text>
+          <Image style={{height: '100%', width: '100%'}} source={require('../assets/orbit-loader.gif')}/>
+        </View>;
 
     return (
       <View style={styles.container}>
@@ -71,12 +83,7 @@ export class StarMap extends Component {
           </Text>
         </View>
         <LocationBanner />
-        <WebView
-          renderError={() => errorMessage}
-          style={styles.webView}
-          scalesPageToFit={true}
-          source={{uri: path}}
-        />
+        {displayStarMap}
         <NavBar />
       </View>
     );
@@ -85,6 +92,7 @@ export class StarMap extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: colors.$black,
     flex: 1, 
   },
   header: {
@@ -100,8 +108,9 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     fontSize: 25
   },
-  errorMessage: {
-    fontSize: 20,
+  msgText: {
+    color: colors.$white,
+    fontSize: 30,
     marginTop: 50,
     textAlign: 'center'
   }
