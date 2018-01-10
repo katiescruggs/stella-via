@@ -8,7 +8,7 @@ We also learned more about astronomy than we ever thought we would. Stars move i
 
 * Tech Stack: React Native, Redux, Jest
 * Platforms: Android and iOS
-* APIs Used: NASA, Google Geocoding, Navigator Geolocation, wUnderground, Sky-Map
+* APIs Used: NASA, Google Geocoding, Navigator Geolocation, wUnderground, Virtual Sky
 
 ## iOS View:
 
