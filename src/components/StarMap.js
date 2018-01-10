@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import NavBar from './NavBar';
@@ -10,6 +10,7 @@ import {
   WebView, 
   View, 
   Text, 
+  Image
 } from 'react-native';
 
 // import RNSimpleCompass from 'react-native-simple-compass';
@@ -20,46 +21,64 @@ import {
 //   RNSimpleCompass.stop();
 // });
 
-let location = null;
 
-const getNorth = async () => {
-  console.log('getNorth running');
-  location = await Location.getCurrentPositionAsync({});
-}
+export class StarMap extends Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      azDegree: 0
+    };
+  }
 
-export const StarMap = ({ lat, lon }) => {
-  getNorth();
-  const path = `https://virtualsky.lco.global/embed/?longitude=${lon}&latitude=${lat}&projection=stereo&keyboard=false&constellations=true&constellationlabels=true&showstarlabels=true&showdate=false&showposition=false&gridlines_az=true&live=true&az=0`
+  async componentDidMount() {
+    azDegree = await this.setAZ();
+    await this.setState({ azDegree });
+  }
 
-  const errorMessage = 
-    <Text style={styles.errorMessage}>
-      404: Star Map cannot load.
-    </Text>;
+  //could be a helper
+  setAZ = async() => {
+    const location = await Expo.Location.getHeadingAsync();
+    return location.magHeading
+  }
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.titleText}>
-          STAR MAP
-          {location && 
-            <Text>location.heading</Text>}
-        </Text>
+  render() {
+    const { lat, lon } = this.props;
+    const { azDegree } = this.state;
+    console.log(azDegree)
+    const path = `https://virtualsky.lco.global/embed/?longitude=${lon}&latitude=${lat}&projection=stereo&keyboard=false&constellations=true&constellationlabels=true&showstarlabels=true&showdate=false&showposition=false&gridlines_az=true&live=true&az=${azDegree}`
+
+    const errorMessage = 
+      <Text style={styles.msgText}>
+        404: Star Map cannot load.
+      </Text>;
+
+    const displayStarMap = azDegree 
+      ? <WebView
+          renderError={() => errorMessage}
+          style={styles.webView}
+          scalesPageToFit={true}
+          source={{uri: path}} />
+      : <Text style={styles.msgText}>Loading Night Sky...</Text>;
+
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.titleText}>
+            STAR MAP
+          </Text>
+        </View>
+        <LocationBanner />
+        {displayStarMap}
+        <NavBar />
       </View>
-      <LocationBanner />
-      <WebView
-        renderError={() => errorMessage}
-        style={styles.webView}
-        scalesPageToFit={true}
-        source={{uri: path}}
-      />
-      <NavBar />
-    </View>
-  );
+    );
+  };
 };
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: colors.$black,
     flex: 1, 
   },
   header: {
@@ -75,10 +94,14 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     fontSize: 25
   },
-  errorMessage: {
-    fontSize: 20,
+  msgText: {
+    color: colors.$white,
+    fontSize: 30,
     marginTop: 50,
     textAlign: 'center'
+  },
+  webView: {
+    marginBottom: 70
   }
 });
 
@@ -90,6 +113,6 @@ export const mapStateToProps = state => ({
 export default connect(mapStateToProps, null)(StarMap);
 
 StarMap.propTypes = {
-  dec: PropTypes.string,
-  RA: PropTypes.string
+  lat: PropTypes.string,
+  lon: PropTypes.string
 };
