@@ -21,19 +21,6 @@ import {
 //   RNSimpleCompass.stop();
 // });
 
-// let location = null;
-
-const getNorth = async () => {
-  console.log('getNorth running');
-  const location = await Expo.Location.getHeadingAsync();
-  return location.magHeading
-}
-
-// const azDegree = getNorth();
-
-// const path = `https://virtualsky.lco.global/embed/?longitude=${lon}&latitude=${lat}&projection=stereo&keyboard=false&constellations=true&constellationlabels=true&showstarlabels=true&showdate=false&showposition=false&gridlines_az=true&live=true&az=${azDegree}`
-
-
 
 export class StarMap extends Component {
   constructor() {
@@ -49,8 +36,10 @@ export class StarMap extends Component {
     await this.setState({ azDegree });
   }
 
+  //could be a helper
   setAZ = async() => {
-    return await getNorth();
+    const location = await Expo.Location.getHeadingAsync();
+    return location.magHeading
   }
 
   render() {
@@ -70,10 +59,7 @@ export class StarMap extends Component {
           style={styles.webView}
           scalesPageToFit={true}
           source={{uri: path}} />
-      : <View>
-          <Text style={styles.msgText}>Loading Night Sky...</Text>
-          <Image style={{height: '100%', width: '100%'}} source={require('../assets/orbit-loader.gif')}/>
-        </View>;
+      : <Text style={styles.msgText}>Loading Night Sky...</Text>;
 
     return (
       <View style={styles.container}>
