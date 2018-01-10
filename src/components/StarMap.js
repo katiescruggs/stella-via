@@ -24,7 +24,8 @@ let location = null;
 
 const getNorth = async () => {
   console.log('getNorth running');
-  location = await Location.getCurrentPositionAsync({});
+  location = await Expo.Location.getHeadingAsync();
+  console.log(location)
 }
 
 
@@ -90,6 +91,6 @@ export const mapStateToProps = state => ({
 export default connect(mapStateToProps, null)(StarMap);
 
 StarMap.propTypes = {
-  dec: PropTypes.string,
-  RA: PropTypes.string
+  lat: PropTypes.string,
+  lon: PropTypes.string
 };
