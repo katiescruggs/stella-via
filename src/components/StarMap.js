@@ -21,7 +21,7 @@ import {
 //   RNSimpleCompass.stop();
 // });
 
-
+let watching;
 export class StarMap extends Component {
   constructor(props) {
     super(props);
@@ -33,11 +33,15 @@ export class StarMap extends Component {
 
   async componentDidMount() {
     const heading = await this.findAZ();
-    const newThing = await Expo.Location.watchHeadingAsync(heading => {
+    watching = await Expo.Location.watchHeadingAsync(heading => {
       console.log('watch', heading)
         this.setAZ(heading.magHeading)
         return heading;
      });
+  };
+
+  async componentWillUnmount() {
+    await watching.remove();
   }
 
   setAZ = async (azDegree) => {
