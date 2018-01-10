@@ -23,8 +23,8 @@ import {
 
 
 export class StarMap extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       azDegree: 0
