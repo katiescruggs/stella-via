@@ -13,15 +13,7 @@ import {
   Image
 } from 'react-native';
 
-// import RNSimpleCompass from 'react-native-simple-compass';
-
-// const degree_update_rate = 3; // Number of degrees changed before the callback is triggered
-// RNSimpleCompass.start(degree_update_rate, (degree) => {
-//   console.log('You are facing', degree);
-//   RNSimpleCompass.stop();
-// });
-
-let watching;
+// let watching;
 export class StarMap extends Component {
   constructor(props) {
     super(props);
@@ -48,8 +40,7 @@ export class StarMap extends Component {
   // setAZ = async (azDegree) => {
   //   const currentAZ = this.state.azDegree;
   //   if (azDegree > (currentAZ + 10) || azDegree < (currentAZ - 10)) {
-  //     console.log('setState')
-  //     await this.setState({ azDegree })
+  //     console.log('setState') //     await this.setState({ azDegree })
   //   }
   // }
 

@@ -84,7 +84,7 @@ export class LocationModal extends Component {
       </TouchableHighlight>
       : <View style={styles.modalButton}>
         <Text style={styles.errorText}>
-          Unable to access current location. Please enter a location below.
+          Unable to access current location. Please enter a location.
         </Text>
       </View>;
 
@@ -106,8 +106,6 @@ export class LocationModal extends Component {
             Finding Your Night Sky
           </Text>
           <View style={styles.inputContainer}> 
-            {currentLocation}
-            {errorMessage}
             <View>
               <View style={styles.inputWrapper}>
                 <Image 
@@ -132,6 +130,8 @@ export class LocationModal extends Component {
                 </Text>
               </TouchableHighlight>
             </View>
+            {errorMessage}
+            {currentLocation}
           </View>
         </View>
         <NavBar />
