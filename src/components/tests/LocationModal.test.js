@@ -35,14 +35,5 @@ describe('LocationModal Container', () =>{
       result.changePage();
       expect(mockDispatch).toHaveBeenCalled;
     });
-
-    it('should call dispatch when setSkyCoords is called', () => {
-      const mockDispatch = jest.fn();
-      const result = mapDispatchToProps(mockDispatch);
-
-      result.setSkyCoords();
-      expect(mockDispatch).toHaveBeenCalled;
-    });
-
   });
 });

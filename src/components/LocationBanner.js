@@ -11,10 +11,8 @@ import {
   Image 
 } from 'react-native';
 
-export const LocationBanner = ({ location, dec, RA, page, changePage }) => {
+export const LocationBanner = ({ location, page, changePage }) => {
   const { lat, lon, city, state } = location;
-  const arrayRA = RA.split(' ');
-  const formattedRA = `${arrayRA[0]}h, ${arrayRA[1]}m, ${arrayRA[2]}s`;
 
   const changeLocationClick = () => {
     const nextPage = page === 'StarMap' 
@@ -100,8 +98,6 @@ const styles = StyleSheet.create({
 
 export const mapStateToProps = state => ({
   location: state.location,
-  dec: state.skyCoords.dec,
-  RA: state.skyCoords.stringRA,
   page: state.page
 });
 
@@ -116,7 +112,5 @@ export default connect(mapStateToProps, mapDispatchToProps)(LocationBanner);
 LocationBanner.propTypes = {
   page: PropTypes.string,
   location: PropTypes.object,
-  dec: PropTypes.string,
-  RA: PropTypes.string,
   changePage: PropTypes.func
 };

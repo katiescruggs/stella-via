@@ -9,20 +9,20 @@ describe('StarMap Container', () => {
 
   describe('mapStateToProps', () => {
     const mockStore = {
-      skyCoords: {
-        dec: 39,
-        RA: '4 30 0'
+      location: {
+        lat: 39,
+        lon: -105
       }
     };
 
     const result = mapStateToProps(mockStore);
     
-    it('should pull dec from the skyCoords in store', () => {
-      expect(result.dec).toEqual(mockStore.skyCoords.dec);
+    it('should pull lat from the location in store', () => {
+      expect(result.lat).toEqual(mockStore.location.lat);
     });
 
-    it('should pull RA from the skyCoords in store', () => {
-      expect(result.RA).toEqual(mockStore.skyCoords.stringRA);
+    it('should pull lon from the location in store', () => {
+      expect(result.lon).toEqual(mockStore.location.lon);
     });
   });
 });

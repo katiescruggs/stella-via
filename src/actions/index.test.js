@@ -26,20 +26,6 @@ describe('all actions', () => {
     expect(actions.changePage(page)).toEqual(expected);
   });
 
-  it('setSkyCoords action', () => {
-    const skyCoords = {
-      dec: 50,
-      ra: 1000
-    };
-
-    const expected = {
-      type: 'SET_SKY_COORDS',
-      skyCoords
-    };
-
-    expect(actions.setSkyCoords(skyCoords)).toEqual(expected);
-  });
-
   it('setAPOD action', () => {
     const apodData = {
       image: 'im an image',

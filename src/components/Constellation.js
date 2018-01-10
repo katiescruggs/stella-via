@@ -142,7 +142,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    margin: 5
+    margin: 5,
+    padding: 20
   },
   constellationImage: {
     width: 300,
@@ -151,7 +152,7 @@ const styles = StyleSheet.create({
   button: {
     position: 'absolute', 
     right: 15, 
-    top: 15,
+    bottom: 15,
     backgroundColor: colors.$purple,
     borderRadius: 10,
     padding: 5,

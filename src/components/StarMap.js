@@ -13,15 +13,7 @@ import {
   Image
 } from 'react-native';
 
-// import RNSimpleCompass from 'react-native-simple-compass';
-
-// const degree_update_rate = 3; // Number of degrees changed before the callback is triggered
-// RNSimpleCompass.start(degree_update_rate, (degree) => {
-//   console.log('You are facing', degree);
-//   RNSimpleCompass.stop();
-// });
-
-let watching;
+// let watching;
 export class StarMap extends Component {
   constructor(props) {
     super(props);
@@ -32,36 +24,39 @@ export class StarMap extends Component {
   }
 
   async componentDidMount() {
-    const heading = await this.findAZ();
-    watching = await Expo.Location.watchHeadingAsync(heading => {
-      console.log('watch', heading)
-        this.setAZ(heading.magHeading)
-        return heading;
-     });
+    const azDegree = await this.findAZ();
+    this.setState({azDegree});
+    // watching = await Expo.Location.watchHeadingAsync(heading => {
+    //   console.log('watch', heading)
+    //     this.setAZ(heading.magHeading)
+    //     return heading;
+    //  });
   };
 
-  async componentWillUnmount() {
-    await watching.remove();
-  }
+  // async componentWillUnmount() {
+  //   await watching.remove();
+  // }
 
-  setAZ = async (azDegree) => {
-    const currentAZ = this.state.azDegree;
-    if (azDegree > (currentAZ + 10) || azDegree < (currentAZ - 10)) {
-      console.log('setState')
-      await this.setState({ azDegree })
-    }
-  }
+  // setAZ = async (azDegree) => {
+  //   const currentAZ = this.state.azDegree;
+  //   if (azDegree > (currentAZ + 10) || azDegree < (currentAZ - 10)) {
+  //     console.log('setState') //     await this.setState({ azDegree })
+  //   }
+  // }
 
   //could be a helper
   findAZ = async () => {
-    const location = await Expo.Location.getHeadingAsync();
-    return location
+    try {
+      const location = await Expo.Location.getHeadingAsync();
+      return location.magHeading;
+    } catch (error) {
+      return 0;
+    }
   }
 
   render() {
     const { lat, lon } = this.props;
     const { azDegree } = this.state;
-    console.log('rendering az', azDegree)
     const path = `https://virtualsky.lco.global/embed/?longitude=${lon}&latitude=${lat}&projection=stereo&keyboard=false&constellations=true&constellationlabels=true&showstarlabels=true&showdate=false&showposition=false&gridlines_az=true&live=true&az=${azDegree}`
 
     const errorMessage = 
@@ -69,7 +64,7 @@ export class StarMap extends Component {
         404: Star Map cannot load.
       </Text>;
 
-    const displayStarMap = azDegree 
+    const displayStarMap = azDegree >= 0
       ? <WebView
           renderError={() => errorMessage}
           style={styles.webView}
