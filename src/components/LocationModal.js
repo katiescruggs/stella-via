@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import  { connect } from 'react-redux';
-import { setLocation, changePage, setSkyCoords } from '../actions';
+import { setLocation, changePage } from '../actions';
 import NavBar from './NavBar.js';
 import { fetchLocationCoords } from '../helpers/fetchLocationCoords';
 import { getCityState } from '../helpers/getCityState';
-import { calculateRA } from '../helpers/starCoords';
 import { colors } from '../assets/colors.js';
 import { 
   StyleSheet, 
@@ -35,17 +34,15 @@ export class LocationModal extends Component {
       const lat = coords.latitude.toFixed(3);
       const lon = coords.longitude.toFixed(3);
 
-      const skyCoords = calculateRA(lat, lon);
       const { city, state } = await getCityState(lat, lon);
       const location = {lat, lon, city, state};
 
-      this.setAllLocations(location, skyCoords);
+      this.setAllLocations(location);
     });
   }
 
-  setAllLocations = (location, skyCoords) => {
+  setAllLocations = (location) => {
     this.props.setLocation(location);
-    this.props.setSkyCoords(skyCoords);
     this.props.changePage(this.state.nextPage);
   }
 
@@ -61,10 +58,10 @@ export class LocationModal extends Component {
     if(this.state.text) {
       try {
         const [city, state] = this.state.text.split(', ');
-        const { location, skyCoords } = await fetchLocationCoords(city, state);
+        const { location } = await fetchLocationCoords(city, state);
         
         this.setState({text: ''});
-        this.setAllLocations(location, skyCoords);
+        this.setAllLocations(location);
       }
       catch (error) {
         this.setState({validLocation: false, text: ''});
@@ -219,9 +216,6 @@ export const mapDispatchToProps = dispatch => ({
   },
   changePage: (page) => {
     dispatch(changePage(page));
-  },
-  setSkyCoords: (skyCoords) => {
-    dispatch(setSkyCoords(skyCoords));
   }
 });
 
@@ -230,6 +224,5 @@ export default connect(mapStateToProps, mapDispatchToProps)(LocationModal);
 LocationModal.propTypes = {
   currentPage: PropTypes.string,
   setLocation: PropTypes.func,
-  setSkyCoords: PropTypes.func,
   changePage: PropTypes.func
 };
