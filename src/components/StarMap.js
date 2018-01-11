@@ -24,8 +24,9 @@ export class StarMap extends Component {
   }
 
   async componentDidMount() {
-    const azDegree = await this.findAZ();
-    this.setState({azDegree});
+    // const azDegree = await this.findAZ();
+    // console.log(azDegree);
+    // this.setState({azDegree});
     // watching = await Expo.Location.watchHeadingAsync(heading => {
     //   console.log('watch', heading)
     //     this.setAZ(heading.magHeading)
@@ -45,14 +46,14 @@ export class StarMap extends Component {
   // }
 
   //could be a helper
-  findAZ = async () => {
-    try {
-      const location = await Expo.Location.getHeadingAsync();
-      return location.magHeading;
-    } catch (error) {
-      return 0;
-    }
-  }
+  // findAZ = async () => {
+  //   try {
+  //     const location = await Expo.Location.getHeadingAsync();
+  //     return location.magHeading;
+  //   } catch (error) {
+  //     return 0;
+  //   }
+  // }
 
   render() {
     const { lat, lon } = this.props;
