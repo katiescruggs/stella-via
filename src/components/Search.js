@@ -20,7 +20,8 @@ class Search extends Component {
 
     this.state = {
       matchConstellations: constellations,
-      returnToTop: false
+      returnToTop: false,
+      currentSeason: null
     };
 
     this.seasons = {
@@ -44,7 +45,7 @@ class Search extends Component {
 
     const matchConstellations = assignVisibility(filteredConstellations);
 
-    this.setState({ matchConstellations });
+    this.setState({ matchConstellations, currentSeason: null });
   }
 
   filterSeason = (season) => {    
@@ -64,20 +65,21 @@ class Search extends Component {
 
     const matchConstellations = assignVisibility(filteredConstellations);
 
-    this.setState({ matchConstellations, returnToTop: true });
+    this.setState({ matchConstellations, returnToTop: true, currentSeason: season});
   };
 
   render () {
     const seasonButtons = Object.keys(this.seasons).map((season, index) => {
       const name = (season.charAt(0)).toUpperCase() + season.slice(1);
+      const buttonStyle = season !== this.state.currentSeason ? styles.seasonButton : styles.activeButton;
+      const textStyle = season !== this.state.currentSeason ? styles.seasonText : styles.activeText;
 
       return (
         <TouchableHighlight 
           key={`button-${index}`}
-          style={styles.seasonButton}>
-          <Text 
-            style={styles.seasonText}
-            onPress={() => this.filterSeason(season)}>
+          onPress={() => this.filterSeason(season)}
+          style={buttonStyle}>
+          <Text style={textStyle}>
             {name}
           </Text>
         </TouchableHighlight>
@@ -151,10 +153,24 @@ const styles = StyleSheet.create({
     padding: 3,
     width: '23%'
   },
+  activeButton: {
+    alignSelf: 'flex-end',
+    backgroundColor: colors.$black,
+    borderColor: colors.$black,
+    borderRadius: 10,
+    borderWidth: 2,
+    padding: 3,
+    width: '23%'
+  },
   seasonText: {
     fontSize: 18,
     textAlign: 'center'
   },
+  activeText: {
+    fontSize: 18,
+    textAlign: 'center',
+    color: colors.$white
+  }
 });
 
 export default Search;
