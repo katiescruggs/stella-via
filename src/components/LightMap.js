@@ -13,6 +13,9 @@ import {
 } from 'react-native';
 
 export class LightMap extends Component {
+  componentDidMount() {
+    
+  }
 
   render() {
   const map = require('../assets/light-pollution-data/dark.html');
