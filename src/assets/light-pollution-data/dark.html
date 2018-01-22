@@ -18,7 +18,7 @@ var map, overlay;
 var initialOpacity = 0.5;
 var OPACITY_MAX_PIXELS = 57; // Width of opacity control image
 
-function HomeControl(controlDiv, map) {
+function HomeControl(controlDiv, moreInfoDiv, map) {
 
   // Set CSS styles for the DIV containing the control
   // Setting padding to 5 px will offset the control
@@ -42,7 +42,7 @@ function HomeControl(controlDiv, map) {
   controlText.style.color = 'blue';
   controlText.style.paddingLeft = '4px';
   controlText.style.paddingRight = '4px';
-  controlText.innerHTML = '<b>More Information</b>';
+  controlText.innerHTML = '<b>Map Source</b>';
   controlUI.appendChild(controlText);
 
   // Setup the click event listeners
@@ -51,13 +51,38 @@ function HomeControl(controlDiv, map) {
     window.open(url);
   });
 
+  //Set CSS for the infoButton
+  var infoButton = document.createElement('div');
+  infoButton.style.backgroundColor = 'white';
+  infoButton.style.borderStyle = 'solid';
+  infoButton.style.borderWidth = '2px';
+  infoButton.style.cursor = 'pointer';
+  infoButton.style.textAlign = 'center';
+  infoButton.style.width = '200px';
+  infoButton.style.margin = '20px';
+  infoButton.title = 'Click for more Information';
+  moreInfoDiv.appendChild(infoButton);
+
+  // Set CSS for the infoText
+  var infoText = document.createElement('div');
+  infoText.style.fontFamily = 'Arial,sans-serif';
+  infoText.style.fontSize = '14px';
+  infoText.style.color = 'blue';
+  infoText.style.paddingLeft = '4px';
+  infoText.style.paddingRight = '4px';
+  infoText.innerHTML = '<b>More About Light Pollution</b>';
+  infoButton.appendChild(infoText);
 }
 
 function initialize() {
   var mapOptions = {
-    zoom: 6,
+    zoom: 3,
+    minZoom: 2,
     maxZoom: 17,
-    center: new google.maps.LatLng(39, -105),
+    center: new google.maps.LatLng(16, -90),
+    streetViewControl: false,
+    clickableIcons: false,
+    scaleControl: false,
     scaleControl: true,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
@@ -337,11 +362,15 @@ function initialize() {
   map.overlayMapTypes.insertAt(0, overlayfull);
 
   var homeControlDiv = document.createElement('div');
-  var homeControl = new HomeControl(homeControlDiv, map);
+  var moreInfoDiv = document.createElement('div');
+
+  var homeControl = new HomeControl(homeControlDiv, moreInfoDiv, map);
+
 
   homeControlDiv.index = 1;
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(homeControlDiv);
-
+  moreInfoDiv.index = 1;
+  map.controls[google.maps.ControlPosition.TOP_CENTER].push(homeControlDiv);
+  map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(moreInfoDiv);
 }
 
 function createOpacityControl(map) {
