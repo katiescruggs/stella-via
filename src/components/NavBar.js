@@ -24,7 +24,7 @@ export const NavBar = (props) => {
       pageRoute: 'Search'
     },
     'Light Map': {
-      source: require('../assets/icons/star-map.png'),
+      source: require('../assets/icons/light-bulb.png'),
       pageRoute: 'LightMap'
     }
   };

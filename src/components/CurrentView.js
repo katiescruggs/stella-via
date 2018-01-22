@@ -15,7 +15,7 @@ export const CurrentView = ({ page }) => {
     APOD: <APOD />,
     Search: <Search />,
     Welcome: <Welcome />,
-    StarMap: <LightMap />,
+    StarMap: <StarMap />,
     TonightsSky: <TonightsSky />,
     ConstellationSearch: <Constellation />,
     ConstellationTonight: <Constellation />,

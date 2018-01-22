@@ -29,19 +29,20 @@ function HomeControl(controlDiv, moreInfoDiv, map) {
   var controlUI = document.createElement('div');
   controlUI.style.backgroundColor = 'white';
   controlUI.style.borderStyle = 'solid';
-  controlUI.style.borderWidth = '2px';
+  controlUI.style.borderRadius = '10px';
+  controlUI.style.borderWidth = '1px';
   controlUI.style.cursor = 'pointer';
   controlUI.style.textAlign = 'center';
+  controlUI.style.margin = '20px';
   controlUI.title = 'Click for more Information';
   controlDiv.appendChild(controlUI);
 
   // Set CSS for the control interior
   var controlText = document.createElement('div');
-  controlText.style.fontFamily = 'Arial,sans-serif';
-  controlText.style.fontSize = '14px';
-  controlText.style.color = 'blue';
-  controlText.style.paddingLeft = '4px';
-  controlText.style.paddingRight = '4px';
+  controlText.style.fontFamily = 'sans-serif';
+  controlText.style.fontSize = '16px';
+  controlText.style.color = '#735290';
+  controlText.style.padding = '2.5px 7.5px';
   controlText.innerHTML = '<b>Map Source</b>';
   controlUI.appendChild(controlText);
 
@@ -51,28 +52,28 @@ function HomeControl(controlDiv, moreInfoDiv, map) {
     window.open(url);
   });
 
-  //Set CSS for the infoButton
-  var infoButton = document.createElement('div');
-  infoButton.style.backgroundColor = 'white';
-  infoButton.style.borderStyle = 'solid';
-  infoButton.style.borderWidth = '2px';
-  infoButton.style.cursor = 'pointer';
-  infoButton.style.textAlign = 'center';
-  infoButton.style.width = '200px';
-  infoButton.style.margin = '20px';
-  infoButton.title = 'Click for more Information';
-  moreInfoDiv.appendChild(infoButton);
+//   //Set CSS for the infoButton
+//   var infoButton = document.createElement('div');
+//   infoButton.style.backgroundColor = 'white';
+//   infoButton.style.borderStyle = 'solid';
+//   infoButton.style.borderWidth = '2px';
+//   infoButton.style.cursor = 'pointer';
+//   infoButton.style.textAlign = 'center';
+//   infoButton.style.width = '200px';
+//   infoButton.style.margin = '20px';
+//   infoButton.title = 'Click for more Information';
+//   moreInfoDiv.appendChild(infoButton);
 
-  // Set CSS for the infoText
-  var infoText = document.createElement('div');
-  infoText.style.fontFamily = 'Arial,sans-serif';
-  infoText.style.fontSize = '14px';
-  infoText.style.color = 'blue';
-  infoText.style.paddingLeft = '4px';
-  infoText.style.paddingRight = '4px';
-  infoText.innerHTML = '<b>More About Light Pollution</b>';
-  infoButton.appendChild(infoText);
-}
+//   // Set CSS for the infoText
+//   var infoText = document.createElement('div');
+//   infoText.style.fontFamily = 'Arial,sans-serif';
+//   infoText.style.fontSize = '14px';
+//   infoText.style.color = 'blue';
+//   infoText.style.paddingLeft = '4px';
+//   infoText.style.paddingRight = '4px';
+//   infoText.innerHTML = '<b>More About Light Pollution</b>';
+//   infoButton.appendChild(infoText);
+ }
 
 function initialize() {
   var mapOptions = {
@@ -369,7 +370,7 @@ function initialize() {
 
   homeControlDiv.index = 1;
   moreInfoDiv.index = 1;
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(homeControlDiv);
+  map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(homeControlDiv);
   map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(moreInfoDiv);
 }
 
@@ -378,11 +379,11 @@ function createOpacityControl(map) {
 
         // Create main div to hold the control.
         var opacityDiv = document.createElement('DIV');
-        opacityDiv.setAttribute("style", "margin:5px;overflow-x:hidden;overflow-y:hidden;background:url(" + sliderImageUrl + ") no-repeat;width:71px;height:21px;cursor:pointer;");
+        opacityDiv.setAttribute("style", "margin:5px;overflow-x:hidden;overflow-y:hidden;background:url(" + sliderImageUrl + ") no-repeat;background-size:cover;width:71px;height:21px;cursor:pointer;");
 
         // Create knob
         var opacityKnobDiv = document.createElement('DIV');
-        opacityKnobDiv.setAttribute("style", "padding:0;margin:0;overflow-x:hidden;overflow-y:hidden;background:url(" + sliderImageUrl + ") no-repeat -71px 0;width:14px;height:21px;");
+        opacityKnobDiv.setAttribute("style", "padding:0;margin:0;overflow-x:hidden;overflow-y:hidden;background:url(" + sliderImageUrl + ") no-repeat -71px 0;width:20px;height:21px;");
         opacityDiv.appendChild(opacityKnobDiv);
 
         // no var => global variable

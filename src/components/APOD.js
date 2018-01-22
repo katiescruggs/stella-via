@@ -131,9 +131,8 @@ const styles = StyleSheet.create({
     width: '100%', 
   },
   vid: {
-    height: 300,
-    width: 300,
-    margin: 10
+    height: '100%',
+    width: '100%'
   },
   imageView: {
     backgroundColor: colors.$black,
