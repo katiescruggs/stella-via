@@ -9,7 +9,7 @@ import {
   Text
 } from 'react-native';
 
-export default const LightMap = () => {
+export const LightMap = () => {
   const map = require('../assets/light-pollution-data/dark.html');
 
   return (
