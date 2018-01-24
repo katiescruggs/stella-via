@@ -1,6 +1,6 @@
 ![alt text](./src/assets/stella-via-logo.png "Stella Via Logo")
 
-![alt text](./StellaVia-Demo.MP4)
+### See a video demo of this project here! https://youtu.be/SO0-MmjgApo
 
 ## StellaVia is a 3-week-long, self-directed project made by [@katiescruggs](https://github.com/katiescruggs) and [@julieahawkins](https://github.com/julieahawkins). 
 Inspired by the beauty of space, our mission is to make the far-away stars more accessible to people who want to learn more about constellations and become connected to the night sky overhead. 
