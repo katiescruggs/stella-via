@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   webView: {
-    marginBottom: 70
+    marginBottom: 80
   }
 });
 

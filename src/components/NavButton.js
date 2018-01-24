@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   smWrapper: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: 60, 
+    height: 70, 
     width: 70,
   },
   smButton: {

@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
-    marginBottom: 70,
+    marginBottom: 80,
     width: '100%'
   },
   imageContainer: {
