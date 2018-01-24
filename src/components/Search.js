@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
-    paddingBottom: 65
+    paddingBottom: 75
   },
   textInput: {
     backgroundColor: colors.$white,

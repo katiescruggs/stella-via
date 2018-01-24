@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   detailsContainer: {
-    marginBottom: 120,
+    marginBottom: 130,
     height: '100%',
     backgroundColor: colors.$transparentPurple
   },

@@ -15,13 +15,17 @@ export const NavBar = (props) => {
       source: require('../assets/icons/star-map.png'),
       pageRoute: props.location ? 'StarMap' : 'LocationModalMap'
     }, 
-    'Daily Image': {
+    'Daily Pic': {
       source: require('../assets/icons/photo.png'),
       pageRoute: 'APOD'
     },
     'Explore': {
       source: require('../assets/icons/search.png'),
       pageRoute: 'Search'
+    },
+    'Light Map': {
+      source: require('../assets/icons/light-bulb.png'),
+      pageRoute: 'LightMap'
     }
   };
 
@@ -49,7 +53,7 @@ export const NavBar = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 0,
+    padding: 5,
     backgroundColor: colors.$purple,
     width: '100%',
     flexDirection: 'row',

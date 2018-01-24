@@ -1,42 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import NavBar from './NavBar';
 import { colors } from '../assets/colors';
-import LocationBanner from './LocationBanner';
 import { 
   StyleSheet, 
   WebView, 
   View, 
-  Text, 
-  Image
+  Text
 } from 'react-native';
 
-export class LightMap extends Component {
-  componentDidMount() {
-    
-  }
-
-  render() {
+export const LightMap = () => {
   const map = require('../assets/light-pollution-data/dark.html');
 
-    return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.titleText}>
-            LIGHT POLLUTION MAP
-          </Text>
-        </View>
-        {/*<LocationBanner />*/}
-        <WebView 
-          renderError={() => errorMessage}
-          style={styles.webView}
-          scalesPageToFit={true}
-          source={map} />
-        <NavBar />
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.titleText}>
+          LIGHT POLLUTION MAP
+        </Text>
       </View>
-    );
-  };
+      {/*<LocationBanner />*/}
+      <WebView 
+        renderError={() => errorMessage}
+        style={styles.webView}
+        scalesPageToFit={true}
+        source={map} />
+      <NavBar />
+    </View>
+  );
 }; 
 
 const styles = StyleSheet.create({
@@ -64,16 +55,9 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   webView: {
-    marginBottom: 70
+    marginBottom: 80
   }
 });
-
-// export const mapStateToProps = state => ({
-//   lat: state.location.lat,
-//   lon: state.location.lon
-// });
-
-export default connect(null, null)(LightMap);
 
 LightMap.propTypes = {
   lat: PropTypes.string,

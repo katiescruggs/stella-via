@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
-    marginBottom: 70,
+    marginBottom: 80,
     width: '100%'
   },
   imageContainer: {
@@ -131,9 +131,8 @@ const styles = StyleSheet.create({
     width: '100%', 
   },
   vid: {
-    height: 300,
-    width: 300,
-    margin: 10
+    height: '100%',
+    width: '100%'
   },
   imageView: {
     backgroundColor: colors.$black,
